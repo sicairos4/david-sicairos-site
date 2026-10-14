@@ -1,0 +1,19 @@
+{
+  "latest_signal": {"date":"October 14, 2026","title":"209Audit: Public records, transparency, and accountability","summary":"A citizen-led framework for following the systems behind public decisions.","url":"https://209connect.beehiiv.com/"},
+  "records": [
+    {"date":"October 14, 2026","title":"209Audit launch","summary":"Tracker Index and CPRA Playbook provide a public starting point for record-based civic follow-through.","url":"https://sicairos4.github.io/209audit-index-tracker/"},
+    {"date":"September 28, 2026","title":"Who gets to ask the question?","summary":"A systems-thinking reflection on access, voice, and institutional power.","url":"https://209connect.beehiiv.com/"}
+  ],
+  "platform_connections": [
+    {"platform":"Beehiiv","status":"connected"},
+    {"platform":"YouTube","status":"connected"},
+    {"platform":"LinkedIn","status":"connected"},
+    {"platform":"Bluesky","status":"connected"},
+    {"platform":"Threads","status":"connected"},
+    {"platform":"Discord","status":"connected"},
+    {"platform":"Facebook","status":"browser_fallback"},
+    {"platform":"Instagram","status":"browser_fallback"},
+    {"platform":"TikTok","status":"browser_fallback"}
+  ],
+  "cta_recommendation": {"primary":"Explore the 209Audit Tracker Index","softness":3}
+}
