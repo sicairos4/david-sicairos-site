@@ -1,0 +1,1 @@
+(async()=>{const d=await loadJSON("data/site.json");const box=document.getElementById("newsletterArchive");if(d?.records&&box){box.innerHTML=d.records.map(r=>`<article class="item"><strong>${r.date}</strong><br>${r.title}<br>${r.summary}<br><div class="links"><a class="btn ghost" href="${r.url}" target="_blank" rel="noopener">Read update</a></div></article>`).join("")}})();

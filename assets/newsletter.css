@@ -1,0 +1,5 @@
+.newsletter-embed{background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:24px;margin:20px 0}
+.embed-slot{border:1px dashed var(--line);border-radius:16px;padding:28px;text-align:center;color:var(--muted)}
+.newsletter-embed iframe,.newsletter-embed .beehiiv-embed{width:100%;min-height:520px;border:0;border-radius:16px;background:var(--panel)}
+.newsletter-archive{display:grid;gap:14px}
+@media(max-width:720px){.newsletter-embed{padding:16px}.embed-slot{padding:20px}}
