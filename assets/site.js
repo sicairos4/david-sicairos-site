@@ -1,10 +1,10 @@
 const THEME_KEY="209-theme";
 const themeOrder=["valley-light","midnight-ledger","civic-gold"];
-const themeNames={"valley-light":"Valley Green","midnight-ledger":"Dark Mode","civic-gold":"Civic Gold"};
-function setTheme(t){if(!themeOrder.includes(t))t="valley-light";document.documentElement.dataset.theme=t;localStorage.setItem(THEME_KEY,t);document.querySelectorAll(".theme-cycle .segment").forEach(s=>s.classList.toggle("active",s.title===themeNames[t]))}
+const icons={"valley-light":"◐","midnight-ledger":"☾","civic-gold":"☀"};
+function setTheme(t){if(!themeOrder.includes(t))t="valley-light";document.documentElement.dataset.theme=t;localStorage.setItem(THEME_KEY,t);const b=document.getElementById("themeToggle");if(b)b.textContent=icons[t]}
 function nextTheme(){const current=document.documentElement.dataset.theme;const i=themeOrder.indexOf(current);setTheme(themeOrder[(i+1)%themeOrder.length])}
 setTheme(localStorage.getItem(THEME_KEY)||"valley-light");
-document.getElementById("themeCycle")?.addEventListener("click",nextTheme);
+document.getElementById("themeToggle")?.addEventListener("click",nextTheme);
 async function loadJSON(p){try{const r=await fetch(p);return await r.json()}catch(e){return null}}
 (async()=>{const d=await loadJSON("data/site.json");const s=document.getElementById("latestSignal");if(d?.latest_signal&&s){s.innerHTML=`<h3>${d.latest_signal.title}</h3><p>${d.latest_signal.summary}</p><a class="btn ghost" href="${d.latest_signal.url}">Read the update</a>`}const f=document.getElementById("recordFeed");if(d?.records&&f){f.innerHTML=d.records.map(r=>`<div class="item"><strong>${r.date}</strong><br>${r.title}<br>${r.summary}<br><a class="btn ghost" href="${r.url}">Open</a></div>`).join("")}})();
 (async()=>{const p=await loadJSON("data/products.json");const box=document.getElementById("productPreview");if(!p?.featured_pool||!box)return;const weighted=[];p.featured_pool.forEach(x=>{const n=Math.max(1,Number(x.priority)||1);for(let i=0;i<n;i++)weighted.push(x)});const shuffled=weighted.sort(()=>Math.random()-.5);const picks=[];for(const x of shuffled){if(!picks.includes(x))picks.push(x);if(picks.length===3)break}box.innerHTML=picks.map(x=>`<article class="product"><span class="tag">${x.tag}</span><h3>${x.name}</h3><p class="muted">${x.category}</p><div class="price">${x.price}</div><div class="links"><a class="btn ghost" href="${x.url}" target="_blank" rel="noopener">View in store</a></div></article>`).join("")})();
