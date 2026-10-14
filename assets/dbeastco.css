@@ -1,4 +1,5 @@
 .product-overlay{position:fixed;inset:0;z-index:100;background:rgba(10,12,15,.62);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:18px}
+.product-overlay[hidden]{display:none!important}
 .overlay-panel{position:relative;width:min(880px,100%);max-height:90vh;overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:22px;padding:28px}
 .overlay-close{position:absolute;top:14px;right:14px;width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:22px;cursor:pointer}
 .product-hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
