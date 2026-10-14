@@ -1,7 +1,7 @@
 const THEME_KEY="209-theme";
 const themeOrder=["valley-light","midnight-ledger","civic-gold"];
 const themeNames={"valley-light":"Valley Green","midnight-ledger":"Dark Mode","civic-gold":"Civic Gold"};
-function setTheme(t){if(!themeOrder.includes(t))t="valley-light";document.documentElement.dataset.theme=t;localStorage.setItem(THEME_KEY,t);const b=document.getElementById("themeCycle");if(b)b.setAttribute("aria-label",`Current theme: ${themeNames[t]}. Click to switch.`)}
+function setTheme(t){if(!themeOrder.includes(t))t="valley-light";document.documentElement.dataset.theme=t;localStorage.setItem(THEME_KEY,t);document.querySelectorAll(".theme-cycle .segment").forEach(s=>s.classList.toggle("active",s.title===themeNames[t]))}
 function nextTheme(){const current=document.documentElement.dataset.theme;const i=themeOrder.indexOf(current);setTheme(themeOrder[(i+1)%themeOrder.length])}
 setTheme(localStorage.getItem(THEME_KEY)||"valley-light");
 document.getElementById("themeCycle")?.addEventListener("click",nextTheme);

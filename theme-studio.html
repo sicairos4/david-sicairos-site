@@ -1,25 +1,28 @@
 <!doctype html>
-<html lang="en" data-theme="civic-gold">
+<html lang="en" data-theme="valley-light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>209 Theme Studio</title>
 <link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/experience.css">
 </head>
 <body>
-<div class="theme-dock" role="group" aria-label="Choose visual theme">
-<button class="dot gold" data-theme="civic-gold" aria-label="Civic Gold theme"></button>
-<button class="dot midnight" data-theme="midnight-ledger" aria-label="Midnight Ledger theme"></button>
-<button class="dot valley" data-theme="valley-light" aria-label="Valley Light theme"></button>
-</div>
+<button id="themeCycle" class="theme-cycle" aria-label="Switch theme: Valley Green, Dark Mode, or Civic Gold">
+<span class="segment green active" title="Valley Green"></span>
+<span class="segment dark" title="Dark Mode"></span>
+<span class="segment gold" title="Civic Gold"></span>
+<span class="cycle-label">Theme</span>
+</button>
 <header class="top"><div class="wrap top-in"><div class="brand">209 <span>THEME STUDIO</span></div><nav class="nav"><a href="index.html">Back to site</a></nav></div></header>
-<main><section class="hero"><div class="wrap"><div class="kicker">VISUAL CONTROL</div><h1>Choose the look. Edit the message.</h1><p>Pick a premade theme, select a custom accent color, and update homepage text and links. Changes save in this browser and can be exported for the live site.</p></div></section><section class="section"><div class="wrap grid">
-<article class="card wide"><h2>Premade themes</h2><div class="links"><button class="btn theme-preset" data-theme="civic-gold">Civic Gold</button><button class="btn theme-preset" data-theme="midnight-ledger">Midnight Ledger</button><button class="btn theme-preset" data-theme="valley-light">Valley Light</button></div></article>
-<article class="card"><h2>Custom accent</h2><p>Choose the main action color used for buttons, links, and highlights.</p><input id="accentColor" type="color" value="#c9a227"><p class="muted">Recommended: gold, deep blue, forest green, or restrained crimson.</p></article>
+<main><section class="hero"><div class="wrap"><div class="kicker">VISUAL CONTROL</div><h1>Choose the look. Edit the message.</h1><p>Pick a theme, select a custom accent color, and update homepage text and links. Changes save in this browser and can be exported for the live site.</p></div></section><section class="section"><div class="wrap grid">
+<article class="card wide"><h2>Theme cycle</h2><p>Use the three-segment Theme control at the top left to move between Valley Green, Dark Mode, and Civic Gold.</p><div class="links"><button class="btn" id="cycleTheme">Cycle Theme</button></div></article>
+<article class="card"><h2>Custom accent</h2><p>Choose the main action color used for buttons, links, and highlights.</p><input id="accentColor" type="color" value="#2f7d55"><p class="muted">Recommended: forest green, deep blue, antique gold, or restrained crimson.</p></article>
 <article class="card"><h2>Homepage text</h2><label>Headline</label><input id="heroTitle" type="text" value="The Central Valley is changing."><label>Subheadline</label><input id="heroSubtitle" type="text" value="See the system behind the headlines."><label>Signal title</label><input id="signalTitle" type="text" value="209Audit: Public records, transparency, and accountability"><label>Signal summary</label><input id="signalSummary" type="text" value="A citizen-led framework for following the systems behind public decisions."></article>
 <article class="card"><h2>Links</h2><label>Primary button text</label><input id="primaryCtaText" type="text" value="Open the 209 Signal"><label>Primary button link</label><input id="primaryCtaUrl" type="url" value="https://209connect.beehiiv.com/"><label>Tracker link</label><input id="trackerUrl" type="url" value="https://sicairos4.github.io/209audit-index-tracker/"><label>CPRA Playbook link</label><input id="cpraUrl" type="url" value="https://sicairos4.github.io/209audit-cpra-playbook/"></article>
 <article class="card wide"><h2>Save or export</h2><p>Your changes save locally in this browser. Export produces a ready-to-use site configuration file.</p><div class="links"><button class="btn" id="saveLocal">Save in browser</button><button class="btn ghost" id="exportJson">Export site.json</button><button class="btn ghost" id="reset">Reset</button></div></article>
 </div></section></main>
+<script src="assets/site.js"></script>
 <script src="assets/theme-studio.js"></script>
 </body>
 </html>
