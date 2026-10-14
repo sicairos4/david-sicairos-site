@@ -1,0 +1,6 @@
+/* Embedded Beehiiv Signal frames */
+.signal-frame{position:relative;width:100%;max-width:1180px;margin:0 auto;border:1px solid var(--line,#dfe7e1);border-radius:18px;overflow:hidden;background:#fff;min-height:720px}
+.signal-frame iframe{display:block;width:100%;height:720px;border:0}
+.signal-frame.tall{min-height:900px}
+.signal-frame.tall iframe{height:900px}
+@media(max-width:720px){.signal-frame,.signal-frame.tall{min-height:640px}.signal-frame iframe,.signal-frame.tall iframe{height:640px}}
