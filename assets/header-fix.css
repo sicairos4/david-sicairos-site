@@ -1,0 +1,2 @@
+@media(max-width:860px){.top-in{flex-wrap:wrap;row-gap:10px}.brand{flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.nav{width:100%;justify-content:space-between}.theme-toggle{margin-left:auto;flex:0 0 auto}}
+@media(max-width:520px){.nav{gap:10px;font-size:13px}.brand{font-size:15px}.theme-toggle{width:34px;height:34px;font-size:15px}}

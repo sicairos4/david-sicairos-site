@@ -1,0 +1,85 @@
+/* dBeastco Valley Green Ecwid CSS theme
+   Paste into Ecwid: Design → Themes and in-depth customization → Create Theme.
+   Activate only this theme after saving. */
+
+body,
+.ecwid-productBrowser,
+.ec-store,
+.ec-store__page {
+  background: #f4f8f4 !important;
+  color: #17251d !important;
+}
+
+.ecwid-productBrowser,
+.ec-store__product-card,
+.ec-store__product,
+.ec-store__category {
+  border-radius: 16px;
+}
+
+.ec-store__product-card,
+.ec-store__product,
+.ec-store__category {
+  background: #ffffff;
+  border: 1px solid #d8e4d8;
+}
+
+.ec-store__product-card--title,
+.ec-store__product__title,
+.ec-store__category__title,
+.ec-store h1,
+.ec-store h2,
+.ec-store h3 {
+  color: #17251d !important;
+}
+
+.ec-store__product-card__price,
+.ec-store__product__price,
+.ec-store__price {
+  color: #17251d !important;
+  font-weight: 700;
+}
+
+.ec-store__button,
+.ec-store__button--primary,
+.ecwid-productBrowser .ecwid-btn,
+.ecwid-productBrowser .ecwid-btn--primary,
+button.ecwid-btn {
+  background: #2f7d55 !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  border: 0 !important;
+  font-weight: 700 !important;
+}
+
+.ec-store__button--secondary,
+.ecwid-productBrowser .ecwid-btn--secondary {
+  background: transparent !important;
+  color: #2f7d55 !important;
+  border: 1px solid #2f7d55 !important;
+  border-radius: 999px !important;
+}
+
+a,
+.ec-store__link,
+.ec-store__breadcrumbs a {
+  color: #2f7d55 !important;
+}
+
+.ec-store__breadcrumbs,
+.ec-store__product-card__category,
+.ec-store__product__sku,
+.ec-store__product__description {
+  color: #5d7263 !important;
+}
+
+.ec-store__product-card:hover {
+  border-color: #2f7d55;
+  box-shadow: 0 8px 24px rgba(47, 125, 85, .12);
+}
+
+/* Keep the store visually quiet and consistent with the 209/dBeastco experience. */
+.ec-store__popup,
+.ec-store__dialog {
+  border-radius: 20px;
+}
