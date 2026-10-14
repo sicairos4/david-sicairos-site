@@ -1,14 +1,111 @@
-/* dBeastco Valley Green Ecwid CSS theme
-   Paste into Ecwid: Design → Themes and in-depth customization → Create Theme.
-   Activate only this theme after saving. */
+/* =============================================
+   DBEASTCO VALLEY GREEN ECWID THEME
+   Theme-aware: follows the website color toggle.
+   ============================================= */
 
-body,
-.ecwid-productBrowser,
-.ec-store,
-.ec-store__page {
+/* ---------- Valley Green ---------- */
+html[data-theme="valley-light"] .ecwid-productBrowser,
+html[data-theme="valley-light"] .ec-store,
+html[data-theme="valley-light"] .ec-store__page {
   background: #f4f8f4 !important;
   color: #17251d !important;
 }
+
+html[data-theme="valley-light"] .ec-store__product-card,
+html[data-theme="valley-light"] .ec-store__product,
+html[data-theme="valley-light"] .ec-store__category {
+  background: #ffffff !important;
+  border: 1px solid #d8e4d8 !important;
+}
+
+html[data-theme="valley-light"] .ec-store__button,
+html[data-theme="valley-light"] .ec-store__button--primary,
+html[data-theme="valley-light"] button.ecwid-btn {
+  background: #2f7d55 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="valley-light"] .ec-store__button--secondary,
+html[data-theme="valley-light"] .ecwid-productBrowser .ecwid-btn--secondary {
+  background: transparent !important;
+  color: #2f7d55 !important;
+  border: 1px solid #2f7d55 !important;
+}
+
+html[data-theme="valley-light"] a,
+html[data-theme="valley-light"] .ec-store__link {
+  color: #2f7d55 !important;
+}
+
+/* ---------- Midnight Ledger ---------- */
+html[data-theme="midnight-ledger"] .ecwid-productBrowser,
+html[data-theme="midnight-ledger"] .ec-store,
+html[data-theme="midnight-ledger"] .ec-store__page {
+  background: #14171b !important;
+  color: #f4f1ea !important;
+}
+
+html[data-theme="midnight-ledger"] .ec-store__product-card,
+html[data-theme="midnight-ledger"] .ec-store__product,
+html[data-theme="midnight-ledger"] .ec-store__category {
+  background: #1d2127 !important;
+  border: 1px solid #2b3138 !important;
+}
+
+html[data-theme="midnight-ledger"] .ec-store__button,
+html[data-theme="midnight-ledger"] .ec-store__button--primary,
+html[data-theme="midnight-ledger"] button.ecwid-btn {
+  background: #c9a227 !important;
+  color: #161207 !important;
+}
+
+html[data-theme="midnight-ledger"] .ec-store__button--secondary,
+html[data-theme="midnight-ledger"] .ecwid-productBrowser .ecwid-btn--secondary {
+  background: transparent !important;
+  color: #c9a227 !important;
+  border: 1px solid #c9a227 !important;
+}
+
+html[data-theme="midnight-ledger"] a,
+html[data-theme="midnight-ledger"] .ec-store__link {
+  color: #c9a227 !important;
+}
+
+/* ---------- Civic Gold ---------- */
+html[data-theme="civic-gold"] .ecwid-productBrowser,
+html[data-theme="civic-gold"] .ec-store,
+html[data-theme="civic-gold"] .ec-store__page {
+  background: #faf7f2 !important;
+  color: #101418 !important;
+}
+
+html[data-theme="civic-gold"] .ec-store__product-card,
+html[data-theme="civic-gold"] .ec-store__product,
+html[data-theme="civic-gold"] .ec-store__category {
+  background: #ffffff !important;
+  border: 1px solid #e3ddd2 !important;
+}
+
+html[data-theme="civic-gold"] .ec-store__button,
+html[data-theme="civic-gold"] .ec-store__button--primary,
+html[data-theme="civic-gold"] button.ecwid-btn {
+  background: #a67c1b !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="civic-gold"] .ec-store__button--secondary,
+html[data-theme="civic-gold"] .ecwid-productBrowser .ecwid-btn--secondary {
+  background: transparent !important;
+  color: #a67c1b !important;
+  border: 1px solid #a67c1b !important;
+}
+
+html[data-theme="civic-gold"] a,
+html[data-theme="civic-gold"] .ec-store__link {
+  color: #a67c1b !important;
+}
+
+/* ---------- Shared Ecwid polish ---------- */
 
 .ecwid-productBrowser,
 .ec-store__product-card,
@@ -20,66 +117,64 @@ body,
 .ec-store__product-card,
 .ec-store__product,
 .ec-store__category {
-  background: #ffffff;
-  border: 1px solid #d8e4d8;
+  transition: border-color .2s ease, box-shadow .2s ease;
 }
 
-.ec-store__product-card--title,
-.ec-store__product__title,
-.ec-store__category__title,
-.ec-store h1,
-.ec-store h2,
-.ec-store h3 {
-  color: #17251d !important;
-}
-
-.ec-store__product-card__price,
-.ec-store__product__price,
-.ec-store__price {
-  color: #17251d !important;
-  font-weight: 700;
+.ec-store__product-card:hover {
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .10);
 }
 
 .ec-store__button,
 .ec-store__button--primary,
-.ecwid-productBrowser .ecwid-btn,
-.ecwid-productBrowser .ecwid-btn--primary,
 button.ecwid-btn {
-  background: #2f7d55 !important;
-  color: #ffffff !important;
   border-radius: 999px !important;
   border: 0 !important;
-  font-weight: 700 !important;
+  font-weight: 800 !important;
 }
 
 .ec-store__button--secondary,
 .ecwid-productBrowser .ecwid-btn--secondary {
-  background: transparent !important;
-  color: #2f7d55 !important;
-  border: 1px solid #2f7d55 !important;
   border-radius: 999px !important;
+  font-weight: 700 !important;
 }
 
-a,
-.ec-store__link,
-.ec-store__breadcrumbs a {
-  color: #2f7d55 !important;
+/* Center the lower store area and pagination */
+.ec-store__pagination,
+.ecwid-productBrowser .ecwid-pagination,
+.ecwid-productBrowser .ecwid-results-topLine,
+.ecwid-productBrowser .ecwid-results-bottomLine {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
 }
 
-.ec-store__breadcrumbs,
-.ec-store__product-card__category,
-.ec-store__product__sku,
+.ec-store__pagination > *,
+.ecwid-productBrowser .ecwid-pagination > * {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Product grid balance */
+.ec-store__product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.ec-store__product-card__description,
 .ec-store__product__description {
-  color: #5d7263 !important;
+  flex: 1 0 auto;
 }
 
-.ec-store__product-card:hover {
-  border-color: #2f7d55;
-  box-shadow: 0 8px 24px rgba(47, 125, 85, .12);
+.ec-store__product-card__controls,
+.ec-store__product__controls {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
 }
 
-/* Keep the store visually quiet and consistent with the 209/dBeastco experience. */
-.ec-store__popup,
-.ec-store__dialog {
-  border-radius: 20px;
+@media (max-width: 720px) {
+  .ecwid-productBrowser {
+    padding: 0 8px;
+  }
 }

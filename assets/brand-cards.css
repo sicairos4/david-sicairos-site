@@ -1,0 +1,23 @@
+/* Brand-specific ecosystem cards */
+.promo{position:relative;overflow:hidden}
+.promo::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--brand-color,var(--accent))}
+.promo-brand-dbeastco{--brand-color:#2f7d55}
+.promo-brand-209audit{--brand-color:#a67c1b}
+.promo-brand-209media{--brand-color:#245f42}
+.promo-brand-studio{--brand-color:#4b5563}
+.promo-brand-dbeastco .promo-label{color:#2f7d55}
+.promo-brand-209audit .promo-label{color:#a67c1b}
+.promo-brand-209media .promo-label{color:#245f42}
+.promo-brand-studio .promo-label{color:#4b5563}
+.promo h3{font-size:21px}
+.promo p{font-size:15px}
+.promo .links{margin-top:auto}
+
+/* dBeastco product cards: clearly product-led */
+.product{border-top:4px solid var(--accent)}
+.product .tag{font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.product h3{font-size:19px;font-weight:800}
+.product .price{font-size:20px}
+.product .links{justify-content:flex-start}
+
+@media(max-width:720px){.promo{min-height:auto}}
