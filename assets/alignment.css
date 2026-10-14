@@ -1,0 +1,37 @@
+/* Alignment system: cards, buttons, records, products */
+.item,.product,.promo,.related-card{display:flex;flex-direction:column}
+.item .links,.product .links,.promo .links{margin-top:auto;display:flex;align-items:center}
+.item .btn,.product .btn,.promo .btn{min-height:44px}
+.item strong{display:block;margin-bottom:6px}
+.item p,.product p,.promo p{margin:0 0 14px}
+
+/* Record Watch: consistent card and button alignment */
+#recordFeed .item{min-height:230px}
+#recordFeed .item strong{font-size:15px}
+#recordFeed .item .btn{margin-top:auto;align-self:flex-start}
+
+/* Product cards: consistent baseline */
+.product{min-height:300px}
+.product h3{flex:0 0 auto}
+.product .muted{flex:0 0 auto}
+.product .price{margin-top:auto}
+.product .links{margin-top:12px}
+
+/* Ecosystem promos: consistent baseline */
+.promo{min-height:250px}
+.promo h3{flex:0 0 auto}
+.promo p{flex:0 0 auto}
+
+/* Related products */
+.related-card{min-height:130px}
+.related-card .muted{margin-top:auto}
+
+/* Overlay actions */
+.product-actions{align-items:center}
+.product-actions .btn{min-height:44px}
+
+/* Mobile */
+@media(max-width:720px){
+  .item,.product,.promo{min-height:auto}
+  #recordFeed .item{min-height:auto}
+}
