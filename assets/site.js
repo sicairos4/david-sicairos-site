@@ -6,9 +6,13 @@ function nextTheme(){const current=document.documentElement.dataset.theme;const 
 setTheme(localStorage.getItem(THEME_KEY)||"valley-light");
 document.getElementById("themeToggle")?.addEventListener("click",nextTheme);
 
+/* Dropdown navigation */
+document.querySelectorAll(".nav-group>button").forEach(btn=>{btn.addEventListener("click",()=>{const group=btn.parentElement;const isOpen=group.classList.contains("open");document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open"));if(!isOpen)group.classList.add("open")})});
+document.addEventListener("click",e=>{if(!e.target.closest(".nav-group"))document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open"))});
+
 /* Always begin an internal page at the top */
 window.addEventListener("pageshow",()=>{if(!location.hash)window.scrollTo(0,0)});
-document.addEventListener("click",e=>{const a=e.target.closest("a[href]");if(!a)return;const href=a.getAttribute("href");if(href&&!href.startsWith("#")&&!href.startsWith("http")&&!href.startsWith("mailto:"))window.scrollTo(0,0)});
+document.addEventListener("click",e=>{const a=e.target.closest("a[href]");if(!a)return;const href=a.getAttribute("href");if(href&&!href.startsWith("#")&&!href.startsWith("http")&&!href.startsWith("mailto:")){window.scrollTo(0,0);document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open"))}});
 
 async function loadJSON(p){try{const r=await fetch(p);return await r.json()}catch(e){return null}}
 (async()=>{const d=await loadJSON("data/site.json");const s=document.getElementById("latestSignal");if(d?.latest_signal&&s){s.innerHTML=`<h3>${d.latest_signal.title}</h3><p>${d.latest_signal.summary}</p><a class="btn ghost" href="${d.latest_signal.url}">Read the update</a>`}const f=document.getElementById("recordFeed");if(d?.records&&f){f.innerHTML=d.records.map(r=>`<div class="item"><strong>${r.date}</strong><br>${r.title}<br>${r.summary}<br><a class="btn ghost" href="${r.url}">Open</a></div>`).join("")}})();
