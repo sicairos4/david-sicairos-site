@@ -1,19 +1,19 @@
 {
   "store_url": "https://dbeastco.company.site",
   "featured_pool": [
-    {"name": "Premium Mind Nootropic", "price": "$55.00", "tag": "On Sale", "url": "https://dbeastco.company.site/dBeastco-Premium-Mind-Nootropic-p245415796", "category": "General Health"},
-    {"name": "Creatine Monohydrate — 60 Servings", "price": "$55.00", "tag": "Performance", "url": "https://dbeastco.company.site/dBeastco-Creatine-Monohydrate-60-Servings-p159520608", "category": "Pre-Workout"},
-    {"name": "Premium Pre-Workout — Tropical Sunrise", "price": "$55.00", "tag": "Pre-Workout", "url": "https://dbeastco.company.site/dBeastco-Premium-Pre-Workout-Tropical-Sunrise-p245071919", "category": "Pre-Workout"},
-    {"name": "Whey Protein — Salted Caramel", "price": "$60.00", "tag": "Protein", "url": "https://dbeastco.company.site/dBeastco-Whey-Protein-Salted-Caramel-p153632045", "category": "Protein"},
-    {"name": "Premium Vegan Protein — Chocolate", "price": "$65.00", "tag": "Protein", "url": "https://dbeastco.company.site/dBeastco-Premium-Vegan-Protein-Chocolate-p449447875", "category": "Protein"},
-    {"name": "Premium Whey Isolate — Chocolate", "price": "$70.00", "tag": "Protein", "url": "https://dbeastco.company.site/dBeastco-Premium-Whey-Isolate-Protein-Chocolate-p446297443", "category": "Protein"},
-    {"name": "Organic Super Greens — Watermelon", "price": "$55.00", "tag": "General Health", "url": "https://dbeastco.company.site/dBeastco-Organic-Super-Greens-Watermelon-p536783616", "category": "General Health"},
-    {"name": "Complete Multivitamin", "price": "$35.00", "tag": "Daily Wellness", "url": "https://dbeastco.company.site/dBeastco-Complete-Multivitamin-p159519890", "category": "General Health"},
-    {"name": "Sleep Well Gummy", "price": "$35.00", "tag": "Recovery", "url": "https://dbeastco.company.site/dBeastco-Sleep-Well-Gummy-p533245394", "category": "General Health"},
-    {"name": "Premium Broad-Spectrum 50", "price": "$55.00", "tag": "CBD Health", "url": "https://dbeastco.company.site/dBeastco-Premium-Broad-Spectrum-50-p245097763", "category": "CBD Health"},
-    {"name": "Premium Full-Spectrum Oil 2000mg", "price": "$90.00", "tag": "Best Seller", "url": "https://dbeastco.company.site/dBeastco-Premium-Full-Spectrum-Oil-2000mg-p446297441", "category": "CBD Health"},
-    {"name": "Invest In Yourself Tee", "price": "$35.00", "tag": "Motivational Wear", "url": "https://dbeastco.company.site/dBeastco-Invest-In-Yourself-Tee-p548795739", "category": "Motivational Wear"},
-    {"name": "Stronger Every Day Tee", "price": "$35.00", "tag": "Motivational Wear", "url": "https://dbeastco.company.site/dBeastco-Stronger-Every-Day-Tee-p548801124", "category": "Motivational Wear"},
-    {"name": "Fitted Brand Tee", "price": "$30.00", "tag": "Motivational Wear", "url": "https://dbeastco.company.site/dBeastco-Fitted-Brand-Tee-p587379154", "category": "Motivational Wear"}
+    {"name": "Premium Mind Nootropic", "price": "$55.00", "tag": "On Sale", "url": "https://dbeastco.company.site/dBeastco-Premium-Mind-Nootropic-p245415796", "category": "General Health", "priority": 9},
+    {"name": "Creatine Monohydrate — 60 Servings", "price": "$55.00", "tag": "Performance", "url": "https://dbeastco.company.site/dBeastco-Creatine-Monohydrate-60-Servings-p159520608", "category": "Pre-Workout", "priority": 8},
+    {"name": "Premium Pre-Workout — Tropical Sunrise", "price": "$55.00", "tag": "Pre-Workout", "url": "https://dbeastco.company.site/dBeastco-Premium-Pre-Workout-Tropical-Sunrise-p245071919", "category": "Pre-Workout", "priority": 7},
+    {"name": "Whey Protein — Salted Caramel", "price": "$60.00", "tag": "Protein", "url": "https://dbeastco.company.site/dBeastco-Whey-Protein-Salted-Caramel-p153632045", "category": "Protein", "priority": 7},
+    {"name": "Premium Vegan Protein — Chocolate", "price": "$65.00", "tag": "Protein", "url": "https://dbeastco.company.site/dBeastco-Premium-Vegan-Protein-Chocolate-p449447875", "category": "Protein", "priority": 6},
+    {"name": "Premium Whey Isolate — Chocolate", "price": "$70.00", "tag": "Protein", "url": "https://dbeastco.company.site/dBeastco-Premium-Whey-Isolate-Protein-Chocolate-p446297443", "category": "Protein", "priority": 6},
+    {"name": "Organic Super Greens — Watermelon", "price": "$55.00", "tag": "General Health", "url": "https://dbeastco.company.site/dBeastco-Organic-Super-Greens-Watermelon-p536783616", "category": "General Health", "priority": 6},
+    {"name": "Complete Multivitamin", "price": "$35.00", "tag": "Daily Wellness", "url": "https://dbeastco.company.site/dBeastco-Complete-Multivitamin-p159519890", "category": "General Health", "priority": 7},
+    {"name": "Sleep Well Gummy", "price": "$35.00", "tag": "Recovery", "url": "https://dbeastco.company.site/dBeastco-Sleep-Well-Gummy-p533245394", "category": "General Health", "priority": 6},
+    {"name": "Premium Broad-Spectrum 50", "price": "$55.00", "tag": "CBD Health", "url": "https://dbeastco.company.site/dBeastco-Premium-Broad-Spectrum-50-p245097763", "category": "CBD Health", "priority": 5},
+    {"name": "Premium Full-Spectrum Oil 2000mg", "price": "$90.00", "tag": "Best Seller", "url": "https://dbeastco.company.site/dBeastco-Premium-Full-Spectrum-Oil-2000mg-p446297441", "category": "CBD Health", "priority": 9},
+    {"name": "Invest In Yourself Tee", "price": "$35.00", "tag": "Motivational Wear", "url": "https://dbeastco.company.site/dBeastco-Invest-In-Yourself-Tee-p548795739", "category": "Motivational Wear", "priority": 7},
+    {"name": "Stronger Every Day Tee", "price": "$35.00", "tag": "Motivational Wear", "url": "https://dbeastco.company.site/dBeastco-Stronger-Every-Day-Tee-p548801124", "category": "Motivational Wear", "priority": 6},
+    {"name": "Fitted Brand Tee", "price": "$30.00", "tag": "Motivational Wear", "url": "https://dbeastco.company.site/dBeastco-Fitted-Brand-Tee-p587379154", "category": "Motivational Wear", "priority": 5}
   ]
 }
