@@ -29,5 +29,37 @@
       "body": "Meta Muse + Gemini + Perplexity are now linked to the 209 media app.",
       "link": "muse.html"
     }
+  ],
+  "systemLog": [
+    {
+      "date": "2026-10-14",
+      "change": "Added dynamic records feed",
+      "surface": "Homepage records feed",
+      "status": "Live"
+    },
+    {
+      "date": "2026-10-14",
+      "change": "Wired featured story to JSON",
+      "surface": "Homepage hero",
+      "status": "Live"
+    },
+    {
+      "date": "2026-10-14",
+      "change": "Wired Muse status and announcements",
+      "surface": "Muse page",
+      "status": "Live"
+    },
+    {
+      "date": "2026-10-14",
+      "change": "Added latest records to Intelligence page",
+      "surface": "Intelligence page",
+      "status": "Live"
+    },
+    {
+      "date": "2026-10-14",
+      "change": "Added Latest from 209 Media to Tracker",
+      "surface": "Tracker latest.html",
+      "status": "Live"
+    }
   ]
 }
