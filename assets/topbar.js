@@ -1,4 +1,4 @@
-/* Three-pillar hierarchy: 209 Media homepage, dBeastco Wellness, Systems Studio, 209 Audit, Sovereign University */
+/* Three-pillar hierarchy + mobile hamburger + upgrade bundle (smooth scroll, back-to-top, active-state, sticky mini-CTA) */
 (function(){
 const SUBSCRIBE="https://209connect.beehiiv.com/?modal=signup";
 const nav=`
@@ -29,7 +29,36 @@ document.addEventListener("click",e=>{
 if(!e.target.closest(".nav"))document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open"));
 if(e.target.closest(".nav a"))document.body.classList.remove("nav-open");
 });
+// Active-state highlighting
+const path=location.pathname.split("/").pop()||"index.html";
+document.querySelectorAll(".nav a").forEach(a=>{if(a.getAttribute("href")===path)a.classList.add("active")});
+// Sticky mini-CTA (appears after 600px scroll)
+if(!document.querySelector(".mini-cta")){
+const cta=document.createElement("a");
+cta.className="mini-cta";cta.href=SUBSCRIBE;cta.target="_blank";cta.rel="noopener";cta.textContent="Subscribe";
+document.body.appendChild(cta);
 }
+// Back-to-top button
+if(!document.querySelector(".back-to-top")){
+const btt=document.createElement("button");
+btt.className="back-to-top";btt.type="button";btt.setAttribute("aria-label","Back to top");btt.innerHTML="↑";
+btt.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+document.body.appendChild(btt);
+}
+}
+// Smooth scroll for anchor links
+document.addEventListener("click",e=>{
+const a=e.target.closest("a[href^='#']");
+if(!a)return;
+const id=a.getAttribute("href").slice(1);
+const el=document.getElementById(id);
+if(el){e.preventDefault();el.scrollIntoView({behavior:"smooth"})}
+});
+// Show/hide mini-CTA and back-to-top on scroll
+window.addEventListener("scroll",()=>{
+const y=window.scrollY;
+document.querySelectorAll(".mini-cta,.back-to-top").forEach(el=>{el.classList.toggle("visible",y>600)});
+});
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",render);else render();
 if("scrollRestoration" in history)history.scrollRestoration="manual";
 function resetScroll(){window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0}
