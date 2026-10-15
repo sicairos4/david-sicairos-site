@@ -15,6 +15,7 @@
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
 <main>
+<section class="section" id="transparency"><div class="wrap"><div class="kicker">SYSTEM TRANSPARENCY</div><h2>What’s working under the hood.</h2><p>Every change made through a prompt shows up here—so you can see exactly what changed, where, and when.</p><div id="systemLog" class="list"><p class="muted">Loading system log…</p></div><div class="code">PROMPT → data/site-config.json → LIVE SITE</div></div></section>
 <section class="section" id="intel-records"><div class="wrap"><div class="kicker">209 INTELLIGENCE</div><h2>Latest records</h2><div id="intelRecords" class="list"><p class="muted">Loading records…</p></div><div class="links"><a class="btn ghost" href="https://sicairos4.github.io/209audit-index-tracker/latest.html" target="_blank" rel="noopener">Latest from 209 Media (Tracker)</a></div></div></section>
 <section id="intel-frame"><iframe class="intel-iframe" src="https://sicairos4.github.io/209-intelligent-site/" title="209 Intelligence" allow="fullscreen"></iframe></section>
 </main>
@@ -29,6 +30,8 @@ const res=await fetch('../data/site-config.json');
 const cfg=await res.json();
 const r=cfg.records||[];
 document.getElementById('intelRecords').innerHTML=r.length?r.map(x=>'<div class="item"><strong>'+x.headline+'</strong><br><span class="muted">'+x.date+' • '+x.source+'</span><br><a href="../'+x.link+'">Open</a></div>').join(''):'<p class="muted">No records yet.</p>';
+const log=cfg.systemLog||[];
+document.getElementById('systemLog').innerHTML=log.length?log.map(e=>'<div class="item"><strong>'+e.change+'</strong><br><span class="muted">'+e.date+' • '+e.surface+' • '+e.status+'</span></div>').join(''):'<p class="muted">No system changes logged yet.</p>';
 }catch(e){document.getElementById('intelRecords').innerHTML='<p class="muted">Records unavailable.</p>'}
 })();
 </script>

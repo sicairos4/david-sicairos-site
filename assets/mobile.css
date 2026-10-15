@@ -1,4 +1,4 @@
-/* Mobile-first polish — applies site-wide without changing structure */
+/* Mobile-first polish — compact top bar, responsive grids, larger tap targets */
 @media(max-width:768px){
 body{font-size:15px}
 .wrap{padding:0 16px}
@@ -9,10 +9,14 @@ body{font-size:15px}
 .grid{grid-template-columns:1fr !important;gap:14px !important}
 .card{padding:18px !important}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;font-size:14px}
-.top{padding:10px 0}
-.top-in{flex-direction:column;gap:10px}
-.nav{flex-wrap:wrap;justify-content:center;gap:8px}
-.nav a{padding:8px 12px;font-size:13px}
+.top{padding:6px 0}
+.top-in{flex-direction:row;flex-wrap:wrap;gap:6px;align-items:center}
+.brand{font-size:15px}
+.nav{flex-direction:row;flex-wrap:nowrap;overflow-x:auto;gap:4px;width:100%;-webkit-overflow-scrolling:touch}
+.nav a,.nav-group>button{padding:6px 10px;font-size:12px;white-space:nowrap}
+.nav-group{position:static}
+.dropdown{position:fixed;left:8px;right:8px;top:60px;width:auto;min-width:0}
+.nav-group.open .dropdown{display:block}
 .footer{padding:24px 16px;font-size:12px;text-align:center}
 .product-grid{grid-template-columns:1fr !important}
 .list .item{padding:14px !important}
