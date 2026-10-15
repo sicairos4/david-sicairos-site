@@ -1,17 +1,14 @@
 {
   "sources": [
-    {"name": "Beehiiv", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
-    {"name": "GA4", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
-    {"name": "YouTube", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
-    {"name": "Meta", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
-    {"name": "TikTok", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
-    {"name": "LinkedIn", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
-    {"name": "Threads", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
-    {"name": "Bluesky", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"}
+    {"name":"Beehiiv","status":"UNVERIFIED","last_sync":null},
+    {"name":"GA4","status":"UNVERIFIED","last_sync":null},
+    {"name":"YouTube","status":"UNVERIFIED","last_sync":null},
+    {"name":"Meta","status":"UNVERIFIED","last_sync":null},
+    {"name":"TikTok","status":"UNVERIFIED","last_sync":null},
+    {"name":"LinkedIn","status":"UNVERIFIED","last_sync":null},
+    {"name":"Threads","status":"UNVERIFIED","last_sync":null},
+    {"name":"Bluesky","status":"UNVERIFIED","last_sync":null}
   ],
-  "first_shift": {
-    "status": "ARMED",
-    "threshold": {"min_sample": 100, "lift_threshold": 20},
-    "eta": "24-48h after first real data sync — data is now flowing"
-  }
+  "verification_note":"These labels describe dashboard ingestion, not whether Muse can publish. Earlier CONNECTED labels and identical sync timestamps were manually populated and did not verify a working data pipeline. Muse reports local signals, empty decisions, and an advisor blocked by a missing server credential; external AI transmission is reported inactive, not independently verified here.",
+  "first_shift":{"status":"WAITING_FOR_VERIFIED_DECISION_LOOP","threshold":{"min_sample":100,"lift_threshold":20},"eta":"Unknown — verify ingestion, decision generation and action receipts before estimating."}
 }
