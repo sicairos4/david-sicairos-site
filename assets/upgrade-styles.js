@@ -1,0 +1,16 @@
+/* Upgrade bundle styles injected globally via topbar.js */
+(function(){
+const css=`
+.mini-cta,.back-to-top{position:fixed;right:16px;bottom:16px;z-index:98;opacity:0;pointer-events:none;transition:opacity .3s}
+.mini-cta.visible,.back-to-top.visible{opacity:1;pointer-events:auto}
+.mini-cta{padding:10px 18px;background:#1a7f37;color:#fff;border-radius:24px;font-size:13px;text-decoration:none}
+.back-to-top{width:44px;height:44px;border-radius:50%;background:#333;color:#fff;border:none;font-size:18px;cursor:pointer;bottom:70px}
+.nav a.active{font-weight:700;text-decoration:underline}
+@media(max-width:768px){
+.mini-cta{bottom:16px;right:16px}
+.back-to-top{bottom:70px;right:16px}
+}`;
+const s=document.createElement("style");
+s.textContent=css;
+document.head.appendChild(s);
+})();
