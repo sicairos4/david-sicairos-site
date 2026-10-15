@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-theme="valley-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Aura OS — Member Dashboard</title>
+<meta name="description" content="Your Aura OS membership dashboard: morning system, focus blocks, goals, and notes — built into 209 Media.">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/nav.css">
+<link rel="stylesheet" href="assets/mobile.css">
+<style>
+.wrap{max-width:960px;margin:auto;padding:18px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tab{padding:10px 16px;border:1px solid #175c42;border-radius:999px;background:#fff;color:#175c42;font:inherit;cursor:pointer}
+.tab[aria-selected=true]{background:#175c42;color:#fff}
+.panel{background:#fff;border:1px solid #dfe7e1;border-radius:14px;padding:18px;margin-bottom:16px}
+.panel h2{margin-top:0;color:#175c42}
+.add-form{display:grid;grid-template-columns:2fr 1fr 1fr 1fr auto;gap:8px;align-items:end;margin:12px 0}
+.add-form label{display:block;font-size:12px;font-weight:700;color:#175c42;margin-bottom:4px}
+.add-form input,.add-form select,.add-form textarea{width:100%;padding:9px;border:1px solid #b8c8bf;border-radius:8px;font:inherit;box-sizing:border-box}
+.add-form button{padding:10px 16px;background:#175c42;color:#fff;border:0;border-radius:8px;font:inherit;cursor:pointer}
+@media(max-width:700px){.add-form{grid-template-columns:1fr 1fr}.add-form button{grid-column:1/-1}}
+.item{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid #eef3ef}
+.item:last-child{border-bottom:0}
+.item.done .i-title{text-decoration:line-through;opacity:.55}
+.item .i-title{flex:1}
+.item .i-meta{font-size:12px;font-weight:700;color:#175c42}
+.item button{background:none;border:0;cursor:pointer;font-size:16px;color:#175c42}
+.empty{color:#5a6f63;padding:8px 0}
+.morning{display:grid;gap:8px}
+.morning label{display:flex;gap:10px;align-items:center;background:#f2f6f3;border-radius:8px;padding:10px}
+.progress{background:#e1eee5;border-radius:999px;height:10px;overflow:hidden;margin:10px 0}
+.progress>div{background:#175c42;height:100%;transition:width .3s}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">AURA OS</div><h1>Your Day, by Design</h1><p id="greeting">Your membership operating system: morning system, focus blocks, goals, and notes.</p><button class="btn ghost" id="signOut" type="button">Sign out</button></div></section>
+<section class="wrap">
+<div class="tabs" role="tablist">
+<button class="tab" role="tab" aria-selected="true" data-panel="today">Today</button>
+<button class="tab" role="tab" aria-selected="false" data-panel="goals">Goals</button>
+<button class="tab" role="tab" aria-selected="false" data-panel="focus">Focus Blocks</button>
+<button class="tab" role="tab" aria-selected="false" data-panel="scribe">Scribe</button>
+</div>
+<div id="panel-today" class="panel" role="tabpanel"><h2>Morning System</h2><p>Check off your morning alignment routine. Progress resets each day.</p><div class="progress"><div id="morningBar" style="width:0%"></div></div><div class="morning" id="morningList"></div></div>
+<div id="panel-goals" class="panel" role="tabpanel" hidden><h2>Goal Architect</h2><p>Set a goal, track progress, and keep the main thing the main thing.</p>
+<form class="add-form" id="goalForm"><div><label for="gTitle">Goal</label><input id="gTitle" required placeholder="What are you building toward?"></div><div><label for="gTarget">Target (number)</label><input id="gTarget" type="number" min="1" value="10"></div><div><label for="gUnit">Unit</label><input id="gUnit" value="sessions" placeholder="sessions, posts, days…"></div><div><label for="gDue">Due date</label><input id="gDue" type="date"></div><button type="submit">Add goal</button></form>
+<div id="goalList"></div></div>
+<div id="panel-focus" class="panel" role="tabpanel" hidden><h2>Focus Blocks</h2><p>Schedule your deep-work blocks for the day.</p>
+<form class="add-form" id="blockForm"><div><label for="bTitle">Focus block</label><input id="bTitle" required placeholder="What are you focusing on?"></div><div><label for="bDate">Date</label><input id="bDate" type="date" required></div><div><label for="bStart">Start</label><input id="bStart" type="time" required></div><div><label for="bLen">Length (min)</label><input id="bLen" type="number" min="15" value="90"></div><button type="submit">Add block</button></form>
+<div id="blockList"></div></div>
+<div id="panel-scribe" class="panel" role="tabpanel" hidden><h2>Aura Scribe</h2><p>Capture reflections, ideas, and notes. Everything stays in your browser for now.</p>
+<form class="add-form" id="noteForm"><div style="grid-column:1/-1"><label for="nText">New note</label><textarea id="nText" rows="3" required placeholder="What did you learn, decide, or want to remember?"></textarea></div><button type="submit" style="grid-column:1/-1">Save note</button></form>
+<div id="noteList"></div></div>
+</section>
+</main>
+<footer class="footer"><div class="wrap">© <span id="y"></span> 209 Media • Aura OS Member Dashboard</div></footer>
+<script src="assets/site.js"></script>
+<script src="assets/topbar.js"></script>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
+sb.auth.getSession().then(({data})=>{if(!data.session){location.replace('login.html')}else{const u=data.session.user;document.getElementById('greeting').textContent='Welcome back'+(u.email?', '+u.email.split('@')[0]:'')+'. Your membership operating system is ready.'}});
+document.getElementById('signOut').onclick=async()=>{await sb.auth.signOut();location.replace('login.html')};
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){localStorage.setItem(k,JSON.stringify(v))}};
+const esc=s=>{const d=document.createElement('div');d.textContent=s;return d.innerHTML};
+const today=()=>new Date().toISOString().slice(0,10);
+// Tabs
+document.querySelectorAll('.tab').forEach(t=>t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',String(x===t)));document.querySelectorAll('.panel').forEach(p=>p.hidden=p.id!=='panel-'+t.dataset.panel)});
+// Morning system
+const MORNING=['Hydrate','Move your body','Set one priority','Review your calendar','One meaningful action'];
+const mKey='aura-morning-'+today();let morning=store.get(mKey,[]);
+function renderMorning(){const l=document.getElementById('morningList');l.innerHTML=MORNING.map((m,i)=>'<label><input type="checkbox" data-m="'+i+'"'+(morning.includes(i)?' checked':'')+'>'+esc(m)+'</label>').join('');document.getElementById('morningBar').style.width=(morning.length/MORNING.length*100)+'%'}
+document.getElementById('morningList').addEventListener('change',e=>{const i=+e.target.dataset.m;if(e.target.checked){if(!morning.includes(i))morning.push(i)}else{morning=morning.filter(x=>x!==i)}store.set(mKey,morning);renderMorning()});
+// Goals
+let goals=store.get('aura-goals',[]);
+function renderGoals(){const l=document.getElementById('goalList');if(!goals.length){l.innerHTML='<p class="empty">No goals yet. Add your first goal above.</p>';return}l.innerHTML=goals.map(g=>'<div class="item"><span class="i-title">'+esc(g.title)+'</span><span class="i-meta">'+g.progress+'/'+g.target+' '+esc(g.unit)+(g.due?' • due '+esc(g.due):'')+'</span><button data-g="'+g.id+'" data-d="1" aria-label="Progress +1">+1</button><button data-gd="'+g.id+'" aria-label="Delete goal">×</button></div>').join('')}
+document.getElementById('goalForm').onsubmit=e=>{e.preventDefault();const g=id=>document.getElementById(id);goals.push({id:Date.now()+'',title:g('gTitle').value.trim(),target:+g('gTarget').value||1,unit:g('gUnit').value.trim()||'steps',due:g('gDue').value,progress:0});store.set('aura-goals',goals);g('gTitle').value='';renderGoals()};
+document.getElementById('goalList').addEventListener('click',e=>{const id=e.target.dataset.g||e.target.dataset.gd;if(!id)return;if(e.target.dataset.gd!==undefined){goals=goals.filter(x=>x.id!==id)}else{const g=goals.find(x=>x.id===id);if(g)g.progress=Math.min(g.target,g.progress+1)}store.set('aura-goals',goals);renderGoals()});
+// Focus blocks
+let blocks=store.get('aura-blocks',[]);
+function renderBlocks(){const l=document.getElementById('blockList');const t=today();const sorted=[...blocks].sort((a,b)=>(a.date+a.start).localeCompare(b.date+b.start));if(!sorted.length){l.innerHTML='<p class="empty">No focus blocks yet. Schedule your first block above.</p>';return}l.innerHTML=sorted.map(b=>'<div class="item"><span class="i-title">'+esc(b.title)+'</span><span class="i-meta">'+esc(b.date)+(b.date===t?' (today)':'')+' • '+esc(b.start)+' • '+b.len+' min</span><button data-bd="'+b.id+'" aria-label="Delete block">×</button></div>').join('')}
+document.getElementById('blockForm').onsubmit=e=>{e.preventDefault();const g=id=>document.getElementById(id);blocks.push({id:Date.now()+'',title:g('bTitle').value.trim(),date:g('bDate').value,start:g('bStart').value,len:+g('bLen').value||60});store.set('aura-blocks',blocks);g('bTitle').value='';renderBlocks()};
+document.getElementById('blockList').addEventListener('click',e=>{const id=e.target.dataset.bd;if(!id)return;blocks=blocks.filter(x=>x.id!==id);store.set('aura-blocks',blocks);renderBlocks()});
+// Scribe notes
+let notes=store.get('aura-notes',[]);
+function renderNotes(){const l=document.getElementById('noteList');if(!notes.length){l.innerHTML='<p class="empty">No notes yet. Capture your first reflection above.</p>';return}l.innerHTML=[...notes].reverse().map(n=>'<div class="item"><span class="i-title">'+esc(n.text)+'</span><span class="i-meta">'+esc(n.date)+'</span><button data-nd="'+n.id+'" aria-label="Delete note">×</button></div>').join('')}
+document.getElementById('noteForm').onsubmit=e=>{e.preventDefault();const t=document.getElementById('nText');notes.push({id:Date.now()+'',text:t.value.trim(),date:today()});store.set('aura-notes',notes);t.value='';renderNotes()};
+document.getElementById('noteList').addEventListener('click',e=>{const id=e.target.dataset.nd;if(!id)return;notes=notes.filter(x=>x.id!==id);store.set('aura-notes',notes);renderNotes()});
+renderMorning();renderGoals();renderBlocks();renderNotes();
+</script>
+</body>
+</html>
