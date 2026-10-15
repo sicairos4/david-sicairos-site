@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en" data-theme="valley-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Resume Builder Help — Systems Studio</title>
+<meta name="description" content="A free resume builder: enter your experience, skills, and education to generate a clean, copy-ready resume and Lifestyle ID profile.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/nav.css">
+<link rel="stylesheet" href="assets/mobile.css">
+<style>
+.wrap{max-width:900px;margin:auto;padding:18px}
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:800px){.tool-grid{grid-template-columns:1fr}}
+.field{margin-bottom:12px}
+.field label{display:block;font-weight:700;margin-bottom:4px;color:#175c42}
+.field input,.field textarea{width:100%;padding:10px;border:1px solid #b8c8bf;border-radius:8px;font:inherit}
+fieldset{border:1px solid #dfe7e1;border-radius:10px;padding:12px;margin-bottom:12px}
+legend{font-weight:700;color:#175c42;padding:0 6px}
+.resume-preview{background:#fff;border:1px solid #dfe7e1;border-radius:12px;padding:20px;white-space:pre-wrap;font-family:Georgia,serif;line-height:1.5}
+.btn{display:inline-block;padding:10px 16px;background:#175c42;color:#fff;border-radius:8px;text-decoration:none;border:0;font:inherit;cursor:pointer}
+.btn.ghost{background:#fff;color:#175c42;border:1px solid #175c42}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">SYSTEMS STUDIO</div><h1>Resume Builder Help</h1><p>Turn your experience, education, skills, and completed work into a clear resume and Lifestyle ID profile. Everything stays in your browser — nothing is uploaded.</p></div></section>
+<section class="wrap"><div class="tool-grid">
+<div>
+<fieldset><legend>Basics</legend>
+<div class="field"><label for="name">Full name</label><input id="name" placeholder="Jane Doe"></div>
+<div class="field"><label for="title">Professional title</label><input id="title" placeholder="Operations Coordinator"></div>
+<div class="field"><label for="contact">Contact line</label><input id="contact" placeholder="email • phone • city, state"></div>
+<div class="field"><label for="summary">Professional summary</label><textarea id="summary" rows="3" placeholder="2–3 sentences on who you are and the value you bring."></textarea></div>
+</fieldset>
+<fieldset><legend>Experience</legend>
+<div class="field"><label for="exp1">Most recent role</label><input id="exp1" placeholder="Job title — Company (Year–Year)"></div>
+<div class="field"><label for="exp1d">What you did / results</label><textarea id="exp1d" rows="3" placeholder="One accomplishment per line."></textarea></div>
+<div class="field"><label for="exp2">Previous role</label><input id="exp2" placeholder="Job title — Company (Year–Year)"></div>
+<div class="field"><label for="exp2d">What you did / results</label><textarea id="exp2d" rows="3" placeholder="One accomplishment per line."></textarea></div>
+</fieldset>
+<fieldset><legend>Skills & Education</legend>
+<div class="field"><label for="skills">Skills (comma separated)</label><input id="skills" placeholder="Project management, Excel, Communication"></div>
+<div class="field"><label for="edu">Education / certifications</label><textarea id="edu" rows="2" placeholder="Degree or certification — School (Year)"></textarea></div>
+</fieldset>
+<div class="actions"><button class="btn" type="button" onclick="build()">Generate resume</button><button class="btn ghost" type="button" onclick="copyResume()">Copy text</button><button class="btn ghost" type="button" onclick="downloadResume()">Download .txt</button></div>
+</div>
+<div>
+<h2>Live preview</h2>
+<div id="preview" class="resume-preview">Fill in the fields and click “Generate resume.”</div>
+</div>
+</div></section>
+<section class="section"><div class="wrap"><div class="kicker">NEXT STEP</div><h2>Turn it into a Lifestyle ID</h2><p>Use the same story in Lifestyle ID to shape your personal brand, content pillars, and public profile.</p><div class="links"><a class="btn" href="aura.html#framework">Open Lifestyle ID</a><a class="btn ghost" href="store.html#systems">Back to the Store</a></div></div></section>
+</main>
+<footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • Systems Studio • 209 Media Connect<br><a href="studio.html">Systems Studio</a> • <a href="store.html">Store</a> • <a href="index.html">209 Media</a></div></footer>
+<script src="assets/site.js"></script>
+<script src="assets/topbar.js"></script>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+let resumeText='';
+function lines(t){return t.split('\n').map(s=>s.trim()).filter(Boolean).map(s=>'• '+s).join('\n')}
+function build(){const g=id=>document.getElementById(id).value.trim();const name=g('name')||'Your Name';const title=g('title')||'Professional Title';const contact=g('contact');const summary=g('summary');const skills=g('skills');const edu=g('edu');let out=name+'\n'+title+(contact?'\n'+contact:'')+'\n\nSUMMARY\n'+(summary||'Add a 2–3 sentence professional summary.')+'\n\nEXPERIENCE\n';const e1=g('exp1'),e1d=g('exp1d'),e2=g('exp2'),e2d=g('exp2d');if(e1){out+=e1+'\n'+(lines(e1d)||'')+'\n\n'}if(e2){out+=e2+'\n'+(lines(e2d)||'')+'\n\n'}if(skills){out+='SKILLS\n'+skills+'\n\n'}if(edu){out+='EDUCATION & CERTIFICATIONS\n'+lines(edu)+'\n'}resumeText=out;document.getElementById('preview').textContent=out}
+function copyResume(){if(!resumeText)build();navigator.clipboard.writeText(resumeText).then(()=>alert('Resume copied to clipboard.'))}
+function downloadResume(){if(!resumeText)build();const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([resumeText],{type:'text/plain'}));a.download='resume.txt';a.click()}
+</script>
+</body>
+</html>
