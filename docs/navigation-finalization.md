@@ -1,0 +1,1 @@
+Navigation organization, direct-link requirements, local integration state, and remaining old-repository cleanup.
