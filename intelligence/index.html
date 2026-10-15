@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>209 Intelligence — 209 Media</title>
-<meta name="description" content="209 Intelligence — live analytics, adaptation recommendations, amplification calendar, Muse data feeds, incident log, and growth loop for 209 Media.">
-<meta property="og:title" content="209 Intelligence — 209 Media">
+<title>209 Intelligence — 209.</title>
+<meta name="description" content="209 Intelligence — live analytics, adaptation recommendations, amplification calendar, Muse data feeds, incident log, and growth loop for 209.">
+<meta property="og:title" content="209 Intelligence — 209.">
 <meta property="og:description" content="Live analytics, recommendations, amplification calendar, Muse data feeds, incident log, and growth loop.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sicairos4.github.io/david-sicairos-site/intelligence/">
@@ -19,9 +19,10 @@
 <link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
+<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}.shift-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.muse-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.muse-breach{border-color:#b42318}.muse-ok{border-color:#1a7f37}.inc-open{border-color:#b42318}.inc-under-review{border-color:#b42318}.inc-resolved{border-color:#1a7f37}.loop-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.digest-card{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.pulse-thumb{width:48px;height:48px;border-radius:50%;object-fit:cover}</style>
 </head>
 <body>
-<header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
+<header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 home">209<span>.</span></a><nav class="nav"></nav></div></header>
 <main>
 <section class="section" id="digest"><div class="wrap"><div class="kicker">ADAPTIVE DIGEST — WHEN INTELLIGENCE DIGESTS</div><h2>Best times. Faster when it matters.</h2><div id="digestCard" class="list"><p class="muted">Loading digest schedule…</p></div></div></section>
 <section class="section" id="growth-loop"><div class="wrap"><div class="kicker">GROWTH LOOP — SIGNALS → DECISIONS → EXPERIMENTS</div><h2>The loop that makes publishing smarter.</h2><div id="loopGrid" class="pulse-grid"><p class="muted">Loading growth loop…</p></div></div></section>
@@ -35,9 +36,8 @@
 <section class="section" id="recommendations"><div class="wrap"><div class="kicker">ADAPTATION RECOMMENDATIONS</div><h2>What to double down on.</h2><div id="recList" class="list"><p class="muted">Loading recommendations…</p></div></div></section>
 <section class="section" id="calendar"><div class="wrap"><div class="kicker">AMPLIFICATION CALENDAR — NEXT 7 DAYS</div><h2>Mission → format → platform → CTA.</h2><div id="calList" class="list"><p class="muted">Loading calendar…</p></div></div></section>
 <section class="section" id="shift-log"><div class="wrap"><div class="kicker">CREATIVE SHIFT LOG — FIRST SHIFT TRACKER</div><h2>When analytics first change the work.</h2><div id="shiftList" class="list"><p class="muted">No shift yet — waiting for first real data.</p></div></div></section>
-<section id="intel-frame"><div class="wrap"><div class="kicker">FULL INTERFACE</div><h2>Open the full 209 Intelligence workspace.</h2><p>The full-interface workspace is a separate project. Until its route is verified, use the live feeds above rather than embedding an unverified external page.</p><a class="btn ghost" href="https://sicairos4.github.io/209-intelligent-site/" target="_blank" rel="noopener">Open full interface →</a></div></section>
 </main>
-<footer class="footer"><div class="wrap">© <span id="y"></span> 209 Media</div></footer>
+<footer class="footer"><div class="wrap">© <span id="y"></span> 209.</div></footer>
 <script src="../assets/site.js"></script>
 <script src="../assets/topbar.js"></script>
 <script src="../assets/experience.js"></script>
@@ -45,6 +45,10 @@
 <script>
 const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'};
 const SB_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1';
+const themeBtn=document.getElementById('themeToggle');
+function applyTheme(t){document.documentElement.dataset.theme=t;localStorage.setItem('209-theme',t);themeBtn.textContent=t==='valley-dark'?'☀️ Light':'🌗 Dark'}
+applyTheme(localStorage.getItem('209-theme')||'valley-light');
+themeBtn.onclick=()=>applyTheme(document.documentElement.dataset.theme==='valley-dark'?'valley-light':'valley-dark');
 async function fetchDigest(){
 try{
 const r=await fetch('../data/digest.json');
