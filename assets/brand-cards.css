@@ -1,23 +1,23 @@
-/* Brand-specific ecosystem cards */
-.promo{position:relative;overflow:hidden}
-.promo::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--brand-color,var(--accent))}
-.promo-brand-dbeastco{--brand-color:#2f7d55}
-.promo-brand-209audit{--brand-color:#a67c1b}
-.promo-brand-209media{--brand-color:#245f42}
-.promo-brand-studio{--brand-color:#4b5563}
-.promo-brand-dbeastco .promo-label{color:#2f7d55}
-.promo-brand-209audit .promo-label{color:#a67c1b}
-.promo-brand-209media .promo-label{color:#245f42}
-.promo-brand-studio .promo-label{color:#4b5563}
-.promo h3{font-size:21px}
-.promo p{font-size:15px}
-.promo .links{margin-top:auto}
-
-/* dBeastco product cards: clearly product-led */
-.product{border-top:4px solid var(--accent)}
-.product .tag{font-size:11px;text-transform:uppercase;letter-spacing:.12em}
-.product h3{font-size:19px;font-weight:800}
-.product .price{font-size:20px}
-.product .links{justify-content:flex-start}
-
-@media(max-width:720px){.promo{min-height:auto}}
+/* Shared visual cards; no data or rendering logic changes. */
+:root{--card-tone:#207653;--card-elevation:0 12px 30px #102b1914}
+[data-theme="midnight-ledger"]{--card-tone:#75ba94;--card-elevation:0 12px 30px #0005}
+[data-theme="civic-gold"]{--card-tone:#a67c1b}
+.promo,.card,.item,.product,.signal-card{background:var(--panel);background:linear-gradient(135deg,color-mix(in srgb,var(--panel) 84%,var(--card-tone)),color-mix(in srgb,var(--panel) 96%,var(--card-tone)));color:var(--text);border:1px solid var(--line);border-radius:18px;box-shadow:var(--card-elevation);transition:box-shadow .2s ease,border-color .2s ease}
+.promo:hover,.card:hover,.item:hover,.product:hover{border-color:var(--card-tone);box-shadow:0 16px 38px #102b1926}
+.promo{position:relative;overflow:hidden;border-inline-start:5px solid var(--brand-color,var(--card-tone))}
+.promo-brand-dbeastco{--brand-color:#2f7d55}.promo-brand-209audit{--brand-color:#a67c1b}.promo-brand-209media{--brand-color:#245f42}.promo-brand-studio{--brand-color:#64748b}
+.promo .promo-label{color:var(--text);font-weight:800;letter-spacing:.08em}
+.promo h3{font-size:21px}.promo p{font-size:15px}.promo .links{margin-top:auto}
+.product{border-top:4px solid var(--accent)}.product .tag{font-size:11px;text-transform:uppercase;letter-spacing:.12em}.product h3{font-size:19px;font-weight:800}.product .price{font-size:20px}.product .links{justify-content:flex-start}
+.feed-item,.rec-item,.cal-item,.shift-item,.pipe-item,.muse-item,.loop-item,.digest-card{background:var(--panel);background:linear-gradient(120deg,color-mix(in srgb,var(--panel) 86%,var(--card-tone)),var(--panel));color:var(--text);padding:18px!important;border-radius:16px;box-shadow:var(--card-elevation);border:1px solid var(--line);border-inline-start:4px solid var(--card-tone)}
+.rec-item,.loop-item{--card-tone:#258d9f}.cal-blocked,.muse-breach,.inc-open,.inc-under-review{--card-tone:#b6473b}.cal-published,.muse-ok,.inc-resolved{--card-tone:#2f7d55}
+.delta-up,.delta-down,.delta-flat{display:inline-block;padding:3px 9px;border-radius:999px;background:color-mix(in srgb,currentColor 12%,transparent);font-size:13px}
+[data-theme="midnight-ledger"] .delta-up{color:#8cd4a8}[data-theme="midnight-ledger"] .delta-down{color:#ffa39b}[data-theme="midnight-ledger"] .delta-flat{color:#c3cbd5}
+main table{width:100%;border-collapse:separate;border-spacing:0;background:var(--panel);color:var(--text);border:1px solid var(--line);border-radius:14px}
+main th{background:var(--accent);color:#fff;text-align:left;padding:12px}
+[data-theme="midnight-ledger"] main th{background:#51451e;color:#fff}
+main td{padding:12px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+main tbody tr:nth-child(even){background:color-mix(in srgb,var(--panel) 90%,var(--card-tone))}
+main tbody tr:hover{background:color-mix(in srgb,var(--panel) 82%,var(--card-tone))}
+@media(max-width:720px){.promo{min-height:auto}main th,main td{padding:8px}}
+@media(prefers-reduced-motion:reduce){.promo,.card,.item,.product,.signal-card{transition:none}}
