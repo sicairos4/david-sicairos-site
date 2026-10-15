@@ -1,0 +1,9 @@
+# Visual integration and audit boundaries
+
+The shared experience loader now independently loads media-visuals.js and keeps slider initialization separate from optional promo configuration. Missing data/experience.json no longer prevents the slider or visual enhancements from initializing.
+
+Media and product cards receive title-seeded, original SVG illustrations with visible Illustration labels. Each product name produces its own artwork. Existing images are preserved. A real products.json image field takes precedence when available; no existing product entries, prices or claims are rewritten. Recognized individual YouTube URLs can use platform thumbnails with illustration fallback. Platform home links do not become invented video thumbnails. No Instagram credentials, feed API, verified podcast episodes or carousel slides are invented.
+
+The intelligence full-interface link is changed to the local intelligence/interface/ route at runtime by the shared enhancement on pages loading assets/experience.js. The underlying dashboard HTML still contains the historical external URL; a source-level HTML migration remains outstanding. This is not a redirect of the old repository and does not archive or delete it.
+
+Audit supplied by David: perplexity-info-flow-audit-20261015.pdf, read-only Muse audit. Its descriptions distinguish Muse-verified observations from relayed claims. Current pipeline.json was separately read and already marks all eight sources UNVERIFIED. This patch does not change status values, incident logs, coordination authorship, schedules, workflow credentials, publishing queues or private records. Do not infer active cross-agent delivery, working sync jobs or advisor availability from scaffolding. The old repository notice/redirect needs a separate repository-specific approval. Production deployment, keyboard behavior, network requests and visual contrast must be verified in a browser after release.
