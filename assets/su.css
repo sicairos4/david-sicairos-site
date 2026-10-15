@@ -1,21 +1,23 @@
-/* Sovereign University catalog — responsive styles */
+/* Sovereign University catalog — responsive + search/filter styles */
 .su-hero{padding:72px 20px 40px;text-align:center}
 .su-hero h1{font-size:clamp(28px,5vw,44px);margin:0 0 12px}
 .su-hero p{max-width:680px;margin:0 auto;color:var(--muted,#5b6472)}
-.su-catalog{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;padding:32px 20px;max-width:1100px;margin:0 auto}
-.su-course{background:var(--card,#fff);border:1px solid var(--line,#e5e7eb);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:transform .15s ease,box-shadow .15s ease}
+.su-tools{max-width:1100px;margin:0 auto;padding:0 20px 8px;display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.su-search{flex:1;min-width:220px;padding:12px 16px;border:1px solid var(--line,#e5e7eb);border-radius:12px;font-size:14px;background:var(--card,#fff)}
+.su-filter{padding:10px 14px;border:1px solid var(--line,#e5e7eb);border-radius:12px;background:var(--card,#fff);font-size:13px;cursor:pointer}
+.su-catalog{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;padding:24px 20px;max-width:1100px;margin:0 auto}
+.su-course{background:var(--card,#fff);border:1px solid var(--line,#e5e7eb);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:8px;transition:transform .15s,box-shadow .15s}
 .su-course:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.su-course h3{margin:0;font-size:18px}
-.su-course p{margin:0;color:var(--muted,#5b6472);font-size:14px;line-height:1.5}
+.su-course h3{margin:0;font-size:16px}
+.su-course p{margin:0;color:var(--muted,#5b6472);font-size:13px;line-height:1.5}
 .su-course .btn{margin-top:auto;align-self:flex-start}
-.su-badge{display:inline-block;font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--accent-soft,#eef2ff);color:var(--accent,#4338ca);font-weight:600}
+.su-badge{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--accent-soft,#eef2ff);color:var(--accent,#4338ca);font-weight:600}
+.su-empty{grid-column:1/-1;text-align:center;padding:32px;color:var(--muted,#5b6472)}
 @media(max-width:640px){
-.su-catalog{grid-template-columns:1fr;padding:24px 16px;gap:14px}
-.su-hero{padding:48px 16px 28px}
-.su-course{padding:18px}
-.su-course .btn{width:100%;text-align:center;justify-content:center}
-}
-@media(max-width:400px){
-.su-hero h1{font-size:24px}
-.su-catalog{padding:20px 12px}
+.su-catalog{grid-template-columns:1fr;padding:20px 16px;gap:12px}
+.su-tools{padding:0 16px 8px;flex-direction:column;align-items:stretch}
+.su-search,.su-filter{width:100%}
+.su-hero{padding:44px 16px 24px}
+.su-course{padding:16px}
+.su-course .btn{width:100%;justify-content:center}
 }
