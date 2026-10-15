@@ -1,5 +1,10 @@
-/* Three-pillar hierarchy + mobile hamburger + upgrade bundle (smooth scroll, back-to-top, active-state, sticky mini-CTA) */
+/* Three-pillar hierarchy + mobile hamburger + upgrade bundle (smooth scroll, back-to-top, active-state, sticky mini-CTA) — CSS injected inline so no extra file/link needed */
 (function(){
+// Inject upgrade CSS globally
+document.addEventListener('DOMContentLoaded',()=>{
+const css=`\n.mini-cta,.back-to-top{position:fixed;right:16px;bottom:16px;z-index:98;opacity:0;pointer-events:none;transition:opacity .3s}\n.mini-cta.visible,.back-to-top.visible{opacity:1;pointer-events:auto}\n.mini-cta{padding:10px 18px;background:#1a7f37;color:#fff;border-radius:24px;font-size:13px;text-decoration:none}\n.back-to-top{width:44px;height:44px;border-radius:50%;background:#333;color:#fff;border:none;font-size:18px;cursor:pointer;bottom:70px}\n.nav a.active{font-weight:700;text-decoration:underline}\n@media(max-width:768px){\n.mini-cta{bottom:16px;right:16px}\n.back-to-top{bottom:70px;right:16px}\n}`;
+const s=document.createElement("style");s.textContent=css;document.head.appendChild(s);
+});
 const SUBSCRIBE="https://209connect.beehiiv.com/?modal=signup";
 const nav=`
 <div class="nav-left">
@@ -29,16 +34,13 @@ document.addEventListener("click",e=>{
 if(!e.target.closest(".nav"))document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open"));
 if(e.target.closest(".nav a"))document.body.classList.remove("nav-open");
 });
-// Active-state highlighting
 const path=location.pathname.split("/").pop()||"index.html";
 document.querySelectorAll(".nav a").forEach(a=>{if(a.getAttribute("href")===path)a.classList.add("active")});
-// Sticky mini-CTA (appears after 600px scroll)
 if(!document.querySelector(".mini-cta")){
 const cta=document.createElement("a");
 cta.className="mini-cta";cta.href=SUBSCRIBE;cta.target="_blank";cta.rel="noopener";cta.textContent="Subscribe";
 document.body.appendChild(cta);
 }
-// Back-to-top button
 if(!document.querySelector(".back-to-top")){
 const btt=document.createElement("button");
 btt.className="back-to-top";btt.type="button";btt.setAttribute("aria-label","Back to top");btt.innerHTML="↑";
@@ -46,7 +48,6 @@ btt.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
 document.body.appendChild(btt);
 }
 }
-// Smooth scroll for anchor links
 document.addEventListener("click",e=>{
 const a=e.target.closest("a[href^='#']");
 if(!a)return;
@@ -54,7 +55,6 @@ const id=a.getAttribute("href").slice(1);
 const el=document.getElementById(id);
 if(el){e.preventDefault();el.scrollIntoView({behavior:"smooth"})}
 });
-// Show/hide mini-CTA and back-to-top on scroll
 window.addEventListener("scroll",()=>{
 const y=window.scrollY;
 document.querySelectorAll(".mini-cta,.back-to-top").forEach(el=>{el.classList.toggle("visible",y>600)});
