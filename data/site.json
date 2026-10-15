@@ -1,1 +1,21 @@
-Updated site data: separate multimedia entries, revised latest posts, records, platform connections, and CTA recommendation.
+{
+  "latest_signal": {"date":"October 14, 2026","title":"209Audit: Public records, transparency, and accountability","summary":"A citizen-led framework for following the systems behind public decisions.","url":"https://209connect.beehiiv.com/?utm_source=209site&utm_medium=homepage&utm_campaign=latest_signal","image":"","approved":true},
+  "latest_posts": [
+    {"date":"October 14, 2026","platform":"YouTube","title":"Latest YouTube update","summary":"Open David Sicairos on YouTube for the latest available video.","url":"https://www.youtube.com/@DavidSicairos","image":"","asset_type":"profile","approved":true},
+    {"date":"October 14, 2026","platform":"Instagram","title":"Instagram updates","summary":"Open David Sicairos on Instagram for visual stories and updates.","url":"https://www.instagram.com/davidsicairos/","image":"","asset_type":"profile","approved":true},
+    {"date":"October 14, 2026","platform":"Threads","title":"Threads updates","summary":"Open David Sicairos on Threads for community updates.","url":"https://www.threads.net/@davidsicairos","image":"","asset_type":"profile","approved":true}
+  ],
+  "multimedia_carousel": [
+    {"date":"October 14, 2026","title":"209Audit: Public records, transparency, and accountability","summary":"A citizen-led framework for following the systems behind public decisions.","url":"https://209connect.beehiiv.com/?utm_source=209site&utm_medium=carousel&utm_campaign=latest_signal","image":"","asset_type":"newsletter","approved":true},
+    {"date":"October 14, 2026","title":"209Audit Master Tracker","summary":"Follow records, deadlines, and public accountability threads.","url":"/index-tracker/","image":"","asset_type":"tool","approved":true},
+    {"date":"October 14, 2026","title":"CPRA Playbook","summary":"Build a focused California public-records request and track its progress.","url":"/cpra-playbook/","image":"","asset_type":"tool","approved":true}
+  ],
+  "records": [
+    {"date":"October 14, 2026","title":"209Audit launch","summary":"Tracker Index and CPRA Playbook provide a public starting point for record-based civic follow-through.","url":"/index-tracker/","image":"","approved":true},
+    {"date":"September 28, 2026","title":"Who gets to ask the question?","summary":"A systems-thinking reflection on access, voice, and institutional power.","url":"https://209connect.beehiiv.com/?utm_source=209site&utm_medium=record_watch&utm_campaign=who_gets_to_ask","image":"","approved":true}
+  ],
+  "platform_connections": [
+    {"platform":"Beehiiv","status":"connected"},{"platform":"YouTube","status":"connected"},{"platform":"LinkedIn","status":"connected"},{"platform":"Bluesky","status":"connected"},{"platform":"Threads","status":"connected"},{"platform":"Discord","status":"connected"},{"platform":"Facebook","status":"browser_fallback"},{"platform":"Instagram","status":"browser_fallback"},{"platform":"TikTok","status":"browser_fallback"}
+  ],
+  "cta_recommendation": {"primary":"Explore the 209Audit Master Tracker","softness":3,"approved":true}
+}
