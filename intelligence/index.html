@@ -10,64 +10,44 @@
 <link rel="stylesheet" href="../assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
-<style>.intel-wrap{max-width:1100px;margin:0 auto;padding:24px 16px 0}.intel-iframe{border:0;width:100%;height:80vh;display:block;margin-top:16px}.dial{display:flex;justify-content:center;margin:8px 0 4px}.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}</style>
+<style>.dial{display:flex;justify-content:center;margin:8px 0 4px}.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.intel-iframe{border:0;width:100%;height:80vh;display:block;margin-top:16px}</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
 <main>
-<section class="section" id="intel-records"><div class="wrap"><div class="kicker">209 INTELLIGENCE</div><h2>Latest records</h2><div id="intelRecords" class="list"><p class="muted">Loading records…</p></div><div class="links"><a class="btn ghost" href="https://sicairos4.github.io/209audit-index-tracker/latest.html" target="_blank" rel="noopener">Latest from 209 Media (Tracker)</a></div></div></section>
-<section class="section" id="social-pulse"><div class="wrap"><div class="kicker">SOCIAL PULSE</div><h2>Channels, posts, and 28-day growth.</h2><div class="dial"><svg id="growthDial" width="220" height="130" viewBox="0 0 220 130"><path d="M20 120 A90 90 0 0 1 200 120" fill="none" stroke="#e4e7ec" stroke-width="14" stroke-linecap="round"/><path id="dialArc" d="M20 120 A90 90 0 0 1 200 120" fill="none" stroke="#1a7f37" stroke-width="14" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/><text id="dialPct" x="110" y="105" text-anchor="middle" font-size="30" font-weight="700" fill="#101828">–</text><text x="110" y="125" text-anchor="middle" font-size="12" fill="#667085">28-DAY FOLLOWER GROWTH</text></svg></div><div id="dialSummary" class="muted" style="text-align:center;margin-bottom:12px">Loading growth…</div><div id="pulseGrid" class="pulse-grid"><p class="muted">Loading channels…</p></div><h3 style="margin-top:20px">Podcasts</h3><div id="podcastList" class="list"><p class="muted">Loading podcasts…</p></div></div></section>
+<section class="section" id="intel-records"><div class="wrap"><div class="kicker">209 INTELLIGENCE</div><h2>Latest records</h2><div id="intelRecords" class="list"><p class="muted">Loading records…</p></div></div></section>
+<section class="section" id="social-pulse"><div class="wrap"><div class="kicker">SOCIAL PULSE</div><h2>Channels, posts, and 28-day growth.</h2><div id="pulseGrid" class="pulse-grid"><p class="muted">Loading channels…</p></div></div></section>
 <section class="section" id="top-posts"><div class="wrap"><div class="kicker">TOP POSTS — LAST 48 HOURS</div><h2>What's breaking right now.</h2><div id="topPosts" class="list"><p class="muted">Loading top posts…</p></div></div></section>
-<section class="section" id="adaptation-feed"><div class="wrap"><div class="kicker">LIVE ADAPTATION FEED</div><h2>What the system noticed—and did.</h2><p>Every decision Muse/Gemini makes shows up here in near-real time (refreshes every 60 seconds).</p><div id="adaptationFeed" class="list"><p class="muted">Loading adaptation feed…</p></div></div></section>
-<section class="section" id="transparency"><div class="wrap"><div class="kicker">SYSTEM TRANSPARENCY</div><h2>What’s working under the hood.</h2><div id="systemLog" class="list"><p class="muted">Loading system log…</p></div><div class="code">PROMPT → data/site-config.json → LIVE SITE</div></div></section>
-<section class="section" id="wrap-up"><div class="wrap"><div class="kicker">HOW IT ALL WORKS</div><h2>From prompt to published work.</h2><div class="code">PROMPT → JSON → SITE → SIGNAL → TRACKER → SYSTEMS STUDIO</div><div class="links"><a class="btn" href="../studio.html">Enter Systems Studio</a></div></div></section>
+<section class="section" id="adaptation-feed"><div class="wrap"><div class="kicker">LIVE ADAPTATION FEED</div><h2>What the system noticed—and did.</h2><div id="adaptationFeed" class="list"><p class="muted">Loading adaptation feed…</p></div></div></section>
 <section id="intel-frame"><iframe class="intel-iframe" src="https://sicairos4.github.io/209-intelligent-site/" title="209 Intelligence" allow="fullscreen"></iframe></section>
 </main>
-<footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • 209 Media Connect • 209Audit • dBeastco Ecosystem • Systems Studio<br><a href="../signal.html">209 Signal</a> • <a href="../209-audit.html">209 Audit</a> • <a href="../cpra-playbook/">CPRA Playbook</a> • <a href="../dbeastco.html">dBeastco Ecosystem</a></div></footer>
+<footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • 209 Media Connect • 209Audit • dBeastco Ecosystem • Systems Studio</div></footer>
 <script src="../assets/site.js"></script>
 <script src="../assets/topbar.js"></script>
 <script src="../assets/experience.js"></script>
-<script src="../assets/live-content.js"></script>
+<script src="../assets/site-data.js"></script>
 <script>
-const SUPABASE_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co';
-const SUPABASE_ANON_KEY='sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN';
+const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'};
+const SB_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1';
 async function fetchAdaptation(){
 try{
-const res=await fetch(SUPABASE_URL+'/rest/v1/adaptation_log?select=*&order=created_at.desc&limit=10',{headers:{apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY}});
-const rows=await res.json();
-document.getElementById('adaptationFeed').innerHTML=rows.length?rows.map(e=>'<div class="feed-item"><strong>'+e.trigger+'</strong><br>'+e.observation+'<br><strong>Decision:</strong> '+e.decision+'<br><strong>Action:</strong> '+e.action+'<br><span class="muted">'+new Date(e.created_at).toLocaleTimeString()+' • '+e.status+'</span></div>').join(''):'<p class="muted">No adaptations logged yet.</p>';
+const rows=await(await fetch(SB_URL+'/adaptation_log?select=*&order=created_at.desc&limit=10',{headers:H})).json();
+document.getElementById('adaptationFeed').innerHTML=rows.length?rows.map(e=>'<div class="feed-item"><strong>'+e.trigger+'</strong><br>'+e.observation+'<br><strong>Decision:</strong> '+e.decision+'<br><strong>Action:</strong> '+e.action+'</div>').join(''):'<p class="muted">No adaptations logged yet.</p>';
 }catch(e){document.getElementById('adaptationFeed').innerHTML='<p class="muted">Feed unavailable.</p>'}
 }
 async function fetchTopPosts(){
 try{
-const res=await fetch(SUPABASE_URL+'/rest/v1/top_posts_48h?select=*&order=engagement_delta.desc&limit=5',{headers:{apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY}});
-const rows=await res.json();
-document.getElementById('topPosts').innerHTML=rows.length?rows.map(p=>'<div class="item"><strong>'+p.title+'</strong> — '+p.platform+'<br><span class="delta-up">+'+p.engagement_delta+'% engagement</span><br><span class="muted">'+p.reason+'</span><br><a href="'+p.url+'">Open post</a></div>').join(''):'<p class="muted">No top posts yet.</p>';
+const rows=await(await fetch(SB_URL+'/top_posts_48h?select=*&order=engagement_delta.desc&limit=5',{headers:H})).json();
+document.getElementById('topPosts').innerHTML=rows.length?rows.map(p=>'<div class="item"><strong>'+p.title+'</strong> — '+p.platform+'<br><span class="delta-up">+'+p.engagement_delta+'% engagement</span></div>').join(''):'<p class="muted">No top posts yet.</p>';
 }catch(e){document.getElementById('topPosts').innerHTML='<p class="muted">Top posts unavailable.</p>'}
 }
-(async function(){
-try{
-const cfg=await window.LiveContent;
-const r=cfg.records||[];
-document.getElementById('intelRecords').innerHTML=r.length?r.map(x=>'<div class="item"><strong>'+x.headline+'</strong><br><span class="muted">'+x.date+' • '+x.source+'</span><br><a href="../'+x.link+'">Open</a></div>').join(''):'<p class="muted">No records yet.</p>';
+window.SITE_READY.then(cfg=>{
+document.getElementById('intelRecords').innerHTML=(cfg.records||[]).map(x=>'<div class="item"><strong>'+x.headline+'</strong><br><span class="muted">'+x.date+' • '+x.source+'</span></div>').join('');
 const sp=cfg.socialPulse||[];
-const now=sp.reduce((a,p)=>a+(p.followers||0),0);
-const then=sp.reduce((a,p)=>a+(p.followers28dAgo||0),0);
-const growth=then>0?((now-then)/then*100):0;
-const pct=Math.max(0,Math.min(100,growth));
-document.getElementById('dialArc').setAttribute('stroke-dashoffset',283-(283*pct/100));
-document.getElementById('dialPct').textContent=(growth>=0?'+':'')+growth.toFixed(1)+'%';
-document.getElementById('dialSummary').textContent=now.toLocaleString()+' total followers now • '+(now-then).toLocaleString()+' gained in the last 28 days';
-document.getElementById('pulseGrid').innerHTML=sp.length?sp.map(p=>{const d=(p.followers||0)-(p.followers28dAgo||0);const cls=d>0?'delta-up':(d<0?'delta-down':'delta-flat');const sign=d>0?'+':'';return '<article class="card"><h3>'+p.name+'</h3><p class="muted">'+p.handle+'</p><p><strong>'+(p.followers||0).toLocaleString()+'</strong> followers<br><span class="'+cls+'">'+sign+d.toLocaleString()+' in 28 days</span></p><p class="muted">Last post: '+p.lastPost.date+'</p><a class="btn ghost" href="'+p.lastPost.url+'" target="_blank" rel="noopener">'+p.lastPost.title+' →</a></article>'}).join(''):'<p class="muted">No channels yet.</p>';
-const pc=cfg.podcasts||[];
-document.getElementById('podcastList').innerHTML=pc.length?pc.map(x=>'<div class="item"><strong>'+x.show+'</strong><br>Latest: '+x.latestEpisode+'<br><a href="'+x.url+'">Listen / Open</a></div>').join(''):'<p class="muted">No podcasts yet.</p>';
-const log=cfg.systemLog||[];
-document.getElementById('systemLog').innerHTML=log.length?log.map(e=>'<div class="item"><strong>'+e.change+'</strong><br><span class="muted">'+e.date+' • '+e.surface+' • '+e.status+'</span></div>').join(''):'<p class="muted">No system changes logged yet.</p>';
-}catch(e){document.getElementById('intelRecords').innerHTML='<p class="muted">Records unavailable.</p>'}
+document.getElementById('pulseGrid').innerHTML=sp.length?sp.map(p=>{const d=(p.followers||0)-(p.followers28dAgo||0);const cls=d>0?'delta-up':(d<0?'delta-down':'delta-flat');return '<article class="card"><h3>'+p.name+'</h3><p><strong>'+(p.followers||0)+'</strong> followers<br><span class="'+cls+'">'+(d>0?'+':'')+d+' in 28 days</span></p><a class="btn ghost" href="'+p.lastPost.url+'">Latest post →</a></article>'}).join(''):'<p class="muted">No channels yet.</p>';
+});
 fetchAdaptation();fetchTopPosts();
-setInterval(fetchAdaptation,60000);
-setInterval(fetchTopPosts,300000);
-})();
+setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);
 </script>
 </body>
 </html>

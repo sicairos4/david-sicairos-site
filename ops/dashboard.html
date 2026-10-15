@@ -4,60 +4,67 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>209 Ops — Admin Console</title>
+<title>209 Ops — Admin</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1100px;margin:0 auto}h1{font-size:24px}h2{font-size:16px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:4px 0}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 0}.muted{color:#667085;font-size:12px}#msg{min-height:18px;font-size:13px}</style>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1100px;margin:0 auto}h1{font-size:22px}h2{font-size:15px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}.muted{color:#667085;font-size:12px}textarea,input{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0;font-family:inherit}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 4px 4px 0}.row{display:flex;gap:8px}.row>*{flex:1}</style>
 </head>
 <body>
 <div class="wrap">
 <h1>209 Ops — Admin Console</h1>
-<p class="muted">Signed in as admin. Changes save to Supabase and go live instantly.</p>
-<div class="panel"><h2>Add Record</h2><input id="rHeadline" placeholder="Headline"><input id="rSource" placeholder="Source (209 Media)"><input id="rLink" placeholder="Link (209-audit.html)"><button onclick="addRecord()">Add Record</button></div>
-<div class="panel"><h2>Featured Story (Hero)</h2><input id="hTitle" placeholder="Title"><input id="hHook" placeholder="Hook"><input id="hLink" placeholder="Link"><button onclick="saveHero()">Save Hero</button></div>
-<div class="panel"><h2>Add Announcement</h2><input id="aTitle" placeholder="Title"><input id="aBody" placeholder="Body"><input id="aLink" placeholder="Link"><button onclick="addAnnouncement()">Add Announcement</button></div>
-<div class="panel"><h2>Add What's Working</h2><input id="wMetric" placeholder="Metric"><input id="wValue" placeholder="Value"><input id="wTrend" placeholder="Trend (up/down/flat)"><input id="wAction" placeholder="Suggested action"><button onclick="addWorking()">Add</button></div>
-<div class="panel"><h2>AI Command Box</h2><textarea id="cmd" rows="3" placeholder="Try: add record: My headline | 209 Media | 209-audit.html\nor: set hero: New title | New hook | 209-audit.html\nor: add announcement: Title | Body | muse.html"></textarea><button onclick="runCmd()">Run Command</button><div id="msg" class="muted"></div></div>
+<p class="muted">Signed in. Edit anything → saves live to Supabase → site updates instantly.</p>
+<div class="panel"><h2>AI Command Box</h2><textarea id="cmd" rows="3" placeholder="Try: add record: Muse shifted to breaking-news hooks\nOr: change muse hero-title to The system behind 209\nOr: set featured hook: Receipts over narratives."></textarea><button onclick="runCmd()">Run Command</button><span id="cmdMsg" class="muted"></span></div>
+<div class="panel"><h2>Records</h2><div class="row"><input id="recHeadline" placeholder="Record headline"><input id="recLink" placeholder="Link (e.g. 209-audit.html)"></div><button onclick="addRecord()">Add Record</button><div id="recList"></div></div>
+<div class="panel"><h2>Featured Story</h2><input id="featTitle" placeholder="Title"><input id="featHook" placeholder="Hook"><button onclick="saveFeatured()">Save Featured</button></div>
+<div class="panel"><h2>Page Element Overrides</h2><div class="row"><input id="ovPage" placeholder="Page (e.g. muse)"><input id="ovId" placeholder="Element ID (e.g. hero-title)"><input id="ovText" placeholder="New text"></div><button onclick="saveOverride()">Save Override</button><div id="ovList"></div></div>
+<div class="panel"><h2>AI Handoffs</h2><div id="handoffs">Loading…</div></div>
 </div>
 <script>
-const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
-sb.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html'});
-async function save(key,value){
-const{error}=await sb.from('site_content').upsert({key:key,value:value});
-document.getElementById('msg').textContent=error?('Error: '+error.message):('Saved: '+key+' — live immediately.');
-if(!error)setTimeout(()=>document.getElementById('msg').textContent='',4000);
-return !error;
-}
+const SB=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
+SB.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html'});
+const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Content-Type':'application/json'};
+const URL='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1';
+async function getConfig(){const r=await(await fetch(URL+'/rest/v1/site_content?key=eq.site_config',{headers:H})).json();return r[0]?r[0].value:null}
+async function saveConfig(cfg){await fetch(URL+'/rest/v1/site_content',{method:'POST',headers:{...H,Prefer:'resolution=merge-duplicates'},body:JSON.stringify({key:'site_config',value:cfg})})}
+async function getOverrides(){const r=await(await fetch(URL+'/rest/v1/site_content?key=eq.page_overrides',{headers:H})).json();return r[0]?r[0].value:{}}
+async function saveOverrides(o){await fetch(URL+'/rest/v1/site_content',{method:'POST',headers:{...H,Prefer:'resolution=merge-duplicates'},body:JSON.stringify({key:'page_overrides',value:o})})}
 async function addRecord(){
-const res=await fetch('../data/site-config.json');const cfg=await res.json();
-const records=cfg.records||[];
-records.unshift({headline:rHeadline.value,date:new Date().toISOString().slice(0,10),source:rSource.value||'209 Media',link:rLink.value||'209-audit.html'});
-if(await save('records',records)){rHeadline.value=rSource.value=rLink.value='';}
+const cfg=await getConfig()||{};cfg.records=cfg.records||[];
+cfg.records.unshift({headline:recHeadline.value,date:new Date().toISOString().slice(0,10),source:'209 Media',link:recLink.value||'209-audit.html'});
+await saveConfig(cfg);recHeadline.value='';recLink.value='';renderRecords(cfg);cmdMsg.textContent='Record added — live.';
 }
-async function saveHero(){
-if(await save('featuredStory',{title:hTitle.value,hook:hHook.value,link:hLink.value||'209-audit.html'})){hTitle.value=hHook.value=hLink.value='';}
+async function saveFeatured(){
+const cfg=await getConfig()||{};cfg.featuredStory={title:featTitle.value,hook:featHook.value,link:'209-audit.html'};
+await saveConfig(cfg);cmdMsg.textContent='Featured story saved — live.';
 }
-async function addAnnouncement(){
-const res=await fetch('../data/site-config.json');const cfg=await res.json();
-const list=cfg.announcements||[];
-list.unshift({title:aTitle.value,body:aBody.value,link:aLink.value||'muse.html'});
-if(await save('announcements',list)){aTitle.value=aBody.value=aLink.value='';}
-}
-async function addWorking(){
-const res=await fetch('../data/site-config.json');const cfg=await res.json();
-const list=cfg.whatsWorking||[];
-list.unshift({metric:wMetric.value,value:wValue.value,trend:wTrend.value||'flat',action:wAction.value});
-if(await save('whatsWorking',list)){wMetric.value=wValue.value=wTrend.value=wAction.value='';}
+async function saveOverride(){
+const o=await getOverrides();o[ovPage.value]=o[ovPage.value]||{};o[ovPage.value][ovId.value]=ovText.value;
+await fetch(URL+'/rest/v1/site_content',{method:'POST',headers:{...H,Prefer:'resolution=merge-duplicates'},body:JSON.stringify({key:'page_overrides',value:o})});
+cmdMsg.textContent='Override saved — live.';renderOverrides(o);
 }
 async function runCmd(){
 const c=cmd.value.trim();if(!c)return;
-const parts=c.split(':');const action=parts[0].trim().toLowerCase();const rest=parts.slice(1).join(':').split('|').map(s=>s.trim());
-if(action==='add record'&&rest.length>=1){rHeadline.value=rest[0];rSource.value=rest[1]||'209 Media';rLink.value=rest[2]||'209-audit.html';await addRecord();}
-else if(action==='set hero'&&rest.length>=2){hTitle.value=rest[0];hHook.value=rest[1];hLink.value=rest[2]||'209-audit.html';await saveHero();}
-else if(action==='add announcement'&&rest.length>=2){aTitle.value=rest[0];aBody.value=rest[1];aLink.value=rest[2]||'muse.html';await addAnnouncement();}
-else if(action==='add whatsworking'&&rest.length>=3){wMetric.value=rest[0];wValue.value=rest[1];wTrend.value=rest[2];wAction.value=rest[3]||'';await addWorking();}
-else{await save('ai_handoff_pending',{prompt:c,created:new Date().toISOString()});}
-cmd.value='';
+const low=c.toLowerCase();
+if(low.startsWith('add record:')){recHeadline.value=c.slice(11).trim();await addRecord();}
+else if(low.startsWith('set featured hook:')){featHook.value=c.slice(18).trim();await saveFeatured();}
+else if(low.startsWith('change ')){
+const m=c.match(/change (\w+) ([\w-]+) to (.+)/i);
+if(m){ovPage.value=m[1];ovId.value=m[2];ovText.value=m[3];await saveOverride();}
+}else{
+await SB.from('ai_handoffs').insert({cycle_id:Date.now()+'',from_ai:'You',to_ai:'Muse',input_summary:c,decision:'Queued for Muse/Gemini cycle',output_summary:'Pending'});
 }
+cmd.value='';loadHandoffs();
+}
+async function renderRecords(cfg){
+const list=document.getElementById('recList');
+list.innerHTML=(cfg.records||[]).map((r,i)=>'<div class="item">'+r.headline+' <button onclick="delRecord('+i+')">x</button></div>').join('');
+}
+async function delRecord(i){const cfg=await getConfig();cfg.records.splice(i,1);await saveConfig(cfg);renderRecords(cfg);}
+async function renderOverrides(o){document.getElementById('ovList').innerHTML=Object.entries(o).map(([p,els])=>Object.entries(els).map(([id,t])=>'<div class="item">'+p+' • '+id+' → '+t+'</div>').join('')).join('');}
+async function loadHandoffs(){
+const rows=await(await fetch(URL+'/rest/v1/ai_handoffs?select=*&order=created_at.desc&limit=10',{headers:H})).json();
+document.getElementById('handoffs').innerHTML=rows.length?rows.map(r=>'<div class="item"><strong>'+r.from_ai+' → '+r.to_ai+'</strong><br>'+r.input_summary+'</div>').join(''):'<p class="muted">No handoffs yet.</p>';
+}
+(async()=>{const cfg=await getConfig();if(cfg)renderRecords(cfg);renderOverrides(await getOverrides());loadHandoffs();})();
 </script>
 </body>
 </html>
