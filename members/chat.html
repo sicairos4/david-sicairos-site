@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>209 Members — Community Chat</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:700px;margin:0 auto}h1{font-size:22px}.card{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}.msg{display:flex;gap:10px;margin-bottom:12px}.msg img{width:36px;height:36px;border-radius:50%;object-fit:cover}.msg .bubble{background:#fff;border-radius:10px;padding:10px 14px;box-shadow:0 1px 4px rgba(0,0,0,.05);font-size:14px}.muted{color:#667085;font-size:12px}input{width:100%;padding:12px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box}button{padding:12px 20px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin-top:8px}</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Community Chat</h1>
+<p class="muted">General room — all members + David.</p>
+<div class="card" id="messages"><p class="muted">Loading chat…</p></div>
+<div class="card">
+<input id="msg" placeholder="Type a message…" onkeydown="if(event.key==='Enter')send()">
+<button onclick="send()">Send</button>
+</div>
+<a class="muted" href="dashboard.html">← Back to dashboard</a>
+</div>
+<script>
+const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
+let me=null;
+sb.auth.getSession().then(async({data})=>{
+if(!data.session){location.href='index.html';return}
+me=data.session.user;
+const{data:profile}=await sb.from('profiles').select('display_name,avatar_url').eq('user_id',me.id).single();
+me.displayName=(profile&&profile.display_name)||me.email;
+me.avatar=(profile&&profile.avatar_url)||'';
+load();setInterval(load,5000);
+});
+async function load(){
+const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/community_messages?select=*&order=created_at.asc&limit=50',{headers:{apikey:'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN',Authorization:'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'}})).json();
+document.getElementById('messages').innerHTML=rows.length?rows.map(m=>'<div class="msg"><img src="'+(m.avatar_url||'')+'" onerror="this.style.display=\'none\'"><div><strong>'+(m.display_name||m.email)+'</strong><div class="muted">'+new Date(m.created_at).toLocaleTimeString()+'</div><div class="bubble">'+m.message+'</div></div></div>').join(''):'<p class="muted">No messages yet—say hello.</p>';
+}
+async function send(){
+const t=document.getElementById('msg').value;
+if(!t)return;
+await sb.from('community_messages').insert({user_id:me.id,email:me.email,display_name:me.displayName,avatar_url:me.avatar,message:t});
+document.getElementById('msg').value='';load();
+}
+</script>
+</body>
+</html>
