@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {"name": "Beehiiv", "status": "PENDING", "last_sync": null},
+    {"name": "GA4", "status": "PENDING", "last_sync": null},
+    {"name": "YouTube", "status": "PENDING", "last_sync": null},
+    {"name": "Meta", "status": "PENDING", "last_sync": null}
+  ],
+  "first_shift": {
+    "status": "WAITING",
+    "threshold": {"min_sample": 100, "lift_threshold": 20},
+    "eta": "24-48h after first real data sync"
+  }
+}
