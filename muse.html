@@ -31,16 +31,21 @@
 <script src="assets/experience.js"></script>
 <script src="assets/live-content.js"></script>
 <script>
-function render(cfg){
+(async function(){
+try{
+const cfg=await window.LiveContent;
 const s=cfg.museStatus||{};
-document.getElementById('museStatus').innerHTML='<div class="item"><strong>'+(s.state||'Connected')+'</strong><br><span class="muted">Last run: '+(s.lastRun||'—')+'</span><br>Next action: '+(s.nextAction||'—')+'</div>';
+document.getElementById('museStatus').innerHTML='<div class="item"><strong>'+s.state+'</strong><br><span class="muted">Last run: '+s.lastRun+'</span><br>Next action: '+s.nextAction+'</div>';
 const w=cfg.whatsWorking||[];
 document.getElementById('whatsWorking').innerHTML=w.length?w.map(x=>'<div class="item"><strong>'+x.metric+'</strong> — '+x.value+' <span class="muted">('+x.trend+')</span><br>Action: '+x.action+'</div>').join(''):'<p class="muted">No analytics yet.</p>';
 const a=cfg.announcements||[];
 document.getElementById('announcementList').innerHTML=a.length?a.map(x=>'<div class="item"><strong>'+x.title+'</strong><br>'+x.body+'<br><a href="'+x.link+'">Open</a></div>').join(''):'<p class="muted">No announcements yet.</p>';
+}catch(e){
+document.getElementById('museStatus').innerHTML='<p class="muted">Status unavailable.</p>';
+document.getElementById('whatsWorking').innerHTML='<p class="muted">Analytics unavailable.</p>';
+document.getElementById('announcementList').innerHTML='<p class="muted">Announcements unavailable.</p>';
 }
-document.addEventListener('site-config-ready',e=>render(e.detail));
-if(window.SITE_CONFIG)render(window.SITE_CONFIG);
+})();
 </script>
 </body>
 </html>

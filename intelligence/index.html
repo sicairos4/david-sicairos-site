@@ -23,16 +23,31 @@
 <section class="section" id="wrap-up"><div class="wrap"><div class="kicker">HOW IT ALL WORKS</div><h2>From prompt to published work.</h2><div class="code">PROMPT → JSON → SITE → SIGNAL → TRACKER → SYSTEMS STUDIO</div><div class="links"><a class="btn" href="../studio.html">Enter Systems Studio</a></div></div></section>
 <section id="intel-frame"><iframe class="intel-iframe" src="https://sicairos4.github.io/209-intelligent-site/" title="209 Intelligence" allow="fullscreen"></iframe></section>
 </main>
-<footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • 209 Media Connect • 209Audit • dBeastco Ecosystem • Systems Studio<br><a href="../signal.html">209 Signal</a> • <a href="../209-audit.html">209 Audit</a> • <a href="../cpra-playbook/">CPRA Playbook</a> • <a href="dbeastco.html">dBeastco Ecosystem</a></div></footer>
+<footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • 209 Media Connect • 209Audit • dBeastco Ecosystem • Systems Studio<br><a href="../signal.html">209 Signal</a> • <a href="../209-audit.html">209 Audit</a> • <a href="../cpra-playbook/">CPRA Playbook</a> • <a href="../dbeastco.html">dBeastco Ecosystem</a></div></footer>
 <script src="../assets/site.js"></script>
 <script src="../assets/topbar.js"></script>
 <script src="../assets/experience.js"></script>
 <script src="../assets/live-content.js"></script>
 <script>
-const SB_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co';
-const SB_KEY='sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN';
-const H={'apikey':SB_KEY,'Authorization':'Bearer '+SB_KEY};
-function render(cfg){
+const SUPABASE_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co';
+const SUPABASE_ANON_KEY='sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN';
+async function fetchAdaptation(){
+try{
+const res=await fetch(SUPABASE_URL+'/rest/v1/adaptation_log?select=*&order=created_at.desc&limit=10',{headers:{apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY}});
+const rows=await res.json();
+document.getElementById('adaptationFeed').innerHTML=rows.length?rows.map(e=>'<div class="feed-item"><strong>'+e.trigger+'</strong><br>'+e.observation+'<br><strong>Decision:</strong> '+e.decision+'<br><strong>Action:</strong> '+e.action+'<br><span class="muted">'+new Date(e.created_at).toLocaleTimeString()+' • '+e.status+'</span></div>').join(''):'<p class="muted">No adaptations logged yet.</p>';
+}catch(e){document.getElementById('adaptationFeed').innerHTML='<p class="muted">Feed unavailable.</p>'}
+}
+async function fetchTopPosts(){
+try{
+const res=await fetch(SUPABASE_URL+'/rest/v1/top_posts_48h?select=*&order=engagement_delta.desc&limit=5',{headers:{apikey:SUPABASE_ANON_KEY,Authorization:'Bearer '+SUPABASE_ANON_KEY}});
+const rows=await res.json();
+document.getElementById('topPosts').innerHTML=rows.length?rows.map(p=>'<div class="item"><strong>'+p.title+'</strong> — '+p.platform+'<br><span class="delta-up">+'+p.engagement_delta+'% engagement</span><br><span class="muted">'+p.reason+'</span><br><a href="'+p.url+'">Open post</a></div>').join(''):'<p class="muted">No top posts yet.</p>';
+}catch(e){document.getElementById('topPosts').innerHTML='<p class="muted">Top posts unavailable.</p>'}
+}
+(async function(){
+try{
+const cfg=await window.LiveContent;
 const r=cfg.records||[];
 document.getElementById('intelRecords').innerHTML=r.length?r.map(x=>'<div class="item"><strong>'+x.headline+'</strong><br><span class="muted">'+x.date+' • '+x.source+'</span><br><a href="../'+x.link+'">Open</a></div>').join(''):'<p class="muted">No records yet.</p>';
 const sp=cfg.socialPulse||[];
@@ -48,25 +63,11 @@ const pc=cfg.podcasts||[];
 document.getElementById('podcastList').innerHTML=pc.length?pc.map(x=>'<div class="item"><strong>'+x.show+'</strong><br>Latest: '+x.latestEpisode+'<br><a href="'+x.url+'">Listen / Open</a></div>').join(''):'<p class="muted">No podcasts yet.</p>';
 const log=cfg.systemLog||[];
 document.getElementById('systemLog').innerHTML=log.length?log.map(e=>'<div class="item"><strong>'+e.change+'</strong><br><span class="muted">'+e.date+' • '+e.surface+' • '+e.status+'</span></div>').join(''):'<p class="muted">No system changes logged yet.</p>';
-}
-document.addEventListener('site-config-ready',e=>render(e.detail));
-if(window.SITE_CONFIG)render(window.SITE_CONFIG);
-async function fetchAdaptation(){
-try{
-const res=await fetch(SB_URL+'/rest/v1/adaptation_log?select=*&order=created_at.desc&limit=10',{headers:H});
-const rows=await res.json();
-document.getElementById('adaptationFeed').innerHTML=rows.length?rows.map(e=>'<div class="feed-item"><strong>'+e.trigger+'</strong><br>'+e.observation+'<br><strong>Decision:</strong> '+e.decision+'<br><strong>Action:</strong> '+e.action+'<br><span class="muted">'+new Date(e.created_at).toLocaleTimeString()+' • '+e.status+'</span></div>').join(''):'<p class="muted">No adaptations logged yet.</p>';
-}catch(e){document.getElementById('adaptationFeed').innerHTML='<p class="muted">Feed unavailable.</p>'}
-}
-async function fetchTopPosts(){
-try{
-const res=await fetch(SB_URL+'/rest/v1/top_posts_48h?select=*&order=engagement_delta.desc&limit=5',{headers:H});
-const rows=await res.json();
-document.getElementById('topPosts').innerHTML=rows.length?rows.map(p=>'<div class="item"><strong>'+p.title+'</strong> — '+p.platform+'<br><span class="delta-up">+'+p.engagement_delta+'% engagement</span><br><span class="muted">'+p.reason+'</span><br><a href="'+p.url+'">Open post</a></div>').join(''):'<p class="muted">No top posts yet.</p>';
-}catch(e){document.getElementById('topPosts').innerHTML='<p class="muted">Top posts unavailable.</p>'}
-}
+}catch(e){document.getElementById('intelRecords').innerHTML='<p class="muted">Records unavailable.</p>'}
 fetchAdaptation();fetchTopPosts();
-setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);
+setInterval(fetchAdaptation,60000);
+setInterval(fetchTopPosts,300000);
+})();
 </script>
 </body>
 </html>

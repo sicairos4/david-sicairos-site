@@ -6,69 +6,58 @@
 <meta name="robots" content="noindex,nofollow">
 <title>209 Ops — Admin Console</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1000px;margin:0 auto}h1{font-size:24px}h2{font-size:16px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 0}.muted{color:#667085;font-size:12px}#msg{min-height:18px;font-size:13px}</style>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1100px;margin:0 auto}h1{font-size:24px}h2{font-size:16px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:4px 0}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 0}.muted{color:#667085;font-size:12px}#msg{min-height:18px;font-size:13px}</style>
 </head>
 <body>
 <div class="wrap">
 <h1>209 Ops — Admin Console</h1>
-<p class="muted">Signed in. Edit anything, save live, or type a command for the AI.</p>
-<button onclick="logout()">Sign Out</button>
-<div class="panel"><h2>Featured Story (Homepage Hero)</h2><input id="heroTitle" placeholder="Hero title"><input id="heroHook" placeholder="Hero subtitle"><button onclick="saveFeatured()">Save Featured Story</button></div>
-<div class="panel"><h2>Add Record</h2><input id="recHeadline" placeholder="Record headline"><input id="recLink" placeholder="Link (e.g. 209-audit.html)"><button onclick="addRecord()">Add Record</button></div>
-<div class="panel"><h2>Add Announcement</h2><input id="annTitle" placeholder="Title"><input id="annBody" placeholder="Body"><button onclick="addAnnouncement()">Add Announcement</button></div>
-<div class="panel"><h2>Log a Shift</h2><input id="shiftText" placeholder="e.g. Engagement up on Threads — shift to accountability hooks"><button onclick="logShift()">Log Shift</button></div>
-<div class="panel"><h2>AI Command Box</h2><textarea id="ai" rows="3" placeholder="Type a command: add record: ... | set hero: ... | add announcement: Title | Body | shift: ..."></textarea><button onclick="runAI()">Run Command</button><div id="msg" class="muted"></div></div>
+<p class="muted">Signed in as admin. Changes save to Supabase and go live instantly.</p>
+<div class="panel"><h2>Add Record</h2><input id="rHeadline" placeholder="Headline"><input id="rSource" placeholder="Source (209 Media)"><input id="rLink" placeholder="Link (209-audit.html)"><button onclick="addRecord()">Add Record</button></div>
+<div class="panel"><h2>Featured Story (Hero)</h2><input id="hTitle" placeholder="Title"><input id="hHook" placeholder="Hook"><input id="hLink" placeholder="Link"><button onclick="saveHero()">Save Hero</button></div>
+<div class="panel"><h2>Add Announcement</h2><input id="aTitle" placeholder="Title"><input id="aBody" placeholder="Body"><input id="aLink" placeholder="Link"><button onclick="addAnnouncement()">Add Announcement</button></div>
+<div class="panel"><h2>Add What's Working</h2><input id="wMetric" placeholder="Metric"><input id="wValue" placeholder="Value"><input id="wTrend" placeholder="Trend (up/down/flat)"><input id="wAction" placeholder="Suggested action"><button onclick="addWorking()">Add</button></div>
+<div class="panel"><h2>AI Command Box</h2><textarea id="cmd" rows="3" placeholder="Try: add record: My headline | 209 Media | 209-audit.html\nor: set hero: New title | New hook | 209-audit.html\nor: add announcement: Title | Body | muse.html"></textarea><button onclick="runCmd()">Run Command</button><div id="msg" class="muted"></div></div>
 </div>
 <script>
 const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
-sb.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html';else load();});
-async function upsert(key,value){
-const{error}=await sb.from('site_content').upsert({key,value});
-document.getElementById('msg').textContent=error?('Error: '+error.message):'Saved live.';
-if(!error)load();
-}
-async function load(){
-const{data}=await sb.from('site_content').select('*');
-const map={};(data||[]).forEach(r=>map[r.key]=r.value);
-const cfg=map.featuredStory||{};
-heroTitle.value=cfg.title||'';heroHook.value=cfg.hook||'';
-}
-async function saveFeatured(){
-await upsert('featuredStory',{title:heroTitle.value,hook:heroHook.value,link:'209-audit.html'});
+sb.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html'});
+async function save(key,value){
+const{error}=await sb.from('site_content').upsert({key:key,value:value});
+document.getElementById('msg').textContent=error?('Error: '+error.message):('Saved: '+key+' — live immediately.');
+if(!error)setTimeout(()=>document.getElementById('msg').textContent='',4000);
+return !error;
 }
 async function addRecord(){
-const{data}=await sb.from('site_content').select('*').eq('key','records').maybeSingle();
-const recs=(data&&data.value)||[];
-recs.push({headline:recHeadline.value,date:new Date().toISOString().slice(0,10),source:'209 Media',link:recLink.value||'209-audit.html'});
-await upsert('records',recs);recHeadline.value='';recLink.value='';
+const res=await fetch('../data/site-config.json');const cfg=await res.json();
+const records=cfg.records||[];
+records.unshift({headline:rHeadline.value,date:new Date().toISOString().slice(0,10),source:rSource.value||'209 Media',link:rLink.value||'209-audit.html'});
+if(await save('records',records)){rHeadline.value=rSource.value=rLink.value='';}
+}
+async function saveHero(){
+if(await save('featuredStory',{title:hTitle.value,hook:hHook.value,link:hLink.value||'209-audit.html'})){hTitle.value=hHook.value=hLink.value='';}
 }
 async function addAnnouncement(){
-const{data}=await sb.from('site_content').select('*').eq('key','announcements').maybeSingle();
-const anns=(data&&data.value)||[];
-anns.push({title:annTitle.value,body:annBody.value,link:'muse.html'});
-await upsert('announcements',anns);annTitle.value='';annBody.value='';
+const res=await fetch('../data/site-config.json');const cfg=await res.json();
+const list=cfg.announcements||[];
+list.unshift({title:aTitle.value,body:aBody.value,link:aLink.value||'muse.html'});
+if(await save('announcements',list)){aTitle.value=aBody.value=aLink.value='';}
 }
-async function logShift(){
-await sb.from('adaptation_log').insert({trigger:'Manual shift',observation:shiftText.value,decision:'Apply shift',action:shiftText.value,status:'Applied',platform:'All'});
-const{data}=await sb.from('site_content').select('*').eq('key','whatsWorking').maybeSingle();
-const w=(data&&data.value)||[];
-w.push({metric:'Manual shift',value:shiftText.value,trend:'up',action:shiftText.value});
-await upsert('whatsWorking',w);shiftText.value='';
+async function addWorking(){
+const res=await fetch('../data/site-config.json');const cfg=await res.json();
+const list=cfg.whatsWorking||[];
+list.unshift({metric:wMetric.value,value:wValue.value,trend:wTrend.value||'flat',action:wAction.value});
+if(await save('whatsWorking',list)){wMetric.value=wValue.value=wTrend.value=wAction.value='';}
 }
-async function runAI(){
-const p=ai.value.trim();if(!p)return;
-const addRec=p.match(/^add record:\s*(.+)/i);
-const setHero=p.match(/^set hero:\s*(.+)/i);
-const addAnn=p.match(/^add announcement:\s*(.+)/i);
-const shift=p.match(/^shift:\s*(.+)/i);
-if(addRec){recHeadline.value=addRec[1];recLink.value='209-audit.html';await addRecord();}
-else if(setHero){heroTitle.value=setHero[1];await saveFeatured();}
-else if(addAnn){const parts=addAnn[1].split('|');annTitle.value=parts[0].trim();annBody.value=(parts[1]||'').trim();await addAnnouncement();}
-else if(shift){shiftText.value=shift[1];await logShift();}
-else{await sb.from('ai_handoffs').insert({cycle_id:Date.now()+'',from_ai:'You',to_ai:'Muse',input_summary:p,decision:'Queued for next cycle',output_summary:'Pending'});}
-ai.value='';
+async function runCmd(){
+const c=cmd.value.trim();if(!c)return;
+const parts=c.split(':');const action=parts[0].trim().toLowerCase();const rest=parts.slice(1).join(':').split('|').map(s=>s.trim());
+if(action==='add record'&&rest.length>=1){rHeadline.value=rest[0];rSource.value=rest[1]||'209 Media';rLink.value=rest[2]||'209-audit.html';await addRecord();}
+else if(action==='set hero'&&rest.length>=2){hTitle.value=rest[0];hHook.value=rest[1];hLink.value=rest[2]||'209-audit.html';await saveHero();}
+else if(action==='add announcement'&&rest.length>=2){aTitle.value=rest[0];aBody.value=rest[1];aLink.value=rest[2]||'muse.html';await addAnnouncement();}
+else if(action==='add whatsworking'&&rest.length>=3){wMetric.value=rest[0];wValue.value=rest[1];wTrend.value=rest[2];wAction.value=rest[3]||'';await addWorking();}
+else{await save('ai_handoff_pending',{prompt:c,created:new Date().toISOString()});}
+cmd.value='';
 }
-async function logout(){await sb.auth.signOut();location.href='index.html';}
 </script>
 </body>
 </html>
