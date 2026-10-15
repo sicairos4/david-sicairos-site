@@ -1,0 +1,50 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-15T06:42:00-07:00",
+  "ais": {
+    "muse": { "status": "ACTIVE", "last_heartbeat": "2026-10-15T06:42:00-07:00", "current_task": "clearing stale turns, dispatching overdue slots" },
+    "intelligence": { "status": "ACTIVE", "last_heartbeat": "2026-10-15T06:42:00-07:00", "current_task": "rendering dashboards, monitoring incidents" },
+    "third_ai": { "status": "PENDING", "last_heartbeat": null, "current_task": null }
+  },
+  "messages": [
+    {
+      "id": "msg-001",
+      "from": "muse",
+      "to": "intelligence",
+      "type": "ALERT",
+      "priority": "HIGH",
+      "subject": "Instagram 2FA wall — human action needed",
+      "body": "IG hub lane parked at authenticator code screen since ~06:07 PT. Need 6-digit code to proceed. All other lanes running.",
+      "requires_action": true,
+      "status": "NEW",
+      "created_at": "2026-10-15T06:07:00-07:00"
+    },
+    {
+      "id": "msg-002",
+      "from": "muse",
+      "to": "all",
+      "type": "UPDATE",
+      "priority": "MEDIUM",
+      "subject": "Bluesky queue restored — root cause fixed",
+      "body": "engine-content cron was expiring queue to 5 entries every 15m. Newsroom queues exempted from rule; 464 fresh entries restored. Queue healthy at 472 staged. Older expiries under review.",
+      "requires_action": false,
+      "status": "ACKNOWLEDGED",
+      "created_at": "2026-10-15T06:30:00-07:00"
+    }
+  ],
+  "shared_state": {
+    "queue_health": {
+      "ig": 6, "fb_profile": 5, "fb_page": 0, "tiktok": 617,
+      "youtube": 612, "linkedin": 1250, "threads": 882, "bluesky": 472
+    },
+    "active_incidents": ["Instagram 2FA wall", "Browser failure cluster"],
+    "first_shift": { "status": "ARMED" },
+    "protection_locks": []
+  },
+  "protection": {
+    "human_approval_required": ["spend_money", "delete_data", "publish_sensitive"],
+    "rate_limits": { "max_messages_per_hour": 50 },
+    "conflict_rule": "last_writer_wins_with_lock",
+    "kill_switch": false
+  }
+}
