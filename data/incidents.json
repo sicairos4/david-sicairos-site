@@ -1,0 +1,28 @@
+[
+  {
+    "date": "2026-10-15",
+    "title": "Bluesky queue mass-expiry",
+    "severity": "HIGH",
+    "cause": "engine-content cron was expiring the Bluesky queue down to 5 entries every 15 minutes",
+    "fix": "Exempted newsroom queues from the expiry rule; restored 464 fresh entries from the prior day",
+    "status": "RESOLVED",
+    "queue_after": "472 staged",
+    "note": "Older expiries still under review"
+  },
+  {
+    "date": "2026-10-14",
+    "title": "Browser failure cluster",
+    "severity": "HIGH",
+    "cause": "~19:04 PT cluster took out three dispatches at once (IG Ventura, FB press-ban, FB Page if70); several cron turns reported success without actually executing",
+    "fix": "Detected via metrics pass; recommended verification separation and stalled-job detection",
+    "status": "UNDER REVIEW"
+  },
+  {
+    "date": "2026-10-15",
+    "title": "Instagram 2FA wall",
+    "severity": "MEDIUM",
+    "cause": "Hub lane parked at authenticator code screen at ~06:07 PT",
+    "fix": "Awaiting manual 6-digit code entry; all other lanes continue running",
+    "status": "OPEN"
+  }
+]

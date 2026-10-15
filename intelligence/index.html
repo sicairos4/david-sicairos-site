@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>209 Intelligence — 209 Media</title>
-<meta name="description" content="209 Intelligence — live analytics, adaptation recommendations, amplification calendar, and Muse data feeds for 209 Media.">
+<meta name="description" content="209 Intelligence — live analytics, adaptation recommendations, amplification calendar, Muse data feeds, and incident log for 209 Media.">
 <meta property="og:title" content="209 Intelligence — 209 Media">
-<meta property="og:description" content="Live analytics, recommendations, amplification calendar, and Muse data feeds.">
+<meta property="og:description" content="Live analytics, recommendations, amplification calendar, Muse data feeds, and incident log.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sicairos4.github.io/david-sicairos-site/intelligence/">
 <meta property="og:image" content="https://sicairos4.github.io/david-sicairos-site/favicon.svg">
@@ -19,11 +19,12 @@
 <link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
-<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}.shift-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.pipe-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.pipe-connected{border-color:#1a7f37}.pipe-pending{border-color:#b42318}.muse-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.muse-breach{border-color:#b42318}.muse-ok{border-color:#1a7f37}</style>
+<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}.shift-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.pipe-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.pipe-connected{border-color:#1a7f37}.pipe-pending{border-color:#b42318}.muse-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.muse-breach{border-color:#b42318}.muse-ok{border-color:#1a7f37}.inc-open{border-color:#b42318}.inc-under-review{border-color:#b42318}.inc-resolved{border-color:#1a7f37}</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
 <main>
+<section class="section" id="incidents"><div class="wrap"><div class="kicker">INCIDENT LOG — OPERATIONAL EVENTS</div><h2>What broke. What's fixed. What's open.</h2><div id="incList" class="list"><p class="muted">Loading incidents…</p></div></div></section>
 <section class="section" id="muse-morning"><div class="wrap"><div class="kicker">MUSE MORNING REPORT — VERIFIED PUBLISHING</div><h2>12h window: Oct 14 5:19pm → Oct 15 5:19am PT.</h2><div id="museList" class="list"><p class="muted">Loading Muse report…</p></div></div></section>
 <section class="section" id="intel-records"><div class="wrap"><div class="kicker">209 INTELLIGENCE</div><h2>Latest records</h2><div id="intelRecords" class="list"><p class="muted">Loading records…</p></div></div></section>
 <section class="section" id="social-pulse"><div class="wrap"><div class="kicker">SOCIAL PULSE</div><h2>Channels, posts, and 28-day growth.</h2><div id="pulseGrid" class="pulse-grid"><p class="muted">Loading channels…</p></div></div></section>
@@ -44,6 +45,14 @@
 <script>
 const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'};
 const SB_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1';
+async function fetchIncidents(){
+try{
+const r=await fetch('../data/incidents.json');
+if(!r.ok)throw new Error('HTTP '+r.status);
+const rows=await r.json();
+document.getElementById('incList').innerHTML=rows.length?rows.map(e=>{const cls='inc-'+e.status.toLowerCase().replace(/ /g,'-');return '<div class="item '+cls+'"><strong>'+e.title+'</strong> — '+e.severity+'<br><span class="muted">'+e.date+' • Status: '+e.status+'</span><br>Cause: '+e.cause+'<br>Fix: '+e.fix+(e.queue_after?'<br>Queue after: '+e.queue_after:'')+(e.note?'<br><span class="muted">'+e.note+'</span>':'')+'</div>'}).join(''):'<p class="muted">No incidents logged.</p>';
+}catch(e){document.getElementById('incList').innerHTML='<p class="muted">Incident log is temporarily unavailable.</p>'}
+}
 async function fetchMuse(){
 try{
 const r=await fetch('../data/muse-morning.json');
@@ -119,8 +128,8 @@ document.getElementById('pulseGrid').innerHTML=sp.length?sp.map(p=>{const d=(p.f
 document.getElementById('intelRecords').innerHTML='<p class="muted">Records are temporarily unavailable.</p>';
 document.getElementById('pulseGrid').innerHTML='<p class="muted">Social Pulse is temporarily unavailable.</p>';
 });
-fetchMuse();fetchAdaptation();fetchTopPosts();fetchAnalytics();fetchCalendar();fetchShift();fetchPipeline();
-setInterval(fetchMuse,300000);setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);setInterval(fetchAnalytics,300000);setInterval(fetchCalendar,300000);setInterval(fetchShift,300000);setInterval(fetchPipeline,300000);
+fetchIncidents();fetchMuse();fetchAdaptation();fetchTopPosts();fetchAnalytics();fetchCalendar();fetchShift();fetchPipeline();
+setInterval(fetchIncidents,300000);setInterval(fetchMuse,300000);setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);setInterval(fetchAnalytics,300000);setInterval(fetchCalendar,300000);setInterval(fetchShift,300000);setInterval(fetchPipeline,300000);
 </script>
 </body>
 </html>
