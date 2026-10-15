@@ -11,16 +11,29 @@
 <link rel="stylesheet" href="assets/mobile.css">
 <style>
 .store-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0}
-.store-nav a{padding:10px 16px;border:1px solid #b8c8bf;border-radius:999px;text-decoration:none;color:inherit}
-.store-section{scroll-margin-top:80px}
-.store-section h2{margin-top:0}
+.store-menu{position:relative}
+.store-menu summary{list-style:none;cursor:pointer;padding:10px 16px;border:1px solid #b8c8bf;border-radius:999px;font:inherit;color:inherit}
+.store-menu summary::-webkit-details-marker{display:none}
+.store-menu[open] summary{background:#e1eee5}
+.store-menu .menu-panel{position:absolute;top:calc(100% + 6px);left:0;min-width:240px;background:var(--panel,#fff);border:1px solid #dfe7e1;border-radius:12px;padding:8px;z-index:20}
+.store-menu .menu-panel a{display:block;padding:10px;color:inherit;text-decoration:none;border-radius:8px}
+.store-menu .menu-panel a:hover{background:#f2f6f3}
+.store-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.store-section{scroll-margin-top:80px;padding:32px 0}
+.store-section h2{margin-top:8px}
 .brand-tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#e1eee5;color:#175c42;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:640px){.store-nav{flex-direction:column;align-items:stretch}.store-menu .menu-panel{position:static;width:100%;min-width:0}.store-section{padding:24px 0}.store-card{padding:16px}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="David Sicairos home">DAVID <span>SICAIROS</span></a><nav class="nav"></nav></div></header>
 <main>
-<section class="store-hero"><div class="wrap"><div class="kicker">ALL PRODUCTS</div><h1>Build, Align, and Perform</h1><p>One store for the complete 209 ecosystem. Browse by brand: wellness from dBeastco, creator and business systems from Systems Studio, realignment tools from The Realignment Room, and learning pathways from Sovereign University.</p><nav class="store-nav" aria-label="Store sections"><a href="#wellness">dBeastco Wellness</a><a href="#systems">Systems Studio</a><a href="#realignment">The Realignment Room</a><a href="#university">Sovereign University</a></nav></div></section>
+<section class="store-hero"><div class="wrap"><div class="kicker">ALL PRODUCTS</div><h1>Build, Align, and Perform</h1><p>One store for the complete 209 ecosystem. Browse by brand using the menus below.</p><nav class="store-nav" aria-label="Store sections">
+<details class="store-menu"><summary>dBeastco Wellness ▾</summary><div class="menu-panel"><a href="#wellness">Open Wellness section</a><a href="https://app.ecwid.com/" target="_blank" rel="noopener">Visit Ecwid store</a></div></details>
+<details class="store-menu"><summary>Systems Studio ▾</summary><div class="menu-panel"><a href="#systems">Open Systems section</a><a href="studio.html#generator">Business Idea Generator</a><a href="working-record.html">Resume Builder Help</a><a href="studio.html#store">Creator & Business Systems</a></div></details>
+<details class="store-menu"><summary>The Realignment Room ▾</summary><div class="menu-panel"><a href="#realignment">Open Realignment section</a><a href="aura.html#realignment">Intentional Morning Habits</a><a href="aura.html#realignment">Intentional Daily Planner</a></div></details>
+<details class="store-menu"><summary>Sovereign University ▾</summary><div class="menu-panel"><a href="#university">Open University section</a><a href="aura.html#personal-brand">Personal Brand Starter</a><a href="aura.html#ai-setup">AI Assistant Setup</a><a href="aura.html#content-calendar">Content Calendar Starter</a><a href="aura.html#newsletter">Newsletter Launch Kit</a><a href="aura.html#digital-product">Digital Product Starter</a><a href="aura.html#website">Website in a Weekend</a></div></details>
+</nav></div></section>
 <section id="wellness" class="store-section"><div class="wrap"><span class="brand-tag">DBEASTCO WELLNESS</span><h2>It Starts with YOU.</h2><p>Explore functional supplements, high-quality blends, protein, pre-workout, CBD products, and motivational wear. Free shipping in the USA.</p><div id="my-store-17851284"></div>
 <script data-cfasync="false" src="https://app.ecwid.com/script.js?17851284&data_platform=code" charset="utf-8"></script>
 <script>if(typeof xProductBrowser==='function'){xProductBrowser('id=my-store-17851284')}else{document.getElementById('my-store-17851284').textContent='The embedded store could not load. Please refresh or try again later.';}</script>
@@ -34,9 +47,13 @@
 <article class="store-card"><span class="tag">FREE</span><h3>Intentional Morning Habits</h3><p>Start the day with a simple alignment practice, mechanical focus, and one meaningful action.</p><div class="price">Free</div><a class="btn" href="aura.html#realignment">Open in The Realignment Room</a></article>
 <article class="store-card"><span class="tag">PLANNER</span><h3>Intentional Daily Planner</h3><p>Turn your morning direction into priorities, time blocks, habits, and an evening review.</p><div class="price">$7</div><a class="btn" href="aura.html#realignment">Open in The Realignment Room</a></article>
 </div></div></section>
-<section id="university" class="store-section"><div class="wrap"><span class="brand-tag">SOVEREIGN UNIVERSITY</span><h2>Learn, Build, Launch</h2><p>Learning pathways for personal branding, AI workflows, and building an online presence.</p><div class="store-grid">
+<section id="university" class="store-section"><div class="wrap"><span class="brand-tag">SOVEREIGN UNIVERSITY</span><h2>Learn, Build, Launch</h2><p>Learning pathways for personal branding, AI workflows, content, newsletters, digital products, and building an online presence.</p><div class="store-grid">
 <article class="store-card"><span class="tag">COMING SOON</span><h3>Personal Brand Starter</h3><p>Define your values, story, voice, audience, and content pillars.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#personal-brand">View pathway</a></article>
 <article class="store-card"><span class="tag">COMING SOON</span><h3>AI Assistant Setup</h3><p>Create a personal AI brief, reusable prompts, and a practical assistant workflow.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#ai-setup">View pathway</a></article>
+<article class="store-card"><span class="tag">COMING SOON</span><h3>Content Calendar Starter</h3><p>Plan a simple weekly content rhythm across your main platform.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#content-calendar">View pathway</a></article>
+<article class="store-card"><span class="tag">COMING SOON</span><h3>Newsletter Launch Kit</h3><p>Set up a simple newsletter with a clear purpose, signup flow, and first issues.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#newsletter">View pathway</a></article>
+<article class="store-card"><span class="tag">COMING SOON</span><h3>Digital Product Starter</h3><p>Turn one useful idea into a simple digital product or download.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#digital-product">View pathway</a></article>
+<article class="store-card"><span class="tag">COMING SOON</span><h3>Website in a Weekend</h3><p>Build a simple personal or business website with clear pages and calls to action.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#website">View pathway</a></article>
 </div></div></section>
 </main>
 <footer class="footer"><div class="wrap">© <span id="y"></span> 209 Ecosystem • Build, Align, and Perform<br><a href="index.html">209 Control Panel</a> • <a href="aura.html">Lifestyle ID</a> • <a href="dbeastco.html">dBeastco Experience</a> • <a href="https://209connect.beehiiv.com/" rel="noopener">209 Media Connect</a></div></footer>
