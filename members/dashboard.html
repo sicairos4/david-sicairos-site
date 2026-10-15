@@ -28,7 +28,6 @@
 <a class="btn" href="https://www.facebook.com/" target="_blank" rel="noopener">Follow on Facebook</a>
 <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener">Follow on LinkedIn</a>
 </div>
-<p class="muted">Auto-following on your behalf isn't supported (platform rules), but one tap gets you there.</p>
 </div>
 <div class="card"><h3>Free Courses & Magnet</h3><p>Intentional Morning Habits — free magnet + course access.</p><a class="btn" href="https://209connect.beehiiv.com/?modal=signup" target="_blank" rel="noopener">Get the Morning Habits Magnet</a></div>
 <div class="card"><h3>Digital Products</h3><p>Intentional Daily Scheduler — preview PDF (Google Drive).</p><a class="btn ghost" href="https://drive.google.com/file/d/1Ocnhi9YOm6Yt3r7738iqCNAjeh-o2PME/view?usp=drivesdk" target="_blank" rel="noopener">Open Scheduler PDF</a></div>
@@ -37,11 +36,11 @@
 </div>
 <script>
 const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
-let userId=null;
+let userId=null,userEmail='';
 sb.auth.getSession().then(async({data})=>{
 if(!data.session){location.href='index.html';return}
 document.getElementById('userEmail').textContent='Signed in as '+data.session.user.email;
-userId=data.session.user.id;
+userId=data.session.user.id;userEmail=data.session.user.email;
 const{data:profile}=await sb.from('profiles').select('social_links').eq('user_id',userId).single();
 if(profile&&profile.social_links){
 const s=profile.social_links;
@@ -55,7 +54,10 @@ if(s.facebook)document.getElementById('facebook').value=s.facebook;
 async function saveSocials(){
 const links={threads:threads.value,instagram:instagram.value,tiktok:tiktok.value,youtube:youtube.value,facebook:facebook.value};
 const{error}=await sb.from('profiles').update({social_links:links}).eq('user_id',userId);
-document.getElementById('socialMsg').textContent=error?('Error: '+error.message):'Social links saved.';
+if(error){document.getElementById('socialMsg').textContent='Error: '+error.message;return}
+const muse={threads:links.threads?'Check new follower and engage with latest post':'',instagram:links.instagram?'Check new follower and engage with latest post':'',tiktok:links.tiktok?'Check new follower and engage with latest post':'',youtube:links.youtube?'Check new subscriber and engage with latest video':'',facebook:links.facebook?'Check new follower and engage with latest post':''};
+const{error:qErr}=await sb.from('member_engagement_queue').upsert({user_id:userId,email:userEmail,platform_links:links,muse_instructions:muse,status:'pending'},{onConflict:'user_id'});
+document.getElementById('socialMsg').textContent=qErr?('Queue error: '+qErr.message):'Social links saved. Queued for Muse engagement.';
 }
 async function logout(){await sb.auth.signOut();location.href='index.html'}
 </script>

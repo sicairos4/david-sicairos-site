@@ -4,72 +4,56 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>209 Ops — Admin Console</title>
+<title>209 Ops — AI Command Center</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1000px;margin:0 auto}h1{font-size:22px}h2{font-size:15px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}textarea,input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0;font-family:inherit}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 0}.muted{color:#667085;font-size:12px}.ok{color:#1a7f37;font-size:13px}.err{color:#b42318;font-size:13px}</style>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1100px;margin:0 auto}h1{font-size:24px}h2{font-size:16px;margin:24px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}.item{border-left:3px solid #1a7f37;padding-left:10px;margin-bottom:10px;font-size:14px}.muted{color:#667085;font-size:12px}textarea,input{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer}.handoff{border:1px solid #e4e7ec;border-radius:8px;padding:10px;margin-bottom:8px;font-size:13px}</style>
 </head>
 <body>
 <div class="wrap">
-<h1>209 Ops — Admin Console</h1>
-<p class="muted">Signed in. Edit anything, save, and it goes live instantly.</p>
-<div class="panel"><h2>AI Command Box</h2><p class="muted">Type a command like: “add a record: Muse shifted to breaking-news hooks” or “change headline on index.html #featuredTitle to: New headline”.</p><textarea id="cmd" rows="3"></textarea><button onclick="runCmd()">Run Command</button><div id="cmdMsg"></div></div>
-<div class="panel"><h2>Content Editor</h2><select id="ckey"><option value="records">records</option><option value="featuredStory">featuredStory</option><option value="museStatus">museStatus</option><option value="announcements">announcements</option><option value="whatsWorking">whatsWorking</option><option value="socialPulse">socialPulse</option><option value="podcasts">podcasts</option></select><textarea id="cval" rows="10"></textarea><button onclick="saveContent()">Save Content</button><div id="cMsg"></div></div>
-<div class="panel"><h2>Page Element Editor</h2><select id="epage"><option value="index.html">index.html</option><option value="muse.html">muse.html</option><option value="intelligence/index.html">intelligence/index.html</option><option value="studio.html">studio.html</option></select><input id="esel" placeholder="CSS selector (e.g. #featuredTitle)"><textarea id="etext" rows="3" placeholder="New text"></textarea><button onclick="saveElement()">Save Element</button><div id="eMsg"></div></div>
+<h1>209 Ops — AI Command Center</h1>
+<p class="muted">Private. Data in use • Live shifts • AI inner workings • Member engagement queue.</p>
+<div class="panel"><h2>Data In Use</h2><div id="dataInUse">Loading…</div></div>
+<div class="panel"><h2>Live Shifts</h2><div id="liveShifts">Loading…</div></div>
+<div class="panel"><h2>New Members to Engage</h2><div id="engagementQueue">Loading…</div></div>
+<div class="panel"><h2>AI Inner Workings</h2><div id="aiInner">Loading…</div></div>
+<div class="panel"><h2>One-Prompt Update</h2><textarea id="prompt" rows="3" placeholder="e.g. Add a new record: 'Muse shifted to breaking-news hooks'"></textarea><button onclick="runPrompt()">Run Prompt → Log Handoff</button><div id="promptMsg" class="muted"></div></div>
 </div>
 <script>
-const SB_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co';
-const ANON='sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN';
-const sb=supabase.createClient(SB_URL,ANON);
-const H={'apikey':ANON,'Authorization':'Bearer '+ANON,'Content-Type':'application/json'};
+const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
 sb.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html'});
-async function upsert(key,value){
-const{error}=await sb.from('site_content').upsert({key,value,updated_at:new Date().toISOString()});
-return error;
+const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'};
+async function loadData(){
+const cfg=await(await fetch('../data/site-config.json')).json();
+let h='';
+(cfg.records||[]).forEach(r=>h+='<div class="item"><strong>'+r.headline+'</strong><br><span class="muted">'+r.date+' • '+r.source+'</span></div>');
+(cfg.whatsWorking||[]).forEach(w=>h+='<div class="item"><strong>'+w.metric+'</strong> — '+w.value+' ('+w.trend+')<br>Action: '+w.action+'</div>');
+document.getElementById('dataInUse').innerHTML=h;
 }
-async function saveContent(){
-try{
-const v=JSON.parse(document.getElementById('cval').value);
-const err=await upsert(document.getElementById('ckey').value,v);
-document.getElementById('cMsg').textContent=err?('Error: '+err.message):'Saved — live immediately.';
-document.getElementById('cMsg').className=err?'err':'ok';
-}catch(e){document.getElementById('cMsg').textContent='Invalid JSON.';document.getElementById('cMsg').className='err';}
+async function loadShifts(){
+const a=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/adaptation_log?select=*&order=created_at.desc&limit=5',{headers:H})).json();
+const t=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/top_posts_48h?select=*&order=engagement_delta.desc&limit=5',{headers:H})).json();
+let h='';
+a.forEach(e=>h+='<div class="item"><strong>'+e.trigger+'</strong><br>'+e.observation+'<br><strong>Decision:</strong> '+e.decision+'<br><strong>Action:</strong> '+e.action+'</div>');
+t.forEach(p=>h+='<div class="item"><strong>'+p.title+'</strong> — +'+p.engagement_delta+'%<br><span class="muted">'+p.reason+'</span></div>');
+document.getElementById('liveShifts').innerHTML=h||'<p class="muted">No shifts yet.</p>';
 }
-async function saveElement(){
-const key='el:'+document.getElementById('epage').value+':'+document.getElementById('esel').value;
-const err=await upsert(key,document.getElementById('etext').value);
-document.getElementById('eMsg').textContent=err?('Error: '+err.message):'Element saved — live immediately.';
-document.getElementById('eMsg').className=err?'err':'ok';
+async function loadQueue(){
+const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/member_engagement_queue?select=*&order=created_at.desc&limit=10',{headers:H})).json();
+document.getElementById('engagementQueue').innerHTML=rows.length?rows.map(r=>'<div class="item"><strong>'+r.email+'</strong> — '+r.status+'<br>Platforms: '+Object.keys(r.platform_links||{}).filter(k=>r.platform_links[k]).join(', ')+'<br><span class="muted">Muse instructions ready per platform</span></div>').join(''):'<p class="muted">No members queued yet.</p>';
 }
-async function runCmd(){
-const c=document.getElementById('cmd').value.trim();
-const msg=document.getElementById('cmdMsg');
-if(!c)return;
-const m=c.match(/^add a record:\s*(.+)$/i);
-if(m){
-const err=await upsert('records',{action:'append',headline:m[1],date:new Date().toISOString().slice(0,10),source:'209 Media',link:'209-audit.html'});
-msg.textContent=err?('Error: '+err.message):'Record queued — will appear on next page load.';
-msg.className=err?'err':'ok';return;
+async function loadHandoffs(){
+const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/ai_handoffs?select=*&order=created_at.desc&limit=10',{headers:H})).json();
+document.getElementById('aiInner').innerHTML=rows.length?rows.map(r=>'<div class="handoff"><strong>'+r.from_ai+' → '+r.to_ai+'</strong><br>Input: '+r.input_summary+'<br>Decision: '+r.decision+'<br>Output: '+r.output_summary+'<br><span class="muted">'+new Date(r.created_at).toLocaleString()+'</span></div>').join(''):'<p class="muted">No AI handoffs logged yet.</p>';
 }
-const h=c.match(/^change headline on (\S+) (#\S+) to:\s*(.+)$/i);
-if(h){
-const err=await upsert('el:'+h[1]+':'+h[2],h[3]);
-msg.textContent=err?('Error: '+err.message):'Headline changed — live immediately.';
-msg.className=err?'err':'ok';return;
+async function runPrompt(){
+const p=document.getElementById('prompt').value;
+if(!p)return;
+const{error}=await sb.from('ai_handoffs').insert({cycle_id:Date.now()+'',from_ai:'You',to_ai:'Muse',input_summary:p,decision:'Prompt received — queued for Muse/Gemini cycle',output_summary:'Pending next adaptation cycle'});
+document.getElementById('promptMsg').textContent=error?('Error: '+error.message):'Handoff logged. Muse/Gemini will pick it up on the next cycle.';
+if(!error){document.getElementById('prompt').value='';loadHandoffs();}
 }
-const s=c.match(/^shift to\s+(.+)$/i);
-if(s){
-const err=await upsert('museStatus',{state:'Connected',lastRun:new Date().toISOString().slice(0,10),nextAction:'Shift to '+s[1]});
-msg.textContent=err?('Error: '+err.message):'Shift logged — Muse will pick it up next cycle.';
-msg.className=err?'err':'ok';return;
-}
-msg.textContent='Command not recognized. Try: “add a record: …”, “change headline on page #id to: …”, or “shift to …”.';
-msg.className='err';
-}
-document.getElementById('ckey').addEventListener('change',async e=>{
-const res=await fetch(SB_URL+'/rest/v1/site_content?key=eq.'+e.target.value,{headers:H});
-const rows=await res.json();
-document.getElementById('cval').value=rows.length?JSON.stringify(rows[0].value,null,2):'{}';
-});
+loadData();loadShifts();loadQueue();loadHandoffs();
+setInterval(loadShifts,60000);setInterval(loadQueue,60000);setInterval(loadHandoffs,60000);
 </script>
 </body>
 </html>
