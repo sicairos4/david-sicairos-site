@@ -10,12 +10,13 @@
 <link rel="stylesheet" href="../assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
-<style>.intel-wrap{max-width:1100px;margin:0 auto;padding:24px 16px 0}.intel-iframe{border:0;width:100%;height:80vh;display:block;margin-top:16px}</style>
+<style>.intel-wrap{max-width:1100px;margin:0 auto;padding:24px 16px 0}.intel-iframe{border:0;width:100%;height:80vh;display:block;margin-top:16px}.dial{display:flex;justify-content:center;margin:8px 0 4px}.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
 <main>
 <section class="section" id="intel-records"><div class="wrap"><div class="kicker">209 INTELLIGENCE</div><h2>Latest records</h2><div id="intelRecords" class="list"><p class="muted">Loading records…</p></div><div class="links"><a class="btn ghost" href="https://sicairos4.github.io/209audit-index-tracker/latest.html" target="_blank" rel="noopener">Latest from 209 Media (Tracker)</a></div></div></section>
+<section class="section" id="social-pulse"><div class="wrap"><div class="kicker">SOCIAL PULSE</div><h2>Channels, posts, and 28-day growth.</h2><p>One organized view of every platform: latest post, follower count, and 28-day growth—all updated through the same prompt-driven JSON.</p><div class="dial"><svg id="growthDial" width="220" height="130" viewBox="0 0 220 130"><path d="M20 120 A90 90 0 0 1 200 120" fill="none" stroke="#e4e7ec" stroke-width="14" stroke-linecap="round"/><path id="dialArc" d="M20 120 A90 90 0 0 1 200 120" fill="none" stroke="#1a7f37" stroke-width="14" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/><text id="dialPct" x="110" y="105" text-anchor="middle" font-size="30" font-weight="700" fill="#101828">–</text><text x="110" y="125" text-anchor="middle" font-size="12" fill="#667085">28-DAY FOLLOWER GROWTH</text></svg></div><div id="dialSummary" class="muted" style="text-align:center;margin-bottom:12px">Loading growth…</div><div id="pulseGrid" class="pulse-grid"><p class="muted">Loading channels…</p></div><h3 style="margin-top:20px">Podcasts</h3><div id="podcastList" class="list"><p class="muted">Loading podcasts…</p></div></div></section>
 <section class="section" id="transparency"><div class="wrap"><div class="kicker">SYSTEM TRANSPARENCY</div><h2>What’s working under the hood.</h2><p>Every change made through a prompt shows up here—so you can see exactly what changed, where, and when.</p><div id="systemLog" class="list"><p class="muted">Loading system log…</p></div><div class="code">PROMPT → data/site-config.json → LIVE SITE</div></div></section>
 <section class="section" id="wrap-up"><div class="wrap"><div class="kicker">HOW IT ALL WORKS</div><h2>From prompt to published work.</h2><p>This is the full loop: a prompt updates the JSON, the JSON feeds the site, the site feeds Signal and the tracker, and Systems Studio builds the tools that keep it all running.</p><div class="code">PROMPT → JSON → SITE → SIGNAL → TRACKER → SYSTEMS STUDIO</div><p>Systems Studio is where the websites, automation, and business tools behind this entire ecosystem are built and maintained.</p><div class="links"><a class="btn" href="../studio.html">Enter Systems Studio</a></div></div></section>
 <section id="intel-frame"><iframe class="intel-iframe" src="https://sicairos4.github.io/209-intelligent-site/" title="209 Intelligence" allow="fullscreen"></iframe></section>
@@ -31,9 +32,20 @@ const res=await fetch('../data/site-config.json');
 const cfg=await res.json();
 const r=cfg.records||[];
 document.getElementById('intelRecords').innerHTML=r.length?r.map(x=>'<div class="item"><strong>'+x.headline+'</strong><br><span class="muted">'+x.date+' • '+x.source+'</span><br><a href="../'+x.link+'">Open</a></div>').join(''):'<p class="muted">No records yet.</p>';
+const sp=cfg.socialPulse||[];
+const now=sp.reduce((a,p)=>a+(p.followers||0),0);
+const then=sp.reduce((a,p)=>a+(p.followers28dAgo||0),0);
+const growth=then>0?((now-then)/then*100):0;
+const pct=Math.max(0,Math.min(100,growth));
+document.getElementById('dialArc').setAttribute('stroke-dashoffset',283-(283*pct/100));
+document.getElementById('dialPct').textContent=(growth>=0?'+':'')+growth.toFixed(1)+'%';
+document.getElementById('dialSummary').textContent=now.toLocaleString()+' total followers now • '+(now-then).toLocaleString()+' gained in the last 28 days';
+document.getElementById('pulseGrid').innerHTML=sp.length?sp.map(p=>{const d=(p.followers||0)-(p.followers28dAgo||0);const cls=d>0?'delta-up':(d<0?'delta-down':'delta-flat');const sign=d>0?'+':'';return '<article class="card"><h3>'+p.name+'</h3><p class="muted">'+p.handle+'</p><p><strong>'+(p.followers||0).toLocaleString()+'</strong> followers<br><span class="'+cls+'">'+sign+d.toLocaleString()+' in 28 days</span></p><p class="muted">Last post: '+p.lastPost.date+'</p><a class="btn ghost" href="'+p.lastPost.url+'" target="_blank" rel="noopener">'+p.lastPost.title+' →</a></article>'}).join(''):'<p class="muted">No channels yet.</p>';
+const pc=cfg.podcasts||[];
+document.getElementById('podcastList').innerHTML=pc.length?pc.map(x=>'<div class="item"><strong>'+x.show+'</strong><br>Latest: '+x.latestEpisode+'<br><a href="'+x.url+'">Listen / Open</a></div>').join(''):'<p class="muted">No podcasts yet.</p>';
 const log=cfg.systemLog||[];
 document.getElementById('systemLog').innerHTML=log.length?log.map(e=>'<div class="item"><strong>'+e.change+'</strong><br><span class="muted">'+e.date+' • '+e.surface+' • '+e.status+'</span></div>').join(''):'<p class="muted">No system changes logged yet.</p>';
-}catch(e){document.getElementById('intelRecords').innerHTML='<p class="muted">Records unavailable.</p>'}
+}catch(e){document.getElementById('intelRecords').innerHTML='<p class="muted">Records unavailable.</p>';document.getElementById('pulseGrid').innerHTML='<p class="muted">Social pulse unavailable.</p>'}
 })();
 </script>
 </body>

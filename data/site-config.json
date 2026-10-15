@@ -56,6 +56,75 @@
       "action": "Use darker, high-contrast visuals with bold on-screen text"
     }
   ],
+  "socialPulse": [
+    {
+      "name": "Threads",
+      "handle": "@davidsicairos",
+      "url": "https://www.threads.net/@davidsicairos",
+      "followers": 0,
+      "followers28dAgo": 0,
+      "lastPost": {
+        "title": "Latest post",
+        "url": "https://www.threads.net/@davidsicairos",
+        "date": "2026-10-14"
+      }
+    },
+    {
+      "name": "Facebook",
+      "handle": "David Sicairos",
+      "url": "https://www.facebook.com/",
+      "followers": 0,
+      "followers28dAgo": 0,
+      "lastPost": {
+        "title": "Latest post",
+        "url": "https://www.facebook.com/",
+        "date": "2026-10-14"
+      }
+    },
+    {
+      "name": "LinkedIn",
+      "handle": "David Sicairos",
+      "url": "https://www.linkedin.com/",
+      "followers": 0,
+      "followers28dAgo": 0,
+      "lastPost": {
+        "title": "Latest post",
+        "url": "https://www.linkedin.com/",
+        "date": "2026-10-14"
+      }
+    },
+    {
+      "name": "TikTok",
+      "handle": "@davidsicairos",
+      "url": "https://www.tiktok.com/@davidsicairos",
+      "followers": 0,
+      "followers28dAgo": 0,
+      "lastPost": {
+        "title": "Latest post",
+        "url": "https://www.tiktok.com/@davidsicairos",
+        "date": "2026-10-14"
+      }
+    },
+    {
+      "name": "YouTube",
+      "handle": "David Sicairos",
+      "url": "https://www.youtube.com/",
+      "followers": 0,
+      "followers28dAgo": 0,
+      "lastPost": {
+        "title": "Latest video",
+        "url": "https://www.youtube.com/",
+        "date": "2026-10-14"
+      }
+    }
+  ],
+  "podcasts": [
+    {
+      "show": "209 Signal Podcast",
+      "latestEpisode": "Latest episode",
+      "url": "signal.html"
+    }
+  ],
   "systemLog": [
     {
       "date": "2026-10-14",
@@ -92,6 +161,12 @@
       "change": "Added What's Working analytics section",
       "surface": "Muse page",
       "status": "Live"
+    },
+    {
+      "date": "2026-10-14",
+      "change": "Added Social Pulse hub with follower dial, platform cards, and podcasts",
+      "surface": "Intelligence page",
+      "status": "Live — follower values are placeholders, update via prompt"
     }
   ]
 }
