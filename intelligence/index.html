@@ -19,10 +19,9 @@
 <link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
-<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}.shift-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.muse-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.muse-breach{border-color:#b42318}.muse-ok{border-color:#1a7f37}.inc-open{border-color:#b42318}.inc-under-review{border-color:#b42318}.inc-resolved{border-color:#1a7f37}.loop-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.digest-card{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}#themeToggle{background:transparent;border:1px solid var(--line);color:var(--text);border-radius:999px;padding:6px 12px;cursor:pointer;font:inherit}</style>
 </head>
 <body>
-<header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav><button id="themeToggle" type="button" aria-label="Toggle dark mode">🌗 Theme</button></div></header>
+<header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
 <main>
 <section class="section" id="digest"><div class="wrap"><div class="kicker">ADAPTIVE DIGEST — WHEN INTELLIGENCE DIGESTS</div><h2>Best times. Faster when it matters.</h2><div id="digestCard" class="list"><p class="muted">Loading digest schedule…</p></div></div></section>
 <section class="section" id="growth-loop"><div class="wrap"><div class="kicker">GROWTH LOOP — SIGNALS → DECISIONS → EXPERIMENTS</div><h2>The loop that makes publishing smarter.</h2><div id="loopGrid" class="pulse-grid"><p class="muted">Loading growth loop…</p></div></div></section>
@@ -46,10 +45,6 @@
 <script>
 const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'};
 const SB_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1';
-const themeBtn=document.getElementById('themeToggle');
-function applyTheme(t){document.documentElement.dataset.theme=t;localStorage.setItem('209-theme',t);themeBtn.textContent=t==='valley-dark'?'☀️ Light':'🌗 Dark'}
-applyTheme(localStorage.getItem('209-theme')||'valley-light');
-themeBtn.onclick=()=>applyTheme(document.documentElement.dataset.theme==='valley-dark'?'valley-light':'valley-dark');
 async function fetchDigest(){
 try{
 const r=await fetch('../data/digest.json');

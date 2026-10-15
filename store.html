@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>All Products — 209 Ecosystem</title>
+<title>All Products — 209 Media</title>
 <meta name="description" content="Shop the complete 209 ecosystem by brand: dBeastco Wellness, Systems Studio, The Realignment Room, and Sovereign University.">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/store.css">
@@ -15,19 +15,11 @@
 .filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
 .filter-btn{padding:8px 14px;border:1px solid #175c42;border-radius:999px;background:#fff;color:#175c42;font:inherit;font-size:14px;cursor:pointer}
 .filter-btn[aria-pressed=true]{background:#175c42;color:#fff}
-.store-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0}
-.store-menu{position:relative}
-.store-menu summary{list-style:none;cursor:pointer;padding:10px 16px;border:1px solid #175c42;border-radius:999px;font:inherit;color:#175c42;background:#f2f6f3}
-.store-menu summary::-webkit-details-marker{display:none}
-.store-menu[open] summary{background:#175c42;color:#fff}
-.store-menu .menu-panel{position:absolute;top:calc(100% + 6px);left:0;min-width:240px;background:#fff;border:1px solid #175c42;border-radius:12px;padding:8px;z-index:20;box-shadow:0 8px 24px rgba(23,92,66,.12)}
-.store-menu .menu-panel a{display:block;padding:10px;color:#175c42;text-decoration:none;border-radius:8px}
-.store-menu .menu-panel a:hover{background:#e1eee5}
 .store-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
 .store-section{scroll-margin-top:80px;padding:32px 0}
 .store-section h2{margin-top:8px}
 .brand-tag{display:inline-block;padding:4px 10px;border-radius:999px;background:#e1eee5;color:#175c42;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
-.cart-btn{display:inline-flex;align-items:center;gap:6px;margin-left:10px;padding:8px 12px;border:1px solid #175c42;border-radius:999px;background:#fff;color:#175c42;text-decoration:none;font-weight:700}
+.cart-btn{display:inline-flex;align-items:center;gap:6px;margin-left:10px;min-height:44px;padding:10px 16px;border:1px solid #175c42;border-radius:8px;background:var(--panel,#fff);color:var(--text,#183e30);text-decoration:none;font:inherit;font-size:14px;font-weight:700;cursor:pointer}
 .cart-count{background:#175c42;color:#fff;border-radius:999px;padding:2px 8px;font-size:12px}
 .no-results{ text-align:center;padding:24px;color:#175c42 }
 .cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:min(380px,100vw);background:#fff;border-left:1px solid #175c42;box-shadow:-8px 0 24px rgba(23,92,66,.15);transform:translateX(100%);transition:transform .25s ease;z-index:2000;display:flex;flex-direction:column;padding:16px}
@@ -37,18 +29,13 @@
 .cart-drawer .drawer-footer{border-top:1px solid #e1eee5;padding-top:12px}
 .cart-drawer .checkout-btn{display:block;width:100%;padding:12px;background:#175c42;color:#fff;border:0;border-radius:8px;font:inherit;font-weight:700;text-align:center;text-decoration:none}
 .drawer-close{position:absolute;top:10px;right:10px;background:none;border:0;font-size:22px;cursor:pointer;color:#175c42}
-@media(max-width:640px){.store-nav{flex-direction:column;align-items:stretch}.store-menu .menu-panel{position:static;width:100%;min-width:0}.store-section{padding:24px 0}.store-card{padding:16px}.store-search input{max-width:100%}.filter-bar{justify-content:flex-start}}
+@media(max-width:640px){.store-section{padding:24px 0}.store-card{padding:16px}.store-search input{max-width:100%}.filter-bar{justify-content:flex-start}}
 </style>
 </head>
 <body>
-<header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="David Sicairos home">DAVID <span>SICAIROS</span></a><nav class="nav"></nav></div></header>
+<header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
 <main>
-<section class="store-hero"><div class="wrap"><div class="kicker">ALL PRODUCTS</div><h1>Build, Align, and Perform</h1><p>One store for the complete 209 ecosystem. Search products, filter by brand, or browse the menus below.</p><div class="store-search"><input id="productSearch" type="search" placeholder="Search products…" aria-label="Search products" enterkeyhint="search" autocapitalize="off" autocomplete="off" spellcheck="false"><div class="filter-bar" role="group" aria-label="Filter by brand"><button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter-btn" type="button" data-filter="wellness" aria-pressed="false">dBeastco Wellness</button><button class="filter-btn" type="button" data-filter="systems" aria-pressed="false">Systems Studio</button><button class="filter-btn" type="button" data-filter="realignment" aria-pressed="false">The Realignment Room</button><button class="filter-btn" type="button" data-filter="university" aria-pressed="false">Sovereign University</button></div></div><nav class="store-nav" aria-label="Store sections">
-<details class="store-menu"><summary>dBeastco Wellness ▾</summary><div class="menu-panel"><a href="#wellness">Open Wellness section</a><a href="https://app.ecwid.com/" target="_blank" rel="noopener">Visit Ecwid store</a></div></details>
-<details class="store-menu"><summary>Systems Studio ▾</summary><div class="menu-panel"><a href="#systems">Open Systems section</a><a href="studio.html#generator">Business Idea Generator</a><a href="resume-builder.html">Resume Builder Help</a><a href="studio.html#store">Creator & Business Systems</a></div></details>
-<details class="store-menu"><summary>The Realignment Room ▾</summary><div class="menu-panel"><a href="#realignment">Open Realignment section</a><a href="aura.html#realignment">Intentional Morning Habits</a><a href="aura.html#realignment">Intentional Daily Planner</a></div></details>
-<details class="store-menu"><summary>Sovereign University ▾</summary><div class="menu-panel"><a href="#university">Open University section</a><a href="sovereign-university/pathways.html#personal-brand">Personal Brand Starter</a><a href="sovereign-university/pathways.html#ai-setup">AI Assistant Setup</a><a href="sovereign-university/pathways.html#content-calendar">Content Calendar Starter</a><a href="sovereign-university/pathways.html#newsletter">Newsletter Launch Kit</a><a href="sovereign-university/pathways.html#digital-product">Digital Product Starter</a><a href="sovereign-university/pathways.html#website">Website in a Weekend</a></div></details>
-</nav></div></section>
+<section class="store-hero"><div class="wrap"><div class="kicker">ALL PRODUCTS</div><h1>Build, Align, and Perform</h1><p>One store for the complete 209 ecosystem. Search products or filter by brand below.</p><div class="store-search"><input id="productSearch" type="search" placeholder="Search products…" aria-label="Search products" enterkeyhint="search" autocapitalize="off" autocomplete="off" spellcheck="false"><div class="filter-bar" role="group" aria-label="Filter by brand"><button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter-btn" type="button" data-filter="wellness" aria-pressed="false">dBeastco Wellness</button><button class="filter-btn" type="button" data-filter="systems" aria-pressed="false">Systems Studio</button><button class="filter-btn" type="button" data-filter="realignment" aria-pressed="false">The Realignment Room</button><button class="filter-btn" type="button" data-filter="university" aria-pressed="false">Sovereign University</button></div></div></div></section>
 <section id="wellness" class="store-section" data-brand="wellness"><div class="wrap"><span class="brand-tag">DBEASTCO WELLNESS</span><h2>It Starts with YOU.</h2><p>Explore functional supplements, high-quality blends, protein, pre-workout, CBD products, and motivational wear. Free shipping in the USA.</p><div id="my-store-17851284"></div>
 <script data-cfasync="false" src="https://app.ecwid.com/script.js?17851284&data_platform=code" charset="utf-8"></script>
 <script>if(typeof xProductBrowser==='function'){xProductBrowser('id=my-store-17851284')}else{document.getElementById('my-store-17851284').textContent='The embedded store could not load. Please refresh or try again later.';}</script>
@@ -73,7 +60,7 @@
 <p id="noResults" class="no-results" hidden>No products match your search or filter.</p>
 </main>
 <aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping cart"><button class="drawer-close" type="button" aria-label="Close cart">×</button><h2>Your Cart</h2><div class="drawer-items" id="drawerItems"><p>Your cart is empty.</p></div><div class="drawer-footer"><a class="checkout-btn" href="https://app.ecwid.com/" target="_blank" rel="noopener">Checkout</a></div></aside>
-<footer class="footer"><div class="wrap">© <span id="y"></span> 209 Ecosystem • Build, Align, and Perform<br><a href="index.html">209 Control Panel</a> • <a href="aura.html">Lifestyle ID</a> • <a href="dbeastco.html">dBeastco Experience</a> • <a href="https://209connect.beehiiv.com/" rel="noopener">209 Media Connect</a></div></footer>
+<footer class="footer"><div class="wrap">© <span id="y"></span> 209 Media<br><a href="index.html">Home</a> • <a href="aura.html">Lifestyle ID</a> • <a href="dbeastco.html">dBeastco Experience</a> • <a href="https://209connect.beehiiv.com/" rel="noopener">Subscribe</a></div></footer>
 <script src="assets/site.js"></script>
 <script src="assets/topbar.js"></script>
 <script>
