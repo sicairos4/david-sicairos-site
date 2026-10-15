@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>209 Members — Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:900px;margin:0 auto}h1{font-size:24px}.card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}.muted{color:#667085;font-size:13px}a.btn{display:inline-block;padding:10px 16px;background:#101828;color:#fff;border-radius:8px;text-decoration:none;margin:4px 4px 4px 0}a.ghost{background:#fff;color:#101828;border:1px solid #d0d5dd}</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Welcome to 209 Members</h1>
+<p class="muted" id="userEmail"></p>
+<div class="card"><h3>Free Courses & Magnet</h3><p>Intentional Morning Habits — free magnet + course access.</p><a class="btn" href="https://209connect.beehiiv.com/?modal=signup" target="_blank" rel="noopener">Get the Morning Habits Magnet</a></div>
+<div class="card"><h3>Digital Products</h3><p>Intentional Daily Scheduler — preview PDF (Google Drive).</p><a class="btn ghost" href="https://drive.google.com/file/d/1Ocnhi9YOm6Yt3r7738iqCNAjeh-o2PME/view?usp=drivesdk" target="_blank" rel="noopener">Open Scheduler PDF</a></div>
+<div class="card"><h3>Aura Digital Environment</h3><p>Coming soon: your digital environment with assets, downloads, and courses connected to the Aura system.</p><a class="btn ghost" href="../aura.html">Explore Aura</a></div>
+<div class="card"><h3>Account</h3><button onclick="logout()" style="padding:10px 16px;background:#b42318;color:#fff;border:0;border-radius:8px;cursor:pointer">Sign Out</button></div>
+</div>
+<script>
+const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
+sb.auth.getSession().then(({data})=>{
+if(!data.session){location.href='index.html';return}
+document.getElementById('userEmail').textContent='Signed in as '+data.session.user.email;
+});
+async function logout(){await sb.auth.signOut();location.href='index.html'}
+</script>
+</body>
+</html>
