@@ -14,7 +14,7 @@
 <p class="muted">Private. Data in use • Live shifts • AI inner workings • Member engagement queue • Audience • Community chat.</p>
 <div class="panel"><h2>Data In Use</h2><div id="dataInUse">Loading…</div></div>
 <div class="panel"><h2>Live Shifts</h2><div id="liveShifts">Loading…</div></div>
-<div class="panel"><h2>New Members to Engage</h2><div id="engagementQueue">Loading…</div></div>
+<div class="panel"><h2>New Members to Engage (Priority-Sorted)</h2><div id="engagementQueue">Loading…</div></div>
 <div class="panel"><h2>Unified Audience</h2><div id="audiencePanel">Loading…</div></div>
 <div class="panel"><h2>Community Chat Moderation</h2><div id="chatMod">Loading…</div></div>
 <div class="panel"><h2>AI Inner Workings</h2><div id="aiInner">Loading…</div></div>
@@ -40,12 +40,12 @@ t.forEach(p=>h+='<div class="item"><strong>'+p.title+'</strong> — +'+p.engagem
 document.getElementById('liveShifts').innerHTML=h||'<p class="muted">No shifts yet.</p>';
 }
 async function loadQueue(){
-const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/member_engagement_queue?select=*&order=created_at.desc&limit=10',{headers:H})).json();
-document.getElementById('engagementQueue').innerHTML=rows.length?rows.map(r=>'<div class="item"><strong>'+r.email+'</strong> — '+r.status+'<br>Platforms: '+Object.keys(r.platform_links||{}).filter(k=>r.platform_links[k]).join(', ')+'<br><span class="muted">Muse instructions ready per platform</span></div>').join(''):'<p class="muted">No members queued yet.</p>';
+const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/member_engagement_queue?select=*&order=priority.desc,created_at.desc&limit=10',{headers:H})).json();
+document.getElementById('engagementQueue').innerHTML=rows.length?rows.map(r=>'<div class="item"><strong>'+r.email+'</strong> — '+r.status+'<br>Segment: '+(r.segment||'new')+' • Priority: '+(r.priority||2)+'<br>Platforms: '+Object.keys(r.platform_links||{}).filter(k=>r.platform_links[k]).join(', ')+'<br><span class="muted">Muse instructions ready per platform</span></div>').join(''):'<p class="muted">No members queued yet.</p>';
 }
 async function loadAudience(){
-const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/audience_contacts?select=*&order=created_at.desc&limit=10',{headers:H})).json();
-document.getElementById('audiencePanel').innerHTML=rows.length?rows.map(r=>'<div class="item"><strong>'+r.email+'</strong> — '+r.source+'<br>Status: '+r.engagement_status+'<br><span class="muted">Socials: '+Object.keys(r.social_links||{}).filter(k=>r.social_links[k]).join(', ')+'</span></div>').join(''):'<p class="muted">No audience contacts yet.</p>';
+const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/audience_contacts?select=*&order=engagement_score.desc,created_at.desc&limit=10',{headers:H})).json();
+document.getElementById('audiencePanel').innerHTML=rows.length?rows.map(r=>'<div class="item"><strong>'+r.email+'</strong> — '+r.source+'<br>Segment: '+(r.member_segment||'new')+' • Score: '+(r.engagement_score||50)+'<br>Status: '+r.engagement_status+'<br><span class="muted">Socials: '+Object.keys(r.social_links||{}).filter(k=>r.social_links[k]).join(', ')+'</span></div>').join(''):'<p class="muted">No audience contacts yet.</p>';
 }
 async function loadChat(){
 const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/community_messages?select=*&order=created_at.desc&limit=10',{headers:H})).json();
