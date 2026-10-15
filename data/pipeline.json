@@ -1,13 +1,17 @@
 {
   "sources": [
-    {"name": "Beehiiv", "status": "PENDING", "last_sync": null},
-    {"name": "GA4", "status": "PENDING", "last_sync": null},
-    {"name": "YouTube", "status": "PENDING", "last_sync": null},
-    {"name": "Meta", "status": "PENDING", "last_sync": null}
+    {"name": "Beehiiv", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
+    {"name": "GA4", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
+    {"name": "YouTube", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
+    {"name": "Meta", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
+    {"name": "TikTok", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
+    {"name": "LinkedIn", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
+    {"name": "Threads", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"},
+    {"name": "Bluesky", "status": "CONNECTED", "last_sync": "2026-10-15T05:19:00-07:00"}
   ],
   "first_shift": {
-    "status": "WAITING",
+    "status": "ARMED",
     "threshold": {"min_sample": 100, "lift_threshold": 20},
-    "eta": "24-48h after first real data sync"
+    "eta": "24-48h after first real data sync — data is now flowing"
   }
 }

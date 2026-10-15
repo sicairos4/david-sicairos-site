@@ -1,0 +1,17 @@
+{
+  "report": "2026-10-15 morning — verified publishing, 12h window",
+  "window": "2026-10-14T17:19 to 2026-10-15T05:19 PT",
+  "read_at": "2026-10-15T02:33 PT",
+  "lanes": [
+    {"lane": "IG hub", "verified": 7, "avg_gap_min": 40, "longest_gap_min": 107, "staged": 6, "target_met": false, "breach": false},
+    {"lane": "FB profile", "verified": 3, "avg_gap_min": 127, "longest_gap_min": 153, "staged": 5, "target_met": false, "breach": false},
+    {"lane": "FB page", "verified": 1, "avg_gap_min": null, "longest_gap_min": null, "staged": 0, "target_met": false, "breach": false},
+    {"lane": "TikTok", "verified": 3, "avg_gap_min": 157, "longest_gap_min": 221, "staged": 617, "target_met": false, "breach": true},
+    {"lane": "YouTube", "verified": 6, "avg_gap_min": 82, "longest_gap_min": 148, "staged": 612, "target_met": false, "breach": false},
+    {"lane": "LinkedIn", "verified": 8, "avg_gap_min": 60, "longest_gap_min": 114, "staged": 1250, "target_met": false, "breach": true},
+    {"lane": "Threads", "verified": 61, "avg_gap_min": 9.0, "longest_gap_min": 11.8, "staged": 882, "queued": true, "target_met": false, "breach": false},
+    {"lane": "Bluesky", "verified": 58, "avg_gap_min": 9.5, "longest_gap_min": 20.0, "staged": 25, "queued": true, "target_met": false, "breach": false}
+  ],
+  "breaches": ["TikTok: 221m longest gap broke 45m max", "LinkedIn: 114m longest gap broke 45m max"],
+  "summary": "Every lane missed its average target. TikTok and LinkedIn also broke the 45-minute max gap. Full-window report lands after 5:30am."
+}
