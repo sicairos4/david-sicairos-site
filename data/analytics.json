@@ -1,0 +1,29 @@
+{
+  "beehiiv": {
+    "subscribers": 0,
+    "open_rate": 0,
+    "click_rate": 0,
+    "new_subscribers_28d": 0,
+    "churned_28d": 0,
+    "top_source": ""
+  },
+  "ga4": {
+    "sessions_28d": 0,
+    "top_landing_page": "",
+    "top_referral": "",
+    "top_query": ""
+  },
+  "youtube": {
+    "views_28d": 0,
+    "watch_time_hours": 0,
+    "subs_gained_28d": 0,
+    "top_video": ""
+  },
+  "meta": {
+    "fb_reach_28d": 0,
+    "ig_reach_28d": 0,
+    "threads_views_28d": 0,
+    "top_post": ""
+  },
+  "recommendations": []
+}

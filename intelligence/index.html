@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
-<style>.dial{display:flex;justify-content:center;margin:8px 0 4px}.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.intel-iframe{border:0;width:100%;height:80vh;display:block;margin-top:16px}</style>
+<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.intel-iframe{border:0;width:100%;height:80vh;display:block;margin-top:16px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
@@ -19,6 +19,8 @@
 <section class="section" id="social-pulse"><div class="wrap"><div class="kicker">SOCIAL PULSE</div><h2>Channels, posts, and 28-day growth.</h2><div id="pulseGrid" class="pulse-grid"><p class="muted">Loading channels…</p></div></div></section>
 <section class="section" id="top-posts"><div class="wrap"><div class="kicker">TOP POSTS — LAST 48 HOURS</div><h2>What's breaking right now.</h2><div id="topPosts" class="list"><p class="muted">Loading top posts…</p></div></div></section>
 <section class="section" id="adaptation-feed"><div class="wrap"><div class="kicker">LIVE ADAPTATION FEED</div><h2>What the system noticed—and did.</h2><div id="adaptationFeed" class="list"><p class="muted">Loading adaptation feed…</p></div></div></section>
+<section class="section" id="analytics"><div class="wrap"><div class="kicker">UNIFIED ANALYTICS</div><h2>Cross-platform snapshot.</h2><div id="analyticsGrid" class="pulse-grid"><p class="muted">Loading analytics…</p></div></div></section>
+<section class="section" id="recommendations"><div class="wrap"><div class="kicker">ADAPTATION RECOMMENDATIONS</div><h2>What to double down on.</h2><div id="recList" class="list"><p class="muted">Loading recommendations…</p></div></div></section>
 <section id="intel-frame"><div class="wrap"><div class="kicker">FULL INTERFACE</div><h2>Open the full 209 Intelligence workspace.</h2><p>The full-interface workspace is a separate project. Until its route is verified, use the live feeds above rather than embedding an unverified external page.</p><a class="btn ghost" href="https://sicairos4.github.io/209-intelligent-site/" target="_blank" rel="noopener">Open full interface →</a></div></section>
 </main>
 <footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • 209 Media Connect • 209Audit • dBeastco Ecosystem • Systems Studio</div></footer>
@@ -45,6 +47,23 @@ const rows=await r.json();
 document.getElementById('topPosts').innerHTML=rows.length?rows.map(p=>'<div class="item"><strong>'+p.title+'</strong> — '+p.platform+'<br><span class="delta-up">+'+p.engagement_delta+'% engagement</span></div>').join(''):'<p class="muted">No top posts yet.</p>';
 }catch(e){document.getElementById('topPosts').innerHTML='<p class="muted">Top posts are temporarily unavailable. The system is still collecting data.</p>'}
 }
+async function fetchAnalytics(){
+try{
+const r=await fetch('../data/analytics.json');
+if(!r.ok)throw new Error('HTTP '+r.status);
+const a=await r.json();
+const cards=[
+['Beehiiv',a.beehiiv.subscribers+' subscribers',a.beehiiv.open_rate+'% open · '+a.beehiiv.click_rate+'% click'],
+['GA4',a.ga4.sessions_28d+' sessions (28d)','Top page: '+a.ga4.top_landing_page],
+['YouTube',a.youtube.views_28d+' views (28d)',a.youtube.watch_time_hours+' hrs watch time'],
+['Meta',a.meta.fb_reach_28d+' FB reach (28d)','Top post: '+a.meta.top_post]
+];
+document.getElementById('analyticsGrid').innerHTML=cards.map(c=>'<article class="card"><h3>'+c[0]+'</h3><p><strong>'+c[1]+'</strong><br><span class="muted">'+c[2]+'</span></p></article>').join('');
+const recs=a.recommendations||[];
+document.getElementById('recList').innerHTML=recs.length?recs.map(r=>'<div class="rec-item"><strong>'+r.action+'</strong><br>'+r.reason+'</div>').join(''):'<p class="muted">No recommendations yet. Muse will populate these as data arrives.</p>';
+}catch(e){document.getElementById('analyticsGrid').innerHTML='<p class="muted">Analytics are temporarily unavailable.</p>';
+document.getElementById('recList').innerHTML='<p class="muted">Recommendations are temporarily unavailable.</p>'}
+}
 window.SITE_READY.then(cfg=>{
 const recs=cfg.records||[];
 document.getElementById('intelRecords').innerHTML=recs.length?recs.map(x=>'<div class="item"><strong>'+x.headline+'</strong><br><span class="muted">'+x.date+' • '+x.source+'</span></div>').join(''):'<p class="muted">No records available yet.</p>';
@@ -54,8 +73,8 @@ document.getElementById('pulseGrid').innerHTML=sp.length?sp.map(p=>{const d=(p.f
 document.getElementById('intelRecords').innerHTML='<p class="muted">Records are temporarily unavailable.</p>';
 document.getElementById('pulseGrid').innerHTML='<p class="muted">Social Pulse is temporarily unavailable.</p>';
 });
-fetchAdaptation();fetchTopPosts();
-setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);
+fetchAdaptation();fetchTopPosts();fetchAnalytics();
+setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);setInterval(fetchAnalytics,300000);
 </script>
 </body>
 </html>
