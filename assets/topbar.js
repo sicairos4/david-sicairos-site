@@ -8,6 +8,7 @@ const nav=`
 <div class="nav-group"><button type="button">Systems Studio <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">BUILDER SYSTEMS</div><a href="studio.html">Systems Studio</a><a href="studio.html#store">Studio Store</a><a href="aura.html#realignment">The Realignment Room</a><a href="aura.html">Lifestyle ID</a></div></div>
 <div class="nav-group"><button type="button">209 Audit <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">RECEIPTS & ACCOUNTABILITY</div><a href="209-audit.html">209 Audit Story</a><a href="209-audit.html#how-it-works">How It Works</a><a href="209-audit.html#tools">Tools & Assets</a><a href="index.html#records">Records</a><a href="https://sicairos4.github.io/209audit-cpra-playbook/" rel="noopener">CPRA Playbook</a></div></div>
 <a href="sovereign-university.html">Sovereign University</a>
+<a href="donations.html">Support the Work</a>
 </div>
 <div class="nav-right">
 <button id="themeToggle" class="theme-toggle" type="button" aria-label="Change theme">◐</button>
