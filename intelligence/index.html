@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>209 Intelligence — 209 Media</title>
-<meta name="description" content="209 Intelligence — live analytics, adaptation recommendations, amplification calendar, Muse data feeds, and incident log for 209 Media.">
+<meta name="description" content="209 Intelligence — live analytics, adaptation recommendations, amplification calendar, Muse data feeds, incident log, and growth loop for 209 Media.">
 <meta property="og:title" content="209 Intelligence — 209 Media">
-<meta property="og:description" content="Live analytics, recommendations, amplification calendar, Muse data feeds, and incident log.">
+<meta property="og:description" content="Live analytics, recommendations, amplification calendar, Muse data feeds, incident log, and growth loop.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sicairos4.github.io/david-sicairos-site/intelligence/">
 <meta property="og:image" content="https://sicairos4.github.io/david-sicairos-site/favicon.svg">
@@ -19,11 +19,13 @@
 <link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
-<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}.shift-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.pipe-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.pipe-connected{border-color:#1a7f37}.pipe-pending{border-color:#b42318}.muse-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.muse-breach{border-color:#b42318}.muse-ok{border-color:#1a7f37}.inc-open{border-color:#b42318}.inc-under-review{border-color:#b42318}.inc-resolved{border-color:#1a7f37}</style>
+<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}.shift-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.pipe-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.pipe-connected{border-color:#1a7f37}.pipe-pending{border-color:#b42318}.muse-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.muse-breach{border-color:#b42318}.muse-ok{border-color:#1a7f37}.inc-open{border-color:#b42318}.inc-under-review{border-color:#b42318}.inc-resolved{border-color:#1a7f37}.loop-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.digest-card{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
 <main>
+<section class="section" id="digest"><div class="wrap"><div class="kicker">ADAPTIVE DIGEST — WHEN INTELLIGENCE DIGESTS</div><h2>Best times. Faster when it matters.</h2><div id="digestCard" class="list"><p class="muted">Loading digest schedule…</p></div></div></section>
+<section class="section" id="growth-loop"><div class="wrap"><div class="kicker">GROWTH LOOP — SIGNALS → DECISIONS → EXPERIMENTS</div><h2>The loop that makes publishing smarter.</h2><div id="loopGrid" class="pulse-grid"><p class="muted">Loading growth loop…</p></div></div></section>
 <section class="section" id="incidents"><div class="wrap"><div class="kicker">INCIDENT LOG — OPERATIONAL EVENTS</div><h2>What broke. What's fixed. What's open.</h2><div id="incList" class="list"><p class="muted">Loading incidents…</p></div></div></section>
 <section class="section" id="muse-morning"><div class="wrap"><div class="kicker">MUSE MORNING REPORT — VERIFIED PUBLISHING</div><h2>12h window: Oct 14 5:19pm → Oct 15 5:19am PT.</h2><div id="museList" class="list"><p class="muted">Loading Muse report…</p></div></div></section>
 <section class="section" id="intel-records"><div class="wrap"><div class="kicker">209 INTELLIGENCE</div><h2>Latest records</h2><div id="intelRecords" class="list"><p class="muted">Loading records…</p></div></div></section>
@@ -45,6 +47,28 @@
 <script>
 const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'};
 const SB_URL='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1';
+async function fetchDigest(){
+try{
+const r=await fetch('../data/digest.json');
+if(!r.ok)throw new Error('HTTP '+r.status);
+const d=await r.json();
+const fast = d.fast_triggers && d.fast_triggers.length>0;
+const interval = fast ? d.fast_interval_min : d.base_interval_min;
+document.getElementById('digestCard').innerHTML='<div class="digest-card"><strong>Next digest: '+(d.next_digest||'TBD')+'</strong><br><span class="muted">Reason: '+(d.next_digest_reason||'—')+'</span><br><span class="muted">Mode: '+(fast?'FAST (hourly)':'NORMAL (every '+d.base_interval_min+'m)')+' • Best times: '+d.best_times.join(', ')+' PT</span></div>';
+}catch(e){document.getElementById('digestCard').innerHTML='<p class="muted">Digest schedule is temporarily unavailable.</p>'}
+}
+async function fetchLoop(){
+try{
+const [s,r,x]=await Promise.all([fetch('../data/signals.json'),fetch('../data/decisions.json'),fetch('../data/experiments.json')]);
+const sig=await s.json(),dec=await r.json(),exp=await x.json();
+const cards=[
+['Signals (Muse → Intelligence)',(sig.posts||[]).length+' posts • '+(sig.cta_results||[]).length+' CTA results • '+(sig.format_results||[]).length+' format results'],
+['Decisions (Intelligence → Muse)',(dec.directives||[]).length+' active directives'],
+['Experiments',(exp.experiments||[]).length+' running • '+((exp.experiments||[]).filter(e=>e.status==='COMPLETE').length)+' complete']
+];
+document.getElementById('loopGrid').innerHTML=cards.map(c=>'<article class="card loop-item"><h3>'+c[0]+'</h3><p>'+c[1]+'</p></article>').join('');
+}catch(e){document.getElementById('loopGrid').innerHTML='<p class="muted">Growth loop is temporarily unavailable.</p>'}
+}
 async function fetchIncidents(){
 try{
 const r=await fetch('../data/incidents.json');
@@ -128,8 +152,8 @@ document.getElementById('pulseGrid').innerHTML=sp.length?sp.map(p=>{const d=(p.f
 document.getElementById('intelRecords').innerHTML='<p class="muted">Records are temporarily unavailable.</p>';
 document.getElementById('pulseGrid').innerHTML='<p class="muted">Social Pulse is temporarily unavailable.</p>';
 });
-fetchIncidents();fetchMuse();fetchAdaptation();fetchTopPosts();fetchAnalytics();fetchCalendar();fetchShift();fetchPipeline();
-setInterval(fetchIncidents,300000);setInterval(fetchMuse,300000);setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);setInterval(fetchAnalytics,300000);setInterval(fetchCalendar,300000);setInterval(fetchShift,300000);setInterval(fetchPipeline,300000);
+fetchDigest();fetchLoop();fetchIncidents();fetchMuse();fetchAdaptation();fetchTopPosts();fetchAnalytics();fetchCalendar();fetchShift();fetchPipeline();
+setInterval(fetchDigest,60000);setInterval(fetchLoop,300000);setInterval(fetchIncidents,300000);setInterval(fetchMuse,300000);setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);setInterval(fetchAnalytics,300000);setInterval(fetchCalendar,300000);setInterval(fetchShift,300000);setInterval(fetchPipeline,300000);
 </script>
 </body>
 </html>

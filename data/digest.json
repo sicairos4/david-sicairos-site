@@ -1,0 +1,15 @@
+{
+  "timezone": "America/Los_Angeles",
+  "base_interval_min": 240,
+  "fast_interval_min": 60,
+  "best_times": ["09:00", "12:00", "17:00"],
+  "fast_triggers": [
+    "open_incident",
+    "cadence_breach",
+    "queue_starvation",
+    "viral_post"
+  ],
+  "last_digest": null,
+  "next_digest": null,
+  "next_digest_reason": "Waiting for first signals"
+}
