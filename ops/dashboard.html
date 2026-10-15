@@ -4,67 +4,85 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>209 Ops — Admin</title>
+<title>209 Ops — Admin Console</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1100px;margin:0 auto}h1{font-size:22px}h2{font-size:15px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}.muted{color:#667085;font-size:12px}textarea,input{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0;font-family:inherit}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 4px 4px 0}.row{display:flex;gap:8px}.row>*{flex:1}</style>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1000px;margin:0 auto}h1{font-size:22px}h2{font-size:15px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}textarea,input{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0;font-family:monospace;font-size:13px}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 4px 4px 0}.muted{color:#667085;font-size:12px}.ok{color:#1a7f37;font-size:13px}.err{color:#b42318;font-size:13px}</style>
 </head>
 <body>
 <div class="wrap">
 <h1>209 Ops — Admin Console</h1>
-<p class="muted">Signed in. Edit anything → saves live to Supabase → site updates instantly.</p>
-<div class="panel"><h2>AI Command Box</h2><textarea id="cmd" rows="3" placeholder="Try: add record: Muse shifted to breaking-news hooks\nOr: change muse hero-title to The system behind 209\nOr: set featured hook: Receipts over narratives."></textarea><button onclick="runCmd()">Run Command</button><span id="cmdMsg" class="muted"></span></div>
-<div class="panel"><h2>Records</h2><div class="row"><input id="recHeadline" placeholder="Record headline"><input id="recLink" placeholder="Link (e.g. 209-audit.html)"></div><button onclick="addRecord()">Add Record</button><div id="recList"></div></div>
-<div class="panel"><h2>Featured Story</h2><input id="featTitle" placeholder="Title"><input id="featHook" placeholder="Hook"><button onclick="saveFeatured()">Save Featured</button></div>
-<div class="panel"><h2>Page Element Overrides</h2><div class="row"><input id="ovPage" placeholder="Page (e.g. muse)"><input id="ovId" placeholder="Element ID (e.g. hero-title)"><input id="ovText" placeholder="New text"></div><button onclick="saveOverride()">Save Override</button><div id="ovList"></div></div>
-<div class="panel"><h2>AI Handoffs</h2><div id="handoffs">Loading…</div></div>
+<p class="muted">Signed in. Edit anything, save live. Changes appear on the site immediately.</p>
+<div class="panel"><h2>AI Text Box — Update Anything</h2>
+<textarea id="ai" rows="3" placeholder="Try: add record My new headline | 2026-10-14 | 209 Media | 209-audit.html\nOr: set featured New title | New hook\nOr: add announcement Title | Body\nOr: add whatsworking Metric | Value | up | Action\nOr: set text muse.hero.h1 | New headline"></textarea>
+<button onclick="runAI()">Run Command</button> <button onclick="location.href='index.html'">Sign Out</button>
+<div id="aiMsg" class="muted"></div></div>
+<div class="panel"><h2>Records (JSON)</h2><textarea id="records" rows="6"></textarea><button onclick="save('records')">Save Records</button><span id="s-records"></span></div>
+<div class="panel"><h2>Featured Story</h2><textarea id="featuredStory" rows="4"></textarea><button onclick="save('featuredStory')">Save Featured</button><span id="s-featuredStory"></span></div>
+<div class="panel"><h2>Muse Status</h2><textarea id="museStatus" rows="4"></textarea><button onclick="save('museStatus')">Save Status</button><span id="s-museStatus"></span></div>
+<div class="panel"><h2>Announcements</h2><textarea id="announcements" rows="6"></textarea><button onclick="save('announcements')">Save Announcements</button><span id="s-announcements"></span></div>
+<div class="panel"><h2>What's Working</h2><textarea id="whatsWorking" rows="6"></textarea><button onclick="save('whatsWorking')">Save Analytics</button><span id="s-whatsWorking"></span></div>
+<div class="panel"><h2>Social Pulse</h2><textarea id="socialPulse" rows="8"></textarea><button onclick="save('socialPulse')">Save Social</button><span id="s-socialPulse"></span></div>
+<div class="panel"><h2>Page Element Override</h2>
+<input id="elPage" placeholder="page (e.g. muse.html)">
+<input id="elSelector" placeholder="CSS selector (e.g. #muse-hero h1)">
+<input id="elText" placeholder="New text">
+<button onclick="saveEl()">Save Element Text</button><span id="s-el"></span></div>
 </div>
 <script>
-const SB=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
-SB.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html'});
-const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Content-Type':'application/json'};
-const URL='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1';
-async function getConfig(){const r=await(await fetch(URL+'/rest/v1/site_content?key=eq.site_config',{headers:H})).json();return r[0]?r[0].value:null}
-async function saveConfig(cfg){await fetch(URL+'/rest/v1/site_content',{method:'POST',headers:{...H,Prefer:'resolution=merge-duplicates'},body:JSON.stringify({key:'site_config',value:cfg})})}
-async function getOverrides(){const r=await(await fetch(URL+'/rest/v1/site_content?key=eq.page_overrides',{headers:H})).json();return r[0]?r[0].value:{}}
-async function saveOverrides(o){await fetch(URL+'/rest/v1/site_content',{method:'POST',headers:{...H,Prefer:'resolution=merge-duplicates'},body:JSON.stringify({key:'page_overrides',value:o})})}
-async function addRecord(){
-const cfg=await getConfig()||{};cfg.records=cfg.records||[];
-cfg.records.unshift({headline:recHeadline.value,date:new Date().toISOString().slice(0,10),source:'209 Media',link:recLink.value||'209-audit.html'});
-await saveConfig(cfg);recHeadline.value='';recLink.value='';renderRecords(cfg);cmdMsg.textContent='Record added — live.';
+const SB='https://uwidjnnhdgtrpsymuhwp.supabase.co';
+const KEY='sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN';
+const H={'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':'application/json'};
+const sb=supabase.createClient(SB,KEY);
+sb.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html';else load();});
+async function load(){
+const cfg=await(await fetch('../data/site-config.json')).json();
+['records','featuredStory','museStatus','announcements','whatsWorking','socialPulse'].forEach(k=>{
+document.getElementById(k).value=JSON.stringify(cfg[k]||[],null,2);});
 }
-async function saveFeatured(){
-const cfg=await getConfig()||{};cfg.featuredStory={title:featTitle.value,hook:featHook.value,link:'209-audit.html'};
-await saveConfig(cfg);cmdMsg.textContent='Featured story saved — live.';
+async function save(key){
+let v;try{v=JSON.parse(document.getElementById(key).value);}catch(e){document.getElementById('s-'+key).className='err';document.getElementById('s-'+key).textContent='Invalid JSON';return;}
+const{error}=await sb.from('site_content').upsert({key,value:v,updated_at:new Date().toISOString()});
+const s=document.getElementById('s-'+key);s.className=error?'err':'ok';s.textContent=error?('Error: '+error.message):'Saved — live';
 }
-async function saveOverride(){
-const o=await getOverrides();o[ovPage.value]=o[ovPage.value]||{};o[ovPage.value][ovId.value]=ovText.value;
-await fetch(URL+'/rest/v1/site_content',{method:'POST',headers:{...H,Prefer:'resolution=merge-duplicates'},body:JSON.stringify({key:'page_overrides',value:o})});
-cmdMsg.textContent='Override saved — live.';renderOverrides(o);
+async function saveEl(){
+const key='el:'+elPage.value.trim()+':'+elSelector.value.trim();
+const{error}=await sb.from('site_content').upsert({key,value:elText.value,updated_at:new Date().toISOString()});
+const s=document.getElementById('s-el');s.className=error?'err':'ok';s.textContent=error?('Error: '+error.message):'Saved — live';
 }
-async function runCmd(){
-const c=cmd.value.trim();if(!c)return;
-const low=c.toLowerCase();
-if(low.startsWith('add record:')){recHeadline.value=c.slice(11).trim();await addRecord();}
-else if(low.startsWith('set featured hook:')){featHook.value=c.slice(18).trim();await saveFeatured();}
-else if(low.startsWith('change ')){
-const m=c.match(/change (\w+) ([\w-]+) to (.+)/i);
-if(m){ovPage.value=m[1];ovId.value=m[2];ovText.value=m[3];await saveOverride();}
+async function getCfg(){const r=await(await fetch(SB+'/rest/v1/site_content?select=*&key=eq.'+arguments[0],{headers:H})).json();return r.length?r[0].value:null;}
+async function upsert(key,value){await sb.from('site_content').upsert({key,value,updated_at:new Date().toISOString()});}
+async function runAI(){
+const p=document.getElementById('ai').value.trim();const m=document.getElementById('aiMsg');
+if(!p)return;
+const low=p.toLowerCase();
+try{
+if(low.startsWith('add record ')){
+const parts=p.slice(11).split('|').map(x=>x.trim());
+const cur=await getCfg('records')||[];
+cur.push({headline:parts[0],date:parts[1]||new Date().toISOString().slice(0,10),source:parts[2]||'209 Media',link:parts[3]||'209-audit.html'});
+await upsert('records',cur);m.className='ok';m.textContent='Record added — live.';
+}else if(low.startsWith('set featured ')){
+const parts=p.slice(13).split('|').map(x=>x.trim());
+await upsert('featuredStory',{title:parts[0],hook:parts[1]||'',link:parts[2]||'209-audit.html'});m.className='ok';m.textContent='Featured story updated — live.';
+}else if(low.startsWith('add announcement ')){
+const parts=p.slice(17).split('|').map(x=>x.trim());
+const cur=await getCfg('announcements')||[];
+cur.push({title:parts[0],body:parts[1]||'',link:parts[2]||'muse.html'});
+await upsert('announcements',cur);m.className='ok';m.textContent='Announcement added — live.';
+}else if(low.startsWith('add whatsworking ')){
+const parts=p.slice(17).split('|').map(x=>x.trim());
+const cur=await getCfg('whatsWorking')||[];
+cur.push({metric:parts[0],value:parts[1]||'',trend:parts[2]||'flat',action:parts[3]||''});
+await upsert('whatsWorking',cur);m.className='ok';m.textContent='Analytics entry added — live.';
+}else if(low.startsWith('set text ')){
+const rest=p.slice(9);const parts=rest.split('|').map(x=>x.trim());
+await upsert('el:'+parts[0]+':'+parts[1],parts[2]);m.className='ok';m.textContent='Element text updated — live.';
 }else{
-await SB.from('ai_handoffs').insert({cycle_id:Date.now()+'',from_ai:'You',to_ai:'Muse',input_summary:c,decision:'Queued for Muse/Gemini cycle',output_summary:'Pending'});
+await sb.from('ai_handoffs').insert({cycle_id:Date.now()+'',from_ai:'You',to_ai:'Muse',input_summary:p,decision:'Queued for Muse/Gemini cycle',output_summary:'Pending'});
+m.className='ok';m.textContent='Logged as AI handoff for the next cycle.';
 }
-cmd.value='';loadHandoffs();
+}catch(e){m.className='err';m.textContent='Error: '+e.message;}
 }
-async function renderRecords(cfg){
-const list=document.getElementById('recList');
-list.innerHTML=(cfg.records||[]).map((r,i)=>'<div class="item">'+r.headline+' <button onclick="delRecord('+i+')">x</button></div>').join('');
-}
-async function delRecord(i){const cfg=await getConfig();cfg.records.splice(i,1);await saveConfig(cfg);renderRecords(cfg);}
-async function renderOverrides(o){document.getElementById('ovList').innerHTML=Object.entries(o).map(([p,els])=>Object.entries(els).map(([id,t])=>'<div class="item">'+p+' • '+id+' → '+t+'</div>').join('')).join('');}
-async function loadHandoffs(){
-const rows=await(await fetch(URL+'/rest/v1/ai_handoffs?select=*&order=created_at.desc&limit=10',{headers:H})).json();
-document.getElementById('handoffs').innerHTML=rows.length?rows.map(r=>'<div class="item"><strong>'+r.from_ai+' → '+r.to_ai+'</strong><br>'+r.input_summary+'</div>').join(''):'<p class="muted">No handoffs yet.</p>';
-}
-(async()=>{const cfg=await getConfig();if(cfg)renderRecords(cfg);renderOverrides(await getOverrides());loadHandoffs();})();
 </script>
 </body>
 </html>
