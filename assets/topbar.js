@@ -2,7 +2,11 @@
 (()=>{
 const script=document.currentScript;
 const base=new URL('../',script&&script.src?script.src:new URL('assets/topbar.js',location.href));
-const href=p=>new URL(p,base).href;
+const toolRoutes=new Map([['members/','workspace'],['members/index.html','workspace'],['members/workspace.html','workspace'],['members/dashboard.html','profile'],['members/products.html','planner'],['members/chat.html','chat'],['https://sicairos4.github.io/209audit-index-tracker/','tracker'],['https://sicairos4.github.io/209audit-index-tracker/index.html','tracker'],['https://sicairos4.github.io/209audit-cpra-playbook/','cpra'],['https://sicairos4.github.io/209audit-cpra-playbook/index.html','cpra']].map(([p,id])=>[new URL(p,base).href,id]));
+const href=p=>{const u=new URL(p,base);const tool=toolRoutes.get(u.href);return tool?new URL('tools.html#'+tool,base).href:u.href};
+// Keep ordinary in-site tool navigation inside the shell. Downloads, deep links,
+// explicit standalone links and modified clicks retain their original behavior.
+document.addEventListener('click',e=>{if(e.defaultPrevented||e.button!==0||e.ctrlKey||e.metaKey||e.shiftKey||e.altKey)return;const a=e.target.closest('a[href]');if(!a||a.hasAttribute('download')||a.hasAttribute('data-standalone'))return;let u;try{u=new URL(a.href)}catch{return}const tool=toolRoutes.get(u.href);if(!tool)return;e.preventDefault();location.assign(new URL('tools.html#'+tool,base).href)});
 const subscribe='https://209connect.beehiiv.com/?modal=signup';
 function ready(){
  const header=document.querySelector('header.top');if(!header||header.dataset.toolbarReady)return;
@@ -51,7 +55,7 @@ function ready(){
  function closeGroups(){nav.querySelectorAll('.nav-group').forEach(g=>{g.classList.remove('open');g.querySelector('button').setAttribute('aria-expanded','false')})}
  group('dBeastco Wellness',[['Wellness Experience','dbeastco.html'],['Shop Wellness','dbeastco.html#store'],['Choose Your Path','dbeastco.html#paths'],['Featured Products','dbeastco.html#featured'],['Community','dbeastco.html#community']]);
  group('Systems Studio',[['Systems Studio','studio.html'],['Studio Store','studio.html#store'],['Realignment Room','aura.html#realignment'],['Lifestyle ID','aura.html'],['209 Connect Workspace','members/']]);
- group('209 Audit',[['209 Audit Story','209-audit.html'],['How It Works','209-audit.html#how-it-works'],['Tools and Assets','209-audit.html#tools'],['Records','index.html#records'],['209 Intelligence','intelligence/'],['CPRA Playbook','https://sicairos4.github.io/209audit-cpra-playbook/']]);
+ group('209 Audit',[['209 Audit Story','209-audit.html'],['How It Works','209-audit.html#how-it-works'],['Tools and Assets','209-audit.html#tools'],['Audit Tracker','https://sicairos4.github.io/209audit-index-tracker/'],['Records','index.html#records'],['209 Intelligence','intelligence/'],['CPRA Playbook','https://sicairos4.github.io/209audit-cpra-playbook/']]);
  link('Sovereign University','sovereign-university.html',left);link('Media Library','library.html',left);link('Support','donations.html',left);
  const right=document.createElement('div');right.className='nav-right';const theme=document.createElement('button');theme.type='button';theme.id='themeToggle';theme.className='theme-toggle';theme.textContent='◐';theme.setAttribute('aria-label','Change color theme');theme.onclick=()=>{const choices=['valley-light','midnight-ledger','civic-gold'];const t=choices[(choices.indexOf(document.documentElement.dataset.theme)+1)%choices.length];document.documentElement.dataset.theme=t;try{localStorage.setItem('209-theme',t)}catch{}theme.textContent=({'valley-light':'◐','midnight-ledger':'☾','civic-gold':'☀'})[t]};right.append(theme);const c=document.createElement('a');c.href=subscribe;c.target='_blank';c.rel='noopener';c.className='nav-cta';c.textContent='Subscribe';right.append(c);nav.append(right);
  header.querySelectorAll('.nav-burger').forEach(b=>b.remove());const burger=document.createElement('button');burger.type='button';burger.className='nav-burger';burger.textContent='☰';burger.setAttribute('aria-controls',nav.id);burger.setAttribute('aria-expanded','false');burger.setAttribute('aria-label','Open navigation');row.append(burger);
