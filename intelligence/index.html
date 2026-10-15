@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="../assets/nav.css">
 <link rel="stylesheet" href="../assets/mobile.css">
-<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}</style>
+<style>.pulse-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.delta-up{color:#1a7f37;font-weight:700}.delta-down{color:#b42318;font-weight:700}.delta-flat{color:#667085;font-weight:700}.feed-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}.rec-item{border-left:3px solid #4BDAF3;padding-left:12px;margin-bottom:12px}.cal-item{border-left:3px solid #667085;padding-left:12px;margin-bottom:12px}.cal-published{border-color:#1a7f37}.cal-running{border-color:#4BDAF3}.cal-blocked{border-color:#b42318}.cal-skipped{border-color:#667085}.shift-item{border-left:3px solid #1a7f37;padding-left:12px;margin-bottom:12px}</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
@@ -22,6 +22,7 @@
 <section class="section" id="analytics"><div class="wrap"><div class="kicker">UNIFIED ANALYTICS</div><h2>Cross-platform snapshot.</h2><div id="analyticsGrid" class="pulse-grid"><p class="muted">Loading analytics…</p></div></div></section>
 <section class="section" id="recommendations"><div class="wrap"><div class="kicker">ADAPTATION RECOMMENDATIONS</div><h2>What to double down on.</h2><div id="recList" class="list"><p class="muted">Loading recommendations…</p></div></div></section>
 <section class="section" id="calendar"><div class="wrap"><div class="kicker">AMPLIFICATION CALENDAR — NEXT 7 DAYS</div><h2>Mission → format → platform → CTA.</h2><div id="calList" class="list"><p class="muted">Loading calendar…</p></div></div></section>
+<section class="section" id="shift-log"><div class="wrap"><div class="kicker">CREATIVE SHIFT LOG — FIRST SHIFT TRACKER</div><h2>When analytics first change the work.</h2><div id="shiftList" class="list"><p class="muted">No shift yet — waiting for first real data.</p></div></div></section>
 <section id="intel-frame"><div class="wrap"><div class="kicker">FULL INTERFACE</div><h2>Open the full 209 Intelligence workspace.</h2><p>The full-interface workspace is a separate project. Until its route is verified, use the live feeds above rather than embedding an unverified external page.</p><a class="btn ghost" href="https://sicairos4.github.io/209-intelligent-site/" target="_blank" rel="noopener">Open full interface →</a></div></section>
 </main>
 <footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • 209 Media Connect • 209Audit • dBeastco Ecosystem • Systems Studio</div></footer>
@@ -73,6 +74,15 @@ const rows=await r.json();
 document.getElementById('calList').innerHTML=rows.length?rows.map(e=>{const cls='cal-'+e.status.toLowerCase();return '<div class="item '+cls+'"><strong>'+e.mission+'</strong><br><span class="muted">'+e.date+' • '+e.format+' • '+e.platform+' • '+e.time_slot+'</span><br>CTA: '+e.cta+'<br><span class="muted">Status: '+e.status+'</span></div>'}).join(''):'<p class="muted">No calendar entries yet.</p>';
 }catch(e){document.getElementById('calList').innerHTML='<p class="muted">Calendar is temporarily unavailable.</p>'}
 }
+async function fetchShift(){
+try{
+const r=await fetch('../data/shift.json');
+if(!r.ok)throw new Error('HTTP '+r.status);
+const s=await r.json();
+const log=s.shift_log||[];
+document.getElementById('shiftList').innerHTML=log.length?log.map(e=>'<div class="shift-item"><strong>FIRST SHIFT — '+e.date+'</strong><br>Trigger: '+e.trigger+'<br>Metric: '+e.metric+'<br>Lift: +'+e.lift+'%<br>Decision: '+e.decision+'<br>Action: '+e.action+'</div>').join(''):'<p class="muted">No shift yet — waiting for first real data. Threshold: '+s.shift_thresholds.min_sample+' sample, +'+s.shift_thresholds.lift_threshold+'% lift.</p>';
+}catch(e){document.getElementById('shiftList').innerHTML='<p class="muted">Shift log is temporarily unavailable.</p>'}
+}
 window.SITE_READY.then(cfg=>{
 const recs=cfg.records||[];
 document.getElementById('intelRecords').innerHTML=recs.length?recs.map(x=>'<div class="item"><strong>'+x.headline+'</strong><br><span class="muted">'+x.date+' • '+x.source+'</span></div>').join(''):'<p class="muted">No records available yet.</p>';
@@ -82,8 +92,8 @@ document.getElementById('pulseGrid').innerHTML=sp.length?sp.map(p=>{const d=(p.f
 document.getElementById('intelRecords').innerHTML='<p class="muted">Records are temporarily unavailable.</p>';
 document.getElementById('pulseGrid').innerHTML='<p class="muted">Social Pulse is temporarily unavailable.</p>';
 });
-fetchAdaptation();fetchTopPosts();fetchAnalytics();fetchCalendar();
-setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);setInterval(fetchAnalytics,300000);setInterval(fetchCalendar,300000);
+fetchAdaptation();fetchTopPosts();fetchAnalytics();fetchCalendar();fetchShift();
+setInterval(fetchAdaptation,60000);setInterval(fetchTopPosts,300000);setInterval(fetchAnalytics,300000);setInterval(fetchCalendar,300000);setInterval(fetchShift,300000);
 </script>
 </body>
 </html>

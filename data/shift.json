@@ -1,0 +1,7 @@
+{
+  "shift_thresholds": {
+    "min_sample": 100,
+    "lift_threshold": 20
+  },
+  "shift_log": []
+}
