@@ -10,8 +10,11 @@
 <link rel="stylesheet" href="assets/nav.css">
 <link rel="stylesheet" href="assets/mobile.css">
 <style>
-.store-search{display:flex;justify-content:center;margin:14px 0 6px}
-.store-search input{width:100%;max-width:520px;padding:12px 16px;border:1px solid #b8c8bf;border-radius:999px;font:inherit}
+.store-search{display:flex;flex-direction:column;gap:10px;align-items:center;margin:14px 0 6px}
+.store-search input{width:100%;max-width:520px;padding:12px 16px;border:1px solid #b8c8bf;border-radius:999px;font:inherit;font-size:16px}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.filter-btn{padding:8px 14px;border:1px solid #175c42;border-radius:999px;background:#fff;color:#175c42;font:inherit;font-size:14px;cursor:pointer}
+.filter-btn[aria-pressed=true]{background:#175c42;color:#fff}
 .store-nav{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:14px 0}
 .store-menu{position:relative}
 .store-menu summary{list-style:none;cursor:pointer;padding:10px 16px;border:1px solid #175c42;border-radius:999px;font:inherit;color:#175c42;background:#f2f6f3}
@@ -27,32 +30,39 @@
 .cart-btn{display:inline-flex;align-items:center;gap:6px;margin-left:10px;padding:8px 12px;border:1px solid #175c42;border-radius:999px;background:#fff;color:#175c42;text-decoration:none;font-weight:700}
 .cart-count{background:#175c42;color:#fff;border-radius:999px;padding:2px 8px;font-size:12px}
 .no-results{ text-align:center;padding:24px;color:#175c42 }
-@media(max-width:640px){.store-nav{flex-direction:column;align-items:stretch}.store-menu .menu-panel{position:static;width:100%;min-width:0}.store-section{padding:24px 0}.store-card{padding:16px}.store-search input{max-width:100%}}
+.cart-drawer{position:fixed;top:0;right:0;height:100dvh;width:min(380px,100vw);background:#fff;border-left:1px solid #175c42;box-shadow:-8px 0 24px rgba(23,92,66,.15);transform:translateX(100%);transition:transform .25s ease;z-index:2000;display:flex;flex-direction:column;padding:16px}
+.cart-drawer.open{transform:translateX(0)}
+.cart-drawer h2{margin:0 0 8px;color:#175c42}
+.cart-drawer .drawer-items{flex:1;overflow:auto}
+.cart-drawer .drawer-footer{border-top:1px solid #e1eee5;padding-top:12px}
+.cart-drawer .checkout-btn{display:block;width:100%;padding:12px;background:#175c42;color:#fff;border:0;border-radius:8px;font:inherit;font-weight:700;text-align:center;text-decoration:none}
+.drawer-close{position:absolute;top:10px;right:10px;background:none;border:0;font-size:22px;cursor:pointer;color:#175c42}
+@media(max-width:640px){.store-nav{flex-direction:column;align-items:stretch}.store-menu .menu-panel{position:static;width:100%;min-width:0}.store-section{padding:24px 0}.store-card{padding:16px}.store-search input{max-width:100%}.filter-bar{justify-content:flex-start}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="David Sicairos home">DAVID <span>SICAIROS</span></a><nav class="nav"></nav></div></header>
 <main>
-<section class="store-hero"><div class="wrap"><div class="kicker">ALL PRODUCTS</div><h1>Build, Align, and Perform</h1><p>One store for the complete 209 ecosystem. Search products or browse by brand using the menus below.</p><div class="store-search"><input id="productSearch" type="search" placeholder="Search products…" aria-label="Search products"></div><nav class="store-nav" aria-label="Store sections">
+<section class="store-hero"><div class="wrap"><div class="kicker">ALL PRODUCTS</div><h1>Build, Align, and Perform</h1><p>One store for the complete 209 ecosystem. Search products, filter by brand, or browse the menus below.</p><div class="store-search"><input id="productSearch" type="search" placeholder="Search products…" aria-label="Search products" enterkeyhint="search" autocapitalize="off" autocomplete="off" spellcheck="false"><div class="filter-bar" role="group" aria-label="Filter by brand"><button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button><button class="filter-btn" type="button" data-filter="wellness" aria-pressed="false">dBeastco Wellness</button><button class="filter-btn" type="button" data-filter="systems" aria-pressed="false">Systems Studio</button><button class="filter-btn" type="button" data-filter="realignment" aria-pressed="false">The Realignment Room</button><button class="filter-btn" type="button" data-filter="university" aria-pressed="false">Sovereign University</button></div></div><nav class="store-nav" aria-label="Store sections">
 <details class="store-menu"><summary>dBeastco Wellness ▾</summary><div class="menu-panel"><a href="#wellness">Open Wellness section</a><a href="https://app.ecwid.com/" target="_blank" rel="noopener">Visit Ecwid store</a></div></details>
 <details class="store-menu"><summary>Systems Studio ▾</summary><div class="menu-panel"><a href="#systems">Open Systems section</a><a href="studio.html#generator">Business Idea Generator</a><a href="working-record.html">Resume Builder Help</a><a href="studio.html#store">Creator & Business Systems</a></div></details>
 <details class="store-menu"><summary>The Realignment Room ▾</summary><div class="menu-panel"><a href="#realignment">Open Realignment section</a><a href="aura.html#realignment">Intentional Morning Habits</a><a href="aura.html#realignment">Intentional Daily Planner</a></div></details>
 <details class="store-menu"><summary>Sovereign University ▾</summary><div class="menu-panel"><a href="#university">Open University section</a><a href="aura.html#personal-brand">Personal Brand Starter</a><a href="aura.html#ai-setup">AI Assistant Setup</a><a href="aura.html#content-calendar">Content Calendar Starter</a><a href="aura.html#newsletter">Newsletter Launch Kit</a><a href="aura.html#digital-product">Digital Product Starter</a><a href="aura.html#website">Website in a Weekend</a></div></details>
 </nav></div></section>
-<section id="wellness" class="store-section"><div class="wrap"><span class="brand-tag">DBEASTCO WELLNESS</span><h2>It Starts with YOU.</h2><p>Explore functional supplements, high-quality blends, protein, pre-workout, CBD products, and motivational wear. Free shipping in the USA.</p><div id="my-store-17851284"></div>
+<section id="wellness" class="store-section" data-brand="wellness"><div class="wrap"><span class="brand-tag">DBEASTCO WELLNESS</span><h2>It Starts with YOU.</h2><p>Explore functional supplements, high-quality blends, protein, pre-workout, CBD products, and motivational wear. Free shipping in the USA.</p><div id="my-store-17851284"></div>
 <script data-cfasync="false" src="https://app.ecwid.com/script.js?17851284&data_platform=code" charset="utf-8"></script>
 <script>if(typeof xProductBrowser==='function'){xProductBrowser('id=my-store-17851284')}else{document.getElementById('my-store-17851284').textContent='The embedded store could not load. Please refresh or try again later.';}</script>
 </div></section>
-<section id="systems" class="store-section"><div class="wrap"><span class="brand-tag">SYSTEMS STUDIO</span><h2>Creator & Business Systems</h2><p>Tools and services for independent builders: websites, automation, content workflows, and digital systems.</p><div class="store-grid">
+<section id="systems" class="store-section" data-brand="systems"><div class="wrap"><span class="brand-tag">SYSTEMS STUDIO</span><h2>Creator & Business Systems</h2><p>Tools and services for independent builders: websites, automation, content workflows, and digital systems.</p><div class="store-grid">
 <article class="store-card"><span class="tag">FREE TOOL</span><h3>Business Idea Generator</h3><p>Turn a creative idea into a focused online-business starting point.</p><div class="price">Free</div><a class="btn" href="studio.html#generator">Open the tool</a></article>
 <article class="store-card"><span class="tag">COMING SOON</span><h3>Resume Builder Help</h3><p>Turn your experience, education, skills, and completed work into a clear resume and Lifestyle ID profile.</p><div class="price">Coming Soon</div><a class="btn ghost" href="working-record.html">View Resume</a></article>
 <article class="store-card"><span class="tag">SERVICES</span><h3>Creator & Business Systems</h3><p>Websites, automation, content workflows, and digital tools for independent builders.</p><div class="price">Explore</div><a class="btn" href="studio.html#store">Open Systems Studio</a></article>
 </div></div></section>
-<section id="realignment" class="store-section"><div class="wrap"><span class="brand-tag">THE REALIGNMENT ROOM</span><h2>Start the Day Aligned</h2><p>Simple alignment practices and planning tools for focus, direction, and follow-through.</p><div class="store-grid">
+<section id="realignment" class="store-section" data-brand="realignment"><div class="wrap"><span class="brand-tag">THE REALIGNMENT ROOM</span><h2>Start the Day Aligned</h2><p>Simple alignment practices and planning tools for focus, direction, and follow-through.</p><div class="store-grid">
 <article class="store-card"><span class="tag">FREE</span><h3>Intentional Morning Habits</h3><p>Start the day with a simple alignment practice, mechanical focus, and one meaningful action.</p><div class="price">Free</div><a class="btn" href="aura.html#realignment">Open in The Realignment Room</a></article>
 <article class="store-card"><span class="tag">PLANNER</span><h3>Intentional Daily Planner</h3><p>Turn your morning direction into priorities, time blocks, habits, and an evening review.</p><div class="price">$7</div><a class="btn" href="aura.html#realignment">Open in The Realignment Room</a></article>
 </div></div></section>
-<section id="university" class="store-section"><div class="wrap"><span class="brand-tag">SOVEREIGN UNIVERSITY</span><h2>Learn, Build, Launch</h2><p>Learning pathways for personal branding, AI workflows, content, newsletters, digital products, and building an online presence.</p><div class="store-grid">
+<section id="university" class="store-section" data-brand="university"><div class="wrap"><span class="brand-tag">SOVEREIGN UNIVERSITY</span><h2>Learn, Build, Launch</h2><p>Learning pathways for personal branding, AI workflows, content, newsletters, digital products, and building an online presence.</p><div class="store-grid">
 <article class="store-card"><span class="tag">COMING SOON</span><h3>Personal Brand Starter</h3><p>Define your values, story, voice, audience, and content pillars.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#personal-brand">View pathway</a></article>
 <article class="store-card"><span class="tag">COMING SOON</span><h3>AI Assistant Setup</h3><p>Create a personal AI brief, reusable prompts, and a practical assistant workflow.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#ai-setup">View pathway</a></article>
 <article class="store-card"><span class="tag">COMING SOON</span><h3>Content Calendar Starter</h3><p>Plan a simple weekly content rhythm across your main platform.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#content-calendar">View pathway</a></article>
@@ -60,19 +70,24 @@
 <article class="store-card"><span class="tag">COMING SOON</span><h3>Digital Product Starter</h3><p>Turn one useful idea into a simple digital product or download.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#digital-product">View pathway</a></article>
 <article class="store-card"><span class="tag">COMING SOON</span><h3>Website in a Weekend</h3><p>Build a simple personal or business website with clear pages and calls to action.</p><div class="price">Coming Soon</div><a class="btn ghost" href="aura.html#website">View pathway</a></article>
 </div></div></section>
-<p id="noResults" class="no-results" hidden>No products match your search.</p>
+<p id="noResults" class="no-results" hidden>No products match your search or filter.</p>
 </main>
+<aside id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-label="Shopping cart"><button class="drawer-close" type="button" aria-label="Close cart">×</button><h2>Your Cart</h2><div class="drawer-items" id="drawerItems"><p>Your cart is empty.</p></div><div class="drawer-footer"><a class="checkout-btn" href="https://app.ecwid.com/" target="_blank" rel="noopener">Checkout</a></div></aside>
 <footer class="footer"><div class="wrap">© <span id="y"></span> 209 Ecosystem • Build, Align, and Perform<br><a href="index.html">209 Control Panel</a> • <a href="aura.html">Lifestyle ID</a> • <a href="dbeastco.html">dBeastco Experience</a> • <a href="https://209connect.beehiiv.com/" rel="noopener">209 Media Connect</a></div></footer>
 <script src="assets/site.js"></script>
 <script src="assets/topbar.js"></script>
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
-const search=document.getElementById('productSearch');
+const searchInput=document.getElementById('productSearch');
 const cards=[...document.querySelectorAll('.store-card')];
 const sections=[...document.querySelectorAll('.store-section')];
 const noResults=document.getElementById('noResults');
-document.getElementById('productSearch').addEventListener('input',e=>{const q=e.target.value.trim().toLowerCase();let visible=0;cards.forEach(c=>{const match=!q||c.textContent.toLowerCase().includes(q);c.style.display=match?'':'none';if(match)visible++});sections.forEach(s=>{const any=[...s.querySelectorAll('.store-card')].some(c=>c.style.display!=='none');s.style.display=any?'':'none'});noResults.hidden=visible>0});
-(function(){const nav=document.querySelector('header.top .nav');if(!nav)return;const cart=document.createElement('a');cart.className='cart-btn';cart.href='#wellness';cart.setAttribute('aria-label','View cart');cart.innerHTML='🛒 <span class="cart-count" id="cartCount">0</span>';nav.append(cart);const count=cart.querySelector('#cartCount');function setCount(n){count.textContent=String(n)}if(window.Ecwid&&Ecwid.OnCartUpdated){Ecwid.OnCartUpdated(c=>setCount(c&&c.productsQuantity?c.productsQuantity:0))}else{setCount(0)}})();
+const filterBtns=[...document.querySelectorAll('.filter-btn')];
+let activeFilter='all';
+function applyFilters(){const q=searchInput.value.trim().toLowerCase();let visible=0;sections.forEach(s=>{const brand=s.dataset.brand;const brandMatch=activeFilter==='all'||brand===activeFilter;let sectionVisible=0;[...s.querySelectorAll('.store-card')].forEach(c=>{const textMatch=!q||c.textContent.toLowerCase().includes(q);const show=brandMatch&&textMatch;c.style.display=show?'':'none';if(show){visible++;sectionVisible++}});s.style.display=sectionVisible?'':'none'});noResults.hidden=visible>0}
+let debounceTimer;searchInput.addEventListener('input',()=>{clearTimeout(debounceTimer);debounceTimer=setTimeout(applyFilters,120)});
+filterBtns.forEach(b=>b.addEventListener('click',()=>{activeFilter=b.dataset.filter;filterBtns.forEach(x=>x.setAttribute('aria-pressed',String(x===b)));applyFilters()}));
+(function(){const nav=document.querySelector('header.top .nav');const drawer=document.getElementById('cartDrawer');const items=document.getElementById('drawerItems');if(!nav||!drawer)return;const cart=document.createElement('button');cart.className='cart-btn';cart.type='button';cart.setAttribute('aria-label','Open cart');cart.innerHTML='🛒 <span class="cart-count" id="cartCount">0</span>';nav.append(cart);const count=cart.querySelector('#cartCount');function setCount(n){count.textContent=String(n)}function renderItems(c){if(!c||!c.items||!c.items.length){items.innerHTML='<p>Your cart is empty.</p>';return}items.innerHTML=c.items.map(i=>'<p>'+ (i.name||'Item') +' × '+ (i.quantity||1) +'</p>').join('')}if(window.Ecwid&&Ecwid.OnCartUpdated){Ecwid.OnCartUpdated(c=>{setCount(c&&c.productsQuantity?c.productsQuantity:0);renderItems(c)})}cart.addEventListener('click',()=>{drawer.classList.add('open');drawer.setAttribute('aria-hidden','false')});drawer.querySelector('.drawer-close').addEventListener('click',()=>{drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')});document.addEventListener('keydown',e=>{if(e.key==='Escape'){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}})})();
 </script>
 </body>
 </html>
