@@ -1,4 +1,4 @@
-/* Consolidated 209 Media top bar with Flow Panel, Audit database, restored theme toggle, and reliable scroll reset */
+/* Consolidated 209 Media top bar with stronger scroll reset */
 (function(){
 const SUBSCRIBE="https://209connect.beehiiv.com/?modal=signup";
 const nav=`
@@ -15,12 +15,13 @@ function render(){
 document.querySelectorAll("header.top .nav").forEach(n=>{n.innerHTML=nav});
 document.querySelectorAll(".nav-group>button").forEach(btn=>{btn.onclick=e=>{e.stopPropagation();const g=btn.parentElement;const open=g.classList.contains("open");document.querySelectorAll(".nav-group.open").forEach(x=>x.classList.remove("open"));if(!open)g.classList.add("open")}});
 document.addEventListener("click",()=>document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open")));
-const t=document.getElementById("themeToggle");if(t)t.onclick=()=>document.getElementById("themeToggle").dispatchEvent(new Event("click"));
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",render);else render();
 if("scrollRestoration" in history)history.scrollRestoration="manual";
 function resetScroll(){window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0}
-window.addEventListener("pageshow",()=>{if(!location.hash)resetScroll()});
-window.addEventListener("popstate",()=>{if(!location.hash)resetScroll()});
+function resetAfterPaint(){requestAnimationFrame(()=>{resetScroll();setTimeout(resetScroll,50)})}
+window.addEventListener("pageshow",()=>{if(!location.hash)resetAfterPaint()});
+window.addEventListener("popstate",()=>{if(!location.hash)resetAfterPaint()});
+window.addEventListener("load",()=>{if(!location.hash)resetAfterPaint()});
 document.addEventListener("click",e=>{const a=e.target.closest("a[href]");if(!a)return;const href=a.getAttribute("href");if(href&&!href.startsWith("#")&&!href.startsWith("http")&&!href.startsWith("mailto:")){resetScroll()}});
 })();
