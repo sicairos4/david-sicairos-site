@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>209 Ops — Sign In</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;display:flex;align-items:center;justify-content:center;height:100vh;margin:0}.card{background:#fff;padding:32px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);width:320px}h1{font-size:20px;margin:0 0 16px}input,button{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box}button{background:#101828;color:#fff;border:0;cursor:pointer}#msg{color:#b42318;font-size:13px;min-height:18px}</style>
+</head>
+<body>
+<div class="card">
+<h1>209 Ops — Private Access</h1>
+<input id="email" type="email" placeholder="Email">
+<input id="password" type="password" placeholder="Password">
+<button onclick="login()">Sign In</button>
+<div id="msg"></div>
+</div>
+<script>
+const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
+sb.auth.getSession().then(({data})=>{if(data.session)location.href='dashboard.html'});
+async function login(){
+const{error}=await sb.auth.signInWithPassword({email:email.value,password:password.value});
+document.getElementById('msg').textContent=error?error.message:'';
+if(!error)location.href='dashboard.html';
+}
+</script>
+</body>
+</html>
