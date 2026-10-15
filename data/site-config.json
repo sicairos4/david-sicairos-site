@@ -30,6 +30,32 @@
       "link": "muse.html"
     }
   ],
+  "whatsWorking": [
+    {
+      "metric": "Threads opens",
+      "value": "Primary channel",
+      "trend": "up",
+      "action": "Double down on accountability hooks and receipt-led posts"
+    },
+    {
+      "metric": "Facebook breaking/political posts",
+      "value": "High engagement",
+      "trend": "up",
+      "action": "Post breaking-news hooks earlier in the day"
+    },
+    {
+      "metric": "LinkedIn impressions",
+      "value": "Steady",
+      "trend": "flat",
+      "action": "Test more systems-thinking and policy explainers"
+    },
+    {
+      "metric": "TikTok distribution",
+      "value": "Growing",
+      "trend": "up",
+      "action": "Use darker, high-contrast visuals with bold on-screen text"
+    }
+  ],
   "systemLog": [
     {
       "date": "2026-10-14",
@@ -59,6 +85,12 @@
       "date": "2026-10-14",
       "change": "Added Latest from 209 Media to Tracker",
       "surface": "Tracker latest.html",
+      "status": "Live"
+    },
+    {
+      "date": "2026-10-14",
+      "change": "Added What's Working analytics section",
+      "surface": "Muse page",
       "status": "Live"
     }
   ]
