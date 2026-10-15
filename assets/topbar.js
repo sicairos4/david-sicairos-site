@@ -11,7 +11,7 @@ const links=[
 ["Systems Studio","index.html#studio"],
 ["Lifestyle ID","aura.html"],
 ["dBeastco","dbeastco.html"],
-["Store","store.html"],
+["Wellness","dbeastco.html#store"],
 ["Support","index.html#support"]
 ];
 const nav=links.map(([label,href])=>`<a href="${href}">${label}</a>`).join("")+`<a class="btn nav-cta" href="${SUBSCRIBE}" target="_blank" rel="noopener">Subscribe</a>`;
