@@ -1,16 +1,18 @@
-/* Three-pillar navigation: Realignment, dBeastco Ecosystem, 209 Connect; Sovereign University as shared education destination */
+/* Three-pillar hierarchy: 209 Media homepage, dBeastco Wellness, Systems Studio, 209 Audit, Sovereign University */
 (function(){
 const SUBSCRIBE="https://209connect.beehiiv.com/?modal=signup";
 const nav=`
-<a href="index.html">Home</a>
-<a href="aura.html">Lifestyle ID</a>
-<div class="nav-group"><button type="button">209 Connect <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">209 MEDIA CONNECT</div><a href="index.html">Home</a><a href="working-record.html">Resume</a><a href="index.html#records">Records</a><a href="index.html#audit">209 Audit</a><a href="signal.html">Signal</a><a href="newsletter.html">Newsletter</a></div></div>
-<div class="nav-group"><button type="button">dBeastco Ecosystem <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">WELLNESS & PERFORMANCE</div><a href="dbeastco.html">Wellness Experience</a><a href="dbeastco.html#store">Shop Wellness</a><a href="dbeastco.html#paths">Choose Your Path</a><a href="dbeastco.html#featured">Featured Products</a><a href="dbeastco.html#community">Community</a><a href="store.html">All Products</a></div></div>
-<a href="studio.html">Systems Studio</a>
-<a href="aura.html#sovereign-university">Sovereign University</a>
-<div class="nav-group"><button type="button">Stores <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">SHOP THE ECOSYSTEM</div><a href="store.html">All Products</a><a href="studio.html#store">Systems Studio Store</a><a href="dbeastco.html#store">dBeastco Wellness Store</a><a href="aura.html#realignment">The Realignment Room</a></div></div>
+<div class="nav-left">
+<a href="index.html">209 Media</a>
+<div class="nav-group"><button type="button">dBeastco Wellness <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">WELLNESS & PERFORMANCE</div><a href="dbeastco.html">Wellness Experience</a><a href="dbeastco.html#store">Shop Wellness</a><a href="dbeastco.html#paths">Choose Your Path</a><a href="dbeastco.html#featured">Featured Products</a><a href="dbeastco.html#community">Community</a></div></div>
+<div class="nav-group"><button type="button">Systems Studio <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">BUILDER SYSTEMS</div><a href="studio.html">Systems Studio</a><a href="studio.html#store">Studio Store</a><a href="aura.html#realignment">The Realignment Room</a><a href="aura.html">Lifestyle ID</a></div></div>
+<div class="nav-group"><button type="button">209 Audit <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">RECEIPTS & ACCOUNTABILITY</div><a href="209-audit.html">209 Audit Story</a><a href="209-audit.html#how-it-works">How It Works</a><a href="209-audit.html#tools">Tools & Assets</a><a href="index.html#records">Records</a><a href="https://sicairos4.github.io/209audit-cpra-playbook/" rel="noopener">CPRA Playbook</a></div></div>
+<a href="sovereign-university.html">Sovereign University</a>
+</div>
+<div class="nav-right">
 <button id="themeToggle" class="theme-toggle" type="button" aria-label="Change theme">◐</button>
-<a class="btn nav-cta" href="${SUBSCRIBE}" target="_blank" rel="noopener">Subscribe</a>`;
+<a class="btn nav-cta" href="${SUBSCRIBE}" target="_blank" rel="noopener">Subscribe</a>
+</div>`;
 function render(){
 document.querySelectorAll("header.top .nav").forEach(n=>{n.innerHTML=nav});
 document.querySelectorAll(".nav-group>button").forEach(btn=>{btn.onclick=e=>{e.stopPropagation();const g=btn.parentElement;const open=g.classList.contains("open");document.querySelectorAll(".nav-group.open").forEach(x=>x.classList.remove("open"));if(!open)g.classList.add("open")}});
