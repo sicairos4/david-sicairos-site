@@ -1,45 +1,9 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>209 Members — Sign Up / Sign In</title>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>body{font-family:Inter,sans-serif;background:#f6f7f9;display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;padding:20px}.card{background:#fff;padding:32px;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,.08);width:100%;max-width:380px}h1{font-size:22px;margin:0 0 8px}p{font-size:14px;color:#667085;margin:0 0 16px}input,button{width:100%;padding:12px;margin:6px 0;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box}button{background:#101828;color:#fff;border:0;cursor:pointer}#msg{color:#b42318;font-size:13px;min-height:18px}.toggle{font-size:13px;text-align:center;margin-top:12px}.toggle-link{color:#1a7f37;cursor:pointer}.google-btn{background:#fff;color:#101828;border:1px solid #d0d5dd;display:flex;align-items:center;justify-content:center;gap:8px}.google-btn:hover{background:#f1f3f5}.divider{display:flex;align-items:center;margin:16px 0}.divider::before,.divider::after{content:'';flex:1;height:1px;background:#d0d5dd}.divider span{padding:0 12px;color:#667085;font-size:12px}</style>
-</head>
-<body>
-<div class="card">
-<h1 id="title">Join 209 Members</h1>
-<p id="sub">Free access to courses, downloads, and the future Aura digital environment.</p>
-<button class="google-btn" onclick="googleSignIn()"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-11.1 7.09-18.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.55s.27-3.1.76-4.55l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.23z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>Sign in with Google</button>
-<div class="divider"><span>or</span></div>
-<input id="email" type="email" placeholder="Email">
-<input id="password" type="password" placeholder="Password">
-<button id="btn" onclick="submit()">Create Account</button>
-<div id="msg"></div>
-<div class="toggle-link" id="toggle" onclick="toggleMode()">Already have an account? Sign in</div>
-</div>
-<script>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>209 Connect — Sign In</title><meta name="description" content="Sign in to your 209 Connect personal workspace."><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>body{font:17px system-ui;background:#f2f6f3;color:#183e30;margin:0;padding:24px}main{max-width:420px;margin:5vh auto;background:white;padding:24px;border-radius:16px}input,button{font:inherit;box-sizing:border-box;width:100%;padding:12px;margin:8px 0}button{background:#175c42;color:white;border:0;border-radius:8px;cursor:pointer}a{color:#175c42}#message{min-height:48px}</style></head><body><main><h1>209 Connect</h1><p>Your personal workspace for planning, reflection and creative work.</p><form id="authForm"><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required minlength="8"></label><button id="submitButton">Sign in</button></form><button id="google">Continue with Google</button><button id="toggle" type="button">New here? Create an account</button><p id="message" role="status" aria-live="polite"></p><a href="../index.html">Back to the website</a></main><script>
 const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
-let mode='signup';
-sb.auth.getSession().then(({data})=>{if(data.session)location.href='dashboard.html'});
-function toggleMode(){
-mode=mode==='signup'?'signin':'signup';
-document.getElementById('title').textContent=mode==='signup'?'Join 209 Members':'Welcome Back';
-document.getElementById('btn').textContent=mode==='signup'?'Create Account':'Sign In';
-document.getElementById('toggle').textContent=mode==='signup'?'Already have an account? Sign in':'New here? Create an account';
-}
-async function submit(){
-const email=document.getElementById('email').value,password=document.getElementById('password').value;
-const fn=mode==='signup'?sb.auth.signUp:sb.auth.signInWithPassword;
-const{error}=await fn({email,password});
-document.getElementById('msg').textContent=error?error.message:'';
-if(!error)location.href='dashboard.html';
-}
-async function googleSignIn(){
-const{error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:location.origin+'/members/dashboard.html'}});
-if(error)document.getElementById('msg').textContent=error.message;
-}
-</script>
-</body>
-</html>
+const el=id=>document.getElementById(id),destination=new URL('products.html',location.href).href;let signup=false,busy=false;
+function setBusy(value){busy=value;document.querySelectorAll('button').forEach(b=>b.disabled=value)}
+sb.auth.getSession().then(({data,error})=>{if(error)el('message').textContent='Unable to check your session. Please sign in again.';else if(data.session)location.replace(destination)});
+el('toggle').onclick=()=>{signup=!signup;el('submitButton').textContent=signup?'Create account':'Sign in';el('toggle').textContent=signup?'Already registered? Sign in':'New here? Create an account';el('password').autocomplete=signup?'new-password':'current-password';el('message').textContent=''};
+el('authForm').onsubmit=async e=>{e.preventDefault();if(busy)return;setBusy(true);try{const credentials={email:el('email').value.trim(),password:el('password').value};const result=signup?await sb.auth.signUp({...credentials,options:{emailRedirectTo:destination}}):await sb.auth.signInWithPassword(credentials);if(result.error)throw result.error;el('password').value='';if(result.data.session)location.replace(destination);else el('message').textContent='Check your email for a confirmation link, then sign in.'}catch(error){el('message').textContent=error.message||'Sign-in failed.'}finally{setBusy(false)}};
+el('google').onclick=async()=>{if(busy)return;setBusy(true);try{const {error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:destination}});if(error)throw error}catch(error){el('message').textContent=error.message||'Google sign-in failed.';setBusy(false)}};
+</script></body></html>
