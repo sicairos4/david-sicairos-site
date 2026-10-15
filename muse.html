@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" data-theme="valley-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muse — 209 Automation</title>
+<meta name="description" content="Muse is the automation layer for 209 Media Connect: Drive ingestion, daily briefs, Signal drafts, Audit indexing, and human-approved publishing.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/nav.css">
+</head>
+<body>
+<header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="David Sicairos home">DAVID <span>SICAIROS</span></a><nav class="nav"></nav></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">MUSE AUTOMATION</div><h1>The system behind the work.</h1><p>Muse connects public records, Drive files, daily briefs, Signal drafts, Audit indexing, and publishing into one reviewed workflow.</p><div class="links"><a class="btn" href="index.html#audit">Open 209 Audit</a><a class="btn ghost" href="signal.html">Open 209 Signal</a></div></div></section>
+<section class="section"><div class="wrap"><div class="kicker">SYSTEM STATUS</div><h2>Live Muse status</h2><div id="museStatus" class="list"><p class="muted">Loading Muse status…</p></div></div></section>
+<section class="section"><div class="wrap"><div class="kicker">DAILY BRIEF</div><h2>What Muse found today</h2><div id="museBrief" class="list"><p class="muted">Loading daily brief…</p></div></div></section>
+<section class="section"><div class="wrap"><div class="kicker">AUTOMATIONS</div><h2>Active workflows</h2><div class="grid">
+<article class="card"><h3>Drive Ingestion</h3><p>Detect and organize new public files, records, and supporting documents.</p><div class="price">Ready</div></article>
+<article class="card"><h3>Signal Drafting</h3><p>Turn reviewed material into a draft public update for approval.</p><div class="price">Ready</div></article>
+<article class="card"><h3>Audit Indexing</h3><p>Create searchable entries for records, dates, sources, and Drive files.</p><div class="price">Ready</div></article>
+<article class="card"><h3>Publishing Queue</h3><p>Send approved updates to 209 Signal and update the public record feed.</p><div class="price">Human review required</div></article>
+</div></div></section>
+<section class="section"><div class="wrap"><div class="kicker">INCIDENTS</div><h2>Recovery and monitoring</h2><div id="museIncidents" class="list"><p class="muted">Loading incident log…</p></div></div></section>
+<section class="section"><div class="wrap"><div class="kicker">REVIEW RULE</div><h2>Human-approved publishing</h2><p>Muse prepares research, organizes files, drafts updates, and flags deadlines. David reviews every public post before it is published.</p></div></section>
+</main>
+<footer class="footer"><div class="wrap">© <span id="y"></span> David Sicairos • Muse Automation • 209 Media Connect</div></footer>
+<script src="assets/site.js"></script>
+<script src="assets/topbar.js"></script>
+<script>
+(async()=>{try{const r=await fetch('data/muse-status.json');const d=await r.json();const s=document.getElementById('museStatus');if(s&&d){s.innerHTML=`<div class="item"><strong>Status:</strong> ${d.status}<br><strong>Last run:</strong> ${d.last_run}<br><strong>Next run:</strong> ${d.next_run}</div>`}const b=document.getElementById('museBrief');if(b&&d?.daily_brief){b.innerHTML=d.daily_brief.map(x=>`<div class="item"><strong>${x.title}</strong><br>${x.summary}</div>`).join('')}const i=document.getElementById('museIncidents');if(i&&d?.incidents){i.innerHTML=d.incidents.map(x=>`<div class="item"><strong>${x.date}</strong><br>${x.title}<br>${x.summary}</div>`).join('')}}catch(e){}})();
+</script>
+</body>
+</html>

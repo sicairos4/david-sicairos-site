@@ -1,0 +1,33 @@
+{
+  "status": "online",
+  "last_run": "2026-10-14 18:00 PDT",
+  "next_run": "2026-10-15 06:00 PDT",
+  "active_automations": [
+    "Drive ingestion",
+    "Signal drafting",
+    "Audit indexing",
+    "Publishing queue"
+  ],
+  "daily_brief": [
+    {
+      "title": "Public-files database preparation",
+      "summary": "Muse is ready to organize selected public records, timelines, requests, responses, and supporting documents for the 209 Audit database."
+    },
+    {
+      "title": "Signal draft queue",
+      "summary": "New material can be converted into a draft Signal update after review and approval."
+    },
+    {
+      "title": "Human review required",
+      "summary": "Muse prepares drafts and flags deadlines. David approves every public post before publication."
+    }
+  ],
+  "incidents": [
+    {
+      "date": "2026-10-14",
+      "title": "Muse connection initialized",
+      "summary": "The Muse automation framework was connected to the 209 ecosystem."
+    }
+  ],
+  "record_queue": []
+}
