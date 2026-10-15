@@ -1,0 +1,9 @@
+{
+  "name": "209 Media",
+  "short_name": "209 Media",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a7f37",
+  "icons": []
+}

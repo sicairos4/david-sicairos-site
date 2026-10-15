@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sicairos4.github.io/david-sicairos-site/sitemap.xml
