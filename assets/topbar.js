@@ -17,8 +17,18 @@ const nav=`
 </div>`;
 function render(){
 document.querySelectorAll("header.top .nav").forEach(n=>{n.innerHTML=nav});
+const header=document.querySelector("header.top");
+if(header&&!header.querySelector(".nav-burger")){
+const b=document.createElement("button");
+b.className="nav-burger";b.type="button";b.setAttribute("aria-label","Open menu");b.innerHTML="☰";
+b.onclick=e=>{e.stopPropagation();document.body.classList.toggle("nav-open")};
+header.querySelector(".top-in").prepend(b);
+}
 document.querySelectorAll(".nav-group>button").forEach(btn=>{btn.onclick=e=>{e.stopPropagation();const g=btn.parentElement;const open=g.classList.contains("open");document.querySelectorAll(".nav-group.open").forEach(x=>x.classList.remove("open"));if(!open)g.classList.add("open")}});
-document.addEventListener("click",()=>document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open")));
+document.addEventListener("click",e=>{
+if(!e.target.closest(".nav"))document.querySelectorAll(".nav-group.open").forEach(g=>g.classList.remove("open"));
+if(e.target.closest(".nav a"))document.body.classList.remove("nav-open");
+});
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",render);else render();
 if("scrollRestoration" in history)history.scrollRestoration="manual";
