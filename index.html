@@ -27,5 +27,17 @@
 <script src="assets/site.js"></script>
 <script src="assets/topbar.js"></script>
 <script src="assets/experience.js"></script>
+<script>
+(async function(){
+const feed=document.getElementById('recordFeed');
+try{
+const res=await fetch('data/site-config.json');
+const cfg=await res.json();
+if(cfg.records&&cfg.records.length){
+feed.innerHTML=cfg.records.map(r=>'<div class="item"><strong>'+r.headline+'</strong><br><span class="muted">'+r.date+' • '+r.source+'</span><br><a href="'+r.link+'">Open</a></div>').join('');
+}else{feed.innerHTML='<p class="muted">No records yet.</p>'}
+}catch(e){feed.innerHTML='<p class="muted">Records feed unavailable.</p>'}
+})();
+</script>
 </body>
 </html>

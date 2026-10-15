@@ -1,0 +1,33 @@
+{
+  "records": [
+    {
+      "headline": "209 Audit engine is live",
+      "date": "2026-10-14",
+      "source": "209 Media",
+      "link": "209-audit.html"
+    },
+    {
+      "headline": "Public Files Database coming soon",
+      "date": "2026-10-14",
+      "source": "209 Media",
+      "link": "public-files.html"
+    }
+  ],
+  "museStatus": {
+    "state": "Connected",
+    "lastRun": "2026-10-14",
+    "nextAction": "Review latest records and prioritize hooks"
+  },
+  "featuredStory": {
+    "title": "209 Audit is the engine",
+    "hook": "Receipts over narratives.",
+    "link": "209-audit.html"
+  },
+  "announcements": [
+    {
+      "title": "Muse is connected",
+      "body": "Meta Muse + Gemini + Perplexity are now linked to the 209 media app.",
+      "link": "muse.html"
+    }
+  ]
+}
