@@ -11,7 +11,6 @@
 <link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="assets/nav.css">
 <link rel="stylesheet" href="assets/mobile.css">
-<script src="assets/live-content.js"></script>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
@@ -28,12 +27,10 @@
 <script src="assets/site.js"></script>
 <script src="assets/topbar.js"></script>
 <script src="assets/experience.js"></script>
+<script src="assets/live-content.js"></script>
 <script>
-(async function(){
+function render(cfg){
 const feed=document.getElementById('recordFeed');
-try{
-const res=await fetch('data/site-config.json');
-const cfg=await res.json();
 if(cfg.featuredStory){
 if(cfg.featuredStory.title)document.getElementById('featuredTitle').textContent=cfg.featuredStory.title;
 if(cfg.featuredStory.hook)document.getElementById('featuredHook').textContent=cfg.featuredStory.hook;
@@ -42,8 +39,9 @@ if(cfg.featuredStory.link)document.getElementById('featuredLink').href=cfg.featu
 if(cfg.records&&cfg.records.length){
 feed.innerHTML=cfg.records.map(r=>'<div class="item"><strong>'+r.headline+'</strong><br><span class="muted">'+r.date+' • '+r.source+'</span><br><a href="'+r.link+'">Open</a></div>').join('');
 }else{feed.innerHTML='<p class="muted">No records yet.</p>'}
-}catch(e){feed.innerHTML='<p class="muted">Records feed unavailable.</p>'}
-})();
+}
+document.addEventListener('site-config-ready',e=>render(e.detail));
+if(window.SITE_CONFIG)render(window.SITE_CONFIG);
 </script>
 </body>
 </html>
