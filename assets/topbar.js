@@ -1,3 +1,37 @@
+/* Global meta tag + favicon injection — embedded in topbar.js so it runs on every page */
+(function(){
+function ensureMeta(attr,key,content){
+let el=document.head.querySelector('meta['+attr+'="'+key+'"]');
+if(!el){el=document.createElement('meta');el.setAttribute(attr,key);document.head.appendChild(el)}
+el.setAttribute('content',content);
+}
+function injectMeta(){
+const title=document.title||'209 Media';
+const desc='209 Media — David Sicairos. Wellness, systems, receipts, and sovereign education.';
+const url=location.href;
+const img='https://sicairos4.github.io/david-sicairos-site/favicon.svg';
+ensureMeta('name','description',desc);
+ensureMeta('property','og:title',title);
+ensureMeta('property','og:description',desc);
+ensureMeta('property','og:type','website');
+ensureMeta('property','og:url',url);
+ensureMeta('property','og:image',img);
+ensureMeta('name','twitter:card','summary');
+ensureMeta('name','twitter:title',title);
+ensureMeta('name','twitter:description',desc);
+ensureMeta('name','twitter:image',img);
+if(!document.head.querySelector('link[rel="icon"]')){
+const f=document.createElement('link');f.rel='icon';f.href='favicon.svg';f.type='image/svg+xml';document.head.appendChild(f);
+}
+if(!document.head.querySelector('link[rel="manifest"]')){
+const m=document.createElement('link');m.rel='manifest';m.href='manifest.json';document.head.appendChild(m);
+}
+if(!document.head.querySelector('link[rel="canonical"]')){
+const c=document.createElement('link');c.rel='canonical';c.href=url;document.head.appendChild(c);
+}
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',injectMeta);else injectMeta();
+})();
 /* Three-pillar hierarchy + mobile hamburger + upgrade bundle (smooth scroll, back-to-top, active-state, sticky mini-CTA) — CSS injected inline so no extra file/link needed */
 (function(){
 // Inject upgrade CSS globally
@@ -6,20 +40,7 @@ const css=`\n.mini-cta,.back-to-top{position:fixed;right:16px;bottom:16px;z-inde
 const s=document.createElement("style");s.textContent=css;document.head.appendChild(s);
 });
 const SUBSCRIBE="https://209connect.beehiiv.com/?modal=signup";
-const nav=`
-<div class="nav-left">
-<a href="index.html">209 Media</a>
-<div class="nav-group"><button type="button">dBeastco Wellness <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">WELLNESS & PERFORMANCE</div><a href="dbeastco.html">Wellness Experience</a><a href="dbeastco.html#store">Shop Wellness</a><a href="dbeastco.html#paths">Choose Your Path</a><a href="dbeastco.html#featured">Featured Products</a><a href="dbeastco.html#community">Community</a></div></div>
-<div class="nav-group"><button type="button">Systems Studio <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">BUILDER SYSTEMS</div><a href="studio.html">Systems Studio</a><a href="studio.html#store">Studio Store</a><a href="aura.html#realignment">The Realignment Room</a><a href="aura.html">Lifestyle ID</a></div></div>
-<div class="nav-group"><button type="button">209 Audit <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">RECEIPTS & ACCOUNTABILITY</div><a href="209-audit.html">209 Audit Story</a><a href="209-audit.html#how-it-works">How It Works</a><a href="209-audit.html#tools">Tools & Assets</a><a href="index.html#records">Records</a><a href="intelligence/">209 Intelligence</a><a href="https://sicairos4.github.io/209audit-cpra-playbook/" rel="noopener">CPRA Playbook</a></div></div>
-<a href="sovereign-university.html">Sovereign University</a>
-<a href="library.html">Media Library</a>
-<a href="donations.html">Support the Work</a>
-</div>
-<div class="nav-right">
-<button id="themeToggle" class="theme-toggle" type="button" aria-label="Change theme">◐</button>
-<a class="btn nav-cta" href="${SUBSCRIBE}" target="_blank" rel="noopener">Subscribe</a>
-</div>`;
+const nav=`\n<div class="nav-left">\n<a href="index.html">209 Media</a>\n<div class="nav-group"><button type="button">dBeastco Wellness <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">WELLNESS & PERFORMANCE</div><a href="dbeastco.html">Wellness Experience</a><a href="dbeastco.html#store">Shop Wellness</a><a href="dbeastco.html#paths">Choose Your Path</a><a href="dbeastco.html#featured">Featured Products</a><a href="dbeastco.html#community">Community</a></div></div>\n<div class="nav-group"><button type="button">Systems Studio <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">BUILDER SYSTEMS</div><a href="studio.html">Systems Studio</a><a href="studio.html#store">Studio Store</a><a href="aura.html#realignment">The Realignment Room</a><a href="aura.html">Lifestyle ID</a></div></div>\n<div class="nav-group"><button type="button">209 Audit <span class="nav-caret">▼</span></button><div class="dropdown"><div class="dropdown-label">RECEIPTS & ACCOUNTABILITY</div><a href="209-audit.html">209 Audit Story</a><a href="209-audit.html#how-it-works">How It Works</a><a href="209-audit.html#tools">Tools & Assets</a><a href="index.html#records">Records</a><a href="intelligence/">209 Intelligence</a><a href="https://sicairos4.github.io/209audit-cpra-playbook/" rel="noopener">CPRA Playbook</a></div></div>\n<a href="sovereign-university.html">Sovereign University</a>\n<a href="library.html">Media Library</a>\n<a href="donations.html">Support the Work</a>\n</div>\n<div class="nav-right">\n<button id="themeToggle" class="theme-toggle" type="button" aria-label="Change theme">◐</button>\n<a class="btn nav-cta" href="${SUBSCRIBE}" target="_blank" rel="noopener">Subscribe</a>\n</div>`;
 function render(){
 document.querySelectorAll("header.top .nav").forEach(n=>{n.innerHTML=nav});
 const header=document.querySelector("header.top");
