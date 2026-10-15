@@ -1,0 +1,63 @@
+name: Build Aura product migration
+on:
+  workflow_dispatch:
+    inputs:
+      source_ref:
+        description: Reviewed aura-launchpad commit SHA (40 hexadecimal characters)
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: aura-migration-build
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Validate immutable source reference and credential
+        env:
+          SOURCE_REF: ${{ inputs.source_ref }}
+          SOURCE_TOKEN: ${{ secrets.AURA_SOURCE_READ_TOKEN }}
+        run: |
+          [[ "$SOURCE_REF" =~ ^[0-9a-fA-F]{40}$ ]] || { echo 'Use a reviewed full commit SHA'; exit 1; }
+          test -n "$SOURCE_TOKEN" || { echo 'Configure AURA_SOURCE_READ_TOKEN with read-only access to aura-launchpad'; exit 1; }
+      - uses: actions/checkout@v4
+        with:
+          repository: sicairos4/aura-launchpad
+          ref: ${{ inputs.source_ref }}
+          token: ${{ secrets.AURA_SOURCE_READ_TOKEN }}
+          path: aura-source
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: aura-source/package-lock.json
+      - name: Adapt migration copy only
+        run: python3 scripts/prepare-aura-migration.py aura-source
+      - name: Install locked dependencies
+        working-directory: aura-source
+        run: npm ci
+      - name: Check TypeScript
+        working-directory: aura-source
+        run: npx tsc --noEmit -p tsconfig.app.json
+      - name: Build original product suite
+        working-directory: aura-source
+        run: npm run build -- --base=/david-sicairos-site/members/aura/
+      - name: Assemble review artifact
+        run: |
+          mkdir -p migration-review/members/aura
+          cp -a aura-source/dist/. migration-review/members/aura/
+          git -C aura-source rev-parse HEAD > migration-review/SOURCE_COMMIT.txt
+          cp docs/aura-product-migration.md migration-review/REVIEW.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: aura-products-review
+          path: migration-review/
+          retention-days: 3
+          if-no-files-found: error
