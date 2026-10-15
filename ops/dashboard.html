@@ -4,51 +4,70 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>209 Ops — AI Command Center</title>
+<title>209 Ops — Admin Console</title>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1100px;margin:0 auto}h1{font-size:24px}h2{font-size:16px;margin:24px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}.item{border-left:3px solid #1a7f37;padding-left:10px;margin-bottom:10px;font-size:14px}.muted{color:#667085;font-size:12px}textarea,input{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer}.handoff{border:1px solid #e4e7ec;border-radius:8px;padding:10px;margin-bottom:8px;font-size:13px}</style>
+<style>body{font-family:Inter,sans-serif;background:#f6f7f9;margin:0;padding:24px}.wrap{max-width:1000px;margin:0 auto}h1{font-size:22px}h2{font-size:15px;margin:20px 0 8px}.panel{background:#fff;border-radius:12px;padding:16px;box-shadow:0 1px 6px rgba(0,0,0,.06);margin-bottom:16px}textarea,input,select{width:100%;padding:10px;border-radius:8px;border:1px solid #d0d5dd;box-sizing:border-box;margin:6px 0;font-family:Inter,sans-serif}button{padding:10px 16px;background:#101828;color:#fff;border:0;border-radius:8px;cursor:pointer;margin:4px 4px 4px 0}.muted{color:#667085;font-size:12px}.ok{color:#1a7f37;font-size:13px}.err{color:#b42318;font-size:13px}</style>
 </head>
 <body>
 <div class="wrap">
-<h1>209 Ops — AI Command Center</h1>
-<p class="muted">Private. Data in use • Live shifts • AI inner workings.</p>
-<div class="panel"><h2>Data In Use</h2><div id="dataInUse">Loading…</div></div>
-<div class="panel"><h2>Live Shifts</h2><div id="liveShifts">Loading…</div></div>
-<div class="panel"><h2>AI Inner Workings</h2><div id="aiInner">Loading…</div></div>
-<div class="panel"><h2>One-Prompt Update</h2><textarea id="prompt" rows="3" placeholder="e.g. Add a new record: 'Muse shifted to breaking-news hooks'"></textarea><button onclick="runPrompt()">Run Prompt → Log Handoff</button><div id="promptMsg" class="muted"></div></div>
+<h1>209 Ops — Admin Console</h1>
+<p class="muted">Signed in. Edit anything, save live, or type a command for the AI.</p>
+<div class="panel"><h2>AI Text Box — Update Anything</h2><textarea id="ai" rows="3" placeholder="e.g. add record: Muse shifted to breaking-news hooks | set hero title: 209 Audit is the engine | set hook: Receipts over narratives."></textarea><button onclick="runAI()">Run Command</button><span id="aiMsg"></span></div>
+<div class="panel"><h2>Content Editor — JSON sections</h2><select id="section"><option>records</option><option>featuredStory</option><option>museStatus</option><option>announcements</option><option>whatsWorking</option><option>socialPulse</option><option>podcasts</option></select><textarea id="json" rows="10"></textarea><button onclick="saveSection()">Save Section (Live)</button><span id="secMsg"></span></div>
+<div class="panel"><h2>Page Element Editor</h2><select id="page"><option value="index">Homepage</option><option value="muse">Muse</option><option value="intelligence">Intelligence</option></select><input id="elId" placeholder="Element ID (e.g. featuredTitle, featuredHook)"><input id="elText" placeholder="New text"><button onclick="saveElement()">Save Element (Live)</button><span id="elMsg"></span></div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
 sb.auth.getSession().then(({data})=>{if(!data.session)location.href='index.html'});
-const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'};
-async function loadData(){
+const H={'apikey':'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Authorization':'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN','Content-Type':'application/json'};
+const SB='https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/site_content';
+async function upsert(key,value){
+const res=await fetch(SB+'?on_conflict=key',{method:'POST',headers:H,body:JSON.stringify({key,value})});
+return res.ok;
+}
+async function saveSection(){
+const k=document.getElementById('section').value;let v;
+try{v=JSON.parse(document.getElementById('json').value)}catch(e){document.getElementById('secMsg').textContent='Invalid JSON';return}
+const ok=await upsert(k,v);
+document.getElementById('secMsg').textContent=ok?'Saved — live immediately.':'Save failed.';
+}
+async function saveElement(){
+const page=document.getElementById('page').value,id=document.getElementById('elId').value,txt=document.getElementById('elText').value;
+if(!id||!txt)return;
+const existing=await(await fetch(SB+'?key=eq.pageText',H)).json();
+let val=(existing[0]&&existing[0].value)||{};
+val[page+':'+id]=txt;
+const ok=await upsert('pageText',val);
+document.getElementById('elMsg').textContent=ok?'Saved — live immediately.':'Save failed.';
+}
+async function runAI(){
+const cmd=document.getElementById('ai').value.trim();if(!cmd)return;
+const lower=cmd.toLowerCase();
+let ok=false,msg='';
+if(lower.startsWith('add record:')){
+const headline=cmd.slice(11).trim();
+const cur=await(await fetch(SB+'?key=eq.records',H)).json();
+const records=(cur[0]&&cur[0].value)||[];
+records.unshift({headline:headline,date:new Date().toISOString().slice(0,10),source:'209 Media',link:'209-audit.html'});
+ok=await upsert('records',records);msg=ok?'Record added — live.':'Failed.';
+}else if(lower.startsWith('set hero title:')){
+ok=await upsert('element:featuredTitle',cmd.slice(15).trim());msg=ok?'Hero title updated — live.':'Failed.';
+}else if(lower.startsWith('set hook:')){
+ok=await upsert('element:featuredHook',cmd.slice(9).trim());msg=ok?'Hook updated — live.':'Failed.';
+}else{
+ok=await upsert('ai_command',{command:cmd,created:new Date().toISOString()});msg=ok?'Command logged for the next Muse/Gemini cycle.':'Failed.';
+}
+document.getElementById('aiMsg').textContent=msg;
+if(ok)document.getElementById('ai').value='';
+}
+async function loadSection(){
+const k=document.getElementById('section').value;
 const cfg=await(await fetch('../data/site-config.json')).json();
-let h='';
-(cfg.records||[]).forEach(r=>h+='<div class="item"><strong>'+r.headline+'</strong><br><span class="muted">'+r.date+' • '+r.source+'</span></div>');
-(cfg.whatsWorking||[]).forEach(w=>h+='<div class="item"><strong>'+w.metric+'</strong> — '+w.value+' ('+w.trend+')<br>Action: '+w.action+'</div>');
-document.getElementById('dataInUse').innerHTML=h;
+const cur=await(await fetch(SB+'?key=eq.'+k,H)).json();
+document.getElementById('json').value=JSON.stringify((cur[0]&&cur[0].value)||cfg[k]||[],null,2);
 }
-async function loadShifts(){
-const a=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/adaptation_log?select=*&order=created_at.desc&limit=5',{headers:H})).json();
-const t=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/top_posts_48h?select=*&order=engagement_delta.desc&limit=5',{headers:H})).json();
-let h='';
-a.forEach(e=>h+='<div class="item"><strong>'+e.trigger+'</strong><br>'+e.observation+'<br><strong>Decision:</strong> '+e.decision+'<br><strong>Action:</strong> '+e.action+'</div>');
-t.forEach(p=>h+='<div class="item"><strong>'+p.title+'</strong> — +'+p.engagement_delta+'%<br><span class="muted">'+p.reason+'</span></div>');
-document.getElementById('liveShifts').innerHTML=h||'<p class="muted">No shifts yet.</p>';
-}
-async function loadHandoffs(){
-const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/ai_handoffs?select=*&order=created_at.desc&limit=10',{headers:H})).json();
-document.getElementById('aiInner').innerHTML=rows.length?rows.map(r=>'<div class="handoff"><strong>'+r.from_ai+' → '+r.to_ai+'</strong><br>Input: '+r.input_summary+'<br>Decision: '+r.decision+'<br>Output: '+r.output_summary+'<br><span class="muted">'+new Date(r.created_at).toLocaleString()+'</span></div>').join(''):'<p class="muted">No AI handoffs logged yet.</p>';
-}
-async function runPrompt(){
-const p=document.getElementById('prompt').value;
-if(!p)return;
-const{error}=await sb.from('ai_handoffs').insert({cycle_id:Date.now()+'',from_ai:'You',to_ai:'Muse',input_summary:p,decision:'Prompt received — queued for Muse/Gemini cycle',output_summary:'Pending next adaptation cycle'});
-document.getElementById('promptMsg').textContent=error?('Error: '+error.message):'Handoff logged. Muse/Gemini will pick it up on the next cycle.';
-if(!error){document.getElementById('prompt').value='';loadHandoffs();}
-}
-loadData();loadShifts();loadHandoffs();
-setInterval(loadShifts,60000);setInterval(loadHandoffs,60000);
+document.getElementById('section').addEventListener('change',loadSection);loadSection();
 </script>
 </body>
 </html>
