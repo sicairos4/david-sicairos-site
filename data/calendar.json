@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2026-10-15",
+    "mission": "Records Wave — next CPRA filing",
+    "format": "Text hook",
+    "platform": "Threads",
+    "time_slot": "09:00",
+    "cta": "Follow for the receipt",
+    "utm": "utm_source=threads&utm_campaign=records-wave",
+    "status": "RUNNING"
+  },
+  {
+    "date": "2026-10-15",
+    "mission": "Records Wave — next CPRA filing",
+    "format": "Context post + image",
+    "platform": "Facebook",
+    "time_slot": "12:00",
+    "cta": "See the update",
+    "utm": "utm_source=facebook&utm_campaign=records-wave",
+    "status": "RUNNING"
+  },
+  {
+    "date": "2026-10-16",
+    "mission": "Records Wave — receipt card",
+    "format": "Visual card",
+    "platform": "Instagram",
+    "time_slot": "10:00",
+    "cta": "Swipe for what was filed",
+    "utm": "utm_source=instagram&utm_campaign=records-wave",
+    "status": "BLOCKED"
+  }
+]
