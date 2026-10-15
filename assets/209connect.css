@@ -1,0 +1,13 @@
+/* 209 Connect standalone pages */
+.story-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:24px}
+.story{display:flex;flex-direction:column;gap:8px;background:var(--panel,#fff);border:1px solid var(--line,#dfe7e1);border-radius:16px;padding:20px;text-decoration:none;color:inherit;min-height:190px}
+.story .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent,#2f7d55);font-weight:800}
+.story h3{margin:0;font-size:18px;line-height:1.25}
+.story p{margin:0;color:var(--muted,#5f6b64);font-size:14px}
+.story:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.08)}
+.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:24px}
+.topic-grid a{display:flex;align-items:center;justify-content:center;min-height:64px;padding:12px;border:1px solid var(--line,#dfe7e1);border-radius:14px;text-decoration:none;color:inherit;font-weight:700;background:var(--panel,#fff)}
+.topic-grid a:hover{border-color:var(--accent,#2f7d55);color:var(--accent,#2f7d55)}
+.social-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:24px}
+.social-grid a{display:flex;align-items:center;justify-content:center;min-height:52px;border:1px solid var(--line,#dfe7e1);border-radius:999px;text-decoration:none;color:inherit;font-weight:700;background:var(--panel,#fff)}
+.social-grid a:hover{border-color:var(--accent,#2f7d55);color:var(--accent,#2f7d55)}
