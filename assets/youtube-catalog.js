@@ -2,42 +2,23 @@
 'use strict';
 const grid=document.getElementById('videos'),status=document.getElementById('catalog-status');if(!grid||!status)return;
 const channel='UCDMa9oEWj4i6KFOkjF79qLg';
-const fallback=[{id:'L3K9sP8yprM',title:'Holding Local Government Institutions Accountable'},{id:'KGAoSq8mAis',title:'Entrepreneurial Kickstart: How To Cultivate A Growth Mindset'},{id:'iWsc_i89XF8',title:'Turning social media noise into an SEO powerhouse'},{id:'JQaYI2aLZIw',title:'How To Build Strategic Partnerships — Entrepreneurial Kickstart'}];
+const selected=[{id:'QlYtvk7clgI',title:"Merced County's Ballot: Who Controls the Money Controls the System"},{id:'6fth3apuNLo',title:'A Court Just Invalidated the $9B Rural Internet Fund — the Nondelegation Time Bomb'},{id:'VhsVd3Zb7rU',title:'ILLEGALLY FIRED: The Closed-Session Land Deal'},{id:'s4954XyOnTA',title:'X Deleted 13,000 Accounts. Where Is the Proof?'},{id:'n5kUO-FsglA',title:'ILLEGALLY FIRED: The Receipt Came From the Superintendent'},{id:'WX-lMOVlbWA',title:"ILLEGALLY FIRED: The Counselor's Skill Became the Auditor's Weapon"},{id:'VPGQMVEjZMg',title:'Stan State + Merced College: A Guaranteed Bridge to a Four-Year Degree'},{id:'L3K9sP8yprM',title:'Holding Local Government Institutions Accountable'},{id:'iWsc_i89XF8',title:'Turning social media noise into an SEO powerhouse'}];
+const builders=[{id:'lS1g8XHWcak',title:'How To Create Irresistible Content'},{id:'nWq2mB5embU',title:'How to Build A Powerful Personal Brand'},{id:'q3ia_kk6U90',title:'How To Launch a Successful Side Hustle'},{id:'KGAoSq8mAis',title:'How To Cultivate A Growth Mindset'},{id:'Oo-FKSXlw80',title:'How to Enhance Your Negotiation Skills'},{id:'XP-4yMMJcZ4',title:'How To Defeat Procrastination'},{id:'xod3nJkZn1c',title:'How To Design An Eye-Catching Logo'},{id:'0_mUuS_z_B4',title:'How To Utilize Storytelling In Marketing'},{id:'Kdga2Lnwb1c',title:'How To Optimize Your Business Website'}];
+const series=[{playlist:'PLXEfxaf5IyRQ',id:'jZO0lTHGJ6c',title:'ILLEGALLY FIRED — Full Series',description:'Follow the story, the questions and the public-records work.'},{playlist:'PLXzXW4mgN5myA7I0o6tZrLygmby_cg--y',id:'lS1g8XHWcak',title:'Entrepreneurial Kickstart',description:'Practical lessons for independent builders.'},{playlist:'PLXzXW4mgN5myYetS27Zq3fkTkCdlIVOUI',id:'mp0U-iS4px0',title:'209 MEDIA — Now it is time for the heavy lifting.',description:'More perspectives from across the 209 channel.'}];
+let active=null;
+function card(video){
+ const article=document.createElement('article');article.className='media-card';const stage=document.createElement('div');stage.className='video-stage';const button=document.createElement('button');button.type='button';button.setAttribute('aria-label','Play '+video.title);
+ const image=document.createElement('img');image.src='https://i.ytimg.com/vi/'+video.id+'/hqdefault.jpg';image.alt='';image.loading='lazy';image.width=480;image.height=360;image.onerror=()=>{image.hidden=true;};
+ const label=document.createElement('span');label.className='play-label';label.textContent=video.playlist?'▶ Play series':'▶ Play';button.append(image,label);stage.append(button);const heading=document.createElement('h3');heading.textContent=video.title;article.append(stage,heading);
+ const note=document.createElement('p');note.className='media-note';note.textContent=video.description||'';article.append(note);
+ function close(focus=false){stage.replaceChildren(button);note.textContent=video.description||'';if(active?.article===article)active=null;if(focus)button.focus();}
+ button.onclick=()=>{if(active)active.close();const frame=document.createElement('iframe');frame.title=video.title;frame.src=video.playlist?'https://www.youtube-nocookie.com/embed/videoseries?list='+encodeURIComponent(video.playlist)+'&autoplay=1&playsinline=1&rel=0':'https://www.youtube-nocookie.com/embed/'+video.id+'?autoplay=1&playsinline=1&rel=0';frame.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';frame.allowFullscreen=true;frame.referrerPolicy='strict-origin-when-cross-origin';stage.replaceChildren(frame);const stop=document.createElement('button');stop.type='button';stop.textContent='Close player';stop.onclick=()=>close(true);note.replaceChildren(stop);active={article,close};frame.focus();};return article;
+}
+function render(host,videos){if(!host)return;if(active&&host.contains(active.article))active.close();host.replaceChildren(...videos.map(card));}
+render(document.getElementById('series-grid'),series);render(document.getElementById('builder-videos'),builders);
 function valid(v){return v&&/^[A-Za-z0-9_-]{11}$/.test(v.id)&&typeof v.title==='string'&&v.title.trim()&&v.title.length<=500;}
-function render(videos){
- grid.replaceChildren();
- videos.forEach(video=>{
-  const card=document.createElement('article');card.className='media-card';
-  const stage=document.createElement('div');stage.className='video-stage';
-  const button=document.createElement('button');button.type='button';button.setAttribute('aria-label','Play '+video.title+' on this page');
-  const image=document.createElement('img');image.src='https://i.ytimg.com/vi/'+video.id+'/hqdefault.jpg';image.alt='';image.loading='lazy';image.width=480;image.height=360;image.onerror=()=>{image.hidden=true;};
-  const label=document.createElement('span');label.className='play-label';label.textContent='▶ Play here';button.append(image,label);stage.append(button);
-  const heading=document.createElement('h2');heading.textContent=video.title;
-  const note=document.createElement('p');note.className='media-note';note.textContent='Click to play without leaving this page.';card.append(stage,heading,note);
-  if(video.published_at){const date=new Date(video.published_at);if(Number.isFinite(date.getTime())){const time=document.createElement('p');time.className='media-note';time.textContent='Published '+date.toLocaleDateString();card.append(time);}}
-  grid.append(card);
-  button.onclick=()=>{
-   const iframe=document.createElement('iframe');iframe.title=video.title;iframe.src='https://www.youtube-nocookie.com/embed/'+video.id+'?autoplay=1&playsinline=1&rel=0';iframe.allow='autoplay; encrypted-media; picture-in-picture; fullscreen';iframe.allowFullscreen=true;iframe.referrerPolicy='strict-origin-when-cross-origin';stage.replaceChildren(iframe);iframe.focus();
-   note.textContent='YouTube playback restrictions may still apply. If a video is unavailable, choose another below.';
-   const reset=document.createElement('button');reset.type='button';reset.textContent='Close player';reset.onclick=()=>{stage.replaceChildren(button);reset.remove();button.focus();};note.append(' ',reset);
-  };
- });
-}
-function validate(c){
- if(!c||c.version!==1||c.channel_id!==channel||!Array.isArray(c.videos)||c.videos.length<1||c.videos.length>15||!c.videos.every(valid)||new Set(c.videos.map(v=>v.id)).size!==c.videos.length)throw Error('Invalid catalog');
- const age=Date.now()-Date.parse(c.collected_at),expiry=Date.parse(c.expires_at);
- if(!Number.isFinite(age)||!Number.isFinite(expiry)||age< -300000||age>172800000||expiry<=Date.now())throw Error('Stale catalog');
- return c;
-}
+function validate(c){if(!c||c.version!==1||c.channel_id!==channel||!Array.isArray(c.videos)||c.videos.length<1||c.videos.length>15||!c.videos.every(valid)||new Set(c.videos.map(v=>v.id)).size!==c.videos.length)throw Error();const age=Date.now()-Date.parse(c.collected_at),expiry=Date.parse(c.expires_at);if(!Number.isFinite(age)||!Number.isFinite(expiry)||age< -300000||age>172800000||expiry<=Date.now())throw Error();return c;}
 let cached=null;try{cached=validate(JSON.parse(localStorage.getItem('209-youtube-public-catalog')));}catch(e){}
-render(cached?cached.videos:fallback);
-status.textContent=cached?'Saved catalog from '+new Date(cached.collected_at).toLocaleString()+'. Checking for updates…':'Featured selections. Checking for the latest catalog…';
-try{
- const key='sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN';
- const response=await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/site_content?key=eq.youtube_catalog&select=value',{headers:{apikey:key,Authorization:'Bearer '+key},cache:'no-store',signal:AbortSignal.timeout(8000)});
- if(!response.ok)throw Error('Catalog unavailable');
- const rows=await response.json();const catalog=validate(rows?.[0]?.value);
- render(catalog.videos);status.textContent='Latest catalog collected '+new Date(catalog.collected_at).toLocaleString()+'. Scheduled hourly; this page updates on reload.';
- try{localStorage.setItem('209-youtube-public-catalog',JSON.stringify(catalog));}catch(e){}
-}catch(e){status.textContent=cached?'Live refresh unavailable. Showing the saved catalog collected '+new Date(cached.collected_at).toLocaleString()+'.':'Live catalog unavailable. Showing featured selections instead.';}
+render(grid,cached?cached.videos:selected);status.textContent=cached?'Updated '+new Date(cached.collected_at).toLocaleDateString():'Selected from the channel.';
+try{const key='sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN';const response=await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/site_content?key=eq.youtube_catalog&select=value',{headers:{apikey:key,Authorization:'Bearer '+key},cache:'no-store',signal:AbortSignal.timeout(8000)});if(!response.ok)throw Error();const rows=await response.json();const catalog=validate(rows?.[0]?.value);render(grid,catalog.videos);status.textContent='Updated '+new Date(catalog.collected_at).toLocaleDateString();try{localStorage.setItem('209-youtube-public-catalog',JSON.stringify(catalog));}catch(e){}}catch(e){}
 })();
