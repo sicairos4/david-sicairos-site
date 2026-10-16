@@ -3,13 +3,33 @@ on:
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Collect public videos without writing the database
+        type: boolean
+        default: true
+  pull_request:
+    paths:
+      - 'worker/youtube-sync.py'
+      - 'worker/test_youtube_sync.py'
+      - '.github/workflows/youtube-sync.yml'
 permissions:
   contents: read
 concurrency:
-  group: youtube-catalog-sync
+  group: youtube-catalog-${{ github.ref }}
   cancel-in-progress: false
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s worker -p test_youtube_sync.py -v
   sync:
+    if: github.event_name != 'pull_request'
+    needs: test
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -17,7 +37,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - run: python worker/youtube-sync.py
+      - if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        run: python worker/youtube-sync.py --dry-run
+      - if: github.event_name != 'workflow_dispatch' || !inputs.dry_run
+        run: python worker/youtube-sync.py
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
