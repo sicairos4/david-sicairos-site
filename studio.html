@@ -9,19 +9,47 @@
 <link rel="stylesheet" href="assets/alignment.css">
 <link rel="stylesheet" href="assets/nav.css">
 <link rel="stylesheet" href="assets/signal.css">
+<style>
+.gen{max-width:760px;margin:20px auto 0;background:var(--panel,#fff);border:1px solid var(--line,#dfe7e1);border-radius:14px;padding:22px}
+.gen label{display:block;font-weight:700;font-size:13px;color:#175c42;margin:12px 0 4px}
+.gen input,.gen textarea{width:100%;padding:10px;border:1px solid #b8c8bf;border-radius:8px;font:inherit;box-sizing:border-box}
+.gen .btn{margin-top:14px}
+.gen-output{margin-top:18px;background:#f2f6f3;border-radius:10px;padding:16px;white-space:pre-wrap;font-size:.95rem;line-height:1.5;display:none}
+</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 home">209<span>.</span></a><nav class="nav"></nav></div></header>
 <main>
 <section class="hero"><div class="wrap"><div class="kicker">209 CONNECT STUDIO</div><h1>The studio behind the 209 ecosystem.</h1><p>You’ve defined your direction in Sovereign University — now build the systems that carry it. 209 Connect Studio builds and maintains the systems behind the entire 209 ecosystem.</p><div class="links"><a class="btn" href="sovereign-university/experience.html">Back to Sovereign University</a><a class="btn ghost" href="#services">Explore services</a></div></div></section>
-<section class="section"><div class="wrap"><div class="kicker">WHAT WE MAINTAIN</div><h2>The systems behind the ecosystem.</h2><div class="list"><div class="item"><strong>209 site</strong><br>The public front door: homepage, Audit, Signal, Intelligence, Tracker, and connected pages.</div><div class="item"><strong>Meta Muse connection</strong><br>The Meta Muse + Gemini + Perplexity orchestration layer.</div><div class="item"><strong>Automation</strong><br>Supabase-backed workflows that let the system publish, track, and adapt.</div><div class="item"><strong>Tools</strong><br>The CPRA Playbook, Master Tracker, Intelligence interface, and connected assets.</div></div></div></section>
+<section class="section"><div class="wrap"><div class="kicker">WHAT WE MAINTAIN</div><h2>The systems behind the ecosystem.</h2><div class="list"><div class="item"><strong>209 site</strong><br>The public front door: homepage, Audit, Signal, Intelligence, Tracker, and connected pages.</div><div class="item"><strong>Signal Engine connection</strong><br>The publishing and automation layer.</div><div class="item"><strong>Automation</strong><br>Supabase-backed workflows that let the system publish, track, and adapt.</div><div class="item"><strong>Tools</strong><br>The CPRA Playbook, Master Tracker, Intelligence interface, and connected assets.</div></div></div></section>
 <section class="section" id="services"><div class="wrap"><div class="kicker">WHAT WE BUILD</div><h2>Systems that give you time back.</h2><div class="list"><div class="item"><strong>Automation</strong><br>Connect forms, email, content, publishing, and follow-up workflows.</div><div class="item"><strong>Websites</strong><br>Lightweight, fast, mobile-friendly websites and landing pages.</div><div class="item"><strong>Social Media Systems</strong><br>Content pillars, posting workflows, repurposing, and audience growth.</div><div class="item"><strong>Personal Branding</strong><br>Clarify identity, values, voice, offer, and public presence.</div><div class="item"><strong>AI-Assisted Workflows</strong><br>Use your preferred AI assistant for research, drafting, planning, and creative production.</div><div class="item"><strong>Business Idea Development</strong><br>Refine a creative spark into a focused online business blueprint.</div></div></div></section>
 <section class="section" id="aura"><div class="wrap"><div class="kicker">LIFESTYLE ID AURA SYSTEM</div><h2>Build your brand. Train your AI.</h2><div class="links"><a class="btn" href="aura.html">Explore the Aura System</a></div></div></section>
-<section class="section" id="idea"><div class="wrap"><div class="kicker">BUSINESS IDEA GENERATOR</div><h2>Have an idea?</h2><p>Answer a few questions and refine your creative spark into a focused online business blueprint.</p><div class="links"><a class="btn" href="sovereign-university/experience.html#studio">Use the Business Idea Generator →</a></div></div></section>
-<section class="section"><div class="wrap"><div class="kicker">EXPLORE THE ECOSYSTEM</div><h2>Connect your system to the next step.</h2><div class="grid"><article class="card"><h3>The Realignment Room</h3><p>Clarify your identity, habits, and daily direction.</p><a class="btn ghost" href="aura.html#realignment">Open</a></article><article class="card"><h3>dBeastco Wellness</h3><p>Support the energy and recovery needed to sustain your work.</p><a class="btn ghost" href="dbeastco.html">Open</a></article><article class="card"><h3>Sovereign University</h3><p>Take the next course in Personal Brand, Business Building & Systems.</p><a class="btn" href="sovereign-university/experience.html">Open</a></article></div></div></section>
+<section class="section" id="idea"><div class="wrap"><div class="kicker">BUSINESS IDEA GENERATOR</div><h2>Have an idea?</h2><p>Answer a few questions and refine your creative spark into a focused online business blueprint.</p>
+<div class="gen">
+<label for="g-idea">Your idea</label>
+<input id="g-idea" placeholder="What do you want to build or offer?">
+<label for="g-audience">Who is it for?</label>
+<input id="g-audience" placeholder="Who would benefit most from this?">
+<label for="g-skills">Your skills & experience</label>
+<input id="g-skills" placeholder="What can you already do well?">
+<label for="g-goal">What outcome do you want?</label>
+<input id="g-goal" placeholder="Income, audience, impact, freedom…">
+<button class="btn" id="g-build" type="button">Generate my blueprint</button>
+<div id="g-output" class="gen-output"></div>
+</div>
+</div></section>
+<section class="section"><div class="wrap"><div class="kicker">EXPLORE THE ECOSYSTEM</div><h2>Connect your system to the next step.</h2><div class="grid"><article class="card"><h3>Realignment Room</h3><p>Clarify your identity, habits, and daily direction.</p><a class="btn ghost" href="aura.html#realignment">Open</a></article><article class="card"><h3>dBeastco Wellness</h3><p>Support the energy and recovery needed to sustain your work.</p><a class="btn ghost" href="dbeastco.html">Open</a></article><article class="card"><h3>Sovereign University</h3><p>Take the next course in Personal Brand, Business Building & Systems.</p><a class="btn" href="sovereign-university/experience.html">Open</a></article></div></div></section>
 </main>
 <footer class="footer"><div class="wrap">© <span id="y"></span> 209. • 209 Connect Studio</div></footer>
 <script src="assets/site.js"></script>
 <script src="assets/topbar.js"></script>
+<script>
+document.getElementById('g-build').onclick=function(){
+const v=id=>document.getElementById(id).value.trim();
+const idea=v('g-idea')||'your idea',aud=v('g-audience')||'your audience',skills=v('g-skills')||'your skills',goal=v('g-goal')||'your goal';
+const out='BUSINESS BLUEPRINT\n\n1. Offer\nTurn "'+idea+'" into a clear offer for '+aud+'.\n\n2. Positioning\nUse your strengths ('+skills+') to stand out.\n\n3. First steps\n- Define one specific outcome for '+aud+'\n- Create one simple product or service around "'+idea+'"\n- Set a 30-day goal tied to '+goal+'\n- Publish consistently and gather feedback\n\n4. Next step\nTake the Personal Branding pathway in Sovereign University to sharpen your voice and audience.';
+const o=document.getElementById('g-output');o.textContent=out;o.style.display='block';
+};
+</script>
 </body>
 </html>
