@@ -1,1 +1,29 @@
-Master Tracker wrapper updated to use shared site toolbar and connected audit-tool navigation.
+<!doctype html>
+<html lang="en" data-theme="valley-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Master Tracker — 209 Audit.</title>
+<meta name="description" content="The 209 Audit Master Tracker maps how records move from request to published receipt.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/mobile.css">
+<style>.map{display:flex;flex-direction:column;gap:0;align-items:center;padding:40px 0}.map-row{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}.node{background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 8%,var(--panel)),var(--panel) 55%);border:1px solid var(--line);border-radius:16px;padding:18px 22px;min-width:180px;text-align:center;cursor:pointer;transition:transform .15s ease,box-shadow .15s ease}.node:hover,.node.active{transform:translateY(-3px);box-shadow:0 12px 26px color-mix(in srgb,var(--accent) 30%,transparent)}.node h3{margin:0 0 6px;font-size:16px}.node p{margin:0;color:var(--muted);font-size:13px}.arrow{font-size:22px;color:var(--accent);margin:8px 0}.detail{max-width:640px;margin:24px auto;background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 8%,var(--panel)),var(--panel) 55%);border:1px solid var(--line);border-radius:16px;padding:24px}.detail h2{margin-top:0}</style>
+</head>
+<body>
+<header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 Audit home">209<span> Audit.</span></a><nav class="nav"></nav></div></header>
+<main>
+<section class="hero"><div class="wrap"><div class="kicker">MASTER TRACKER</div><h1>How a record becomes a receipt.</h1><p>Click any stage to see how information moves through 209 Audit—from a public records request to a published receipt the community can use.</p></div></section>
+<section class="map"><div class="map-row"><div class="node" data-key="request"><h3>1. Request</h3><p>CPRA request filed</p></div><div class="node" data-key="collect"><h3>2. Collect</h3><p>Documents gathered</p></div><div class="node" data-key="organize"><h3>3. Organize</h3><p>Timeline + index</p></div></div><div class="arrow">↓</div><div class="map-row"><div class="node" data-key="verify"><h3>4. Verify</h3><p>Claims checked</p></div><div class="node" data-key="publish"><h3>5. Publish</h3><p>Receipt released</p></div><div class="node" data-key="signal"><h3>6. Signal</h3><p>Community reporting</p></div></div></section>
+<section id="detail" class="detail"><h2 id="detailTitle">Select a stage</h2><p id="detailBody">Click any node above to see what happens at that stage of the 209 Audit flow.</p></section>
+</main>
+<footer class="footer"><div class="wrap">© <span id="y"></span> 209 Audit.</div></footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/topbar.js"></script>
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+const copy={request:['1. Request','A public records request is filed through the CPRA process to obtain the underlying documents.'],collect:['2. Collect','Responses, emails, reports, and supporting files are gathered into one organized system.'],organize:['3. Organize','Documents are sorted into a searchable structure: timelines, topics, and source files.'],verify:['4. Verify','Claims are checked against the actual documents before anything is published.'],publish:['5. Publish','Clear summaries and source links are released so the community can see the receipts themselves.'],signal:['6. Signal','209 Signal turns verified findings into clear, community-facing reporting.']};
+document.querySelectorAll('.node').forEach(n=>n.addEventListener('click',()=>{document.querySelectorAll('.node').forEach(x=>x.classList.remove('active'));n.classList.add('active');const c=copy[n.dataset.key];document.getElementById('detailTitle').textContent=c[0];document.getElementById('detailBody').textContent=c[1];}));
+</script>
+</body>
+</html>
