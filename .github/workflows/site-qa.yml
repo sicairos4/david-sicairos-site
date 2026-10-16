@@ -1,0 +1,58 @@
+name: Site QA - no credentials
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'scripts/audit-*.py'
+      - '.github/workflows/site-qa.yml'
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'scripts/audit-*.py'
+      - '.github/workflows/site-qa.yml'
+permissions:
+  contents: read
+concurrency:
+  group: site-qa-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/audit-static.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: static-site-audit
+          path: qa-artifacts/static-audit.json
+          retention-days: 7
+  responsive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.56.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/audit-responsive.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: responsive-local-preview
+          path: qa-artifacts/responsive/
+          retention-days: 7
