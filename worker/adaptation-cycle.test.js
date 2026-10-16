@@ -1,0 +1,14 @@
+'use strict';
+const test=require('node:test');
+const assert=require('node:assert/strict');
+const {derive,normalize}=require('./adaptation-cycle');
+const now=new Date('2026-10-16T18:00:00Z');
+const row=(sessions,rate)=>({path:'/tools.html',sessions,engaged:sessions*rate,engagement_rate:rate});
+test('qualifying evidence permits web recommendation, not social success',()=>{const r=derive([row(200,.6)],[row(200,.4)],now);assert.equal(r.featured.length,1);assert.ok(Math.abs(r.observations[0].engagement_lift_pct-50)<1e-8);assert.equal(r.publication_verified,false);assert.equal(r.social_execution,'NOT_CONNECTED');});
+test('low sample fails closed',()=>assert.equal(derive([row(99,.8)],[row(200,.4)],now).featured.length,0));
+test('missing baseline fails closed',()=>assert.equal(derive([row(200,.8)],[],now).featured.length,0));
+test('zero baseline does not create infinite lift',()=>assert.equal(derive([row(200,.8)],[row(200,0)],now).featured.length,0));
+test('no lift produces no change',()=>assert.equal(derive([row(200,.4)],[row(200,.4)],now).featured.length,0));
+test('evidence identity is repeatable',()=>assert.equal(derive([row(200,.6)],[row(200,.4)],now).evidence_id,derive([row(200,.6)],[row(200,.4)],now).evidence_id));
+test('snapshot expires after one day',()=>assert.equal(derive([],[],now).expires_at,'2026-10-17T18:00:00.000Z'));
+test('unexpected page and malformed metrics are rejected',()=>{assert.throws(()=>normalize([{dimensionValues:[{value:'/private'}],metricValues:[{value:'100'},{value:'50'}]}]));assert.throws(()=>normalize([{dimensionValues:[{value:'/tools.html'}],metricValues:[{value:'bad'},{value:'50'}]}]));});

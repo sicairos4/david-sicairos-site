@@ -3,15 +3,35 @@ on:
   schedule:
     - cron: '*/15 * * * *'
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'worker/adaptation-cycle*'
+      - '.github/workflows/adaptation-cycle.yml'
+permissions:
+  contents: read
+concurrency:
+  group: web-adaptation-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
-  run:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - run: npm install @supabase/supabase-js @google-analytics/data dotenv
+          node-version: 22
+      - run: node --test worker/adaptation-cycle.test.js
+  run:
+    if: github.event_name != 'pull_request'
+    needs: test
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --no-save @supabase/supabase-js @google-analytics/data dotenv
       - run: node worker/adaptation-cycle.js
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
