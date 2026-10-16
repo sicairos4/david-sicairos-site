@@ -1,61 +1,10 @@
 <!doctype html>
-<html lang="en" data-theme="valley-light">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sign In — 209 Media</title>
-<meta name="description" content="Sign in to your 209 Media member dashboard: your Aura OS membership, scheduler, goals, and notes.">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<link rel="stylesheet" href="assets/site.css">
-<link rel="stylesheet" href="assets/nav.css">
-<link rel="stylesheet" href="assets/mobile.css">
-<style>
-.auth-wrap{max-width:420px;margin:6vh auto;padding:0 20px}
-.auth-card{background:linear-gradient(160deg,color-mix(in srgb,var(--accent) 8%,var(--panel)),var(--panel) 55%);border:1px solid var(--line);border-radius:var(--radius);padding:28px;box-shadow:0 10px 30px rgba(23,37,29,.1)}
-.auth-card h1{margin:0 0 6px;font-size:28px}
-.auth-card p{color:var(--muted);margin:0 0 16px}
-.field{margin-bottom:12px}
-.field label{display:block;font-weight:700;font-size:14px;color:var(--accent);margin-bottom:4px}
-.field input{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;box-sizing:border-box;background:var(--panel);color:var(--text)}
-.auth-card .btn{width:100%;margin-top:6px}
-.auth-card .btn.ghost{margin-top:10px}
-#message{min-height:24px;color:var(--muted);font-size:14px;margin:10px 0}
-.alt{ text-align:center;margin-top:14px }
-.alt a{color:var(--accent);font-weight:700}
-</style>
-</head>
-<body>
-<header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 Media home">209 <span>MEDIA</span></a><nav class="nav"></nav></div></header>
-<main>
-<div class="auth-wrap">
-<div class="auth-card">
-<div class="kicker">AURA OS</div>
-<h1>Welcome back</h1>
-<p>Sign in to your member dashboard: morning system, focus blocks, goals, and notes.</p>
-<form id="authForm">
-<div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="username" required></div>
-<div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required minlength="8"></div>
-<button class="btn" id="submitButton" type="submit">Sign in</button>
-</form>
-<button class="btn ghost" id="google" type="button">Continue with Google</button>
-<button class="btn ghost" id="toggle" type="button">New here? Create an account</button>
-<p id="message" role="status" aria-live="polite"></p>
-<p class="alt"><a href="index.html">← Back to 209 Media</a></p>
-</div>
-</div>
-</main>
-<footer class="footer"><div class="wrap">© <span id="y"></span> 209 Media • Aura OS</div></footer>
-<script src="assets/site.js"></script>
-<script src="assets/topbar.js"></script>
-<script>
-document.getElementById('y').textContent=new Date().getFullYear();
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign in — 209 Connect</title><meta name="description" content="Your private 209 Connect day planner, tasks, journal and creator workspace."><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/mobile.css"><style>main{max-width:460px;margin:5vh auto;padding:24px}label{display:block;margin:14px 0}input,button{font:inherit;box-sizing:border-box;width:100%;padding:12px;min-height:44px}button{margin:6px 0;cursor:pointer}#message{min-height:48px}</style></head><body><header class="top"><div class="wrap top-in"><a class="brand" href="index.html">209.</a><nav class="nav"></nav></div></header><main><h1>209 Connect</h1><p>Your day, your work, your next manageable step.</p><p>Sign in for your intentional day schedule, daily tasks, private journal and creator desk.</p><form id="authForm"><label>Email<input id="email" type="email" autocomplete="username" required></label><label>Password<input id="password" type="password" autocomplete="current-password" required minlength="8"></label><button id="submitButton">Sign in</button></form><button id="google" type="button">Continue with Google</button><button id="toggle" type="button">New here? Create an account</button><p id="message" role="status" aria-live="polite"></p><p><a href="dashboard.html">Older dashboard and browser-saved notes</a></p><p>Your older dashboard remains available; this change does not migrate or delete its browser-stored data.</p><a href="index.html">Back to 209.</a></main><script src="assets/topbar.js"></script><script>
 const sb=supabase.createClient('https://uwidjnnhdgtrpsymuhwp.supabase.co','sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN');
-const el=id=>document.getElementById(id),destination=new URL('dashboard.html',location.href).href;let signup=false,busy=false;
-function setBusy(v){busy=v;document.querySelectorAll('button').forEach(b=>b.disabled=v)}
-sb.auth.getSession().then(({data,error})=>{if(error)el('message').textContent='Unable to check your session. Please try again.';else if(data.session)location.replace(destination)});
+const el=id=>document.getElementById(id),destination=new URL('members/workspace.html',location.href).href;let signup=false,busy=false;
+function setBusy(v){busy=v;document.querySelectorAll('main button').forEach(b=>b.disabled=v)}
+sb.auth.getSession().then(({data,error})=>{if(error)el('message').textContent='Unable to check your session. Please try again.';else if(data.session)location.replace(destination)}).catch(()=>{el('message').textContent='Unable to check your session.'});
 el('toggle').onclick=()=>{signup=!signup;el('submitButton').textContent=signup?'Create account':'Sign in';el('toggle').textContent=signup?'Already registered? Sign in':'New here? Create an account';el('password').autocomplete=signup?'new-password':'current-password';el('message').textContent=''};
-el('authForm').onsubmit=async e=>{e.preventDefault();if(busy)return;setBusy(true);try{const credentials={email:el('email').value.trim(),password:el('password').value};const result=signup?await sb.auth.signUp({...credentials,options:{emailRedirectTo:destination}}):await sb.auth.signInWithPassword(credentials);if(result.error)throw result.error;el('password').value='';if(result.data.session)location.replace(destination);else el('message').textContent='Check your email for a confirmation link, then sign in.'}catch(error){el('message').textContent=error.message||'Sign-in failed.'}finally{setBusy(false)}};
+el('authForm').onsubmit=async e=>{e.preventDefault();if(busy)return;setBusy(true);try{const credentials={email:el('email').value.trim(),password:el('password').value};const result=signup?await sb.auth.signUp({...credentials,options:{emailRedirectTo:destination}}):await sb.auth.signInWithPassword(credentials);if(result.error)throw result.error;el('password').value='';if(result.data.session)location.replace(destination);else el('message').textContent='Check your email for confirmation, then sign in.'}catch(error){el('message').textContent=error.message||'Sign-in failed.'}finally{setBusy(false)}};
 el('google').onclick=async()=>{if(busy)return;setBusy(true);try{const{error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo:destination}});if(error)throw error}catch(error){el('message').textContent=error.message||'Google sign-in failed.';setBusy(false)}};
-</script>
-</body>
-</html>
+</script></body></html>
