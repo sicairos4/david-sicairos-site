@@ -1,1 +1,42 @@
-New standalone Multimedia page with working carousel, category filters, clickable cards, image fields, and shared toolbar.
+<!doctype html>
+<html lang="en" data-theme="valley-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Multimedia — 209.</title>
+<meta name="description" content="Multimedia from 209: video, shorts, podcasts, and visual reporting across the ecosystem.">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/experience.css">
+<link rel="stylesheet" href="assets/alignment.css">
+<link rel="stylesheet" href="assets/nav.css">
+<link rel="stylesheet" href="assets/mobile.css">
+<style>
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.media-card{background:#fff;border:1px solid #dfe7e1;border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;display:block;transition:transform .15s,box-shadow .15s}
+.media-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(23,92,66,.15)}
+.media-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#175c42,#0e3f2d);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:1.4rem}
+.media-body{padding:14px 16px 18px}
+.media-body h3{margin:0 0 6px;font-size:1rem}
+.media-body p{margin:0;font-size:.85rem;color:#5a6b62}
+.media-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#175c42;margin-bottom:6px}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 home">209<span>.</span></a><nav class="nav"></nav></div></header>
+<main>
+<section class="hero" id="media-hero"><div class="wrap"><div class="kicker">MULTIMEDIA</div><h1>Video, audio, and visual reporting.</h1><p>Follow the work across YouTube, Shorts, podcasts, and visual explainers — all in one place.</p><div class="links"><a class="btn" href="https://youtube.com/@sicairosdavid?si=9geppcfWhFuMatFl" target="_blank" rel="noopener">Open YouTube</a><a class="btn ghost" href="signal.html">Listen to 209 Signal</a></div></div></section>
+<section class="section" id="media-library"><div class="wrap"><div class="kicker">THE LIBRARY</div><h2>Latest from the ecosystem.</h2><div class="media-grid">
+<a class="media-card" href="https://youtube.com/@sicairosdavid?si=9geppcfWhFuMatFl" target="_blank" rel="noopener"><div class="media-thumb">▶</div><div class="media-body"><span class="media-tag">YouTube</span><h3>Long-form video & deep dives</h3><p>Policy explainers, accountability breakdowns, and systems thinking.</p></div></a>
+<a class="media-card" href="https://youtube.com/@sicairosdavid?si=9geppcfWhFuMatFl" target="_blank" rel="noopener"><div class="media-thumb">▶</div><div class="media-body"><span class="media-tag">Shorts</span><h3>Quick hits & vertical clips</h3><p>Short-form distribution with bold visuals.</p></div></a>
+<a class="media-card" href="signal.html"><div class="media-thumb">♪</div><div class="media-body"><span class="media-tag">Podcast</span><h3>209 Signal audio</h3><p>Audio episodes from the 209 Signal newsletter.</p></div></a>
+<a class="media-card" href="https://www.tiktok.com/@davidsicairos" target="_blank" rel="noopener"><div class="media-thumb">♪</div><div class="media-body"><span class="media-tag">TikTok</span><h3>Short-form distribution</h3><p>Accountability hooks and receipt-led clips.</p></div></a>
+<a class="media-card" href="https://www.threads.net/@davidsicairos" target="_blank" rel="noopener"><div class="media-thumb">@</div><div class="media-body"><span class="media-tag">Threads</span><h3>Receipt-led posts</h3><p>Accountability hooks and breaking updates.</p></div></a>
+<a class="media-card" href="209-audit.html"><div class="media-thumb">📄</div><div class="media-body"><span class="media-tag">209 Audit</span><h3>Records & receipts</h3><p>The source material behind the reporting.</p></div></a>
+</div></div></section>
+<section class="section" id="media-cta"><div class="wrap"><div class="kicker">NEXT STEP</div><h2>Follow the work.</h2><div class="links"><a class="btn" href="signal.html">Open 209 Signal</a><a class="btn ghost" href="index.html">Back to 209.</a></div></div></section>
+</main>
+<footer class="footer"><div class="wrap">© <span id="y"></span> 209.<br><a href="signal.html">209 Signal</a> • <a href="209-audit.html">209 Audit</a> • <a href="dbeastco.html">dBeastco</a></div></footer>
+<script src="assets/site.js"></script>
+<script src="assets/topbar.js"></script>
+</body>
+</html>
