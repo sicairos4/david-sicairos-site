@@ -1,1 +1,75 @@
-Complete CPRA Playbook rebuilt with shared toolbar, request builder, checklist, local tracker, and connected audit flow.
+<!doctype html>
+<html lang="en" data-theme="valley-light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CPRA Playbook — 209 Audit.</title>
+<meta name="description" content="Build a focused California public-records request, track what happens next, and connect to the 209Audit Master Tracker and 209 Media.">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/nav.css">
+<link rel="stylesheet" href="../assets/mobile.css">
+<style>
+:root{--n:#101827;--g:#d5a84d;--p:#f5f2ea;--c:#fffdfa;--l:#d8d2c5;--r:#9e3e3e}
+.playbook{background:var(--p);color:var(--n);font:16px/1.55 Arial,sans-serif}
+.playbook .wrap{max-width:1040px;margin:auto}
+.playbook .hero{padding:46px 20px 38px;background:var(--n);color:#fff;border-bottom:6px solid var(--g)}
+.playbook .ey{color:var(--g);font-size:12px;font-weight:bold;letter-spacing:.14em}
+.playbook .hero h1{font-size:clamp(34px,6vw,62px);line-height:1;margin:10px 0}
+.playbook .hero p{max-width:750px;color:#dbe4ed;font-size:18px}
+.playbook .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:21px}
+.playbook .btn{display:inline-block;border:0;border-radius:8px;padding:11px 15px;background:var(--g);color:var(--n);font:bold 14px Arial;text-decoration:none;cursor:pointer}
+.playbook .outline{color:#fff;background:transparent;border:1px solid #dce5ef}
+.playbook .light{background:#e5eaf0}
+.playbook .red{background:var(--r);color:#fff}
+.playbook .tabs{position:sticky;top:56px;z-index:5;background:#fff;border-bottom:1px solid var(--l)}
+.playbook .tabs .wrap{display:flex;gap:8px;overflow-x:auto;padding:10px 20px}
+.playbook .tab{white-space:nowrap;background:#edf1f5;border:0;border-radius:99px;padding:7px 11px;color:var(--n);font:bold 13px Arial;text-decoration:none;cursor:pointer}
+.playbook .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px;padding:22px 20px 50px}
+.playbook .card{grid-column:span 12;padding:25px;background:var(--c);border:1px solid var(--l);border-radius:14px;scroll-margin-top:120px}
+.playbook .half{grid-column:span 6}
+.playbook h2{margin:0 0 9px;font-size:1.7rem}
+.playbook .note{margin:14px 0;padding:12px 14px;background:#fff8e8;border-left:4px solid var(--g)}
+.playbook details{padding:12px 0;border-top:1px solid var(--l)}
+.playbook summary{font-weight:bold;cursor:pointer}
+.playbook .pill{display:inline-block;background:#e7edf5;border-radius:99px;padding:3px 9px;margin:3px;font-weight:bold;font-size:.84rem}
+.playbook .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.playbook label{display:block;font-weight:bold;margin:13px 0 5px}
+.playbook input,.playbook textarea,.playbook select{width:100%;padding:10px;border:1px solid #bfc8d3;border-radius:8px;font:inherit}
+.playbook textarea{min-height:80px}
+.playbook .status{height:145px}
+.playbook pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#101827;color:#edf3fb;padding:17px;border-radius:10px;font:13px/1.5 monospace}
+.playbook table{width:100%;border-collapse:collapse;margin-top:14px}
+.playbook th,.playbook td{padding:9px;text-align:left;vertical-align:top;border-bottom:1px solid var(--l)}
+.playbook th{font-size:12px;text-transform:uppercase}
+.playbook .empty{text-align:center;color:#657386;padding:18px}
+.playbook .msg{margin-left:7px;color:#126331;font-weight:bold}
+.playbook .cta{background:#162438;color:#fff;border-color:#162438}
+.playbook .cta p{color:#dbe4ed}
+.playbook footer{padding:28px 20px;background:#e8e4da}
+@media(max-width:720px){.playbook .half{grid-column:span 12}.playbook .row{grid-template-columns:1fr}.playbook .card{padding:19px}}
+</style>
+</head>
+<body class="playbook">
+<header class="top"><div class="wrap top-in"><a class="brand" href="../index.html" aria-label="209 home">209<span>.</span></a><nav class="nav"></nav></div></header>
+<div class="hero"><div class="wrap"><div class="ey">209AUDIT • 209 MEDIA • 209 CONNECT</div><h1>The CPRA Playbook</h1><p>Build a focused California public-records request, track what happens next, and connect to the 209Audit Master Tracker and 209 Media.</p><div class="actions"><a class="btn outline" href="#builder">Build a CPRA Request</a><a class="btn outline" href="#tracker">Open Your Request Tracker</a><a class="btn" href="https://209connect.beehiiv.com/" target="_blank" rel="noopener noreferrer">Subscribe to 209 Media</a></div></div></div>
+<nav class="tabs"><div class="wrap"><a class="tab" href="#start">Start</a><a class="tab" href="#basics">CPRA Basics</a><a class="tab" href="#records">What to Ask For</a><a class="tab" href="#builder">Request Builder</a><a class="tab" href="#systems">Systems & Devices</a><a class="tab" href="#tracker">Tracker</a><a class="tab" href="#share">Share Findings</a><a class="tab" href="#faq">FAQ</a></div></nav>
+<main class="wrap"><div class="grid">
+<section id="start" class="card"><h2>Start here</h2><p>This is an educational organizational tool, not legal advice. It helps you ask clear questions, keep a timeline, and explain public records responsibly.</p><div class="note"><b>Timing:</b> California agencies generally have 10 days to determine whether a request seeks disclosable records and provide an estimated production date.</div></section>
+<section id="basics" class="card half"><h2>CPRA Basics</h2><p>Ask for existing writings about public business: emails, reports, contracts, calendars, spreadsheets, attachments, texts, recordings, policies, and data exports.</p><details><summary>Focused requests work better</summary><p>Use names, titles, date ranges, record types, systems, projects, vendors, and keywords.</p></details></section>
+<section id="records" class="card half"><h2>What to Ask For</h2><span class="pill">Emails & attachments</span><span class="pill">Texts/messages</span><span class="pill">Reports</span><span class="pill">Contracts</span><span class="pill">Invoices</span><span class="pill">Calendars</span><span class="pill">Complaint logs</span><span class="pill">Data exports</span><ol><li>What public issue am I researching?</li><li>Which entity has the records?</li><li>What dates matter?</li><li>Who was involved?</li><li>What search terms would appear?</li></ol></section>
+<section id="builder" class="card"><h2>Interactive CPRA Request Builder</h2><div class="row"><div><label for="agency">Agency or entity *</label><input id="agency" placeholder="City, county, school district, department"></div><div><label for="contact">Records contact</label><input id="contact" placeholder="Public Records Act Coordinator"></div></div><label for="topic">Public matter / topic *</label><textarea id="topic" placeholder="What decision, issue, project, or event are you researching?"></textarea><div class="row"><div><label for="from">Start date</label><input id="from" placeholder="January 1, 2026"></div><div><label for="to">End date</label><input id="to" placeholder="March 31, 2026"></div></div><label for="people">People, offices, departments, vendors</label><textarea id="people" placeholder="Names, titles, offices, vendors, locations"></textarea><label for="recordTypes">Specific existing records requested *</label><textarea id="recordTypes" placeholder="Emails and attachments; staff reports; contracts; invoices; calendars"></textarea><label for="keywords">Keywords and phrases</label><textarea id="keywords" placeholder="Project name, address, contract number, names, acronyms"></textarea><div class="actions"><button class="btn" id="generate" type="button">Generate Request</button><button class="btn light" id="copyRequest" type="button">Copy Request</button><span id="requestMsg" class="msg"></span></div><pre id="requestOut">Complete the required fields, then select Generate Request.</pre></section>
+<section id="systems" class="card half"><h2>Systems & Devices</h2><p>Ask for the agency’s Enterprise System Catalog when you need to identify likely record locations.</p><pre>“Please provide the agency’s current Enterprise System Catalog and identify the system(s), if any, used to store or manage records relevant to this request.”</pre></section>
+<section class="card half"><h2>Personal devices</h2><p>Responsive public-business writings may be held on personal accounts or devices. Ask for a reasonable search where applicable.</p></section>
+<section id="tracker" class="card"><h2>Local Request Tracker</h2><p>Add an entry once you send a request. Entries save locally; download or copy the log into your own records.</p><div class="row"><div><label for="entity">Entity / agency *</label><input id="entity" placeholder="Agency name"></div><div><label for="sent">Date sent</label><input id="sent" type="date"></div></div><div class="row"><div><label for="summary">Request summary *</label><textarea id="summary" placeholder="Short description of records requested"></textarea></div><div><label for="status">Status</label><select id="status" class="status" size="5"><option>Draft</option><option>Sent</option><option>Agency response</option><option>Records received</option><option>Follow-up / closed</option></select></div></div><label for="next">Next action, deadline, estimate, or tracking number</label><input id="next" placeholder="Example: Follow up Aug. 24; estimated production Sept. 1"><div class="actions"><button class="btn" id="add" type="button">Add Tracker Entry</button><button class="btn light" id="download" type="button">Download Tracker Log</button><button class="btn light" id="copyLog" type="button">Copy Tracker Log</button><button class="btn red" id="clear" type="button">Clear Tracker</button><span id="trackerMsg" class="msg"></span></div><table><thead><tr><th>Entity</th><th>Sent</th><th>Request</th><th>Status</th><th>Next action</th><th></th></tr></thead><tbody id="rows"></tbody></table></section>
+<section id="share" class="card half"><h2>Share Findings</h2><p><b>Receipt:</b> state what a dated record directly says or shows. <b>Meaning:</b> explain why it matters. <b>Open question:</b> say what remains unresolved. <b>Next step:</b> identify the next record or action.</p></section>
+<section id="faq" class="card half"><h2>FAQ</h2><details><summary>Must records arrive in 10 days?</summary><p>Generally, the agency must make a determination within 10 days and provide an estimated production date. Production can take longer.</p></details><details><summary>What if the request is too broad?</summary><p>Narrow by dates, custodians, systems, record categories, and keywords.</p></details></section>
+<section class="card cta"><h2>Stay connected</h2><p>Subscribe to 209 Media for reporting, tools, investigations, and tracker updates. Open the Master Tracker for the broader 209Audit index.</p><div class="actions"><a class="btn" href="https://209connect.beehiiv.com/" target="_blank" rel="noopener noreferrer">Subscribe to 209 Media</a><a class="btn light" href="../index-tracker/">Open 209Audit Master Tracker</a></div></section>
+</div></main>
+<footer><div class="wrap"><b>209Audit CPRA Playbook</b> • Educational tool only.</div></footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/topbar.js"></script>
+<script>
+(function(){var K='209audit-v9',A=[],$=function(x){return document.getElementById(x)},v=function(x){return $(x).value.trim()},msg=function(x,t){$(x).textContent=t;setTimeout(function(){$(x).textContent=''},3500)},esc=function(x){return String(x||'').replace(/[&<>"']/g,function(c){return{'&':'&','<':'<','>':'>','"':'"',"'":'&#039;'}[c]})};function save(){try{localStorage.setItem(K,JSON.stringify(A))}catch(e){}}function text(){return '209AUDIT REQUEST TRACKER\nExported: '+new Date().toLocaleString()+'\n\n'+A.map(function(e,i){return(i+1)+'. Entity: '+e.entity+'\nDate sent: '+(e.sent||'Not entered')+'\nRequest: '+e.summary+'\nStatus: '+e.status+'\nNext action: '+(e.next||'Not entered')}).join('\n\n')}function render(){var r=$('rows');if(!A.length){r.innerHTML='<tr><td colspan="6" class="empty">No entries yet. Add your first request above.</td></tr>';return}r.innerHTML=A.map(function(e,i){return'<tr><td>'+esc(e.entity)+'</td><td>'+esc(e.sent)+'</td><td>'+esc(e.summary)+'</td><td>'+esc(e.status)+'</td><td>'+esc(e.next)+'</td><td><button type="button" class="btn light rm" data-i="'+i+'">Remove</button></td></tr>'}).join('');Array.prototype.forEach.call(document.querySelectorAll('.rm'),function(b){b.onclick=function(){A.splice(+this.getAttribute('data-i'),1);save();render();msg('trackerMsg','Entry removed.')}})}function copy(t,id){var x=document.createElement('textarea');x.value=t;x.style.position='fixed';x.style.left='-9999px';document.body.appendChild(x);x.select();try{document.execCommand('copy');msg(id,'Copied.')}catch(e){window.prompt('Copy this:',t)}document.body.removeChild(x)}try{A=JSON.parse(localStorage.getItem(K)||'[]')}catch(e){}render();$('generate').onclick=function(){if(!v('agency')||!v('topic')||!v('recordTypes'))return msg('requestMsg','Complete Agency, Topic, and Specific Records Requested.');$('requestOut').textContent='Subject: California Public Records Act Request — '+v('topic')+'\n\nDear '+(v('contact')||'Public Records Act Coordinator')+',\n\nPursuant to the California Public Records Act, I request copies of existing public records concerning '+v('topic')+'.\n\nDate range: '+(v('from')||'[start date]')+' through '+(v('to')||'[end date]')+'.\n\nPlease search records maintained by or for '+v('agency')+', including records involving '+(v('people')||'[names, departments, vendors, or locations]')+'.\n\nPlease produce: '+v('recordTypes')+'.\n\nFor electronic communications, please search subject lines and message bodies using: '+(v('keywords')||'[keywords]')+'. Please include responsive attachments.\n\nI prefer electronic copies.\n\nThank you,\n[Your name]';msg('requestMsg','Request generated.')};$('copyRequest').onclick=function(){copy($('requestOut').textContent,'requestMsg')};$('add').onclick=function(){if(!v('entity')||!v('summary'))return msg('trackerMsg','Enter an entity and request summary.');A.unshift({entity:v('entity'),sent:v('sent'),summary:v('summary'),status:$('status').value,next:v('next')});save();render();$('entity').value=$('sent').value=$('summary').value=$('next').value='';$('status').selectedIndex=0;msg('trackerMsg','Tracker entry added.')};$('copyLog').onclick=function(){if(!A.length)return msg('trackerMsg','Add at least one entry first.');copy(text(),'trackerMsg')};$('download').onclick=function(){if(!A.length)return msg('trackerMsg','Add at least one entry first.');var a=document.createElement('a');a.href='data:text/plain;charset=utf-8,'+encodeURIComponent(text());a.download='209audit-tracker-'+new Date().toISOString().slice(0,10)+'.txt';document.body.appendChild(a);a.click();a.remove();msg('trackerMsg','Download started.')};$('clear').onclick=function(){if(confirm('Clear all tracker entries?')){A=[];try{localStorage.removeItem(K)}catch(e){}render();msg('trackerMsg','Tracker cleared.')}}})();
+</script>
+</body>
+</html>
