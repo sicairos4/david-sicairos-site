@@ -1,36 +1,45 @@
-/* Mobile-first polish — compact top bar, hamburger slide-in menu, responsive grids, larger tap targets */
-@media(max-width:768px){
-body{font-size:15px}
-.wrap{padding:0 14px}
-.section{padding:36px 0}
-.hero{padding:44px 0}
-.hero h1{font-size:clamp(24px,6vw,34px)}
-.hero p{font-size:15px}
-.grid{grid-template-columns:1fr !important;gap:12px !important}
-.card{padding:16px !important}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:8px 14px;font-size:13px}
-.top{padding:0;position:sticky;top:0;z-index:100;background:var(--bg,#fff)}
-.top-in{flex-direction:row;flex-wrap:nowrap;gap:8px;align-items:center;min-height:48px}
-.brand{font-size:14px}
-.nav-burger{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;font-size:20px;background:none;border:none;cursor:pointer}
-.nav{display:none;position:fixed;inset:48px 0 0 0;background:var(--bg,#fff);z-index:99;flex-direction:column;overflow-y:auto;padding:16px}
-body.nav-open .nav{display:flex}
-.nav-left{display:flex;flex-direction:column;gap:4px}
-.nav-left>a,.nav-group>button{padding:12px 8px;font-size:15px;text-align:left;width:100%}
-.nav-group{position:static}
-.dropdown{position:static;display:none;width:auto;min-width:0;padding-left:12px}
-.nav-group.open .dropdown{display:block}
-.nav-right{flex-direction:row;gap:8px;margin-top:16px}
-.footer{padding:20px 14px;font-size:11px;text-align:center}
-.product-grid{grid-template-columns:1fr !important}
-.list .item{padding:12px !important}
-.code{font-size:11px;padding:12px !important}
-}
-@media(min-width:769px){
-.nav-burger{display:none}
+/* Mobile-first polish — reliable hamburger menu, tap-to-open dropdowns, even spacing */
+@media(max-width:900px){
+  body{font-size:15px;-webkit-text-size-adjust:100%}
+  .wrap{padding:0 16px}
+  .section{padding:32px 0}
+  .hero{padding:40px 0}
+  .hero h1{font-size:clamp(24px,6vw,34px)}
+  .hero p{font-size:15px}
+  .grid,.pulse-grid,.card-grid,.tool-grid,.lens-grid{grid-template-columns:1fr !important;gap:12px !important}
+  .card{padding:16px !important}
+  .btn,.button{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;font-size:14px}
+  /* --- Toolbar --- */
+  .top{padding:0;position:sticky;top:0;z-index:1000;background:var(--bg,#fff)}
+  .top-in{flex-direction:row;flex-wrap:nowrap;gap:8px;align-items:center;min-height:52px}
+  .brand{font-size:15px}
+  /* Force the burger visible and the bar tappable */
+  .site-toolbar .nav-burger{display:inline-flex !important;align-items:center;justify-content:center;width:44px;min-width:44px;height:44px;font-size:22px;background:var(--panel,#fff);border:1px solid var(--line,#b8c8bf);border-radius:10px;cursor:pointer;touch-action:manipulation}
+  /* Full-screen slide-down menu */
+  .site-toolbar .nav{display:none !important;position:fixed !important;top:52px;left:0;right:0;bottom:0;flex-direction:column;align-items:stretch;gap:4px;max-height:none;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:12px 16px calc(16px + env(safe-area-inset-bottom));background:var(--bg,#fff);border-top:1px solid var(--line,#b8c8bf);z-index:1001}
+  .site-toolbar.menu-open .nav{display:flex !important}
+  body.nav-open{overflow:hidden}
+  .site-toolbar .nav-left{display:flex;flex-direction:column;gap:2px;width:100%}
+  .site-toolbar .nav-left>a,.site-toolbar .nav-group>button{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:48px;padding:12px 10px;font-size:16px;text-align:left;white-space:normal;touch-action:manipulation}
+  .site-toolbar .nav-group{width:100%}
+  /* Tap-to-open dropdowns — beat hover-only rules */
+  .site-toolbar .dropdown{position:static !important;width:100% !important;min-width:0 !important;max-height:none !important;opacity:1 !important;visibility:visible !important;transform:none !important;display:none !important;padding:4px 0 8px 14px;box-shadow:none;border:0;border-left:2px solid var(--line,#dfe7e1);border-radius:0}
+  .site-toolbar .nav-group.open>.dropdown{display:block !important}
+  .site-toolbar .dropdown a{min-height:44px;padding:10px 8px;font-size:15px}
+  .site-toolbar .nav-right{display:flex;flex-direction:row;flex-wrap:wrap;gap:10px;margin:14px 0 0;width:100%}
+  .site-toolbar .nav-cta{flex:1;min-height:44px;padding:10px 16px;font-size:15px;text-align:center}
+  .site-toolbar .theme-toggle{width:44px;min-width:44px;height:44px}
+  /* --- Content spacing --- */
+  .footer{padding:20px 16px;font-size:12px;text-align:center}
+  .product-grid{grid-template-columns:1fr !important}
+  .list .item{padding:12px !important}
+  .code{font-size:11px;padding:12px !important}
+  .slider-controls{gap:8px}
 }
 @media(max-width:400px){
-.hero h1{font-size:22px}
-.btn{width:100%}
-.slider-controls{gap:8px}
+  .hero h1{font-size:22px}
+  .btn,.button{width:100%}
+}
+@media(min-width:901px){
+  .site-toolbar .nav-burger{display:none !important}
 }
