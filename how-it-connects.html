@@ -4,63 +4,25 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>How It All Connects — 209.</title>
-<meta name="description" content="An interactive map of the 209 ecosystem, centered on 209 Audit.">
+<meta name="description" content="A visual map of how 209 Audit, 209 Signal, the Signal Engine, 209 Intelligence, the Master Tracker, the CPRA Playbook, and Sovereign University connect as one engine.">
 <link rel="stylesheet" href="assets/site.css">
 <link rel="stylesheet" href="assets/experience.css">
 <link rel="stylesheet" href="assets/alignment.css">
+<link rel="stylesheet" href="assets/brand-cards.css">
 <link rel="stylesheet" href="assets/nav.css">
 <link rel="stylesheet" href="assets/mobile.css">
-<style>
-.map-stage{position:relative;max-width:820px;margin:30px auto 0;aspect-ratio:1/1}
-.map-stage svg{position:absolute;inset:0;width:100%;height:100%}
-.map-line{stroke:#b8c8bf;stroke-width:2;transition:stroke .2s,stroke-width .2s}
-.map-node{position:absolute;transform:translate(-50%,-50%);background:#fff;border:2px solid #175c42;border-radius:14px;padding:10px 14px;text-align:center;text-decoration:none;color:#123;box-shadow:0 4px 14px rgba(0,0,0,.08);transition:transform .15s,box-shadow .15s,border-color .15s;min-width:120px}
-.map-node strong{display:block;font-size:.85rem;color:#175c42}
-.map-node span{font-size:.72rem;color:#5a6b62}
-.map-node:hover{transform:translate(-50%,-50%) scale(1.06);box-shadow:0 8px 22px rgba(23,92,66,.25);border-color:#0e3f2d}
-.map-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#175c42;color:#fff;border-radius:50%;width:190px;height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;box-shadow:0 10px 30px rgba(23,92,66,.35);z-index:2}
-.map-center strong{font-size:1.15rem}
-.map-center span{font-size:.72rem;opacity:.85}
-@media(max-width:640px){.map-node{min-width:90px;padding:7px 9px}.map-node strong{font-size:.7rem}.map-node span{display:none}.map-center{width:130px;height:130px}.map-center strong{font-size:.9rem}}
-</style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 home">209<span>.</span></a><nav class="nav"></nav></div></header>
 <main>
-<section class="hero" id="map-hero"><div class="wrap"><div class="kicker">HOW IT ALL CONNECTS</div><h1>Everything starts with 209 Audit.</h1><p>209 Audit is the center of the ecosystem. Click any part of the map to open it.</p></div></section>
-<section class="section" id="map"><div class="wrap">
-<div class="map-stage" id="mapStage">
-<svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-<line class="map-line" data-for="engine" x1="50" y1="50" x2="50" y2="8"/>
-<line class="map-line" data-for="signal" x1="50" y1="50" x2="79" y2="21"/>
-<line class="map-line" data-for="intelligence" x1="50" y1="50" x2="92" y2="50"/>
-<line class="map-line" data-for="tracker" x1="50" y1="50" x2="79" y2="79"/>
-<line class="map-line" data-for="cpra" x1="50" y1="50" x2="50" y2="92"/>
-<line class="map-line" data-for="university" x1="50" y1="50" x2="21" y2="79"/>
-<line class="map-line" data-for="dbeastco" x1="50" y1="50" x2="8" y2="50"/>
-<line class="map-line" data-for="aura" x1="50" y1="50" x2="21" y2="21"/>
-</svg>
-<div class="map-center"><strong>209 AUDIT</strong><span>The center. Receipts, records, accountability.</span></div>
-<a class="map-node" id="engine" style="left:50%;top:8%" href="muse.html"><strong>Signal Engine</strong><span>Publishing & automation</span></a>
-<a class="map-node" id="signal" style="left:79%;top:21%" href="signal.html"><strong>209 Signal</strong><span>Newsletter & reporting</span></a>
-<a class="map-node" id="intelligence" style="left:92%;top:50%" href="intelligence/"><strong>209 Intelligence</strong><span>Records & community power</span></a>
-<a class="map-node" id="tracker" style="left:79%;top:79%" href="index-tracker/"><strong>Master Tracker</strong><span>Entities & next actions</span></a>
-<a class="map-node" id="cpra" style="left:50%;top:92%" href="cpra-playbook/"><strong>CPRA Playbook</strong><span>Public records requests</span></a>
-<a class="map-node" id="university" style="left:21%;top:79%" href="sovereign-university/experience.html"><strong>Sovereign University</strong><span>Micro-courses</span></a>
-<a class="map-node" id="dbeastco" style="left:8%;top:50%" href="dbeastco.html"><strong>dBeastco Wellness</strong><span>Training & recovery</span></a>
-<a class="map-node" id="aura" style="left:21%;top:21%" href="aura.html"><strong>Lifestyle ID / Aura</strong><span>Digital double</span></a>
-</div>
-</div></section>
-<section class="section" id="map-cta"><div class="wrap"><div class="kicker">NEXT STEP</div><h2>Start at the center.</h2><div class="links"><a class="btn" href="209-audit.html">Enter 209 Audit</a><a class="btn ghost" href="index.html">Back to 209.</a></div></div></section>
+<section class="hero" id="map-hero"><div class="wrap"><div class="kicker">HOW IT ALL CONNECTS</div><h1>One engine. One publishing layer.</h1><p>The Signal Engine sits above the ecosystem as the publishing layer. 209 Audit remains the center that feeds everything else.</p></div></section>
+<section class="section" id="map"><div class="wrap"><div class="kicker">THE MAP</div><h2>How the engine flows.</h2><div class="code">209 AUDIT (receipts)\n   feeds\nTHE SIGNAL ENGINE (publishing)\n   reads → MASTER TRACKER\n   reads → 209 INTELLIGENCE\n   publishes → 209 SIGNAL\n   guides → DBEASTCO WELLNESS + 209 CONNECT STUDIO\n   grows → LIFESTYLE ID / AURA\n   teaches → SOVEREIGN UNIVERSITY</div></div></section>
+<section class="section" id="parts"><div class="wrap"><div class="kicker">THE PARTS</div><h2>What each part does.</h2><div class="grid"><article class="card"><h3>The Signal Engine</h3><p>The publishing and automation layer.</p><a class="btn ghost" href="muse.html">Open</a></article><article class="card"><h3>209 Audit</h3><p>The engine: receipts, records, and accountability.</p><a class="btn ghost" href="209-audit.html">Open</a></article><article class="card"><h3>209 Signal</h3><p>The publishing layer.</p><a class="btn ghost" href="signal.html">Open</a></article><article class="card"><h3>209 Intelligence</h3><p>Records, community power, and newsletter intelligence.</p><a class="btn ghost" href="intelligence/">Open</a></article><article class="card"><h3>Master Tracker</h3><p>The searchable index of entities, subjects, and next actions.</p><a class="btn ghost" href="index-tracker/">Open</a></article><article class="card"><h3>CPRA Playbook</h3><p>Build and track public records requests.</p><a class="btn ghost" href="cpra-playbook/">Open</a></article><article class="card"><h3>Sovereign University</h3><p>Where the lessons become learnable skills.</p><a class="btn ghost" href="sovereign-university/experience.html">Open</a></article></div></div></section>
+<section class="section" id="map-cta"><div class="wrap"><div class="kicker">NEXT STEP</div><h2>Enter the engine.</h2><div class="links"><a class="btn" href="209-audit.html">Enter 209 Audit</a><a class="btn ghost" href="index.html">Back to 209.</a></div></div></section>
 </main>
 <footer class="footer"><div class="wrap">© <span id="y"></span> 209.<br><a href="signal.html">209 Signal</a> • <a href="209-audit.html">209 Audit</a> • <a href="cpra-playbook/">CPRA Playbook</a> • <a href="dbeastco.html">dBeastco</a></div></footer>
 <script src="assets/site.js"></script>
 <script src="assets/topbar.js"></script>
-<script>
-document.querySelectorAll('.map-node').forEach(function(n){
-n.addEventListener('mouseenter',function(){const l=document.querySelector('.map-line[data-for="'+n.id+'"]');if(l){l.style.stroke='#175c42';l.style.strokeWidth='3.5'}});
-n.addEventListener('mouseleave',function(){const l=document.querySelector('.map-line[data-for="'+n.id+'"]');if(l){l.style.stroke='';l.style.strokeWidth=''}});
-});
-</script>
+<script src="assets/experience.js"></script>
 </body>
 </html>
