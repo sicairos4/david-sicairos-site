@@ -1,0 +1,26 @@
+name: Workstation persistence tests
+on:
+  push:
+    paths:
+      - 'assets/connect-core.js'
+      - 'tests/workstation-core.test.cjs'
+      - '.github/workflows/workstation-tests.yml'
+  pull_request:
+    paths:
+      - 'assets/connect-core.js'
+      - 'tests/workstation-core.test.cjs'
+      - '.github/workflows/workstation-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  persistence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/connect-core.js
+      - run: node --test tests/workstation-core.test.cjs
