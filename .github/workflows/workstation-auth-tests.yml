@@ -1,0 +1,34 @@
+name: Workstation authentication tests
+on:
+  push:
+    paths:
+      - 'login.html'
+      - 'recover.html'
+      - 'members/workstation.html'
+      - 'assets/workstation-auth.js'
+      - 'tests/workstation-auth.test.cjs'
+      - '.github/workflows/workstation-auth-tests.yml'
+  pull_request:
+    paths:
+      - 'login.html'
+      - 'recover.html'
+      - 'members/workstation.html'
+      - 'assets/workstation-auth.js'
+      - 'tests/workstation-auth.test.cjs'
+      - '.github/workflows/workstation-auth-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  authentication:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation-auth.js
+      - run: node --test tests/workstation-auth.test.cjs
