@@ -8,6 +8,8 @@ on:
       - 'assets/**'
       - 'data/**'
       - 'scripts/audit-*.py'
+      - 'scripts/test-*.py'
+      - 'scripts/test-*.cjs'
       - '.github/workflows/site-qa.yml'
   pull_request:
     paths:
@@ -15,6 +17,8 @@ on:
       - 'assets/**'
       - 'data/**'
       - 'scripts/audit-*.py'
+      - 'scripts/test-*.py'
+      - 'scripts/test-*.cjs'
       - '.github/workflows/site-qa.yml'
 permissions:
   contents: read
@@ -22,6 +26,26 @@ concurrency:
   group: site-qa-${{ github.ref }}
   cancel-in-progress: true
 jobs:
+  renderer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run renderer provenance regression tests
+        run: |
+          mkdir -p qa-artifacts
+          node --test --test-reporter=tap scripts/test-social-provenance.cjs > qa-artifacts/social-provenance.tap
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: renderer-provenance-tests
+          path: qa-artifacts/social-provenance.tap
+          retention-days: 7
   static:
     runs-on: ubuntu-latest
     timeout-minutes: 5
@@ -32,7 +56,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python scripts/test-public-data.py
       - run: python scripts/audit-static.py
+        if: always()
       - run: python scripts/audit-public-data.py
         if: always()
       - uses: actions/upload-artifact@v4
