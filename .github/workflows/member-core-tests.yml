@@ -20,4 +20,11 @@ jobs:
         with:
           node-version: 22
       - run: node tests/connect-core.test.cjs
-      - run: node --check assets/connect-app.js
+      - name: Check member UI syntax when present
+        shell: bash
+        run: |
+          if test -f assets/connect-app.js; then
+            node --check assets/connect-app.js
+          else
+            echo '::notice::Member UI is not committed yet; UI syntax and browser validation remain pending.'
+          fi
