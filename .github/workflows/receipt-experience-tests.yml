@@ -1,0 +1,30 @@
+name: Follow the Receipt checks
+on:
+  push:
+    paths:
+      - 'how-it-connects.html'
+      - 'assets/receipt-experience.*'
+      - 'tests/receipt-experience.test.cjs'
+      - '.github/workflows/receipt-experience-tests.yml'
+  pull_request:
+    paths:
+      - 'how-it-connects.html'
+      - 'assets/receipt-experience.*'
+      - 'tests/receipt-experience.test.cjs'
+      - '.github/workflows/receipt-experience-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  experience:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/receipt-experience.js
+      - run: node --test tests/receipt-experience.test.cjs
