@@ -39,7 +39,7 @@ jobs:
       - name: Run renderer provenance regression tests
         run: |
           mkdir -p qa-artifacts
-          node --test --test-reporter=tap scripts/test-social-provenance.cjs > qa-artifacts/social-provenance.tap
+          node --test --test-reporter=tap scripts/test-social-provenance.cjs scripts/test-meta.cjs > qa-artifacts/social-provenance.tap
       - uses: actions/upload-artifact@v4
         if: always()
         with:

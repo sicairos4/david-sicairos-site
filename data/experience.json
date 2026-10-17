@@ -1,0 +1,32 @@
+{
+  "promos": [
+    {
+      "label": "209AUDIT",
+      "title": "Follow the public record",
+      "text": "Explore the audit hub and public-records work.",
+      "url": "209-audit.html",
+      "cta": "Open 209 Audit"
+    },
+    {
+      "label": "209 MEDIA",
+      "title": "Read 209 Signal",
+      "text": "Visit the newsletter and reporting hub.",
+      "url": "signal.html",
+      "cta": "Open 209 Signal"
+    },
+    {
+      "label": "SYSTEMS STUDIO",
+      "title": "Explore the studio",
+      "text": "Find the site’s tools and creative workspace.",
+      "url": "studio.html",
+      "cta": "Open the studio"
+    },
+    {
+      "label": "DBEASTCO",
+      "title": "Explore dBeastco",
+      "text": "Visit the dBeastco brand hub.",
+      "url": "dbeastco.html",
+      "cta": "Open dBeastco"
+    }
+  ]
+}
