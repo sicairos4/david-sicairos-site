@@ -1,0 +1,30 @@
+name: Workstation linked planner tests
+on:
+  push:
+    paths:
+      - 'assets/connect-app.js'
+      - 'assets/connect-core.js'
+      - 'tests/workstation-planner.test.cjs'
+      - '.github/workflows/workstation-planner-tests.yml'
+  pull_request:
+    paths:
+      - 'assets/connect-app.js'
+      - 'assets/connect-core.js'
+      - 'tests/workstation-planner.test.cjs'
+      - '.github/workflows/workstation-planner-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  linked-planner:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/connect-app.js
+      - run: node --test tests/workstation-planner.test.cjs tests/workstation-core.test.cjs
