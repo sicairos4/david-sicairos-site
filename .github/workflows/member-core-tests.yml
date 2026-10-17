@@ -1,0 +1,23 @@
+name: 209 Connect core tests
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['members/app.html', 'assets/connect-*', 'tests/connect-core.test.cjs', '.github/workflows/member-core-tests.yml']
+  pull_request:
+    paths: ['members/app.html', 'assets/connect-*', 'tests/connect-core.test.cjs', '.github/workflows/member-core-tests.yml']
+permissions:
+  contents: read
+jobs:
+  core:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node tests/connect-core.test.cjs
+      - run: node --check assets/connect-app.js
