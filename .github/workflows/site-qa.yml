@@ -6,12 +6,14 @@ on:
     paths:
       - '**/*.html'
       - 'assets/**'
+      - 'data/**'
       - 'scripts/audit-*.py'
       - '.github/workflows/site-qa.yml'
   pull_request:
     paths:
       - '**/*.html'
       - 'assets/**'
+      - 'data/**'
       - 'scripts/audit-*.py'
       - '.github/workflows/site-qa.yml'
 permissions:
@@ -31,11 +33,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/audit-static.py
+      - run: python scripts/audit-public-data.py
+        if: always()
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: static-site-audit
-          path: qa-artifacts/static-audit.json
+          path: qa-artifacts/*audit.json
           retention-days: 7
   responsive:
     runs-on: ubuntu-latest
@@ -49,7 +53,7 @@ jobs:
           python-version: '3.12'
       - run: pip install playwright==1.56.0
       - run: python -m playwright install --with-deps chromium
-      - run: python scripts/audit-responsive.py
+      - run: python scripts/audit-public-surfaces.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:

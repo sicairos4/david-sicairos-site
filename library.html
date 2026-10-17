@@ -12,32 +12,32 @@
 <link rel="stylesheet" href="assets/signal.css">
 <link rel="stylesheet" href="assets/mobile.css">
 <style>
-.library-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:20px 0}
-.lib-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;min-height:220px}
+.library-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:16px;margin:20px 0}
+.lib-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;min-height:220px;min-width:0;overflow-wrap:anywhere}
 .lib-card .tag{font-size:12px;font-weight:800;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
 .lib-card h3{margin:0;font-size:19px}
 .lib-card p{color:var(--muted);margin:0}
 .lib-card .links{margin-top:auto}
+.lib-card img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:10px}
 .receipt-note{background:linear-gradient(135deg,color-mix(in srgb,var(--accent) 12%,var(--panel)),var(--panel));border:1px solid var(--line);border-radius:var(--radius);padding:22px;margin:20px 0}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="index.html" aria-label="209 home">209<span>.</span></a><nav class="nav"></nav></div></header>
 <main>
-<section class="hero"><div class="wrap"><div class="kicker">MEDIA LIBRARY</div><h1>Everything runs on receipts.</h1><p>One library for the whole 209 body of work.</p><div class="links"><a class="btn" href="signal.html">Latest Signal →</a><a class="btn ghost" href="https://www.youtube.com/@DavidSicairos" target="_blank" rel="noopener">Watch on YouTube →</a></div></div></section>
+<section class="hero"><div class="wrap"><div class="kicker">MEDIA LIBRARY</div><h1>Everything runs on receipts.</h1><p>One library for the whole 209 body of work.</p><div class="links"><a class="btn" href="signal.html">Latest Signal →</a><a class="btn ghost" href="https://www.youtube.com/channel/UCDMa9oEWj4i6KFOkjF79qLg" target="_blank" rel="noopener">Watch on YouTube →</a></div></div></section>
 <section class="section"><div class="wrap"><div class="kicker">MULTIMEDIA</div><h2>Watch the work</h2><div class="library-grid">
-<div class="lib-card"><span class="tag">SERIES</span><h3>Illegally Fired</h3><p>The ongoing series documenting the fight, the record, and the receipts.</p><div class="links"><a class="btn" href="https://www.tiktok.com/@sicairosdavid" target="_blank" rel="noopener">Watch on TikTok →</a></div></div>
-<div class="lib-card"><span class="tag">EXPLAINERS</span><h3>Systems Breakdowns</h3><p>Short-form breakdowns of the systems behind local power, money, and accountability.</p><div class="links"><a class="btn" href="https://www.youtube.com/@DavidSicairos" target="_blank" rel="noopener">Watch on YouTube →</a></div></div>
+<div class="lib-card"><span class="tag">SERIES</span><h3>Illegally Fired</h3><p>The ongoing series documenting the fight, the record, and the receipts.</p><div class="links"><a class="btn" href="https://www.youtube.com/watch?v=DgwOFbmttqw" target="_blank" rel="noopener">Watch this episode →</a></div></div>
+<div class="lib-card"><span class="tag">EXPLAINERS</span><h3>Systems Breakdowns</h3><p>Short-form breakdowns of the systems behind local power, money, and accountability.</p><div class="links"><a class="btn" href="https://www.youtube.com/channel/UCDMa9oEWj4i6KFOkjF79qLg" target="_blank" rel="noopener">Watch on YouTube →</a></div></div>
 <div class="lib-card"><span class="tag">FIELD COVERAGE</span><h3>209 Audit Coverage</h3><p>Public-record requests, responses, and accountability research in the open.</p><div class="links"><a class="btn ghost" href="209-audit.html">Open 209 Audit →</a></div></div>
 </div></div></section>
+<section class="section" id="verified-videos"><div class="wrap"><div class="kicker">PUBLIC VIDEO SNAPSHOT</div><h2>From the verified channel</h2><p class="muted">Public upload metadata and source thumbnails checked October 16, 2026 (Pacific). This is a curated snapshot, not proof of a running automatic sync.</p><div class="library-grid"><article class="lib-card"><img src="https://i.ytimg.com/vi/DgwOFbmttqw/hqdefault.jpg" alt="Thumbnail: ILLEGALLY FIRED: Before the Badge Was Pulled" width="480" height="360" loading="lazy" decoding="async"><h3>ILLEGALLY FIRED: Before the Badge Was Pulled</h3><p>Published (UTC) <time datetime="2026-10-17T02:18:47Z">2026-10-17</time></p><div class="links"><a class="btn ghost" href="https://www.youtube.com/watch?v=DgwOFbmttqw" target="_blank" rel="noopener">Watch video →</a></div></article><article class="lib-card"><img src="https://i.ytimg.com/vi/lz5fyVIXZgw/hqdefault.jpg" alt="Thumbnail: Measure B: Who Pays and Who Receives" width="480" height="360" loading="lazy" decoding="async"><h3>Measure B: Who Pays and Who Receives</h3><p>Published (UTC) <time datetime="2026-10-17T01:31:19Z">2026-10-17</time></p><div class="links"><a class="btn ghost" href="https://www.youtube.com/watch?v=lz5fyVIXZgw" target="_blank" rel="noopener">Watch video →</a></div></article><article class="lib-card"><img src="https://i.ytimg.com/vi/ZiSI8G3lM_4/hqdefault.jpg" alt="Thumbnail: ILLEGALLY FIRED: The Real Org Chart" width="480" height="360" loading="lazy" decoding="async"><h3>ILLEGALLY FIRED: The Real Org Chart</h3><p>Published (UTC) <time datetime="2026-10-17T00:24:22Z">2026-10-17</time></p><div class="links"><a class="btn ghost" href="https://www.youtube.com/watch?v=ZiSI8G3lM_4" target="_blank" rel="noopener">Watch video →</a></div></article></div></div></section>
 <section class="section"><div class="wrap"><div class="kicker">STORIES & INVESTIGATIONS</div><h2>Read the record</h2><div class="library-grid">
 <div class="lib-card"><span class="tag">209 SIGNAL</span><h3>Latest editions</h3><div class="links"><a class="btn" href="signal.html">Open 209 Signal →</a></div></div>
 <div class="lib-card"><span class="tag">ARCHIVE</span><h3>Past editions</h3><div class="links"><a class="btn ghost" href="signal-archive.html">Open archive →</a></div></div>
 <div class="lib-card"><span class="tag">RECEIPTS</span><h3>Public records</h3><div class="links"><a class="btn ghost" href="public-files.html">Open public files →</a></div></div>
 <div class="lib-card"><span class="tag">TRACKER</span><h3>Master Tracker</h3><div class="links"><a class="btn ghost" href="index-tracker/">Open tracker →</a></div></div>
-</div>
-<div class="receipt-note"><strong>Everything runs on receipts.</strong></div>
-</div></section>
+</div><div class="receipt-note"><strong>Everything runs on receipts.</strong></div></div></section>
 </main>
 <footer class="footer"><div class="wrap">© <span id="y"></span> 209.<br><a href="index.html">Home</a> • <a href="signal.html">209 Signal</a> • <a href="209-audit.html">209 Audit</a> • <a href="public-files.html">Public Files</a></div></footer>
 <script src="assets/site.js"></script>

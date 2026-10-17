@@ -1,172 +1,72 @@
 {
-  "records": [
-    {
-      "headline": "209 Audit engine is live",
-      "date": "2026-10-14",
-      "source": "209 Media",
-      "link": "209-audit.html"
-    },
-    {
-      "headline": "Public Files Database coming soon",
-      "date": "2026-10-14",
-      "source": "209 Media",
-      "link": "public-files.html"
-    }
-  ],
-  "museStatus": {
-    "state": "Connected",
-    "lastRun": "2026-10-14",
-    "nextAction": "Review latest records and prioritize hooks"
-  },
+  "records": [],
   "featuredStory": {
     "title": "209 Audit is the engine",
     "hook": "Receipts over narratives.",
     "link": "209-audit.html"
   },
-  "announcements": [
-    {
-      "title": "Muse is connected",
-      "body": "Meta Muse + Gemini + Perplexity are now linked to the 209 media app.",
-      "link": "muse.html"
-    }
-  ],
-  "whatsWorking": [
-    {
-      "metric": "Threads opens",
-      "value": "Primary channel",
-      "trend": "up",
-      "action": "Double down on accountability hooks and receipt-led posts"
-    },
-    {
-      "metric": "Facebook breaking/political posts",
-      "value": "High engagement",
-      "trend": "up",
-      "action": "Post breaking-news hooks earlier in the day"
-    },
-    {
-      "metric": "LinkedIn impressions",
-      "value": "Steady",
-      "trend": "flat",
-      "action": "Test more systems-thinking and policy explainers"
-    },
-    {
-      "metric": "TikTok distribution",
-      "value": "Growing",
-      "trend": "up",
-      "action": "Use darker, high-contrast visuals with bold on-screen text"
-    }
-  ],
+  "museStatus": {
+    "state": "Not verified",
+    "lastRun": "Not verified",
+    "nextAction": "Verify a runtime handoff receipt before reporting a connection."
+  },
+  "announcements": [],
+  "whatsWorking": [],
+  "podcasts": [],
   "socialPulse": [
     {
       "name": "Threads",
       "handle": "@davidsicairos",
       "url": "https://www.threads.net/@davidsicairos",
-      "followers": 0,
-      "followers28dAgo": 0,
-      "lastPost": {
-        "title": "Latest post",
-        "url": "https://www.threads.net/@davidsicairos",
-        "date": "2026-10-14"
-      }
+      "followers": null,
+      "followers28dAgo": null,
+      "lastPost": null,
+      "verified": false
     },
     {
       "name": "Facebook",
-      "handle": "David Sicairos",
-      "url": "https://www.facebook.com/",
-      "followers": 0,
-      "followers28dAgo": 0,
-      "lastPost": {
-        "title": "Latest post",
-        "url": "https://www.facebook.com/",
-        "date": "2026-10-14"
-      }
+      "handle": "Not verified",
+      "url": null,
+      "followers": null,
+      "followers28dAgo": null,
+      "lastPost": null,
+      "verified": false
     },
     {
       "name": "LinkedIn",
-      "handle": "David Sicairos",
-      "url": "https://www.linkedin.com/",
-      "followers": 0,
-      "followers28dAgo": 0,
-      "lastPost": {
-        "title": "Latest post",
-        "url": "https://www.linkedin.com/",
-        "date": "2026-10-14"
-      }
+      "handle": "Not verified",
+      "url": null,
+      "followers": null,
+      "followers28dAgo": null,
+      "lastPost": null,
+      "verified": false
     },
     {
       "name": "TikTok",
       "handle": "@davidsicairos",
       "url": "https://www.tiktok.com/@davidsicairos",
-      "followers": 0,
-      "followers28dAgo": 0,
-      "lastPost": {
-        "title": "Latest post",
-        "url": "https://www.tiktok.com/@davidsicairos",
-        "date": "2026-10-14"
-      }
+      "followers": null,
+      "followers28dAgo": null,
+      "lastPost": null,
+      "verified": false
     },
     {
       "name": "YouTube",
-      "handle": "David Sicairos",
-      "url": "https://www.youtube.com/",
-      "followers": 0,
-      "followers28dAgo": 0,
+      "handle": "@sicairosdavid",
+      "url": "https://www.youtube.com/channel/UCDMa9oEWj4i6KFOkjF79qLg",
+      "channelId": "UCDMa9oEWj4i6KFOkjF79qLg",
+      "followers": 44,
+      "followers28dAgo": null,
+      "verified": true,
+      "source": "YouTube Data API channels.list(mine)",
+      "measurement_date": "2026-10-16",
       "lastPost": {
-        "title": "Latest video",
-        "url": "https://www.youtube.com/",
-        "date": "2026-10-14"
+        "title": "ILLEGALLY FIRED: Before the Badge Was Pulled",
+        "url": "https://www.youtube.com/watch?v=DgwOFbmttqw",
+        "date": "2026-10-17T02:18:47Z",
+        "thumbnail": "https://i.ytimg.com/vi/DgwOFbmttqw/hqdefault.jpg"
       }
     }
   ],
-  "podcasts": [
-    {
-      "show": "209 Signal Podcast",
-      "latestEpisode": "Latest episode",
-      "url": "signal.html"
-    }
-  ],
-  "systemLog": [
-    {
-      "date": "2026-10-14",
-      "change": "Added dynamic records feed",
-      "surface": "Homepage records feed",
-      "status": "Live"
-    },
-    {
-      "date": "2026-10-14",
-      "change": "Wired featured story to JSON",
-      "surface": "Homepage hero",
-      "status": "Live"
-    },
-    {
-      "date": "2026-10-14",
-      "change": "Wired Muse status and announcements",
-      "surface": "Muse page",
-      "status": "Live"
-    },
-    {
-      "date": "2026-10-14",
-      "change": "Added latest records to Intelligence page",
-      "surface": "Intelligence page",
-      "status": "Live"
-    },
-    {
-      "date": "2026-10-14",
-      "change": "Added Latest from 209 Media to Tracker",
-      "surface": "Tracker latest.html",
-      "status": "Live"
-    },
-    {
-      "date": "2026-10-14",
-      "change": "Added What's Working analytics section",
-      "surface": "Muse page",
-      "status": "Live"
-    },
-    {
-      "date": "2026-10-14",
-      "change": "Added Social Pulse hub with follower dial, platform cards, and podcasts",
-      "surface": "Intelligence page",
-      "status": "Live — follower values are placeholders, update via prompt"
-    }
-  ]
+  "systemLog": []
 }
