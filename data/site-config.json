@@ -1,55 +1,18 @@
 {
   "records": [],
+  "museStatus": {
+    "state": "Unverified",
+    "lastRun": null,
+    "nextAction": "Verify a runtime receipt before reporting this service as connected."
+  },
   "featuredStory": {
-    "title": "209 Audit is the engine",
+    "title": "209 Audit",
     "hook": "Receipts over narratives.",
     "link": "209-audit.html"
   },
-  "museStatus": {
-    "state": "Not verified",
-    "lastRun": "Not verified",
-    "nextAction": "Verify a runtime handoff receipt before reporting a connection."
-  },
   "announcements": [],
   "whatsWorking": [],
-  "podcasts": [],
   "socialPulse": [
-    {
-      "name": "Threads",
-      "handle": "@davidsicairos",
-      "url": "https://www.threads.net/@davidsicairos",
-      "followers": null,
-      "followers28dAgo": null,
-      "lastPost": null,
-      "verified": false
-    },
-    {
-      "name": "Facebook",
-      "handle": "Not verified",
-      "url": null,
-      "followers": null,
-      "followers28dAgo": null,
-      "lastPost": null,
-      "verified": false
-    },
-    {
-      "name": "LinkedIn",
-      "handle": "Not verified",
-      "url": null,
-      "followers": null,
-      "followers28dAgo": null,
-      "lastPost": null,
-      "verified": false
-    },
-    {
-      "name": "TikTok",
-      "handle": "@davidsicairos",
-      "url": "https://www.tiktok.com/@davidsicairos",
-      "followers": null,
-      "followers28dAgo": null,
-      "lastPost": null,
-      "verified": false
-    },
     {
       "name": "YouTube",
       "handle": "@sicairosdavid",
@@ -57,9 +20,10 @@
       "channelId": "UCDMa9oEWj4i6KFOkjF79qLg",
       "followers": 44,
       "followers28dAgo": null,
-      "verified": true,
-      "source": "YouTube Data API channels.list(mine)",
-      "measurement_date": "2026-10-16",
+      "metric": "subscribers",
+      "verified_on": "2026-10-17",
+      "source": "Authenticated YouTube Data API channels.list (mine)",
+      "status": "API_SNAPSHOT",
       "lastPost": {
         "title": "ILLEGALLY FIRED: Before the Badge Was Pulled",
         "url": "https://www.youtube.com/watch?v=DgwOFbmttqw",
@@ -68,5 +32,13 @@
       }
     }
   ],
-  "systemLog": []
+  "unverifiedPlatforms": [
+    "Threads",
+    "Facebook",
+    "LinkedIn",
+    "TikTok"
+  ],
+  "podcasts": [],
+  "systemLog": [],
+  "dataPolicy": "Missing measurements are null, not zero. A successful API read is not evidence of recurring ingestion, publishing, or a website deployment."
 }

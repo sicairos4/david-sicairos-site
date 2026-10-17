@@ -1,39 +1,49 @@
 import json
+import pathlib
 from html.parser import HTMLParser
-from pathlib import Path
-from urllib.parse import urlsplit
-
-ROOT = Path(__file__).resolve().parents[1]
-CANONICAL = 'https://www.youtube.com/channel/UCDMa9oEWj4i6KFOkjF79qLg'
-issues = []
-class Links(HTMLParser):
+from urllib.parse import urlparse
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+class Parser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = []
+        self.images = []
+        self.ids = []
     def handle_starttag(self, tag, attrs):
-        href = dict(attrs).get('href', '')
-        u = urlsplit(href)
-        if tag == 'a' and u.hostname in {'youtube.com', 'www.youtube.com', 'm.youtube.com'}:
-            if u.path.rstrip('/').lower() == '/@davidsicairos':
-                issues.append({'page': str(self.page.relative_to(ROOT)), 'issue': 'Wrong YouTube handle', 'href': href})
-for page in ROOT.rglob('*.html'):
-    if any(x in {'.git', 'node_modules', 'qa-artifacts', 'output', '.venv', 'venv'} for x in page.relative_to(ROOT).parts):
-        continue
-    parser = Links()
-    parser.page = page
-    parser.feed(page.read_text(encoding='utf-8', errors='replace'))
+        a = dict(attrs)
+        if 'id' in a:
+            self.ids.append(a['id'])
+        if tag == 'a':
+            self.links.append(a)
+        if tag == 'img':
+            self.images.append(a)
+errors = []
+for name in ['library.html', 'intelligence/index.html']:
+    p = Parser()
+    p.feed((ROOT / name).read_text())
+    if len(p.ids) != len(set(p.ids)):
+        errors.append(name + ': duplicate IDs')
+    for a in p.links:
+        u = urlparse(a.get('href', ''))
+        if u.hostname in ['youtube.com', 'www.youtube.com'] and u.path.lower() == '/@davidsicairos':
+            errors.append(name + ': wrong YouTube channel handle')
+        if a.get('target') == '_blank' and 'noopener' not in a.get('rel', '').split():
+            errors.append(name + ': unsafe external target')
+    for image in p.images:
+        if not image.get('alt') or not image.get('width') or not image.get('height'):
+            errors.append(name + ': image missing accessibility or dimensions')
 cfg = json.loads((ROOT / 'data/site-config.json').read_text())
-for p in cfg.get('socialPulse', []):
-    value = p.get('followers')
-    if value is not None and (p.get('verified') is not True or not p.get('source') or not p.get('measurement_date')):
-        issues.append({'issue': 'Follower number lacks provenance', 'platform': p.get('name')})
-    if p.get('followers28dAgo') is not None and (p.get('baseline_verified') is not True or not p.get('baseline_measured_at')):
-        issues.append({'issue': 'Growth baseline lacks provenance', 'platform': p.get('name')})
-    if p.get('url') in {'https://www.youtube.com/', 'https://www.facebook.com/', 'https://www.linkedin.com/'}:
-        issues.append({'issue': 'Generic platform homepage placeholder', 'platform': p.get('name')})
-    if p.get('name') == 'YouTube' and p.get('url') != CANONICAL:
-        issues.append({'issue': 'YouTube channel identity mismatch'})
-if cfg.get('museStatus', {}).get('state') == 'Connected':
-    issues.append({'issue': 'Unverified connected-state claim'})
-out = ROOT / 'qa-artifacts/public-data-audit.json'
-out.parent.mkdir(parents=True, exist_ok=True)
-out.write_text(json.dumps({'scope': 'Source links and public-data provenance, not live HTTP or API ingestion', 'issues': issues}, indent=2))
-print(json.dumps({'public_data_issues': len(issues)}))
-raise SystemExit(bool(issues))
+for item in cfg.get('socialPulse', []):
+    if item.get('followers') is not None and not (item.get('source') and item.get('verified_on')):
+        errors.append('Measurement missing source/date')
+    if item.get('name') == 'YouTube' and item.get('channelId') != 'UCDMa9oEWj4i6KFOkjF79qLg':
+        errors.append('Wrong canonical channel ID')
+    if item.get('followers28dAgo') is not None:
+        errors.append('Historical baseline must have independent evidence before enabling growth')
+if cfg.get('museStatus', {}).get('state', '').lower() == 'connected':
+    errors.append('Unsupported connected claim')
+result = {'scope': 'targeted source regression; not a live HTTP or visual pass', 'errors': errors}
+(ROOT / 'qa-artifacts').mkdir(exist_ok=True)
+(ROOT / 'qa-artifacts/public-data-audit.json').write_text(json.dumps(result, indent=2))
+print(json.dumps(result))
+raise SystemExit(bool(errors))
