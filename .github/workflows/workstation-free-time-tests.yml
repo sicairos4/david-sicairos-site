@@ -1,0 +1,32 @@
+name: Workstation free time finder tests
+on:
+  push:
+    paths:
+      - 'members/app.html'
+      - 'assets/connect-app.js'
+      - 'assets/workstation-free-time.js'
+      - 'tests/workstation-free-time.test.cjs'
+      - '.github/workflows/workstation-free-time-tests.yml'
+  pull_request:
+    paths:
+      - 'members/app.html'
+      - 'assets/connect-app.js'
+      - 'assets/workstation-free-time.js'
+      - 'tests/workstation-free-time.test.cjs'
+      - '.github/workflows/workstation-free-time-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  free-time:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation-free-time.js
+      - run: node --test tests/workstation-free-time.test.cjs
