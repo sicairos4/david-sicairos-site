@@ -1,0 +1,25 @@
+name: Workstation morning tests
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, workstation/shared-core-release]
+    paths: ['assets/workstation/morning*', 'members/app.html', 'tests/workstation-morning.test.cjs', '.github/workflows/workstation-morning-tests.yml']
+  pull_request:
+    paths: ['assets/workstation/morning*', 'members/app.html', 'tests/workstation-morning.test.cjs', '.github/workflows/workstation-morning-tests.yml']
+permissions:
+  contents: read
+jobs:
+  morning:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check morning controller syntax
+        run: node --check assets/workstation/morning-ui.js
+      - name: Run morning timeline and handoff tests
+        run: node --test tests/workstation-morning.test.cjs
