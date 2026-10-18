@@ -1,0 +1,42 @@
+name: Android test APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, workstation/shared-core-release]
+    paths: ['android/**', '.github/workflows/android-debug.yml']
+  pull_request:
+    paths: ['android/**', '.github/workflows/android-debug.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install SDK
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Build and lint test APK
+        working-directory: android
+        run: gradle --no-daemon :app:lintDebug :app:assembleDebug
+      - name: Checksum
+        working-directory: android/app/build/outputs/apk/debug
+        run: sha256sum app-debug.apk > app-debug.apk.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 209-workstation-test-${{ github.sha }}
+          path: |
+            android/app/build/outputs/apk/debug/app-debug.apk
+            android/app/build/outputs/apk/debug/app-debug.apk.sha256
+          if-no-files-found: error
+          retention-days: 14
