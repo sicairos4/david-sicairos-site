@@ -5,16 +5,20 @@ on:
       - 'login.html'
       - 'recover.html'
       - 'members/workstation.html'
+      - 'members/app.html'
       - 'assets/workstation-auth.js'
-      - 'tests/workstation-auth.test.cjs'
+      - 'assets/connect-app.js'
+      - 'tests/workstation-auth*.test.cjs'
       - '.github/workflows/workstation-auth-tests.yml'
   pull_request:
     paths:
       - 'login.html'
       - 'recover.html'
       - 'members/workstation.html'
+      - 'members/app.html'
       - 'assets/workstation-auth.js'
-      - 'tests/workstation-auth.test.cjs'
+      - 'assets/connect-app.js'
+      - 'tests/workstation-auth*.test.cjs'
       - '.github/workflows/workstation-auth-tests.yml'
   workflow_dispatch:
 permissions:
@@ -31,4 +35,4 @@ jobs:
         with:
           node-version: '22'
       - run: node --check assets/workstation-auth.js
-      - run: node --test tests/workstation-auth.test.cjs
+      - run: node --test tests/workstation-auth.test.cjs tests/workstation-auth-contract.test.cjs
