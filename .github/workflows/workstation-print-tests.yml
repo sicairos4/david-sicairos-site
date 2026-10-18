@@ -1,0 +1,23 @@
+name: Workstation print tests
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, workstation/shared-core-release]
+    paths: ['assets/workstation/print.js', 'assets/workstation/morning.js', 'tests/workstation-print.test.cjs', '.github/workflows/workstation-print-tests.yml']
+  pull_request:
+    paths: ['assets/workstation/print.js', 'assets/workstation/morning.js', 'tests/workstation-print.test.cjs', '.github/workflows/workstation-print-tests.yml']
+permissions:
+  contents: read
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/print.js
+      - run: node --test tests/workstation-print.test.cjs tests/workstation-morning.test.cjs

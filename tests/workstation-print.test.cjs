@@ -1,0 +1,5 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),P=require('../assets/workstation/print.js');
+test('morning-only export excludes full-day and private fields',()=>{const m=P.model({day:'2026-10-18',morning:['07:00 - Water'],fullDay:false,priority:'Not selected',microstep:'Private step',blocks:['Private block'],journal:'Secret',lesson:'Secret'});assert.equal(m.priority,'');assert.equal(m.microstep,'');assert.deepEqual(m.blocks,[]);assert.equal('journal' in m,false);assert.equal('lesson' in m,false);});
+test('full-day export explicitly includes only allowed displayed data',()=>{const m=P.model({fullDay:true,day:'2026-10-18',morning:['Water'],priority:'Write',microstep:'Open document',blocks:['09:00 - Write'],journal:'Secret'});assert.equal(m.priority,'Write');assert.deepEqual(m.blocks,['09:00 - Write']);assert.equal('journal' in m,false);});
+test('model owns its arrays and bounds exported text',()=>{const rows=['Water'];const m=P.model({morning:rows,day:'x'.repeat(3000)});rows[0]='Changed';assert.equal(m.morning[0],'Water');assert.equal(m.day.length,2000);});
