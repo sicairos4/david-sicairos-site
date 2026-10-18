@@ -32,6 +32,26 @@ function attach(){
   };
 }
 const observer=new MutationObserver(attach);observer.observe(document.body,{childList:true,subtree:true});attach();
-g.addEventListener('pagehide',()=>observer.disconnect(),{once:true});
+g.addEventListener('pagehide',()=>observer.disconnect());
 g.addEventListener('pageshow',()=>{observer.observe(document.body,{childList:true,subtree:true});attach();});
+const root=new URL('./',document.currentScript.src);
+document.addEventListener('click',event=>{
+  if(!event.target?.closest?.('#workstationPrintButton')||!document.getElementById('workstationPrintPreview'))return;
+  event.preventDefault();event.stopImmediatePropagation();
+  const status=document.getElementById('morningStatus');
+  if(status)status.textContent='Close the existing export preview before opening another.';
+},true);
+for(const name of ['weekly-review.js','print.js']){
+  const url=new URL(name,root).href;
+  if([...document.scripts].some(script=>script.src===url))continue;
+  const script=document.createElement('script');script.src=url;script.async=false;
+  script.onerror=()=>{
+    const section=document.querySelector('[data-view=review]');
+    if(!section)return;
+    const notice=document.createElement('p');notice.setAttribute('role','status');
+    notice.textContent=(name==='print.js'?'Planner printing':'Guided weekly review')+' could not load. Reload to retry. Existing planner data is unchanged.';
+    section.append(notice);
+  };
+  document.head.append(script);
+}
 })(globalThis);

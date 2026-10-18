@@ -1,0 +1,23 @@
+name: Workstation complete regression suite
+on:
+  push:
+    branches: [main]
+    paths: ['assets/**', 'members/**', 'tests/**', '.github/workflows/workstation-complete-regression.yml']
+  pull_request:
+    paths: ['assets/**', 'members/**', 'tests/**', '.github/workflows/workstation-complete-regression.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/review-share.js
+      - run: node --test tests/*.test.cjs
