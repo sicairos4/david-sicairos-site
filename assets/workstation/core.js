@@ -1,8 +1,8 @@
 (function(g){
 'use strict';
-const F=typeof module!=='undefined'?require('../workstation-free-time.js'):g.WorkstationFreeTime;
+const F=typeof module!=='undefined'&&module.exports?require('./finder.js'):g.WorkstationFinder;
 function validDay(value){if(typeof value!=='string'||!/^\d{4}-\d{2}-\d{2}$/.test(value))throw Error('Use a valid calendar day.');const d=new Date(value+'T00:00:00Z');if(!Number.isFinite(d.getTime())||d.toISOString().slice(0,10)!==value)throw Error('Use a valid calendar day.');return value;}
-function create(day){let selected=validDay(day),blocks=[],ticket=null,nextId=1;
+function create(day){if(!F)throw Error('Load workstation/finder.js before workstation/core.js.');let selected=validDay(day),blocks=[],ticket=null,nextId=1;
 const copy=value=>JSON.parse(JSON.stringify(value));
 const invalidate=()=>{ticket=null;};
 const snapshot=()=>({day:selected,blocks:copy(blocks)});
@@ -12,5 +12,5 @@ function add(title,start,end){if(typeof title!=='string'||!title.trim()||title.t
 function remove(id){const index=blocks.findIndex(x=>x.id===id);if(index<0)throw Error('Block no longer exists.');blocks.splice(index,1);invalidate();}
 function setDay(day){const value=validDay(day);if(value!==selected){selected=value;blocks=[];}invalidate();}
 return {snapshot,search,choose,add,remove,setDay,invalidate};}
-const api={create,validDay};if(typeof module!=='undefined')module.exports=api;else g.WorkstationCore=api;
+const api={create,validDay};if(typeof module!=='undefined'&&module.exports)module.exports=api;else g.WorkstationCore=api;
 })(globalThis);

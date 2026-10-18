@@ -1,0 +1,23 @@
+name: Workstation staging modules
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, workstation/shared-core-release]
+    paths: ['assets/workstation/finder.js', 'assets/workstation/core.js', 'assets/workstation/staging.js', 'members/workstation-staging.html', 'tests/workstation-staging-modules.test.cjs', '.github/workflows/workstation-staging-tests.yml']
+  pull_request:
+    paths: ['assets/workstation/finder.js', 'assets/workstation/core.js', 'assets/workstation/staging.js', 'members/workstation-staging.html', 'tests/workstation-staging-modules.test.cjs', '.github/workflows/workstation-staging-tests.yml']
+permissions:
+  contents: read
+jobs:
+  staging:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/staging.js
+      - run: node --test tests/workstation-staging-modules.test.cjs tests/workstation-shared-core.test.cjs
