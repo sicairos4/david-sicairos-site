@@ -1,0 +1,34 @@
+name: Workstation review sharing tests
+on:
+  push:
+    paths:
+      - 'assets/workstation/review-share.js'
+      - 'assets/workstation/review-export.js'
+      - 'members/app.html'
+      - 'tests/workstation-review-share.test.cjs'
+      - 'tests/workstation-review-export.test.cjs'
+      - '.github/workflows/workstation-review-share-tests.yml'
+  pull_request:
+    paths:
+      - 'assets/workstation/review-share.js'
+      - 'assets/workstation/review-export.js'
+      - 'members/app.html'
+      - 'tests/workstation-review-share.test.cjs'
+      - 'tests/workstation-review-export.test.cjs'
+      - '.github/workflows/workstation-review-share-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review-sharing:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/review-share.js
+      - run: node --test tests/workstation-review-share.test.cjs tests/workstation-review-export.test.cjs

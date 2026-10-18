@@ -1,0 +1,91 @@
+name: Website audit diagnostics report
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'assets/**'
+      - 'data/**'
+      - 'scripts/**'
+      - '.github/workflows/website-audit-diagnostics.yml'
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - id: regression
+        continue-on-error: true
+        run: python scripts/test-public-data.py
+      - id: static
+        if: always()
+        continue-on-error: true
+        run: python scripts/audit-static.py
+      - id: provenance
+        if: always()
+        continue-on-error: true
+        run: python scripts/audit-public-data.py
+      - name: Record individual outcomes
+        if: always()
+        run: |
+          mkdir -p qa-artifacts
+          printf '%s\n' '{"regression":"${{ steps.regression.outcome }}","static":"${{ steps.static.outcome }}","provenance":"${{ steps.provenance.outcome }}"}' > qa-artifacts/step-outcomes.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: website-audit-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            qa-artifacts/static-audit.json
+            qa-artifacts/public-data-audit.json
+            qa-artifacts/step-outcomes.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Preserve audit failure
+        if: always()
+        env:
+          REGRESSION: ${{ steps.regression.outcome }}
+          STATIC: ${{ steps.static.outcome }}
+          PROVENANCE: ${{ steps.provenance.outcome }}
+        run: test "$REGRESSION" = success && test "$STATIC" = success && test "$PROVENANCE" = success
+  report:
+    needs: audit
+    if: always() && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: website-audit-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: reports
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const blocks = ['Website audit diagnostics', 'Head commit: ' + context.payload.pull_request.head.sha];
+            const read = name => {
+              const path = 'reports/' + name;
+              if (!fs.existsSync(path)) return {missing: name};
+              if (fs.statSync(path).size > 250000) return {error: name + ' exceeds report limit'};
+              return JSON.parse(fs.readFileSync(path, 'utf8'));
+            };
+            for (const name of ['static-audit.json', 'public-data-audit.json', 'step-outcomes.json']) {
+              let report;
+              try {
+                report = read(name);
+                if (name === 'static-audit.json' && Array.isArray(report.issues)) {
+                  report = {...report, issues: report.issues.filter(item => item.severity === 'error').slice(0, 100)};
+                }
+              } catch { report = {error: 'Could not parse ' + name}; }
+              const safe = JSON.stringify(report, null, 2).slice(0, 12000).replace(/`/g, "'").replace(/@/g, '(at)');
+              blocks.push(name + '\n```json\n' + safe + '\n```');
+            }
+            const body = blocks.join('\n\n') + '\n\nDiagnostic output only; failures remain failures. No automatic merge or deployment.';
+            await github.rest.issues.createComment({...context.repo, issue_number: context.issue.number, body});
