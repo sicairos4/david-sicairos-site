@@ -1,0 +1,7 @@
+'use strict';const test=require('node:test'),assert=require('node:assert/strict'),M=require('../assets/workstation/morning.js');if(!globalThis.crypto)globalThis.crypto=require('node:crypto').webcrypto;
+test('default micro steps form a short morning',()=>{const rows=M.timeline('07:00',M.defaults());assert.equal(rows[0].start,'07:00');assert.equal(rows.at(-1).end,'07:11');});
+test('disabled steps do not consume time',()=>{const steps=M.update(M.defaults(),0,{enabled:false});assert.equal(M.timeline('07:00',steps)[0].title,'Pause and notice how you feel');});
+test('reorder changes sequence without changing duration',()=>{const steps=M.move(M.defaults(),1,-1);assert.equal(steps[0].id,'ground');assert.equal(steps.reduce((n,s)=>n+s.minutes,0),11);});
+test('invalid durations and overnight routines fail',()=>{assert.throws(()=>M.update(M.defaults(),0,{minutes:0}));assert.throws(()=>M.timeline('23:55',M.defaults()));});
+test('handoff returns blocks without mutating or saving record',()=>{const record={plan:{scheduleBlocks:[]},journal:'private',revision:4};const blocks=M.handoff(record,'07:00',M.defaults());assert.equal(blocks.length,5);assert.equal(record.plan.scheduleBlocks.length,0);assert.equal(record.journal,'private');assert.equal(record.revision,4);});
+test('overlap rejects entire handoff',()=>{const record={plan:{scheduleBlocks:[{id:'existing',start:'07:02',end:'07:10'}]}};assert.throws(()=>M.handoff(record,'07:00',M.defaults()));assert.equal(record.plan.scheduleBlocks.length,1);});

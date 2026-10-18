@@ -1,0 +1,23 @@
+name: Workstation review export tests
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, workstation/shared-core-release]
+    paths: ['assets/workstation/review-export.js', 'assets/workstation/morning.js', 'tests/workstation-review-export.test.cjs', '.github/workflows/workstation-review-export-tests.yml']
+  pull_request:
+    paths: ['assets/workstation/review-export.js', 'assets/workstation/morning.js', 'tests/workstation-review-export.test.cjs', '.github/workflows/workstation-review-export-tests.yml']
+permissions:
+  contents: read
+jobs:
+  review-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/review-export.js
+      - run: node --test tests/workstation-review-export.test.cjs tests/workstation-weekly-review.test.cjs

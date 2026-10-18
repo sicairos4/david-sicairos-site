@@ -1,0 +1,6 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),E=require('../assets/workstation/review-export.js');
+test('private fields are excluded unless the review is explicitly selected',()=>{const m=E.model({day:'2026-10-18',summary:'Summary',review:'Private review',journal:'Secret',lesson:'Secret'});assert.equal(m.summary,'');assert.equal(m.review,'');assert.equal('journal' in m,false);assert.equal('lesson' in m,false);});
+test('opt-in exports only the allowed summary and review',()=>{const m=E.model({day:'2026-10-18',includeSummary:true,includeReview:true,summary:'Saved counts',review:'My reflection',journal:'Secret'});assert.equal(m.review,'My reflection');assert.equal(m.summary,'Saved counts');assert.deepEqual(m.period,{start:'2026-10-12',end:'2026-10-18'});assert.equal(m.source,'displayed-draft-not-save-verification');assert.equal('journal' in m,false);});
+test('text export includes chosen content and draft warning',()=>{const result=E.text(E.model({day:'2026-10-18',includeReview:true,review:'Keep it small'}));assert.match(result,/Keep it small/);assert.match(result,/unsaved edits/);});
+test('invalid dates and oversized review fail instead of truncating',()=>{assert.throws(()=>E.model({day:'2026-02-30'}));assert.throws(()=>E.model({day:'2026-10-18',includeReview:true,review:'x'.repeat(20001)}));});

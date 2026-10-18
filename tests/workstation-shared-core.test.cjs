@@ -1,0 +1,11 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),C=require('../assets/workstation/core.js');
+const options=()=>({start:'09:00',end:'17:00',duration:30,buffer:0});
+test('validates real calendar dates',()=>{assert.equal(C.validDay('2024-02-29'),'2024-02-29');for(const d of ['2025-02-29','2026-04-31','bad'])assert.throws(()=>C.create(d));});
+test('selection only returns times, without adding a block',()=>{const c=C.create('2026-10-17');c.search(options());assert.deepEqual(c.choose(0,options()),{start:'09:00',end:'09:30'});assert.equal(c.snapshot().blocks.length,0);assert.throws(()=>c.choose(0,options()));});
+test('adding invalidates suggestions and preserves adjacency',()=>{const c=C.create('2026-10-17');c.search(options());c.add('First','09:00','10:00');assert.throws(()=>c.choose(0,options()));assert.throws(()=>c.add('Overlap','09:30','10:30'));c.add('Next','10:00','11:00');assert.equal(c.snapshot().blocks.length,2);});
+test('changed settings reject selection',()=>{const c=C.create('2026-10-17');c.search(options());assert.throws(()=>c.choose(0,{...options(),duration:45}));});
+test('changing day clears blocks and suggestions',()=>{const c=C.create('2026-10-17');c.add('Work','09:00','10:00');c.search(options());c.setDay('2026-10-18');assert.deepEqual(c.snapshot(),{day:'2026-10-18',blocks:[]});assert.throws(()=>c.choose(0,options()));});
+test('snapshots and search results cannot mutate internal state',()=>{const c=C.create('2026-10-17');c.add('Original','10:00','11:00');c.snapshot().blocks[0].title='Changed';const slots=c.search(options());slots[0].start='12:00';assert.equal(c.snapshot().blocks[0].title,'Original');assert.equal(c.choose(0,options()).start,'09:00');});
+test('invalid add is atomic and overnight ranges are rejected',()=>{const c=C.create('2026-10-17');for(const args of [['','09:00','10:00'],['Work','23:00','01:00'],['Work','24:00','23:00']])assert.throws(()=>c.add(...args));assert.equal(c.snapshot().blocks.length,0);});
+test('removal invalidates suggestions and rejects missing IDs',()=>{const c=C.create('2026-10-17'),b=c.add('Work','10:00','11:00');c.search(options());c.remove(b.id);assert.throws(()=>c.choose(0,options()));assert.throws(()=>c.remove(b.id));assert.equal(c.snapshot().blocks.length,0);});

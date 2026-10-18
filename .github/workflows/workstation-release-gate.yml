@@ -1,0 +1,58 @@
+name: Workstation release verification
+on:
+  workflow_dispatch:
+  push:
+    branches: [main, workstation/shared-core-release]
+    paths: ['assets/**', 'members/**', 'tests/**', 'scripts/**', 'data/**', '.github/workflows/workstation-release-gate.yml']
+  pull_request:
+    paths: ['assets/**', 'members/**', 'tests/**', 'scripts/**', 'data/**', '.github/workflows/workstation-release-gate.yml']
+permissions:
+  contents: read
+jobs:
+  scheduler:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify shared core, opening finder and record integration
+        run: node --test tests/workstation-shared-core.test.cjs tests/workstation-free-time.test.cjs tests/workstation-record-scheduler.test.cjs
+  website-diagnostics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Public data regression tests
+        run: python scripts/test-public-data.py
+      - name: Static link audit
+        if: always()
+        run: python scripts/audit-static.py
+      - name: Public data audit
+        if: always()
+        run: python scripts/audit-public-data.py
+      - name: Show detailed audit reports
+        if: always()
+        run: |
+          for report in qa-artifacts/*.json; do
+            if [ -f "$report" ]; then
+              echo "Report: $report"
+              cat "$report"
+              echo
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: workstation-release-audits-${{ github.run_id }}-${{ github.run_attempt }}
+          path: qa-artifacts/*.json
+          if-no-files-found: warn
+          retention-days: 14
