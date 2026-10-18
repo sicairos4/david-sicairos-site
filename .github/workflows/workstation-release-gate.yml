@@ -19,8 +19,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify shared core and opening finder
-        run: node --test tests/workstation-shared-core.test.cjs tests/workstation-free-time.test.cjs
+      - name: Verify shared core, opening finder and record integration
+        run: node --test tests/workstation-shared-core.test.cjs tests/workstation-free-time.test.cjs tests/workstation-record-scheduler.test.cjs
   website-diagnostics:
     runs-on: ubuntu-latest
     timeout-minutes: 10
