@@ -1,0 +1,38 @@
+name: Apply 209 brand to website
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/apply-209-brand.py'
+      - '.github/workflows/brand-rollout.yml'
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: website-brand-rollout
+  cancel-in-progress: false
+jobs:
+  apply-brand:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - name: Apply logo to static pages and shared toolbar
+        run: python3 scripts/apply-209-brand.py
+      - name: Commit website branding
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -u -- '*.html' assets/topbar.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'style(brand): use selected 209. logo across website toolbar marks'
+            git push origin HEAD:main
+          fi
+      - name: Request Pages rebuild
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST repos/${{ github.repository }}/pages/builds
