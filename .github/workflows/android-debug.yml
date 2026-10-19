@@ -3,9 +3,29 @@ on:
   workflow_dispatch:
   push:
     branches: [main, workstation/shared-core-release]
-    paths: ['android/**', '.github/workflows/android-debug.yml']
+    paths:
+      - 'android/**'
+      - 'members/app.html'
+      - 'members/workstation.html'
+      - 'login.html'
+      - 'recover.html'
+      - 'assets/workstation-auth.js'
+      - 'assets/connect-app.js'
+      - 'assets/connect-core.js'
+      - 'assets/workstation/**'
+      - '.github/workflows/android-debug.yml'
   pull_request:
-    paths: ['android/**', '.github/workflows/android-debug.yml']
+    paths:
+      - 'android/**'
+      - 'members/app.html'
+      - 'members/workstation.html'
+      - 'login.html'
+      - 'recover.html'
+      - 'assets/workstation-auth.js'
+      - 'assets/connect-app.js'
+      - 'assets/connect-core.js'
+      - 'assets/workstation/**'
+      - '.github/workflows/android-debug.yml'
 permissions:
   contents: read
 jobs:
