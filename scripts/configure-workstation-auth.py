@@ -29,4 +29,4 @@ for path in ['members/workstation.html', 'members/app.html', 'login.html', 'reco
     value = base + path
     if value not in allowed:
         allowed.append(value)
-request('PATCH', {'site_url': base + 'members/workstation.html', 'uri_allow_list': ','.join(allowed)})
+request('PATCH', {'site_url': base + 'members/app.html', 'uri_allow_list': ','.join(allowed)})

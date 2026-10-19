@@ -4,7 +4,7 @@ function deadline(work,ms=12000){let timer;return Promise.race([work,new Promise
 function googleAuthorizeUrl(value,expectedHome){try{if(typeof value!=='string')throw Error();const url=new URL(value);if(url.origin!=='https://uwidjnnhdgtrpsymuhwp.supabase.co'||url.pathname!=='/auth/v1/authorize'||url.username||url.password||url.hash||url.searchParams.getAll('provider').length!==1||url.searchParams.get('provider')!=='google'||url.searchParams.getAll('redirect_to').length!==1||url.searchParams.get('redirect_to')!==expectedHome)throw Error();return url.href;}catch{throw {code:'invalid_oauth_destination'};}}
 if(typeof module!=='undefined')module.exports={errorText,deadline,googleAuthorizeUrl};
 if(typeof document==='undefined'||!document.body.dataset.workstationPage)return;
-const $=id=>document.getElementById(id),page=document.body.dataset.workstationPage,base=new URL('../',document.currentScript.src),home=new URL('members/workstation.html',base).href,login=new URL('login.html',base).href,reset=new URL('recover.html',base).href;
+const $=id=>document.getElementById(id),page=document.body.dataset.workstationPage,base=new URL('../',document.currentScript.src),home=new URL('members/app.html',base).href,login=new URL('login.html',base).href,reset=new URL('recover.html',base).href;
 let busy=false,signup=false,recovery=false,version=0,uid=null,scheduled=null;
 const query=new URLSearchParams(location.search),hash=new URLSearchParams(location.hash.slice(1)),incomingError=query.get('error_code')||hash.get('error_code')||query.get('error')||hash.get('error');
 function say(text){$('message').textContent=text;}function lock(value){busy=value;document.querySelectorAll('main button').forEach(button=>button.disabled=value);}
