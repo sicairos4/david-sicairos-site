@@ -3,29 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches: [main, workstation/shared-core-release]
-    paths:
-      - 'android/**'
-      - 'members/app.html'
-      - 'members/workstation.html'
-      - 'login.html'
-      - 'recover.html'
-      - 'assets/workstation-auth.js'
-      - 'assets/connect-app.js'
-      - 'assets/connect-core.js'
-      - 'assets/workstation/**'
-      - '.github/workflows/android-debug.yml'
+    paths: ['android/**', 'members/**', 'login.html', 'recover.html', 'assets/**', '.github/workflows/android-debug.yml']
   pull_request:
-    paths:
-      - 'android/**'
-      - 'members/app.html'
-      - 'members/workstation.html'
-      - 'login.html'
-      - 'recover.html'
-      - 'assets/workstation-auth.js'
-      - 'assets/connect-app.js'
-      - 'assets/connect-core.js'
-      - 'assets/workstation/**'
-      - '.github/workflows/android-debug.yml'
+    paths: ['android/**', 'members/**', 'login.html', 'recover.html', 'assets/**', '.github/workflows/android-debug.yml']
 permissions:
   contents: read
 jobs:
@@ -48,12 +28,53 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.13'
-      - name: Compile debug APK only
+      - name: Compile debug APK
         working-directory: android
         run: gradle --no-daemon :app:assembleDebug
+      - name: Package APK and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p delivery
+          apk="209-workstation-debug-${GITHUB_SHA:0:12}.apk"
+          cp android/app/build/outputs/apk/debug/app-debug.apk "delivery/$apk"
+          (cd delivery && sha256sum "$apk" > SHA256SUMS.txt)
+          python3 - <<'PY'
+          import json, os, pathlib, re
+          config = pathlib.Path('android/app/build.gradle').read_text()
+          receipt = {
+              'source_sha': os.environ['GITHUB_SHA'],
+              'run_url': os.environ['GITHUB_SERVER_URL'] + '/' + os.environ['GITHUB_REPOSITORY'] + '/actions/runs/' + os.environ['GITHUB_RUN_ID'],
+              'version_name': re.search(r"versionName\s+'([^']+)'", config).group(1),
+              'version_code': int(re.search(r'versionCode\s+(\d+)', config).group(1)),
+              'variant': 'debug',
+              'application_id': 'com.sicairos.workstation.debug',
+              'production_signed': False,
+              'device_install_verified': False
+          }
+          pathlib.Path('delivery/build-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+          PY
+          cat > delivery/INSTALL.txt <<'EOF'
+          209 Workstation - DEBUG BUILD
+          Extract the artifact ZIP and open its APK on Android to install.
+          Android may require permission to install apps from your browser or file manager.
+          This debug app is separate from the production application.
+          Debug signing keys can change between CI runs; an update may require uninstalling the earlier debug app.
+          This is a browser-backed launcher, not an offline copy of the Workstation.
+          Website login and network access remain required.
+          Build provenance is in build-receipt.json; verify the APK using SHA256SUMS.txt.
+          This package does not claim production signing or successful device installation.
+          EOF
+          {
+            echo '## Android debug build'
+            echo "Source: $GITHUB_SHA"
+            echo "APK: $apk"
+            echo 'Download the artifact below and extract its ZIP. Read INSTALL.txt before installing.'
+            echo 'Includes SHA256SUMS.txt and build-receipt.json. Not a production-signed release.'
+          } >> "$GITHUB_STEP_SUMMARY"
       - uses: actions/upload-artifact@v4
         with:
           name: 209-workstation-debug-${{ github.sha }}
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          path: delivery/
           if-no-files-found: error
-          retention-days: 14
+          retention-days: 30
