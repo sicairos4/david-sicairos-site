@@ -1,99 +1,44 @@
 package com.sicairos.workstation;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.WindowInsets;
-import android.webkit.CookieManager;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.util.Log;
-import android.print.PrintManager;
-import android.print.PrintAttributes;
-import java.io.InputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import org.json.JSONObject;
+import android.view.Gravity;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.browser.customtabs.CustomTabsIntent;
 
 public class MainActivity extends Activity {
-    private WebView web;
-    private static final String HOST = "sicairos4.github.io";
-    private static final String PATH = "/david-sicairos-site/";
-    private boolean internal(Uri uri) {
-        return "https".equalsIgnoreCase(uri.getScheme()) && HOST.equalsIgnoreCase(uri.getHost())
-            && (uri.getPort() == -1 || uri.getPort() == 443) && uri.getUserInfo() == null
-            && uri.getPath() != null && uri.getPath().startsWith(PATH);
-    }
-    private boolean planner(String url) {
-        if (url == null) return false;
-        Uri uri = Uri.parse(url);
-        return internal(uri) && (PATH + "members/app.html").equals(uri.getPath());
-    }
-    private String asset(String name) throws IOException {
-        try (InputStream input = getAssets().open(name); ByteArrayOutputStream output = new ByteArrayOutputStream()) {
-            byte[] buffer = new byte[4096]; int length;
-            while ((length = input.read(buffer)) != -1) output.write(buffer, 0, length);
-            return new String(output.toByteArray(), StandardCharsets.UTF_8);
-        }
-    }
-    private void applyLayout(WebView view, String url) {
-        if (!planner(url)) return;
+    private static final Uri WORKSPACE = Uri.parse("https://sicairos4.github.io/david-sicairos-site/members/workstation.html");
+    private TextView message;
+    private void openWorkspace() {
         try {
-            String css = JSONObject.quote(asset("workstation-layout.css"));
-            String js = asset("workstation-layout.js");
-            String guard = JSONObject.quote("https://" + HOST + PATH + "members/app.html");
-            view.evaluateJavascript("(()=>{if(location.origin+location.pathname!==" + guard
-                + ")return;window.__workstationNativePrint=true;if(!document.getElementById('android-calm-style')){const s=document.createElement('style');s.id='android-calm-style';s.textContent="
-                + css + ";document.head.append(s);}" + js + "})();", null);
-        } catch (IOException error) { Log.e("Workstation", "Bundled layout could not be loaded", error); }
-    }
-    private void printPreview() {
-        if (!planner(web.getUrl())) return;
-        web.evaluateJavascript("document.getElementById('workstationPrintPreview') ? 'ready' : 'missing'", value -> {
-            if (!"\"ready\"".equals(value) || !planner(web.getUrl()) || isFinishing()) return;
-            PrintManager manager = (PrintManager) getSystemService(PRINT_SERVICE);
-            if (manager != null) manager.print("209-Workstation", web.createPrintDocumentAdapter("209-Workstation"), new PrintAttributes.Builder().build());
-        });
+            new CustomTabsIntent.Builder().setShowTitle(true).setUrlBarHidingEnabled(false)
+                .setToolbarColor(Color.rgb(27,77,56)).build().launchUrl(this, WORKSPACE);
+            message.setText("Your Workstation opens in a browser-backed app window. Login and saved data use the same website account. Close that window to return here.");
+        } catch (ActivityNotFoundException error) {
+            try { startActivity(new Intent(Intent.ACTION_VIEW, WORKSPACE)); }
+            catch (ActivityNotFoundException unavailable) { message.setText("Install or enable a web browser, then choose Open my Workstation."); }
+        }
     }
     @Override public void onCreate(Bundle state) {
-        super.onCreate(state); web = new WebView(this); setContentView(web);
-        if (Build.VERSION.SDK_INT >= 30) {
-            web.setOnApplyWindowInsetsListener((view, insets) -> {
-                android.graphics.Insets bars = insets.getInsets(WindowInsets.Type.systemBars() | WindowInsets.Type.displayCutout() | WindowInsets.Type.ime());
-                view.setPadding(bars.left, bars.top, bars.right, bars.bottom); return insets;
-            }); web.requestApplyInsets();
-        }
-        WebSettings settings = web.getSettings();
-        settings.setJavaScriptEnabled(true); settings.setDomStorageEnabled(true);
-        settings.setAllowFileAccess(false); settings.setAllowContentAccess(false);
-        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
-        settings.setJavaScriptCanOpenWindowsAutomatically(false);
-        CookieManager.getInstance().setAcceptCookie(true);
-        CookieManager.getInstance().setAcceptThirdPartyCookies(web, false);
-        web.setWebViewClient(new WebViewClient() {
-            @Override public void onPageFinished(WebView view, String url) { super.onPageFinished(view, url); applyLayout(view, url); }
-            @Override public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
-                if (!request.isForMainFrame()) return false;
-                Uri uri = request.getUrl();
-                if ("workstation-print".equals(uri.getScheme())) {
-                    if ("workstation-print://current".equals(uri.toString()) && request.hasGesture() && planner(view.getUrl())) printPreview();
-                    return true;
-                }
-                if (internal(uri)) return false;
-                if ("https".equalsIgnoreCase(uri.getScheme()) || "http".equalsIgnoreCase(uri.getScheme())) {
-                    try { startActivity(new Intent(Intent.ACTION_VIEW, uri)); } catch (ActivityNotFoundException ignored) { }
-                } return true;
-            }
-        });
-        if (state == null || web.restoreState(state) == null) web.loadUrl("https://" + HOST + PATH + "members/app.html");
+        super.onCreate(state);
+        LinearLayout layout = new LinearLayout(this);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setGravity(Gravity.CENTER);
+        int padding = (int)(24 * getResources().getDisplayMetrics().density);
+        layout.setPadding(padding,padding,padding,padding);
+        layout.setBackgroundColor(Color.rgb(245,248,243));
+        TextView title = new TextView(this);
+        title.setText("209 Workstation");title.setTextSize(30);title.setTextColor(Color.rgb(27,77,56));
+        message = new TextView(this);message.setTextSize(17);message.setPadding(0,padding,0,padding);
+        message.setText("Your day, your work, your next useful step.");
+        Button open = new Button(this);open.setText("Open my Workstation");open.setOnClickListener(view -> openWorkspace());
+        layout.addView(title);layout.addView(message);layout.addView(open);setContentView(layout);
+        if(state==null)openWorkspace();
     }
-    @Override protected void onSaveInstanceState(Bundle state) { web.saveState(state); super.onSaveInstanceState(state); }
-    @Override public void onBackPressed() { if (web.canGoBack()) web.goBack(); else super.onBackPressed(); }
-    @Override protected void onDestroy() { web.destroy(); super.onDestroy(); }
 }

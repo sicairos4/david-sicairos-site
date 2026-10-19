@@ -1,0 +1,1 @@
+(()=>{'use strict';const panel=document.getElementById('privatePanel');if(!panel)return;function enter(){if(!panel.hidden)location.replace(new URL('app.html#today',location.href).href);}new MutationObserver(enter).observe(panel,{attributes:true,attributeFilter:['hidden']});enter();})();

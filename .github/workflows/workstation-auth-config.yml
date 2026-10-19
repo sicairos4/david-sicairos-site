@@ -1,0 +1,25 @@
+name: Configure production Workstation login redirects
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/configure-workstation-auth.py'
+      - '.github/workflows/workstation-auth-config.yml'
+permissions:
+  contents: read
+concurrency:
+  group: workstation-production-auth-config
+  cancel-in-progress: false
+jobs:
+  configure-auth:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set production Site URL and preserve plus extend allowed returns
+        env:
+          SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+        run: python3 scripts/configure-workstation-auth.py
