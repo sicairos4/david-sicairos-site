@@ -1,0 +1,6 @@
+private/
+*.snapshot.json
+*.local.json
+dashboard*.html
+.env
+.env.*
