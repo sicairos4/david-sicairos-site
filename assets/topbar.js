@@ -41,3 +41,6 @@
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready,{once:true});else ready();
 })();
+
+/* 209. outlined brand rollout */
+(()=>{'use strict';const base=new URL('../',document.currentScript.src);function mount(){for(const brand of document.querySelectorAll('header .brand')){if(!['209','209.'].includes(brand.textContent.trim())&&!brand.querySelector('img[alt="209."]'))continue;const image=document.createElement('img');image.src=new URL('assets/209-wordmark.svg',base).href;image.alt='209.';image.width=96;image.height=44;image.style.cssText='display:block;width:96px;height:44px;object-fit:contain;border-radius:8px';image.onerror=()=>{brand.textContent='209.';};brand.replaceChildren(image);brand.setAttribute('aria-label','209. home');brand.style.cssText+=';display:inline-flex;align-items:center;flex:0 0 auto;line-height:1';}const icons=[...document.querySelectorAll('link[rel]')].filter(link=>link.rel.split(/\s+/).includes('icon'));let icon=icons.shift();icons.forEach(link=>link.remove());if(!icon){icon=document.createElement('link');document.head.append(icon);}icon.rel='icon';icon.type='image/svg+xml';icon.href=new URL('favicon.svg',base).href;}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();})();
