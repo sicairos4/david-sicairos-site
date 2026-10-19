@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "collection": "Atwater and Merced County Form 700",
+  "scope": "City of Atwater government and Merced County government; other cities, school districts and independent special districts deferred",
+  "organizations": [
+    {"id":"city-atwater-ca","name":"City of Atwater","type":"city","source_url":"https://www.atwater.org/city-clerk/","request_url":"https://www.atwater.org/public-records-request/","coverage_status":"not_collected"},
+    {"id":"county-merced-ca","name":"Merced County","type":"county","source_url":"https://www.countyofmerced.com/","coverage_status":"not_collected"}
+  ],
+  "people": [],
+  "positions": [],
+  "filings": [],
+  "interests": [],
+  "requests": [],
+  "filing_fields": ["id","organization_id","person_id","position_ids","statement_type","reporting_period_start","reporting_period_end","filed_date","amends_filing_id","source_url","document_url","retrieved_at","sha256","review_status"],
+  "interest_fields": ["id","filing_id","schedule","disclosed_entity","interest_type","reported_value_range","source_page","review_status"],
+  "publication_rules": ["Publish only official public records or reviewed public-release copies.","Preserve redactions and exclude unnecessary personal contact information from indexes.","Keep originals, amendments, provenance and page citations distinct.","No collected record does not mean no filing.","A disclosed interest is not a finding of wrongdoing.","Do not represent templates or guidance as completed filings."]
+}
