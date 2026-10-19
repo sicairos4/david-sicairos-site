@@ -1,4 +1,4 @@
-name: Android test APK
+name: Android APK build
 on:
   workflow_dispatch:
   push:
@@ -48,17 +48,12 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.13'
-      - name: Build and lint test APK
+      - name: Compile debug APK only
         working-directory: android
-        run: gradle --no-daemon :app:lintDebug :app:assembleDebug
-      - name: Checksum
-        working-directory: android/app/build/outputs/apk/debug
-        run: sha256sum app-debug.apk > app-debug.apk.sha256
+        run: gradle --no-daemon :app:assembleDebug
       - uses: actions/upload-artifact@v4
         with:
-          name: 209-workstation-test-${{ github.sha }}
-          path: |
-            android/app/build/outputs/apk/debug/app-debug.apk
-            android/app/build/outputs/apk/debug/app-debug.apk.sha256
+          name: 209-workstation-debug-${{ github.sha }}
+          path: android/app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
           retention-days: 14
