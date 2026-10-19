@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.browser.customtabs.CustomTabsIntent;
@@ -33,12 +34,25 @@ public class MainActivity extends Activity {
         int padding = (int)(24 * getResources().getDisplayMetrics().density);
         layout.setPadding(padding,padding,padding,padding);
         layout.setBackgroundColor(Color.rgb(245,248,243));
+        ImageView logo = new ImageView(this);
+        logo.setImageResource(R.mipmap.ic_launcher);
+        logo.setContentDescription("209 Workstation logo");
+        logo.setScaleType(ImageView.ScaleType.FIT_CENTER);
+        int logoSize = (int)(112 * getResources().getDisplayMetrics().density);
+        LinearLayout.LayoutParams logoParams = new LinearLayout.LayoutParams(logoSize,logoSize);
+        logoParams.bottomMargin = padding;
+        layout.addView(logo,logoParams);
         TextView title = new TextView(this);
         title.setText("209 Workstation");title.setTextSize(30);title.setTextColor(Color.rgb(27,77,56));
+        title.setGravity(Gravity.CENTER);
         message = new TextView(this);message.setTextSize(17);message.setPadding(0,padding,0,padding);
+        message.setGravity(Gravity.CENTER);
         message.setText("Your day, your work, your next useful step.");
         Button open = new Button(this);open.setText("Open my Workstation");open.setOnClickListener(view -> openWorkspace());
-        layout.addView(title);layout.addView(message);layout.addView(open);setContentView(layout);
-        if(state==null)openWorkspace();
+        TextView version = new TextView(this);
+        version.setText("Version " + BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")");
+        version.setGravity(Gravity.CENTER);
+        version.setPadding(0,padding,0,0);
+        layout.addView(title);layout.addView(message);layout.addView(open);layout.addView(version);setContentView(layout);
     }
 }
