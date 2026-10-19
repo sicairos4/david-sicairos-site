@@ -7,7 +7,7 @@ on:
       - 'scripts/configure-workstation-auth.py'
       - '.github/workflows/workstation-auth-config.yml'
 permissions:
-  contents: read
+  contents: write
 concurrency:
   group: workstation-production-auth-config
   cancel-in-progress: false
@@ -18,8 +18,34 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          persist-credentials: false
-      - name: Set production Site URL and preserve plus extend allowed returns
+          ref: ${{ github.sha }}
+      - name: Apply production return settings and read back safe fields
+        id: configure
+        continue-on-error: true
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
         run: python3 scripts/configure-workstation-auth.py
+      - name: Preserve redacted result artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workstation-auth-result-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ops/workstation-auth-config-result.json
+          if-no-files-found: error
+          retention-days: 14
+      - name: Record redacted result in the repository
+        if: always()
+        run: |
+          test -s ops/workstation-auth-config-result.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add ops/workstation-auth-config-result.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'chore(auth): record redacted production redirect outcome'
+            git push origin HEAD:main
+          fi
+      - name: Keep blocked or unsuccessful configuration runs failed
+        if: always()
+        env:
+          CONFIGURE_OUTCOME: ${{ steps.configure.outcome }}
+        run: test "$CONFIGURE_OUTCOME" = success
