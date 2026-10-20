@@ -1,0 +1,23 @@
+name: Form 700 library regression
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['public-files.html', 'assets/form700-*.js', 'assets/form700-library.css', 'tests/form700-library.test.cjs', '.github/workflows/form700-library.yml']
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/form700-library-core.js
+      - run: node --check assets/form700-library.js
+      - run: node --check assets/form700-intake.js
+      - run: node --test tests/form700-library.test.cjs
