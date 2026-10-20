@@ -1,0 +1,33 @@
+name: Shared UI responsive audit
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['assets/topbar.js', 'assets/ui-polish.css', 'assets/mobile.css', 'assets/nav.css', 'assets/workstation/**', 'members/**', 'scripts/audit-ui-responsive.py', '.github/workflows/ui-responsive-audit.yml']
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/topbar.js
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.56.0
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/audit-ui-responsive.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ui-responsive-${{ github.sha }}-${{ github.run_attempt }}
+          path: qa-artifacts/ui-responsive/
+          if-no-files-found: warn
+          retention-days: 14
