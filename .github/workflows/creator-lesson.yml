@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['assets/workstation/creator-lesson*.js', 'assets/workstation/simple-day.js', 'tests/creator-lesson.test.cjs', '.github/workflows/creator-lesson.yml']
+    paths: ['assets/workstation/creator-*.js', 'assets/workstation/simple-day.js', 'tests/creator-*.test.cjs', '.github/workflows/creator-lesson.yml']
 permissions:
   contents: read
 jobs:
@@ -19,5 +19,6 @@ jobs:
           node-version: '22'
       - run: node --check assets/workstation/creator-lesson-core.js
       - run: node --check assets/workstation/creator-lesson.js
+      - run: node --check assets/workstation/creator-draft-output.js
       - run: node --check assets/workstation/simple-day.js
-      - run: node --test tests/creator-lesson.test.cjs
+      - run: node --test tests/creator-lesson.test.cjs tests/creator-draft-output.test.cjs
