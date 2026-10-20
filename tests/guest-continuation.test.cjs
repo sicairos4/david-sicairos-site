@@ -1,0 +1,9 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),C=require('../assets/workstation/guest-continuation-core.js');
+const id='guest-'+'a'.repeat(64),guest={version:1,day:'2026-10-20',priority:'Read',tasks:[{text:'Read chapter',done:false}],blocks:[{title:'Read',start:'10:00',end:'10:25'},{title:'Sleep conflict',start:'23:00',end:'23:25'}]};
+const record={plan:{priority:'Existing priority',workspaceTasks:[],scheduleBlocks:[],sleepWindow:{enabled:true,start:'22:00',end:'07:00'}},journal:'private',lesson:'private',revision:3};
+test('merge adds selected entries and preserves existing content without mutation',()=>{const before=JSON.stringify(record),result=C.merge(record,guest,id,{tasks:[0],blocks:[0,1],priority:true});assert.equal(result.record.plan.priority,'Existing priority');assert.deepEqual(result.conflicts,[1]);assert.equal(result.added,2);assert.equal(JSON.stringify(record),before);assert.equal(result.record.journal,'private');assert.equal(result.record.revision,3);});
+test('same transfer cannot be staged twice',()=>{const result=C.merge(record,guest,id,{tasks:[0],blocks:[0]});assert.equal(C.merge(result.record,guest,id,{tasks:[0],blocks:[0]}).already,true);});
+test('malformed dates, task states and blocks are rejected',()=>{assert.throws(()=>C.normalize({...guest,day:'2026-02-30'}));assert.throws(()=>C.normalize({...guest,tasks:[{text:'x',done:'yes'}]}));assert.throws(()=>C.normalize({...guest,blocks:[{title:'x',start:'10:30',end:'10:00'}]}));});
+test('empty selection does not create a receipt',()=>{const result=C.merge(record,guest,id,{tasks:[],blocks:[],priority:false});assert.equal(result.added,0);assert.equal(result.record.plan.guestTransferIds,undefined);});
+test('existing schedule overlap is excluded',()=>{const result=C.merge({...record,plan:{...record.plan,scheduleBlocks:[{id:'old',title:'Existing',start:'10:10',end:'11:00'}]}},guest,id,{blocks:[0]});assert.deepEqual(result.conflicts,[0]);});
