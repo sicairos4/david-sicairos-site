@@ -21,7 +21,7 @@ test('login and planner use the same intended Supabase project and public key', 
 });
 
 test('authentication actions retain the Workstation and recovery return contracts', () => {
-  assert.ok(auth.includes("new URL('members/workstation.html',base)"));
+  assert.ok(auth.includes("new URL('members/app.html',base)"), 'Account actions must return to the current planner');
   assert.ok(auth.includes("new URL('recover.html',base)"));
   assert.match(auth, /provider:\s*['"]google['"]/);
   assert.match(auth, /redirectTo:\s*home/);
