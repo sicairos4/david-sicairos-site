@@ -1,3 +1,4 @@
+@import url('./209-logo-square.css');
 /* Dropdown navigation — clean, legible, hierarchy-first toolbar */
 .nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .nav-left{display:flex;align-items:center;gap:6px;flex-wrap:wrap}

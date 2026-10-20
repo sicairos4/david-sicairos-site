@@ -1,0 +1,3 @@
+/* Override legacy inline 96x44 branding dimensions without distorting artwork. */
+header .brand:has(img[alt="209."]){display:inline-flex;align-items:center;justify-content:center;flex:0 0 44px;min-width:44px;min-height:44px;line-height:1}
+header .brand img[alt="209."],img[src$="209-wordmark.svg"]{width:44px!important;height:44px!important;min-width:44px;max-width:44px;aspect-ratio:1/1;object-fit:contain!important;display:block;border-radius:8px}
