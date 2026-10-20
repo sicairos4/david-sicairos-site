@@ -1,0 +1,89 @@
+name: Android public preview delivery
+on:
+  workflow_run:
+    workflows: ["Android APK build"]
+    types: [completed]
+    branches: [main]
+  pull_request:
+    paths:
+      - 'scripts/prepare_android_preview.py'
+      - 'tests/test_android_preview_delivery.py'
+      - '.github/workflows/android-preview-release.yml'
+      - 'assets/android-download.js'
+      - 'android-download.html'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validation-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_android_preview_delivery.py' -v
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node tests/test_android_download.cjs
+  publish-preview:
+    needs: validation-tests
+    if: >-
+      github.event_name == 'workflow_run' &&
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      (github.event.workflow_run.event == 'push' || github.event.workflow_run.event == 'workflow_dispatch') &&
+      github.event.workflow_run.head_repository.full_name == 'sicairos4/david-sicairos-site'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+    concurrency:
+      group: android-preview-${{ github.event.workflow_run.id }}-${{ github.event.workflow_run.run_attempt }}
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: 209-workstation-debug-${{ github.event.workflow_run.head_sha }}
+          path: incoming
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: Verify source, run, checksum and preview receipt
+        env:
+          BUILD_SHA: ${{ github.event.workflow_run.head_sha }}
+          BUILD_RUN: ${{ github.event.workflow_run.id }}
+        run: python scripts/prepare_android_preview.py --source incoming --output publish --expected-sha "$BUILD_SHA" --expected-run-id "$BUILD_RUN"
+      - name: Publish immutable per-build preview, never overwrite a previous APK
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: sicairos4/david-sicairos-site
+          BUILD_SHA: ${{ github.event.workflow_run.head_sha }}
+          BUILD_RUN: ${{ github.event.workflow_run.id }}
+          BUILD_ATTEMPT: ${{ github.event.workflow_run.run_attempt }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="android-preview-${BUILD_SHA:0:12}-${BUILD_RUN}-${BUILD_ATTEMPT}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release view "$tag" --json assets --jq '.assets[].name' > existing-assets.txt
+            for required in 209-workstation-preview.apk SHA256SUMS.txt build-receipt.json INSTALL.txt; do
+              grep -Fxq "$required" existing-assets.txt || { echo 'Existing preview is incomplete; manual review required. No asset was overwritten.'; exit 1; }
+            done
+            echo 'This build already has all preview assets. Nothing overwritten.'
+            exit 0
+          fi
+          version=$(python -c 'import json; print(json.load(open("publish/build-receipt.json"))["version_name"])')
+          gh release create "$tag" publish/209-workstation-preview.apk publish/SHA256SUMS.txt publish/build-receipt.json publish/INSTALL.txt --target "$BUILD_SHA" --prerelease --title "209 Workstation Android preview $version — build $BUILD_RUN" --notes-file publish/INSTALL.txt
+          echo "Preview created: $tag" >> "$GITHUB_STEP_SUMMARY"
