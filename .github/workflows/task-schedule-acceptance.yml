@@ -1,0 +1,59 @@
+name: Task schedule acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'assets/connect-app.js'
+      - 'assets/connect-core.js'
+      - 'assets/workstation/**'
+      - 'assets/workstation-auth.js'
+      - 'assets/workstation-free-time.js'
+      - 'members/app.html'
+      - 'login.html'
+      - 'recover.html'
+      - 'tests/auth-access.test.cjs'
+      - 'tests/task-schedule-flow.test.cjs'
+      - 'scripts/test-task-schedule-browser.py'
+      - '.github/workflows/task-schedule-acceptance.yml'
+  pull_request:
+    paths:
+      - 'assets/**'
+      - 'members/app.html'
+      - 'login.html'
+      - 'recover.html'
+      - 'tests/**'
+      - 'scripts/test-task-schedule-browser.py'
+      - '.github/workflows/task-schedule-acceptance.yml'
+permissions:
+  contents: read
+concurrency:
+  group: task-schedule-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  acceptance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Account and task scheduling unit tests
+        run: node --test tests/auth-access.test.cjs tests/task-schedule-flow.test.cjs
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.56.0
+      - run: python -m playwright install --with-deps chromium
+      - name: Desktop and mobile synthetic planner acceptance
+        run: python scripts/test-task-schedule-browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: task-schedule-acceptance-${{ github.sha }}-${{ github.run_attempt }}
+          path: qa-artifacts/task-schedule/
+          if-no-files-found: warn
+          retention-days: 14
