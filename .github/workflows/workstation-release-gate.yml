@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches: [main, workstation/shared-core-release]
-    paths: ['assets/**', 'members/**', 'tests/**', 'scripts/**', 'data/**', '.github/workflows/workstation-release-gate.yml']
+    paths: ['assets/**', 'members/**', 'tests/**', 'scripts/**', 'data/**', 'supabase/public_files_schema.sql', '.github/workflows/workstation-release-gate.yml']
   pull_request:
-    paths: ['assets/**', 'members/**', 'tests/**', 'scripts/**', 'data/**', '.github/workflows/workstation-release-gate.yml']
+    paths: ['assets/**', 'members/**', 'tests/**', 'scripts/**', 'data/**', 'supabase/public_files_schema.sql', '.github/workflows/workstation-release-gate.yml']
 permissions:
   contents: read
 jobs:
@@ -19,8 +19,10 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Verify shared core, opening finder and record integration
+      - name: Verify existing shared core and record scheduler
         run: node --test tests/workstation-shared-core.test.cjs tests/workstation-free-time.test.cjs tests/workstation-record-scheduler.test.cjs
+      - name: Verify recent daily flow, carry-forward, loader and Public Files schema
+        run: node --test tests/workstation-recent-features.test.cjs tests/workstation-feature-integration.test.cjs
   website-diagnostics:
     runs-on: ubuntu-latest
     timeout-minutes: 10

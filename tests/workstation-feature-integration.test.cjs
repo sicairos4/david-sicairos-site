@@ -8,15 +8,15 @@ function boot(){
   getElementById:id=>id==='workstationPrintPreview'?preview:id==='morningStatus'?status:null,
   querySelector:()=>({append:node=>notices.push(node)}),
   createElement:()=>({setAttribute(){}}),head:{append:script=>{loaded.push(script);document.scripts.push(script);}},
-  addEventListener:(name,callback,capture)=>{listeners[name]={callback,capture};}};
+  addEventListener:(name,callback,capture)=>{listeners[name]={callback};}};
  let disconnected=0;
  class Observer{observe(){}disconnect(){disconnected++;}}
  const context={document,URL,MutationObserver:Observer,addEventListener:(name,callback)=>{listeners[name]={callback};}};
  vm.runInNewContext(source,context);
  return {listeners,loaded,notices,status,setPreview:value=>preview=value,disconnected:()=>disconnected};
 }
-test('loads existing guided review and print modules once from the same asset directory',()=>{
- const app=boot();assert.deepEqual(app.loaded.map(s=>s.src),['https://example.test/site/assets/workstation/weekly-review.js','https://example.test/site/assets/workstation/print.js']);
+test('loads guided review, print, weekly progress and daily flow once from the same directory',()=>{
+ const app=boot();assert.deepEqual(app.loaded.map(s=>s.src),['https://example.test/site/assets/workstation/weekly-review.js','https://example.test/site/assets/workstation/print.js','https://example.test/site/assets/workstation/weekly-progress.js','https://example.test/site/assets/workstation/daily-flow.js']);
  assert.ok(app.loaded.every(s=>s.async===false));
 });
 test('blocks a second print preview without interfering with unrelated clicks',()=>{
