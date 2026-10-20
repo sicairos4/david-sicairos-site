@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.browser.customtabs.CustomTabsIntent;
 
 public class MainActivity extends Activity {
-    private static final Uri WORKSPACE = Uri.parse("https://sicairos4.github.io/david-sicairos-site/members/workstation.html");
+    private static final Uri WORKSPACE = Uri.parse("https://sicairos4.github.io/david-sicairos-site/members/app.html");
     private TextView message;
     private void openWorkspace() {
         try {
@@ -35,10 +35,10 @@ public class MainActivity extends Activity {
         layout.setPadding(padding,padding,padding,padding);
         layout.setBackgroundColor(Color.rgb(245,248,243));
         ImageView logo = new ImageView(this);
-        logo.setImageResource(R.mipmap.ic_launcher);
+        logo.setImageResource(R.drawable.workstation_brand);
         logo.setContentDescription("209 Workstation logo");
         logo.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        int logoSize = (int)(112 * getResources().getDisplayMetrics().density);
+        int logoSize = (int)(144 * getResources().getDisplayMetrics().density);
         LinearLayout.LayoutParams logoParams = new LinearLayout.LayoutParams(logoSize,logoSize);
         logoParams.bottomMargin = padding;
         layout.addView(logo,logoParams);
@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
         message.setText("Your day, your work, your next useful step.");
         Button open = new Button(this);open.setText("Open my Workstation");open.setOnClickListener(view -> openWorkspace());
         TextView version = new TextView(this);
-        version.setText("Version " + BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")");
+        version.setText("Version " + BuildConfig.VERSION_NAME + " (" + BuildConfig.VERSION_CODE + ")\n" + BuildConfig.APPLICATION_ID);
         version.setGravity(Gravity.CENTER);
         version.setPadding(0,padding,0,0);
         layout.addView(title);layout.addView(message);layout.addView(open);layout.addView(version);setContentView(layout);
