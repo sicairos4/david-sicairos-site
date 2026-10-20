@@ -1,0 +1,22 @@
+/* Layout-only improvements. Do not change planner state or the release gate. */
+:root{--ws-content-width:1180px}
+.connect-app{width:min(100%,var(--ws-content-width));max-width:var(--ws-content-width);min-width:0;box-sizing:border-box;margin-inline:auto;padding-inline:clamp(14px,2.8vw,36px)}
+.connect-app :is(section,fieldset,details,.quick-capture){min-width:0;max-width:100%;box-sizing:border-box}
+.connect-app :is(input,textarea,select){max-width:100%;box-sizing:border-box}
+.connect-app :is(pre,code){overflow-wrap:anywhere;word-break:break-word}
+.connect-app fieldset>label{min-width:0}
+#workstationMonthNavigation{container-type:inline-size}
+#workstationMonthNavigation>div.connect-actions{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:clamp(3px,.8vw,8px);margin-block:12px}
+#workstationMonthNavigation>div.connect-actions>button{min-width:0;width:100%;min-height:44px;padding:6px 2px;border-radius:10px;font-variant-numeric:tabular-nums}
+#workstationMonthNavigation>div.connect-actions>button[aria-current=date]{background:var(--accent);border-color:var(--accent);color:var(--bg);font-weight:800}
+#workstationCarryForward label,#dailyMorningCompletion label,#dailyEveningCloseout label{overflow-wrap:anywhere}
+#workstationCarryForward>div,#dailyMorningCompletion>div{display:grid;gap:8px}
+#workstationCarryForward>div label,#dailyMorningCompletion>div label{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+#workstationCarryForward input[type=file]{min-width:0;width:100%}
+#workstationPrintPreview{box-sizing:border-box;max-width:100vw;max-height:100dvh;overflow:auto}
+#workstationPrintPreview article{width:min(100%,960px);margin-inline:auto}
+#workstationPrintPreview textarea{box-sizing:border-box;max-width:100%;min-height:240px}
+#workstationPrintPreview .print-actions{position:sticky;top:0;z-index:1;background:white;padding:8px 0}
+@media(max-width:640px){.connect-app{padding-inline:14px}.connect-app section,.connect-app .quick-capture{padding:16px}.connect-app fieldset{padding:12px}.connect-app .connect-actions>button{flex:1 1 100%}#workstationMonthNavigation>div.connect-actions{gap:4px}#workstationMonthNavigation>div.connect-actions>button{padding:4px 0}#workstationPrintPreview{padding:16px!important}}
+@media(max-width:360px){#workstationMonthNavigation>div.connect-actions>button{font-size:.875rem;min-height:44px}}
+@media print{#workstationPrintPreview{max-height:none;overflow:visible}#workstationPrintPreview .print-actions{position:static}}
