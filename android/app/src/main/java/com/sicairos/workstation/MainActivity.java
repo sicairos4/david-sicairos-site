@@ -18,9 +18,9 @@ public class MainActivity extends Activity {
     private TextView message;
     private void openWorkspace() {
         try {
-            new CustomTabsIntent.Builder().setShowTitle(true).setUrlBarHidingEnabled(false)
+            new CustomTabsIntent.Builder().setShowTitle(true).setUrlBarHidingEnabled(true)
                 .setToolbarColor(Color.rgb(27,77,56)).build().launchUrl(this, WORKSPACE);
-            message.setText("Your Workstation opens in a browser-backed app window. Login and saved data use the same website account. Close that window to return here.");
+            message.setText("Your Workstation uses a browser-backed app window. On supported browsers its toolbar can hide as you scroll. Login and saved data use the same website account. This is not a fully native planner.");
         } catch (ActivityNotFoundException error) {
             try { startActivity(new Intent(Intent.ACTION_VIEW, WORKSPACE)); }
             catch (ActivityNotFoundException unavailable) { message.setText("Install or enable a web browser, then choose Open my Workstation."); }
