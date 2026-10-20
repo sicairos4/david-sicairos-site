@@ -1,5 +1,7 @@
-// Compatibility bridge: reset the routine editor through its existing context observer.
+(()=>{'use strict';
+let sequence=0;
 addEventListener('workstation:morning-routine-updated',()=>{
 const status=document.getElementById('status');
-if(status)status.textContent='Ready. Morning routine template applied; review and save selected day.';
+if(status)status.textContent='Ready. Morning routine template applied ('+(++sequence)+'); review and save selected day.';
 });
+})();
