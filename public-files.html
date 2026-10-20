@@ -9,25 +9,11 @@
 <body>
 <header class="top"><div class="wrap top-in"><a class="brand" href="index.html">209 Audit.</a><nav class="nav"></nav></div></header>
 <main class="wrap">
-<section class="section"><h1>Public Files</h1><p>First collection: City of Atwater and Merced County government Form 700 financial disclosures.</p><p>This collection is starting. Uncollected records are not evidence of a failure to file. Disclosed financial interests are not findings of wrongdoing.</p><p id="status" role="status">Loading collection index...</p></section>
+<section class="section"><h1>Public Files</h1><p>First collection: City of Atwater and Merced County government Form 700 financial disclosures.</p><p>This collection is starting. Uncollected records are not evidence of a failure to file. Disclosed financial interests are not findings of wrongdoing.</p><p id="status" role="status">Connecting to reviewed public records...</p></section>
 <section class="section"><h2>Organizations and coverage</h2><div id="organizations" class="grid"></div></section>
-<section class="section"><h2>Search collected filings</h2><label for="search">Official, organization, statement type or reporting period</label><input id="search" type="search" disabled><div id="results" aria-live="polite"></div></section>
-<section class="section"><h2>How records are organized</h2><p>Organization → person and position → filing and amendments → disclosed interests → original document and page reference. Reporting periods and filing dates are stored separately.</p><p>Records enter a review queue before publication. Originals and amendments retain separate provenance. Publication excludes unnecessary personal contact details and preserves official redactions.</p><a href="data/public-files-700.json">Download collection index and field framework</a></section>
+<section class="section"><h2>Search reviewed public filings</h2><label for="search">Official, organization, statement type or reporting period</label><input id="search" type="search" disabled><div id="results" aria-live="polite"></div></section>
+<section class="section"><h2>How records are organized</h2><p>Organization → person and position → filing and amendments → disclosed interests → original document and page reference. Reporting periods and filing dates are stored separately.</p><p>Records enter a review queue before publication. Originals and amendments retain separate provenance. Publication excludes unnecessary personal contact details and preserves official redactions.</p><a href="data/public-files-700.json">Download scope and field framework</a></section>
 <section class="section"><h2>Find or request source records</h2><ul><li><a href="https://www.fppc.ca.gov/search-filings/form-700-search/">FPPC Form 700 search</a></li><li><a href="https://www.atwater.org/public-records-request/">Atwater public records requests</a></li><li><a href="cpra-playbook/">CPRA Playbook</a></li><li><a href="index-tracker/">Master Tracker</a></li></ul><p>Other cities, school districts and independent special districts are outside this initial collection.</p></section>
 </main>
-<script>
-'use strict';
-const statusNode=document.getElementById('status'), results=document.getElementById('results'), search=document.getElementById('search');
-function element(tag,text){const node=document.createElement(tag);node.textContent=text;return node;}
-function safeLink(label,url){try{const parsed=new URL(url,location.href);if(!['https:','http:'].includes(parsed.protocol))return element('span',label);const a=element('a',label);a.href=parsed.href;return a;}catch{return element('span',label);}}
-fetch('data/public-files-700.json').then(response=>{if(!response.ok)throw new Error('Collection unavailable');return response.json();}).then(data=>{
-const organizations=new Map(data.organizations.map(org=>[org.id,org.name]));
-const people=new Map(data.people.map(person=>[person.id,person.name]));
-statusNode.textContent=data.organizations.length+' organizations indexed; '+data.filings.length+' filings collected. Coverage is incomplete.';
-for(const org of data.organizations){const card=element('article','');card.className='card';card.append(element('h3',org.name),element('p','Coverage: '+org.coverage_status.replaceAll('_',' ')),safeLink('Official source',org.source_url));if(org.request_url){card.append(element('br',''),safeLink('Request records',org.request_url));}document.getElementById('organizations').append(card);}
-function render(){results.replaceChildren();const term=search.value.trim().toLowerCase();let count=0;for(const filing of data.filings){if(filing.review_status!=='published')continue;const text=[people.get(filing.person_id)||'',organizations.get(filing.organization_id)||'',filing.statement_type,filing.reporting_period_start,filing.reporting_period_end].filter(Boolean).join(' | ');if(!text.toLowerCase().includes(term))continue;const card=element('article','');card.className='card';card.append(element('h3',text),safeLink('Original source',filing.source_url));results.append(card);count++;}if(!count)results.append(element('p',data.filings.length?'No published filings match.':'No completed filings have been collected yet. Source discovery and collection are next.'));}
-search.disabled=false;search.addEventListener('input',render);render();
-}).catch(()=>{statusNode.textContent='The collection index could not be loaded. Please retry later. No coverage claim is available.';});
-</script>
-<script src="assets/site.js"></script><script src="assets/topbar.js"></script>
+<script defer src="assets/public-files-live.js"></script><script defer src="assets/site.js"></script><script defer src="assets/topbar.js"></script>
 </body></html>
