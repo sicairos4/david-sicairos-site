@@ -46,3 +46,28 @@
 .connect-app.workstation-rewrite fieldset{padding:12px}
 }
 @media print{.connect-app.workstation-rewrite .connect-nav{position:static;flex-wrap:wrap;overflow:visible}}
+
+/* Compact member chrome. Internal account text remains mounted for existing state observers. */
+html[data-member-state=ready] .connect-app.workstation-rewrite>#mode,
+html[data-member-state=ready] .connect-app.workstation-rewrite>#memberIdentity{display:none!important}
+.connect-app.workstation-rewrite>.member-intro,
+.connect-app.workstation-rewrite>h1+a[href="#settings"]{display:none!important}
+.connect-app.workstation-rewrite{padding-top:8px}
+.connect-app.workstation-rewrite>h1{font-size:clamp(1.4rem,3.4vw,1.9rem);margin:2px 0 6px}
+.connect-app.workstation-rewrite #status:not(:empty){font-size:.875rem;line-height:1.4;margin:4px 0 8px;padding:6px 8px}
+.connect-app.workstation-rewrite .connect-nav{flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;gap:4px;margin:4px 0 8px;padding:4px 2px;border-top:0}
+.connect-app.workstation-rewrite .connect-nav a{flex:0 0 auto;min-height:44px;padding:6px 9px;white-space:nowrap;line-height:1.3}
+.connect-app.workstation-rewrite .day-controls{margin:0 0 6px;padding:0;gap:0}
+.connect-app.workstation-rewrite #compactDaySelector{margin:0;padding:0 8px;border:0;background:transparent}
+.connect-app.workstation-rewrite #compactDaySelector>summary{min-height:44px;padding:8px 0}
+.connect-app.workstation-rewrite>[data-view]{padding:12px}
+.connect-app.workstation-rewrite #simpleMonth:not([open]),
+.connect-app.workstation-rewrite #simpleFullDay:not([open]){margin:6px 0;padding:0 10px}
+.connect-app.workstation-rewrite #simpleMonth>summary,
+.connect-app.workstation-rewrite #simpleFullDay>summary{min-height:44px;padding:8px 0}
+.connect-app.workstation-rewrite #optionalMorningPanel>.morning-intro,
+.connect-app.workstation-rewrite #optionalMorningPanel>.morning-tip{display:none}
+html[data-member-state] .site-toolbar .top-in{min-height:52px!important;padding-block:4px!important}
+html[data-member-state] .site-toolbar .brand img{width:36px!important;height:36px!important;min-width:36px}
+@media(max-width:600px){.connect-app.workstation-rewrite .connect-nav a{font-size:.875rem}.connect-app.workstation-rewrite #simpleDailyStart>#todayTasks{margin-block:10px}}
+@media print{.connect-app.workstation-rewrite .connect-nav{flex-wrap:wrap;overflow:visible}}
