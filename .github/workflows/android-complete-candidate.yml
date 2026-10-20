@@ -1,0 +1,132 @@
+name: Complete Workstation candidate
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-complete-candidate.yml']
+permissions:
+  contents: read
+concurrency:
+  group: complete-candidate-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  javascript:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: JavaScript syntax
+        run: node --check assets/workstation/review-share.js
+      - name: Full JavaScript test directory
+        if: ${{ !cancelled() }}
+        run: node --test tests/*.test.cjs
+      - name: Android download discovery
+        if: ${{ !cancelled() }}
+        run: node tests/test_android_download.cjs
+  python:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Full Python test directory
+        run: python -m unittest discover -s tests -p 'test_*.py' -v
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install playwright==1.56.0
+      - run: python -m playwright install --with-deps chromium
+      - name: Desktop and mobile planner acceptance
+        run: python scripts/test-task-schedule-browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: complete-candidate-browser-${{ github.sha }}-${{ github.run_attempt }}
+          path: qa-artifacts/task-schedule/
+          if-no-files-found: warn
+          retention-days: 30
+  apk:
+    needs: [javascript, python, browser]
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reuse exact approved full-screen recipe
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, os, pathlib
+          source = pathlib.Path('.github/workflows/android-fullscreen-test.yml').read_bytes()
+          blob = hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest()
+          assert blob == 'd4301ce36efa379342e7aa195fce78a1799e9d6c', 'Full-screen recipe changed; review before building'
+          lines = source.decode().splitlines()
+          def extract(title):
+              marker = '      - name: ' + title
+              assert lines.count(marker) == 1, 'Missing or ambiguous recipe step'
+              start = lines.index(marker) + 1
+              while start < len(lines) and lines[start] != '        run: |':
+                  assert not lines[start].startswith('      - '), 'Missing shell recipe'
+                  start += 1
+              assert start < len(lines), 'Missing shell body'
+              body = []
+              for line in lines[start + 1:]:
+                  if line.strip() and not line.startswith('          '):
+                      break
+                  body.append(line[10:] if line else '')
+              assert body, 'Empty shell recipe'
+              return '\n'.join(body) + '\n'
+          directory = pathlib.Path(os.environ['RUNNER_TEMP'])
+          for title, filename in [('Prepare isolated full-screen shell', 'candidate-prepare.sh'), ('Package test APK and provenance', 'candidate-package.sh')]:
+              (directory / filename).write_text(extract(title))
+          PY
+          bash -euo pipefail "$RUNNER_TEMP/candidate-prepare.sh"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Build full-screen candidate APK
+        working-directory: android
+        run: gradle --no-daemon :app:assembleDebug
+      - name: Package candidate, sources, receipt and checksums
+        run: bash -euo pipefail "$RUNNER_TEMP/candidate-package.sh"
+      - name: Record release boundaries
+        run: |
+          echo 'Candidate built after JavaScript, Python and browser gates passed for this commit.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Debug test package only. No public release. Google return-to-app is not implemented; device behavior and production signing are not verified.' >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 209-workstation-complete-candidate-${{ github.sha }}-${{ github.run_attempt }}
+          path: delivery/
+          if-no-files-found: error
+          retention-days: 30
