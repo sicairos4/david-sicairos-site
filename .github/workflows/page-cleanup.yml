@@ -1,0 +1,22 @@
+name: Workstation page cleanup regression
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['assets/workstation/page-cleanup.*', 'assets/workstation/creator-*.js', 'assets/workstation/simple-day.js', 'tests/page-cleanup.test.cjs', 'tests/creator-*.test.cjs', '.github/workflows/page-cleanup.yml']
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/page-cleanup.js
+      - run: node --check assets/workstation/creator-draft-output.js
+      - run: node --test tests/page-cleanup.test.cjs tests/creator-lesson.test.cjs tests/creator-draft-output.test.cjs
