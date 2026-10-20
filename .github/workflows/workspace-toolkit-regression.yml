@@ -1,0 +1,24 @@
+name: Workspace toolkit and learning regression
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['assets/workstation/workspace-toolkit*.js', 'assets/workstation/*handoff.js', 'sovereign-university/pathways.html', 'tests/workspace-toolkit.test.cjs', 'tests/learning-handoff.test.cjs', '.github/workflows/workspace-toolkit-regression.yml']
+  pull_request:
+    paths: ['assets/workstation/workspace-toolkit*.js', 'assets/workstation/*handoff.js', 'sovereign-university/pathways.html', 'tests/workspace-toolkit.test.cjs', 'tests/learning-handoff.test.cjs', '.github/workflows/workspace-toolkit-regression.yml']
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/workspace-toolkit.js
+      - run: node --check assets/workstation/practice-handoff.js
+      - run: node --test tests/workspace-toolkit.test.cjs tests/learning-handoff.test.cjs tests/toolkit-wiring.test.cjs
