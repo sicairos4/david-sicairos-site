@@ -1,0 +1,9 @@
+'use strict';
+const test=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
+const {taskDraft}=require('../assets/workstation/task-schedule-flow.js');
+const record={plan:{workspaceTasks:[{id:'task-one',text:'Draft newsletter',done:false}],scheduleBlocks:[]}};
+test('task preview preserves link, title and duration without mutating the record',()=>{const before=JSON.stringify(record);assert.deepEqual(taskDraft(record,'task-one','10:45',25),{taskId:'task-one',title:'Draft newsletter',start:'10:45',end:'11:10',duration:25});assert.equal(JSON.stringify(record),before);});
+test('reject missing tasks, invalid times and invalid durations',()=>{assert.throws(()=>taskDraft(record,'missing','10:45',25));for(const time of ['','24:00','9:00'])assert.throws(()=>taskDraft(record,'task-one',time,25));for(const minutes of [0,-1,1.5,1440,NaN])assert.throws(()=>taskDraft(record,'task-one','10:45',minutes));});
+test('blocks cannot cross midnight',()=>{assert.throws(()=>taskDraft(record,'task-one','23:50',25));assert.equal(taskDraft(record,'task-one','23:30',29).end,'23:59');});
+test('timeline destination no longer depends on block draft text',()=>{const code=fs.readFileSync('assets/workstation/entry-flow.js','utf8');assert.ok(!code.includes("target==='editor'||"));assert.ok(code.includes("else if(target==='editor')"));assert.ok(code.includes("new URL('task-schedule-flow.js',source)"));});
+test('integration submits through the existing block form, not direct database writes',()=>{const code=fs.readFileSync('assets/workstation/task-schedule-flow.js','utf8');assert.ok(code.includes('blockForm.requestSubmit()'));assert.ok(!code.includes('.auth.'));assert.ok(!code.includes('.from('));assert.ok(code.includes('selected.context===A.context'));assert.ok(code.includes('selected.day===A.day'));});
