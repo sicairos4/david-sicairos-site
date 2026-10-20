@@ -1,0 +1,176 @@
+name: Android full-screen test APK
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/android-fullscreen-test.yml']
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Prepare isolated full-screen shell
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, pathlib
+          activity = pathlib.Path('android/app/src/main/java/com/sicairos/workstation/MainActivity.java')
+          config = pathlib.Path('android/app/build.gradle')
+          manifest = pathlib.Path('android/app/src/main/AndroidManifest.xml')
+          def git_sha(data):
+              return hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
+          assert git_sha(activity.read_bytes()) == '12b3fb6a70826eae54cfb43e4da6ce71f2cbc17d', 'Launcher changed; review the test patch'
+          assert git_sha(config.read_bytes()) == 'a765f2a2c012498c4671ce5d97c646b765a1ef36', 'Gradle configuration changed; review the test patch'
+          assert git_sha(manifest.read_bytes()) == '5d7797b08b18ea79a73f29b614b05d78b87de7bf', 'Manifest changed; review the test patch'
+          source = activity.read_text()
+          start = source.index('    private void openWorkspace() {')
+          end = source.index('    @Override public void onCreate', start)
+          replacement = '''
+          private android.webkit.WebView preview;
+          private void openWorkspace() {
+              preview = new android.webkit.WebView(this);
+              android.webkit.WebSettings settings = preview.getSettings();
+              settings.setJavaScriptEnabled(true);
+              settings.setDomStorageEnabled(true);
+              settings.setAllowFileAccess(false);
+              settings.setAllowContentAccess(false);
+              settings.setMixedContentMode(android.webkit.WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+              android.webkit.CookieManager.getInstance().setAcceptThirdPartyCookies(preview, false);
+              getWindow().setSoftInputMode(android.view.WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+              if (android.os.Build.VERSION.SDK_INT >= 30) {
+                  getWindow().setDecorFitsSystemWindows(false);
+                  preview.setOnApplyWindowInsetsListener((view, insets) -> {
+                      android.graphics.Insets safe = insets.getInsets(android.view.WindowInsets.Type.systemBars() | android.view.WindowInsets.Type.displayCutout() | android.view.WindowInsets.Type.ime());
+                      view.setPadding(safe.left, safe.top, safe.right, safe.bottom);
+                      return insets;
+                  });
+              }
+              preview.setWebViewClient(new android.webkit.WebViewClient() {
+                  @Override public boolean shouldOverrideUrlLoading(android.webkit.WebView view, android.webkit.WebResourceRequest request) {
+                      Uri uri = request.getUrl();
+                      String path = uri.getPath();
+                      boolean internal = "https".equals(uri.getScheme()) && "sicairos4.github.io".equals(uri.getHost()) &&
+                          ("/david-sicairos-site/members/app.html".equals(path) || "/david-sicairos-site/members/workstation.html".equals(path) ||
+                           "/david-sicairos-site/login.html".equals(path) || "/david-sicairos-site/recover.html".equals(path));
+                      if (internal) return false;
+                      if (!request.isForMainFrame() || !"https".equals(uri.getScheme())) return true;
+                      String host = uri.getHost();
+                      boolean auth = host != null && (host.equals("accounts.google.com") || host.endsWith(".supabase.co"));
+                      Uri destination = auth ? Uri.parse("https://sicairos4.github.io/david-sicairos-site/login.html") : uri;
+                      new android.app.AlertDialog.Builder(MainActivity.this)
+                          .setTitle(auth ? "Google return is not integrated in this preview" : "Open website separately?")
+                          .setMessage("Browser and test-app sessions are separate. Website sign-in will not sign in this preview. Test guest or email/password here.")
+                          .setPositiveButton("Open browser", (dialog, which) -> {
+                              try { startActivity(new Intent(Intent.ACTION_VIEW, destination)); }
+                              catch (ActivityNotFoundException e) { android.widget.Toast.makeText(MainActivity.this, "No browser available", android.widget.Toast.LENGTH_LONG).show(); }
+                          }).setNegativeButton("Stay in app", null).show();
+                      return true;
+                  }
+                  @Override public void onReceivedError(android.webkit.WebView view, android.webkit.WebResourceRequest request, android.webkit.WebResourceError error) {
+                      if (request.isForMainFrame() && !isFinishing()) new android.app.AlertDialog.Builder(MainActivity.this)
+                          .setTitle("Page could not load").setMessage("Check your connection. This preview requires the live website.")
+                          .setPositiveButton("Retry", (dialog, which) -> view.reload()).setNegativeButton("Close", null).show();
+                  }
+              });
+              setContentView(preview);
+              preview.requestApplyInsets();
+              preview.loadUrl(WORKSPACE.toString());
+              new android.app.AlertDialog.Builder(this).setTitle("Full-screen test preview")
+                  .setMessage("Test layout, guest mode and email/password. Google return-to-app is not implemented. Website content is live, not pinned to this APK.")
+                  .setPositiveButton("Start testing", null).show();
+          }
+          @Override public void onBackPressed() {
+              if (preview != null && preview.canGoBack()) preview.goBack(); else finish();
+          }
+          @Override protected void onPause() { if (preview != null) preview.onPause(); super.onPause(); }
+          @Override protected void onResume() { super.onResume(); if (preview != null) preview.onResume(); }
+          @Override protected void onDestroy() {
+              if (preview != null) {
+                  android.view.ViewParent parent = preview.getParent();
+                  if (parent instanceof android.view.ViewGroup) ((android.view.ViewGroup) parent).removeView(preview);
+                  preview.destroy(); preview = null;
+              }
+              super.onDestroy();
+          }
+          '''
+          source = source[:start] + replacement + source[end:]
+          source = source.replace('super.onCreate(state);', 'super.onCreate(state); if (android.os.Build.VERSION.SDK_INT >= 33) getOnBackInvokedDispatcher().registerOnBackInvokedCallback(android.window.OnBackInvokedDispatcher.PRIORITY_DEFAULT, this::onBackPressed);')
+          activity.write_text(source)
+          settings = config.read_text()
+          assert settings.count("applicationIdSuffix '.debug'") == 1
+          assert settings.count("versionNameSuffix '-debug'") == 1
+          config.write_text(settings.replace("applicationIdSuffix '.debug'", "applicationIdSuffix '.fullscreentest'").replace("versionNameSuffix '-debug'", "versionNameSuffix '-fullscreen-test'"))
+          manifest.write_text(manifest.read_text().replace('android:label="209 Workstation"', 'android:label="209 Full-screen Test"'))
+          PY
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+      - name: Install SDK
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Compile full-screen test APK
+        working-directory: android
+        run: gradle --no-daemon :app:assembleDebug
+      - name: Package test APK and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p delivery
+          apk="209-workstation-fullscreen-test-${GITHUB_SHA:0:12}.apk"
+          cp android/app/build/outputs/apk/debug/app-debug.apk "delivery/$apk"
+          cp android/app/src/main/java/com/sicairos/workstation/MainActivity.java delivery/MainActivity.fullscreen-test.java
+          cp android/app/build.gradle delivery/build.fullscreen-test.gradle
+          cp android/app/src/main/AndroidManifest.xml delivery/AndroidManifest.fullscreen-test.xml
+          python3 - <<'PY'
+          import json, os, pathlib, re
+          config = pathlib.Path('android/app/build.gradle').read_text()
+          receipt = {
+              'source_sha': os.environ['GITHUB_SHA'],
+              'run_url': os.environ['GITHUB_SERVER_URL'] + '/' + os.environ['GITHUB_REPOSITORY'] + '/actions/runs/' + os.environ['GITHUB_RUN_ID'],
+              'version_name': re.search(r"versionName\s+'([^']+)'", config).group(1) + '-fullscreen-test',
+              'version_code': int(re.search(r'versionCode\s+(\d+)', config).group(1)),
+              'variant': 'isolated full-screen debug test',
+              'application_id': 'com.sicairos.workstation.fullscreentest',
+              'transformation': 'This committed workflow checks baseline hashes, generates the attached Java/Gradle/manifest files and compiles those files',
+              'production_signed': False,
+              'device_install_verified': False,
+              'google_return_to_app_implemented': False,
+              'live_web_content_pinned': False,
+              'entry_url': 'https://sicairos4.github.io/david-sicairos-site/members/app.html'
+          }
+          pathlib.Path('delivery/build-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+          PY
+          cat > delivery/INSTALL.txt <<'EOF'
+          209 FULL-SCREEN TEST - DEBUG PREVIEW
+          Extract the ZIP and install its APK on Android.
+          App label: 209 Full-screen Test
+          Package: com.sicairos.workstation.fullscreentest
+          This test app installs separately from existing debug and production apps.
+          It embeds the live website without Chrome's toolbar. Network access is required.
+          Test guest mode, email/password, layout, keyboard and Back navigation.
+          Google return-to-app is NOT implemented. Browser and app sessions are separate.
+          A successful compilation does not verify installation, authentication or saved data.
+          Website content can change independently of this APK.
+          Debug keys can change between builds. Export test data before uninstalling an earlier test app.
+          Generated build sources, checksums and build-receipt.json are included.
+          This workflow does not publish or replace a public release.
+          EOF
+          (cd delivery && sha256sum "$apk" MainActivity.fullscreen-test.java build.fullscreen-test.gradle AndroidManifest.fullscreen-test.xml build-receipt.json INSTALL.txt > SHA256SUMS.txt)
+          echo 'Full-screen test APK and provenance are in the artifact. Installation, authentication and persistence require device testing.' >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 209-workstation-fullscreen-test-${{ github.sha }}
+          path: delivery/
+          if-no-files-found: error
+          retention-days: 30
