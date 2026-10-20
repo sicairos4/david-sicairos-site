@@ -1,0 +1,33 @@
+name: Workstation cleanup browser acceptance
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['members/app.html', 'assets/connect-app.js', 'assets/connect-core.js', 'assets/member-session.js', 'assets/workstation/**', 'scripts/test-workstation-cleanup-browser.py', '.github/workflows/workstation-cleanup-browser.yml']
+permissions:
+  contents: read
+jobs:
+  isolated-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: node --test tests/page-cleanup.test.cjs tests/creator-lesson.test.cjs tests/creator-draft-output.test.cjs
+      - run: python -m pip install playwright
+      - run: python -m playwright install --with-deps chromium
+      - run: python scripts/test-workstation-cleanup-browser.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: workstation-cleanup-browser-results
+          path: test-results/workstation-cleanup/
+          retention-days: 14
+          if-no-files-found: warn
