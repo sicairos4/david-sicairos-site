@@ -1,4 +1,4 @@
-/* Layout-only improvements. Do not change planner state or the release gate. */
+/* Scoped Workstation layout refinements; imported after the existing app styles. */
 :root{--ws-content-width:1180px}
 .connect-app{width:min(100%,var(--ws-content-width));max-width:var(--ws-content-width);min-width:0;box-sizing:border-box;margin-inline:auto;padding-inline:clamp(14px,2.8vw,36px)}
 .connect-app :is(section,fieldset,details,.quick-capture){min-width:0;max-width:100%;box-sizing:border-box}
