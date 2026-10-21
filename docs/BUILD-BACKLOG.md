@@ -1,93 +1,104 @@
 # 209 running build backlog
 
-Updated 2026-10-20. Documentation reconciliation of the existing backlog, current conversation, and source-status documents. This is not a whole-system source audit or a claim that every older conversation was reviewed. Preserve requirements; do not rebuild an existing feature solely because an older checkbox says it is missing.
+Updated 2026-10-21 for Batch 1 small corrections. Source baseline: 8f9e995cc9cbb4d8a7e8a89fb173a92add31420c. This is a targeted reconciliation of recent source and status records, not a whole-system audit. Preserve requirements and working modules; do not rebuild a feature because an older checkbox calls it missing.
 
-## Status rules
+## Status and scope
 
-Source committed, compiled, deployed, installed, and acceptance passed are separate states. User-reported results are evidence with that attribution, not independently observed results. An open checkbox below represents remaining work, not necessarily missing code. No background implementation is implied. Never replace real records with fabricated seed filings.
+Source committed, compiled, deployed, installed and acceptance passed are separate states. User-deferred tests and phone/account checks remain unverified, not passed, and are not the current implementation queue. Historical acceptance requirements are retained below. No background implementation, publishing or execution authority is implied. Never replace real records with fabricated filings.
 
-## Reconciled checkpoint: 2026-10-20
+Normal personal-planner output is Save PDF. Preserve section selection, preview, filled/blank pages, task filters and optional writing space. JSON/CSV/text export and file import are not normal planning steps. Technical recovery implementation remains separate; hiding its controls is not data deletion. Public Files editorial intake is not a personal-planner upload.
 
-| Item | Reconciled status | Remaining evidence or work |
-| --- | --- | --- |
-| Old APK 0.3.3/code 6 build-and-install target | Historical target; not the current rebuild instruction. User reports the full-screen test APK compiled and was already installed. | Exact installed APK checksum/build receipt was not supplied; launcher/opening images, device navigation and account acceptance remain unverified. Do not ask the user to repeat installation without a concrete reason. |
-| Authentication test repair | Source committed at 215ffbd1d316726b7c1f905d1cbb07eab5cf8f61. | Full CI results were not independently retrieved. This is not proof of live account access. |
-| Isolated full-screen APK recipe | Source committed at a75cb48be2e8909e42ef4d235cbbfb7d3eb3e149. Test package com.sicairos.workstation.fullscreentest is separate from existing apps. | User-reported compile/install above is not a receipt-to-device match. Google return-to-app is not implemented in this preview; it uses live website content and debug signing. |
-| Consolidated candidate pipeline | Source committed at 01525d182b18b1fa1b060fcd267884d49a4fa084. JavaScript, Python and browser checks gate the full-screen APK. | Completion/results unverified. A test/build pipeline does not implement the remaining feature backlog. |
-| Repeat rules, reusable lists and task carry-forward | Existing implementation documented in [WORKSPACE-TOOLKIT-STATUS.md](WORKSPACE-TOOLKIT-STATUS.md); verify before duplicating. | Real-account writes, conflict handling, carry-forward and mobile acceptance remain open. Nothing repeats or schedules automatically in the background. |
-| Planner/toolkit backup and restore | Export and owner-matched missing-day restore documented in [WORKSPACE-TOOLKIT-STATUS.md](WORKSPACE-TOOLKIT-STATUS.md). | Real-account recovery tests and accounts over 25 MB remain open. This is not full-account restore; profile/identity metadata, passwords and browser-only drafts are excluded. |
-| Six learning pathways | Pathways and optional Today task preview documented in [WORKSPACE-TOOLKIT-STATUS.md](WORKSPACE-TOOLKIT-STATUS.md). | Verify links, preview/add/save and mobile behavior. This does not establish that every previously promised workbook, course or video batch exists. |
-| Public Files static-only description | Historical fe1da49 description is not a complete current inventory. SQL and intake-validator source are described in [PUBLIC-FILES-DEPLOYMENT.md](PUBLIC-FILES-DEPLOYMENT.md); later status notes also need reconciliation. | Verify actual database/browser deployment and storage/ingestion. Conflicting or older documents are not proof of deployed tables, collected filings or acceptance. |
+## Already implemented in source: extend, do not rebuild
 
-No feature or integration acceptance gate is closed by this documentation update. The historical ops/full-system-backlog.json is not reconciled by this patch and is not an executable queue; its execution and publication flags are unchanged.
+- Native Google browser launch, package-specific callback, PKCE exchange and isolated WebView session handoff: 8f9e995 and NATIVE-GOOGLE-RETURN.md. Callback configuration, deployed handoff and runtime outcomes are separate.
+- Full-screen embedded Android workspace and native print/text helpers: 4231a84. The preview remains online, debug-signed and backed by live website content, not a standalone/offline client.
+- Account save read-back: e7dee0c; Schedule Cancel focus correction: 3688b0f.
+- Guided Morning execution/session controls and optional cues: ae176a7.
+- Sign-in-first entry, guest access and optional continuation controls: 4abea4e.
+- Settings panes and selected-day output: 69862b3; normal personal output simplified to PDF-only: 67f427d. The shared panel already covers routines, Morning sessions, priorities, tasks, schedules, habits, journal, prompts, notes, milestones, Creator draft, closeout and selected-day weekly-review text.
+- Reusable lists, repeat-rule management, matching-day manual addition and explicit unfinished-task copying; planner/toolkit export and owner-matched missing-day restore; optional preference and revision-checked toolkit restore: WORKSPACE-TOOLKIT-STATUS.md and WORKSPACE-TOOLKIT-COMPLETION.md. No automatic background recurrence is implied.
+- Compact store shelves, optional existing Ecwid catalog, hosted-store/cart destinations and product fallbacks; public Morning/day/week/month worksheets: store.html, planning.html and public-resource-batch.md. Do not replace the existing cart merely because new digital-course delivery remains unfinished.
+- Six learning pathways and optional task handoff exist. The three newer starter workbook/landing drafts recorded in PRODUCT-AND-BUILD-ROADMAP.md are not yet repository course assets. Neither set proves delivery of the separately promised six-workbook batch.
+- Public Files browser/filtering/search, metadata exports, reviewed-PDF links and local draft intake: FORM700-LIBRARY.md; Audit/Tracker presentation and source links: 3aac88d. This is not persistent intake or evidence of real filings collection.
+- Beehiiv/YouTube worker source and web adaptation source exist. They do not establish a live social publisher; see automation-implementation-status.md.
+- Batch 1 source change: initialize each backup disclosure collapsed once per DOM element instead of closing it on every rearrangement; retain PDF-only copy and update login help. No runtime acceptance is claimed.
 
-## P0: Android and account access
+## P0: Android and account implementation/configuration
 
-- [ ] Finish device acceptance of the installed test build: match its receipt/checksum to source; verify launcher and opening-screen images, full-screen display, keyboard, Back navigation and app restart. Compilation and installation are user-reported done, not new implementation tasks.
-- [ ] Establish production signing and stable update keys; debug CI keys are not a dependable upgrade path.
-- [ ] Match the installed APK, build receipt, source revision, live website revision and actual download location. The current full-screen preview does not pin website content.
-- [ ] Implement and verify secure Google return-to-app for the full-screen client. Separately verify website Google login reaches the intended account-backed Workstation. User-reported backend settings changes are not live sign-in acceptance.
-- [ ] Verify existing-account password setup, signup, confirmation, recovery and sign-out, including actual email delivery.
-- [ ] Verify two-account isolation, saved-day reloads and revision conflicts.
-- [ ] Verify deployed Aura app is retired. Legacy repository startup patch 4d98d40 and disabled import-workflow source are historical progress, not hosted-retirement evidence. Preserve users and saved data.
+- [ ] Activate the intended package-specific Supabase callback routes and deployed native handoff page. Do not reimplement native Google merely because activation or acceptance remains open.
+- [ ] Establish protected production signing, stable update keys and dependable release/download automation. Debug CI keys are not a dependable upgrade path.
+- [ ] Finish demonstrated password setup, signup, confirmation, recovery, sign-out and email-delivery configuration gaps without weakening access policies.
+- [ ] Finish demonstrated account/day state, saved-record loading and revision-conflict gaps. Preserve users and saved data.
+- [ ] Retire remaining legacy Aura hosted entry points through authorized configuration; repository retirement source alone does not establish hosted retirement.
 
-## P1: Workstation functionality
+## P1: Workstation implementation
 
-- [ ] Reconcile and test existing morning-step completion and repeated Morning-to-Schedule transfers before adding duplicate implementations. See DAILY-FLOW-ACCEPTANCE.md and MORNING-TRANSFER-ACCEPTANCE.md; source documentation is not runtime acceptance.
-- [ ] Verify saved monthly navigation and existing routine/template, reusable-list and unfinished-task carry-forward behavior; implement only demonstrated gaps. See WORKSPACE-TOOLKIT-STATUS.md and CARRY-FORWARD-ACCEPTANCE.md.
-- [ ] Verify documented evening closeout and finish selected-task continuity across Tasks, Schedule and Focus. Preserve existing records and explicit save behavior.
-- [ ] Consolidate remaining session/state ownership and save/error/conflict inconsistencies against actual source; test focused-field clearing, sign-out and account/day switches.
-- [ ] Verify existing planner/toolkit export and missing-day restore; finish large-account pagination and storage/privacy controls. Define remaining full-account coverage rather than describing the existing feature as absent or complete.
-- [ ] Acceptance: scheduler, day switching, protected sleep and unsaved edits on mobile.
-- [ ] Preserve shared accounts/backend, aligned green/dark/gold theme, toolbar and mobile-first experience. The browser-backed launcher and the isolated online WebView test are distinct; neither establishes a standalone/offline client.
+- [ ] Finish demonstrated gaps in Morning completion/transfer, saved monthly navigation, reusable routines/lists and carry-forward. Reuse existing modules and explicit save behavior.
+- [ ] Finish selected-task identity and continuity across capture, Tasks, Schedule, Focus, course practice and Review; preserve records and undo/reschedule semantics.
+- [ ] Consolidate competing session/state and DOM-layout ownership, save/error/conflict handling and account/day clearing.
+- [ ] Add the roadmap's Agenda/Timeline switch, compact task cards and Make today lighter without silent deletion or schedule shifts.
+- [ ] Extend existing selected-day PDFs to course worksheets or genuine multi-day reports where required; selected-day weekly-review text is not a seven-day aggregate.
+- [ ] Finish large-account backup pagination, broader account export coverage, privacy/storage controls and account deletion. Current restore skips existing days by default and excludes identity/password/browser-draft coverage; do not call it full-account restore.
+- [ ] Keep optional user-owned Drive backup separate from ordinary PDF saving; do not request broad storage permissions merely to save a PDF.
+- [ ] Preserve shared accounts/backend, green/dark/gold theme, toolbar, mobile-first layout and distinction between online WebView, browser launcher and offline software.
 
 ## P1: Public Files
 
-- [ ] Collect and review real Form 700s for City of Atwater government and Merced County government. Schools, independent special districts and other cities are deferred. This reconciliation provides no collection evidence.
+- [ ] Collect and review real City of Atwater and Merced County government Form 700s. Schools, independent special districts and other cities remain deferred.
 - [ ] Establish people/position roster and reporting-period coverage; record gaps without alleging nonfiling.
-- [ ] Reconcile existing SQL schema, intake validator and browser source with the actual deployed database. Verify durable document storage, controlled ingestion and access policies; do not recreate tables blindly from old setup instructions.
-- [ ] Preserve sources, retrieval dates, hashes, page citations, review status and amendment chains.
-- [ ] Review extraction, preserve official redactions and exclude unnecessary private contact details.
-- [ ] Complete and verify agency/person/interest search, CPRA request/response receipts, timelines and Master Tracker links.
-- [ ] Complete Audit visitor journey and integrated CEDS source/analysis/alternative/progress presentation.
+- [ ] Extend existing schema/intake/browser into durable document storage and controlled persistent ingestion/review/publication. Preserve access policies; do not recreate tables blindly.
+- [ ] Preserve official sources, retrieval dates, original/public-copy hash distinctions, page citations, review decisions and amendment chains.
+- [ ] Review extraction and official redactions; exclude unnecessary private contact details.
+- [ ] Extend existing search and source links with CPRA request/response receipts, timelines and Master Tracker relationships; finish large-scale search/consistent reads where needed.
+- [ ] Finish Audit/CEDS sources, interpretation, alternatives and progress presentation.
 
 ## P2: Website, store and learning
 
-- [ ] Verify toolbar-logo sizing after existing styling work; reproduce the reported dBeastco wrong route before changing it.
-- [ ] Finish compact store/catalog/cart and payment/product/access delivery; verify existing source before rebuilding it.
-- [ ] Verify Morning/daily/weekly/monthly printable resources.
-- [ ] Verify the documented six learning pathways and Today task preview. Separately locate/reconcile the exact promised six-pathway workbook batch; pathways alone do not prove workbook delivery.
-- [ ] Finish courses, paired videos, kits and learning outcomes.
-- [ ] Finish homepage explanations, landing-page next steps, resume/business tools, Lifestyle ID and Realignment Room.
-- [ ] Complete media playback and newsletter subscription/customer journeys.
+- [ ] Finish specific navigation/logo/destination inconsistencies, including the reported dBeastco route, from actual source rather than replacing working pages.
+- [ ] Publish the three reviewed starter course landing pages, PDFs, accessible HTML lessons and worked examples when their draft assets are available; connect the existing hubs to explicit destinations.
+- [ ] Reconcile the separate six-workbook commitment and remaining courses, paired videos, kits and learning outcomes.
+- [ ] Finish new digital-product checkout/access delivery and authorized product/payment/QR destinations; preserve existing Ecwid catalog/cart routes and public printables.
+- [ ] Finish remaining homepage explanations, landing next steps, resume/business tools, Lifestyle ID and Realignment Room gaps without rebuilding existing modules.
+- [ ] Finish media playback and newsletter subscription, consent, welcome, unsubscribe and customer journeys.
 
-## P2: Steering and integrations
+## P2: Social, Muse and analytics
 
-- [ ] Obtain Muse runtime acknowledgement and genuine sanitized export; committed handoff/schema/validator/intake/viewer are not a live integration.
-- [ ] Connect consented analytics and learning outcomes with authenticated privacy-controlled ingestion.
-- [ ] Connect operator interface, reviewed publisher consumers, outcome receipts and rollback. No automatic publishing assumed.
+- [ ] Extend Creator with saved platform-specific draft variants, destination previews and explicit Copy/Share actions. No private journal content is selected automatically.
+- [ ] Add user-initiated browser/Android sharing with fallbacks; opening a share sheet is not publication.
+- [ ] Locate and acknowledge the actual Muse/publisher runtime and obtain a genuine sanitized export; preserve healthy integrations and avoid a competing publisher.
+- [ ] Connect authorized server-side account adapters, persistent scheduling, duplicate prevention, pause/retry controls and publication receipts/rollback to that runtime.
+- [ ] Connect consented social/website/learning analytics and outcome IDs through authenticated privacy-controlled ingestion. Existing assistant connectors do not automatically belong to the app or unattended worker.
+- [ ] Keep editorial approval/authority, provider-accepted state and actual published outcome distinct. No automatic publishing is authorized by this backlog.
 
-## P1/P2: Operations and release
+## P1/P2: Operations
 
-- [ ] Resolve status-monitor authorization failures; verify reports against current source/runtime.
-- [ ] Establish operational backups and demonstrate restoration. Keep this distinct from the existing user-facing planner export/restore feature.
+- [ ] Resolve status-monitor authorization failures and finish redacted operational reporting, secret rotation, recovery ownership and off-host backups.
+- [ ] Establish operational restore separately from existing user-facing planner recovery.
 - [ ] Consolidate demonstrated duplicate auth/theme/navigation handlers without replacing working modules blindly.
-- [ ] Mobile/accessibility/download/metadata/indexing acceptance.
-- [ ] Reconcile remaining older documents and R00-R23 backlog states against source and observed evidence. This file cleanup does not mark that system-wide audit complete.
+- [ ] Finish actual accessibility, responsive layout, downloads, metadata and indexing gaps.
+- [ ] Reconcile remaining older documents and R00-R23 states against source and evidence. The historical ops/full-system-backlog.json is not made an executable queue or automatically updated by this file.
+
+## Deferred acceptance record: not the current build batch
+
+- Installed APK/source/checksum/receipt/download and live-web revision correspondence; launcher/opening artwork, full-screen display, keyboard, Back, restart, print/file destinations and upgrades remain unverified here. The older full-screen APK compile/install was user-reported complete; do not ask for repeated installation without a concrete reason.
+- Existing-account signup, confirmation, recovery, sign-out, Google access, email delivery, account isolation, saved-day reloads and revision conflicts remain unverified here.
+- Morning completion/transfer, carry-forward, scheduling, protected sleep, day switching, unsaved edits, learning handoff and recovery behavior remain unverified here.
+- Public deployment, actual database/storage policies, customer checkout, real-record publication, hosted Aura retirement and operational restoration remain unverified here.
+- No test or device-check commands are part of Batch 1. Existing GitHub workflows are unchanged; source changes can still trigger their normal automation. Source wiring assertions and a successful commit are not runtime acceptance.
 
 ## Human-dependent configuration
 
-- [ ] Confirm production Auth configuration and authorized updater access without putting secrets in chat or public files.
-- [ ] Verify worker Supabase access, analytics setup, newsletter API scopes, private-source access if still needed, and member Google authorizations. Check connected-service capabilities before assuming credentials are absent; connection alone does not prove every required scope.
-- [ ] Resolve publisher destinations/authority, protected Android production signing and exact checkout/payment/QR destinations. No private-data migration, payment setup or publishing is authorized merely by this backlog.
+- [ ] Authorized production Auth updater access and callback configuration; never place secrets in chat or public files.
+- [ ] Worker Supabase access, analytics identities/scopes, newsletter scopes, private-source access if needed and member Google consent. Discover connected capabilities before assuming credentials are absent; connection alone does not establish every scope.
+- [ ] Publisher destination/authority, protected signing and exact authorized checkout/payment/QR destinations. No private-data migration, payment activation or publication is authorized by this file.
 
-## Historical source references
+## Historical references
 
-- 53ff6e1: offline steering viewer source.
-- 5ed5b24: Android visible logo/version source.
-- 29fdb3f: APK packaging/checksum/receipt workflow source.
-- fe1da49: initial Atwater/Merced Public Files static framework; zero collected filings at its creation, not a current database inventory.
-- aura-launchpad 4d98d40: legacy startup-retirement source.
-- The 2026-10-19 brand surfaces, canonical members/app.html destination, package display, version 0.3.3 and disabled Aura migration are historical changes, not an instruction to rebuild that old APK.
+- The prior full 2026-10-20 checkpoint is preserved in repository history at 8f9e995: docs/BUILD-BACKLOG.md.
+- 215ffbd: authentication test repair; a75cb48: isolated full-screen recipe; 01525d1: candidate pipeline. These are historical source references, not current build targets or pass receipts.
+- 53ff6e1: offline steering viewer; 5ed5b24: visible Android logo/version; 29fdb3f: packaging/checksum/receipt source.
+- fe1da49: initial static Public Files framework; its original zero-filings statement is not a current database inventory.
+- aura-launchpad 4d98d40 and disabled migration source: historical retirement progress, not hosted-retirement evidence.
+- Old version 0.3.3/code 6 and the 2026-10-19 brand/migration checkpoint are not instructions to rebuild an old APK.
 
-Cleanup scope: this file only. No app code, database, workflow, credential, payment destination, release or machine-readable execution flag changes.
+Batch 1 changes Settings behavior, login help and these planning records only. It does not change database schemas, records, credentials, payment destinations, signing, workflows, releases or machine-readable execution/publication flags.
