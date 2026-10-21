@@ -1,0 +1,12 @@
+.social-desk{margin-block:1.5rem;padding:1rem;border:1px solid var(--line,#9aaa9d);border-radius:1rem;min-width:0}
+.social-desk[hidden]{display:none!important}
+.social-desk h3{margin-top:0}
+.social-desk label{display:grid;gap:.35rem;margin-block:.75rem;min-width:0}
+.social-desk input,.social-desk select,.social-desk textarea{width:100%;max-width:100%;box-sizing:border-box;font:inherit}
+.social-desk textarea{min-height:9rem;resize:vertical}
+.social-desk fieldset{min-width:0;margin-block:1rem;padding:.75rem}
+.social-desk-preview{white-space:pre-wrap;overflow-wrap:anywhere;max-height:24rem;overflow:auto;padding:.75rem;border:1px solid var(--line,#9aaa9d);border-radius:.5rem;font:inherit}
+.social-desk-context{font-size:.9rem}
+.social-desk-media{padding-block:.75rem;border-bottom:1px solid var(--line,#9aaa9d)}
+.social-desk .connect-actions{display:flex;flex-wrap:wrap;gap:.5rem}
+.social-desk button{min-height:44px;white-space:normal}
