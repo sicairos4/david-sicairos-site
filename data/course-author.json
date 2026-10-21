@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "name": "David Sicairos",
+  "bio": "David Sicairos is an educator, independent publisher and creator of the 209 ecosystem. David holds a Master of Arts in Educational Counseling from University of Massachusetts Global and Bachelor of Arts degrees in Kinesiology and Psychology from California State University, Stanislaus. David's work connects exercise science, motivation, learning and systems thinking through practical educational resources.",
+  "degrees": [
+    {"award": "Master of Arts", "field": "Educational Counseling", "institution": "University of Massachusetts Global"},
+    {"award": "Bachelor of Arts", "field": "Kinesiology", "institution": "California State University, Stanislaus"},
+    {"award": "Bachelor of Arts", "field": "Psychology", "institution": "California State University, Stanislaus"}
+  ],
+  "teaching_focus": ["exercise science and movement", "motivation and behavior", "learning and educational support", "practical systems"]
+}
