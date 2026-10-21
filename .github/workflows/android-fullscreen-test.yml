@@ -31,6 +31,11 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
+      - name: Native PKCE callback regression tests
+        run: |
+          mkdir -p "$RUNNER_TEMP/native-pkce-tests"
+          javac -d "$RUNNER_TEMP/native-pkce-tests" android/app/src/main/java/com/sicairos/workstation/NativePkce.java tests/java/NativePkceTest.java
+          java -cp "$RUNNER_TEMP/native-pkce-tests" com.sicairos.workstation.NativePkceTest
       - uses: android-actions/setup-android@v3
         with:
           packages: 'platform-tools'
@@ -47,15 +52,17 @@ jobs:
           mkdir -p delivery
           cp android/app/build/outputs/apk/debug/app-debug.apk "delivery/209-workstation-fullscreen-test-${GITHUB_SHA:0:12}.apk"
           cp android/app/src/main/java/com/sicairos/workstation/MainActivity.java delivery/MainActivity.fullscreen-test.java
+          cp android/app/src/main/java/com/sicairos/workstation/NativeGoogle.java delivery/NativeGoogle.java
+          cp android/app/src/main/java/com/sicairos/workstation/NativePkce.java delivery/NativePkce.java
           cp android/app/build.gradle delivery/build.fullscreen-test.gradle
           cp android/app/src/main/AndroidManifest.xml delivery/AndroidManifest.fullscreen-test.xml
           python3 - <<'PY'
           import json,os,re
           from pathlib import Path
           config=Path('android/app/build.gradle').read_text()
-          receipt={'source_sha':os.environ['GITHUB_SHA'],'run_url':os.environ['GITHUB_SERVER_URL']+'/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'],'version_name':re.search(r"versionName\s+'([^']+)'",config).group(1)+'-fullscreen-test','version_code':int(re.search(r'versionCode\s+(\d+)',config).group(1)),'application_id':'com.sicairos.workstation.fullscreentest','variant':'isolated full-screen debug test','production_signed':False,'device_install_verified':False,'google_return_to_app_implemented':False,'live_web_content_pinned':False,'entry_url':'https://209connect.com/members/app.html'}
+          receipt={'source_sha':os.environ['GITHUB_SHA'],'run_url':os.environ['GITHUB_SERVER_URL']+'/'+os.environ['GITHUB_REPOSITORY']+'/actions/runs/'+os.environ['GITHUB_RUN_ID'],'version_name':re.search(r"versionName\s+'([^']+)'",config).group(1)+'-fullscreen-test','version_code':int(re.search(r'versionCode\s+(\d+)',config).group(1)),'application_id':'com.sicairos.workstation.fullscreentest','variant':'isolated full-screen debug test','production_signed':False,'device_install_verified':False,'google_return_to_app_implemented':True,'google_return_to_app_verified':False,'auth_callback_configuration_verified':False,'live_web_content_pinned':False,'entry_url':'https://209connect.com/members/app.html','native_handoff_url':'https://209connect.com/members/native-google.html'}
           Path('delivery/build-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
-          Path('delivery/INSTALL.txt').write_text('Isolated 209 Full-screen Test. Online embedded workspace without Chrome toolbar. Debug signing; upgrades not guaranteed. Google return-to-app is not implemented. Device, print and saved-account acceptance are not verified. Website content is live and not pinned. This workflow does not publish a public release.\n')
+          Path('delivery/INSTALL.txt').write_text('Isolated 209 Full-screen Test. Online embedded workspace without Chrome toolbar. Debug signing; upgrades not guaranteed. Native Google PKCE code return is included in source; server callback allowlisting, deployed handoff page and device acceptance remain unverified. Email/password and guest access remain available. Website content is live and not pinned. This workflow does not publish a public release.\n')
           PY
           (cd delivery && sha256sum *.apk *.java *.gradle *.xml build-receipt.json INSTALL.txt > SHA256SUMS.txt)
       - uses: actions/upload-artifact@v4
