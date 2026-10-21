@@ -1,0 +1,114 @@
+name: Android production-signed artifacts
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: android-production-artifacts
+  cancel-in-progress: false
+jobs:
+  artifacts:
+    if: github.ref == 'refs/heads/main'
+    environment: android-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare existing signing identity in runner temporary storage
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: |
+          python3 - <<'PY'
+          import base64, os
+          from pathlib import Path
+          required = ('ANDROID_KEYSTORE_BASE64', 'ANDROID_KEYSTORE_PASSWORD', 'ANDROID_KEY_ALIAS', 'ANDROID_KEY_PASSWORD')
+          missing = [name for name in required if not os.environ.get(name)]
+          if missing:
+              raise SystemExit('Missing signing configuration: ' + ', '.join(missing) + '. No key will be generated.')
+          try:
+              data = base64.b64decode(os.environ['ANDROID_KEYSTORE_BASE64'], validate=True)
+          except Exception:
+              raise SystemExit('Keystore must use valid single-line base64. Signing material was not printed.')
+          if not data:
+              raise SystemExit('Empty keystore. No fallback key will be generated.')
+          path = Path(os.environ['RUNNER_TEMP']) / 'workstation-production.keystore'
+          fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600)
+          with os.fdopen(fd, 'wb') as stream:
+              stream.write(data)
+          with open(os.environ['GITHUB_ENV'], 'a') as stream:
+              stream.write('ANDROID_KEYSTORE_PATH=' + str(path) + '\n')
+          PY
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools'
+      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Assemble release APK and app bundle without a test suite
+        working-directory: android
+        env:
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+        run: gradle --no-daemon --console=plain :app:assembleRelease :app:bundleRelease
+      - name: Package artifacts and source receipt, not a public release
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, shutil
+          from pathlib import Path
+          apk = Path('android/app/build/outputs/apk/release/app-release.apk')
+          bundle = Path('android/app/build/outputs/bundle/release/app-release.aab')
+          if not apk.is_file() or not bundle.is_file():
+              raise SystemExit('Expected release artifacts are missing. Unsigned-file fallback is prohibited.')
+          metadata = json.loads(Path('android/app/build/outputs/apk/release/output-metadata.json').read_text())
+          elements = metadata.get('elements', [])
+          if metadata.get('applicationId') != 'com.sicairos.workstation' or len(elements) != 1:
+              raise SystemExit('Unexpected release package or split output. Nothing packaged.')
+          version = elements[0]
+          delivery = Path('production-delivery')
+          delivery.mkdir()
+          shutil.copy2(apk, delivery / '209-workstation-release.apk')
+          shutil.copy2(bundle, delivery / '209-workstation-release.aab')
+          receipt = {
+              'source_sha': os.environ['GITHUB_SHA'],
+              'run_url': os.environ['GITHUB_SERVER_URL'] + '/' + os.environ['GITHUB_REPOSITORY'] + '/actions/runs/' + os.environ['GITHUB_RUN_ID'],
+              'application_id': metadata['applicationId'],
+              'version_code': version['versionCode'],
+              'version_name': version['versionName'],
+              'variant': 'release with externally supplied signing identity',
+              'signing_configured': True,
+              'signing_identity_verified': False,
+              'device_install_verified': False,
+              'tests_run_by_this_workflow': False,
+              'published_release': False,
+              'live_web_content_pinned': False
+          }
+          (delivery / 'build-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+          (delivery / 'RELEASE-NOTES.txt').write_text('Manual APK/AAB artifact build only. Uses the supplied existing key; no key was generated. Signing identity, installed-app compatibility, Google callback configuration and device behavior are not independently established by this workflow. Website content remains live. No Play upload, GitHub Release or website download change is performed.\n')
+          rows = [hashlib.sha256(p.read_bytes()).hexdigest() + '  ' + p.name for p in sorted(delivery.iterdir()) if p.is_file()]
+          (delivery / 'SHA256SUMS.txt').write_text('\n'.join(rows) + '\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: 209-workstation-production-${{ github.sha }}-${{ github.run_attempt }}
+          path: production-delivery/
+          if-no-files-found: error
+          retention-days: 14
+      - name: Remove temporary keystore
+        if: always()
+        shell: bash
+        run: rm -f "$RUNNER_TEMP/workstation-production.keystore"
