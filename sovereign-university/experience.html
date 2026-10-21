@@ -28,7 +28,19 @@
 <script src="../assets/topbar.js"></script>
 <script>
 document.getElementById('y').textContent=new Date().getFullYear();
-document.getElementById('genForm').addEventListener('submit',e=>{e.preventDefault();const i=document.getElementById('genInterest').value.trim(),s=document.getElementById('genSkills').value.trim(),a=document.getElementById('genAudience').value.trim();const result=document.getElementById('genResult');result.hidden=false;result.innerHTML='<h3>Your starting point</h3><p><strong>Focus:</strong> Help '+a+' with '+i+'.</p><p><strong>Why you:</strong> Your experience with '+s+' gives you a real starting point.</p><p><strong>First offer:</strong> A simple guide, checklist, or 30-day starter plan for '+a+'.</p><p><strong>First action:</strong> Write one short post answering the biggest question '+a+' has about '+i+'.</p>'});
+document.getElementById('genForm').addEventListener('submit',e=>{
+e.preventDefault();
+const i=document.getElementById('genInterest').value.trim(),s=document.getElementById('genSkills').value.trim(),a=document.getElementById('genAudience').value.trim();
+const result=document.getElementById('genResult');
+result.replaceChildren();result.hidden=false;
+if(!i||!s||!a){result.textContent='Enter your interest, skills and audience to generate a starting point.';return;}
+const heading=document.createElement('h3');heading.textContent='Your starting point';result.append(heading);
+function line(label,value){const p=document.createElement('p'),strong=document.createElement('strong');strong.textContent=label+' ';p.append(strong,document.createTextNode(value));result.append(p);}
+line('Focus:','Help '+a+' with '+i+'.');
+line('Why you:','Your experience with '+s+' gives you a real starting point.');
+line('First offer:','A simple guide, checklist, or 30-day starter plan for '+a+'.');
+line('First action:','Write one short post answering the biggest question '+a+' has about '+i+'.');
+});
 </script>
 </body>
 </html>
