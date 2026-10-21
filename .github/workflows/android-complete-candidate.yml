@@ -3,18 +3,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/android-complete-candidate.yml'
-      - '.github/workflows/android-fullscreen-test.yml'
-      - 'android/**'
-      - 'assets/**'
-      - 'members/**'
-      - 'tests/**'
-      - 'scripts/**'
-      - 'supabase/**'
-      - '*.html'
-      - 'CNAME'
-      - 'manifest.json'
+    paths: ['.github/workflows/android-complete-candidate.yml', '.github/workflows/android-fullscreen-test.yml', 'android/**', 'assets/**', 'members/**', 'tests/**', 'scripts/**', 'supabase/**', '*.html', 'CNAME', 'manifest.json']
 permissions:
   contents: read
 concurrency:
@@ -32,7 +21,7 @@ jobs:
         with:
           node-version: '22'
       - name: JavaScript syntax
-        run: node --check assets/workstation/review-share.js
+        run: node --check assets/workstation/review-share.js && node --check assets/workstation/journey.js && node --check assets/workstation/day-print.js
       - name: Full JavaScript test directory
         if: ${{ !cancelled() }}
         run: node --test tests/*.test.cjs
@@ -77,67 +66,4 @@ jobs:
           retention-days: 30
   apk:
     needs: [javascript, python, browser]
-    runs-on: ubuntu-latest
-    timeout-minutes: 25
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          persist-credentials: false
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Reuse exact approved full-screen recipe
-        shell: bash
-        run: |
-          python3 - <<'PY'
-          import hashlib, os, pathlib
-          source = pathlib.Path('.github/workflows/android-fullscreen-test.yml').read_bytes()
-          blob = hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest()
-          assert blob == '51cf82ebddb86459f4223058bc4304379b1e8d3f', 'Full-screen recipe changed; review before building'
-          lines = source.decode().splitlines()
-          def extract(title):
-              marker = '      - name: ' + title
-              assert lines.count(marker) == 1, 'Missing or ambiguous recipe step'
-              start = lines.index(marker) + 1
-              while start < len(lines) and lines[start] != '        run: |':
-                  assert not lines[start].startswith('      - '), 'Missing shell recipe'
-                  start += 1
-              assert start < len(lines), 'Missing shell body'
-              body = []
-              for line in lines[start + 1:]:
-                  if line.strip() and not line.startswith('          '):
-                      break
-                  body.append(line[10:] if line else '')
-              assert body, 'Empty shell recipe'
-              return '\n'.join(body) + '\n'
-          directory = pathlib.Path(os.environ['RUNNER_TEMP'])
-          for title, filename in [('Prepare isolated full-screen shell', 'candidate-prepare.sh'), ('Package test APK and provenance', 'candidate-package.sh')]:
-              (directory / filename).write_text(extract(title))
-          PY
-          bash -euo pipefail "$RUNNER_TEMP/candidate-prepare.sh"
-      - uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: '17'
-      - uses: android-actions/setup-android@v3
-        with:
-          packages: 'platform-tools'
-      - run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
-      - uses: gradle/actions/setup-gradle@v4
-        with:
-          gradle-version: '8.13'
-      - name: Build full-screen candidate APK
-        working-directory: android
-        run: gradle --no-daemon :app:assembleDebug
-      - name: Package candidate, sources, receipt and checksums
-        run: bash -euo pipefail "$RUNNER_TEMP/candidate-package.sh"
-      - name: Record release boundaries
-        run: |
-          echo 'Candidate built after JavaScript, Python and browser gates passed for this commit.' >> "$GITHUB_STEP_SUMMARY"
-          echo 'Debug test package only. No public release. Google return-to-app is not implemented; device behavior and production signing are not verified.' >> "$GITHUB_STEP_SUMMARY"
-      - uses: actions/upload-artifact@v4
-        with:
-          name: 209-workstation-complete-candidate-${{ github.sha }}-${{ github.run_attempt }}
-          path: delivery/
-          if-no-files-found: error
-          retention-days: 30
+    uses: ./.github/workflows/android-fullscreen-test.yml
