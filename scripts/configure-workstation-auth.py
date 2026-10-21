@@ -7,9 +7,11 @@ import urllib.error
 import urllib.request
 
 project = 'uwidjnnhdgtrpsymuhwp'
-base = 'https://sicairos4.github.io/david-sicairos-site/'
+base = 'https://209connect.com/'
+legacy_base = 'https://sicairos4.github.io/david-sicairos-site/'
 target = base + 'members/app.html'
-required = [base + path for path in ['members/workstation.html', 'members/app.html', 'login.html', 'recover.html']]
+return_paths = ['members/workstation.html', 'members/app.html', 'login.html', 'recover.html']
+required = [origin + path for origin in [base, legacy_base] for path in return_paths]
 endpoint = 'https://api.supabase.com/v1/projects/' + project + '/config/auth'
 receipt = {'schema_version': 1, 'project': project, 'target_site_url': target, 'source_sha': os.environ.get('GITHUB_SHA'), 'workflow_run_id': os.environ.get('GITHUB_RUN_ID'), 'observed_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'status': 'not_applied', 'end_to_end_login_verified': False}
 output = Path('ops/workstation-auth-config-result.json')
