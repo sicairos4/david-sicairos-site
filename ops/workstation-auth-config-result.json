@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "project": "uwidjnnhdgtrpsymuhwp",
-  "target_site_url": "https://sicairos4.github.io/david-sicairos-site/members/app.html",
-  "source_sha": "0402cc03f3c6803b90fd07f70ec790a58acb0ea4",
-  "workflow_run_id": "39295952687",
-  "observed_at_utc": "2026-10-19T17:39:16.875483+00:00",
+  "target_site_url": "https://209connect.com/members/app.html",
+  "source_sha": "88aba13ea98c99d1cdaf5b2e6ba2ba0bd736af27",
+  "workflow_run_id": "39523886089",
+  "observed_at_utc": "2026-10-21T00:52:07.570292+00:00",
   "status": "blocked_missing_secret",
   "end_to_end_login_verified": false,
   "reason": "SUPABASE_ACCESS_TOKEN is unavailable to this workflow. No backend request was made."
