@@ -3,7 +3,18 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: ['.github/workflows/android-complete-candidate.yml']
+    paths:
+      - '.github/workflows/android-complete-candidate.yml'
+      - '.github/workflows/android-fullscreen-test.yml'
+      - 'android/**'
+      - 'assets/**'
+      - 'members/**'
+      - 'tests/**'
+      - 'scripts/**'
+      - 'supabase/**'
+      - '*.html'
+      - 'CNAME'
+      - 'manifest.json'
 permissions:
   contents: read
 concurrency:
