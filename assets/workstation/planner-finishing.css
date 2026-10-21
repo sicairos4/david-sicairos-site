@@ -1,0 +1,18 @@
+.planner-view-controls{display:flex;flex-wrap:wrap;gap:.5rem;margin-block:.75rem}
+.planner-view-controls button,#plannerTaskTools button{min-height:44px}
+.planner-view-controls button[aria-pressed=true],#plannerTaskTools button[aria-pressed=true]{outline:2px solid var(--accent,#175c42);outline-offset:2px}
+#plannerTimelinePane[hidden],#plannerAgendaPane[hidden]{display:none!important}
+.planner-agenda-list{list-style:none;padding:0;display:grid;gap:.75rem}
+.planner-agenda-item{border:1px solid var(--line,#b8cbbf);border-radius:.75rem;padding:.75rem;overflow-wrap:anywhere}
+.planner-agenda-item h4{margin:.2rem 0 .5rem}
+.planner-agenda-item button{min-height:44px}
+#taskList.planner-compact>.connect-item{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;padding:.65rem;min-width:0}
+#taskList.planner-compact>.connect-item>span{flex:1 1 100%;overflow-wrap:anywhere}
+#taskList.planner-compact>.connect-item>button{min-height:44px;margin:0}
+#taskList.planner-compact>.connect-item:not(.planner-task-expanded)>label,#taskList.planner-compact>.connect-item:not(.planner-task-expanded)>button[data-planner-secondary=true]{display:none}
+#taskList.planner-compact>.connect-item>label{flex:1 1 100%}
+#plannerTaskEditor{max-width:36rem;width:calc(100% - 2rem);box-sizing:border-box}
+#plannerTaskEditor label{display:block;margin-block:.75rem}
+#plannerTaskEditor textarea,#plannerTaskEditor input[type=text]{display:block;width:100%;box-sizing:border-box;font:inherit;margin-top:.35rem}
+#plannerTaskEditor button{min-height:44px;margin-right:.5rem}
+@media print{.planner-view-controls,#plannerTaskTools,#plannerTaskEditor{display:none!important}}
