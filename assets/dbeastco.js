@@ -12,3 +12,4 @@ overlay.addEventListener("click",e=>{if(e.target===overlay)closeOverlay()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!overlay.hidden)closeOverlay()});
 window.addEventListener("popstate",route);
 renderProducts();route()})();
+(()=>{const src=new URL('workstation/movement.js',document.currentScript.src).href;if(![...document.scripts].some(s=>s.src===src)){const s=document.createElement('script');s.src=src;document.head.append(s);}})();
