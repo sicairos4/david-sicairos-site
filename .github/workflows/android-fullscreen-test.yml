@@ -24,7 +24,7 @@ jobs:
           manifest = pathlib.Path('android/app/src/main/AndroidManifest.xml')
           def git_sha(data):
               return hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
-          assert git_sha(activity.read_bytes()) == '12b3fb6a70826eae54cfb43e4da6ce71f2cbc17d', 'Launcher changed; review the test patch'
+          assert git_sha(activity.read_bytes()) == '1f1570b679248f9217a2297a12ee65f94dc5ab49', 'Launcher changed; review the test patch'
           assert git_sha(config.read_bytes()) == 'a765f2a2c012498c4671ce5d97c646b765a1ef36', 'Gradle configuration changed; review the test patch'
           assert git_sha(manifest.read_bytes()) == '5d7797b08b18ea79a73f29b614b05d78b87de7bf', 'Manifest changed; review the test patch'
           source = activity.read_text()

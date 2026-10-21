@@ -1,0 +1,14 @@
+/* Install navigation: one theme control outside the collapsible primary links. */
+.site-toolbar .nav-right:empty{display:none}
+.site-toolbar .site-actions{display:flex;align-items:center;flex:0 0 auto;gap:8px;margin-left:auto;min-width:0}
+.site-toolbar .site-actions .theme-toggle{flex:0 0 44px;font-size:22px;line-height:1}
+.site-toolbar .nav-burger{margin-left:0}
+.site-toolbar.toolbar-overflow .nav{display:none!important}
+.site-toolbar.toolbar-overflow .nav-burger{display:inline-flex!important}
+.site-toolbar.toolbar-overflow .site-actions>.nav-cta{display:none!important}
+body.toolbar-compact #mobile-menu:not([hidden]){display:block!important}
+body.toolbar-compact #mobile-menu[hidden]{display:none!important}
+.site-toolbar .site-actions .theme-toggle::before,.site-toolbar .site-actions .theme-toggle::after{content:none!important}
+@media(max-width:1200px){.site-toolbar .site-actions>.nav-cta{display:none!important}}
+@media(prefers-reduced-motion:reduce){.site-toolbar .site-actions{transition:none!important}}
+@media print{.site-toolbar .site-actions{display:none!important}}
