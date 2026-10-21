@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.browser.customtabs.CustomTabsIntent;
 
 public class MainActivity extends Activity {
-    private static final Uri WORKSPACE = Uri.parse("https://sicairos4.github.io/david-sicairos-site/members/app.html");
+    private static final Uri WORKSPACE = Uri.parse("https://209connect.com/members/app.html");
     private TextView message;
     private int dp(int value) { return Math.round(value * getResources().getDisplayMetrics().density); }
     private TextView label(String text, int size, int color) {
@@ -33,6 +33,18 @@ public class MainActivity extends Activity {
                 (BuildConfig.DEBUG ? "Debug/test build - not production-signed." :
                     "Release variant - check the build receipt for signing details."))
             .setPositiveButton("Close", null).show();
+    }
+    private boolean isWorkspaceUrl(Uri uri) {
+        if (uri == null || !"https".equals(uri.getScheme()) || uri.getUserInfo() != null ||
+            (uri.getPort() != -1 && uri.getPort() != 443)) return false;
+        String route = uri.getPath(), prefix = "/david-sicairos-site";
+        if ("sicairos4.github.io".equals(uri.getHost())) {
+            if (route == null || !route.startsWith(prefix + "/")) return false;
+            route = route.substring(prefix.length());
+        } else if (!"209connect.com".equals(uri.getHost())) return false;
+        return java.util.Arrays.asList("/members/app.html", "/members/workstation.html",
+            "/login.html", "/recover.html", "/members/guest.html", "/members/install.html",
+            "/android-download.html").contains(route);
     }
     private void openWorkspace() {
         try {

@@ -24,7 +24,7 @@ jobs:
           manifest = pathlib.Path('android/app/src/main/AndroidManifest.xml')
           def git_sha(data):
               return hashlib.sha1(b'blob ' + str(len(data)).encode() + b'\0' + data).hexdigest()
-          assert git_sha(activity.read_bytes()) == '1f1570b679248f9217a2297a12ee65f94dc5ab49', 'Launcher changed; review the test patch'
+          assert git_sha(activity.read_bytes()) == '58434aecb7c0b72c6e90811cc7687b6eb919688e', 'Launcher changed; review the test patch'
           assert git_sha(config.read_bytes()) == 'a765f2a2c012498c4671ce5d97c646b765a1ef36', 'Gradle configuration changed; review the test patch'
           assert git_sha(manifest.read_bytes()) == '5d7797b08b18ea79a73f29b614b05d78b87de7bf', 'Manifest changed; review the test patch'
           source = activity.read_text()
@@ -53,15 +53,12 @@ jobs:
               preview.setWebViewClient(new android.webkit.WebViewClient() {
                   @Override public boolean shouldOverrideUrlLoading(android.webkit.WebView view, android.webkit.WebResourceRequest request) {
                       Uri uri = request.getUrl();
-                      String path = uri.getPath();
-                      boolean internal = "https".equals(uri.getScheme()) && "sicairos4.github.io".equals(uri.getHost()) &&
-                          ("/david-sicairos-site/members/app.html".equals(path) || "/david-sicairos-site/members/workstation.html".equals(path) ||
-                           "/david-sicairos-site/login.html".equals(path) || "/david-sicairos-site/recover.html".equals(path));
+                      boolean internal = isWorkspaceUrl(uri);
                       if (internal) return false;
                       if (!request.isForMainFrame() || !"https".equals(uri.getScheme())) return true;
                       String host = uri.getHost();
                       boolean auth = host != null && (host.equals("accounts.google.com") || host.endsWith(".supabase.co"));
-                      Uri destination = auth ? Uri.parse("https://sicairos4.github.io/david-sicairos-site/login.html") : uri;
+                      Uri destination = auth ? Uri.parse("https://209connect.com/login.html") : uri;
                       new android.app.AlertDialog.Builder(MainActivity.this)
                           .setTitle(auth ? "Google return is not integrated in this preview" : "Open website separately?")
                           .setMessage("Browser and test-app sessions are separate. Website sign-in will not sign in this preview. Test guest or email/password here.")
@@ -147,7 +144,7 @@ jobs:
               'device_install_verified': False,
               'google_return_to_app_implemented': False,
               'live_web_content_pinned': False,
-              'entry_url': 'https://sicairos4.github.io/david-sicairos-site/members/app.html'
+              'entry_url': 'https://209connect.com/members/app.html'
           }
           pathlib.Path('delivery/build-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
           PY

@@ -82,7 +82,7 @@ jobs:
           import hashlib, os, pathlib
           source = pathlib.Path('.github/workflows/android-fullscreen-test.yml').read_bytes()
           blob = hashlib.sha1(b'blob ' + str(len(source)).encode() + b'\0' + source).hexdigest()
-          assert blob == 'e9b56e72cebae7776e6686979ef5876fccafa800', 'Full-screen recipe changed; review before building'
+          assert blob == '51cf82ebddb86459f4223058bc4304379b1e8d3f', 'Full-screen recipe changed; review before building'
           lines = source.decode().splitlines()
           def extract(title):
               marker = '      - name: ' + title
