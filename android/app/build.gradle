@@ -1,4 +1,20 @@
 plugins { id 'com.android.application' }
+
+def productionSigning = [
+    path: System.getenv('ANDROID_KEYSTORE_PATH'),
+    storePassword: System.getenv('ANDROID_KEYSTORE_PASSWORD'),
+    alias: System.getenv('ANDROID_KEY_ALIAS'),
+    keyPassword: System.getenv('ANDROID_KEY_PASSWORD')
+]
+def productionSigningReady = productionSigning.values().every { it != null && !it.isEmpty() } && file(productionSigning.path ?: '__no_production_keystore__').isFile()
+
+gradle.taskGraph.whenReady { graph ->
+    def releaseRequested = graph.allTasks.any { task -> task.project == project && task.name.toLowerCase(java.util.Locale.ROOT).contains('release') }
+    if (releaseRequested && !productionSigningReady) {
+        throw new GradleException('Release tasks require an existing external keystore and ANDROID_KEYSTORE_PATH, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS and ANDROID_KEY_PASSWORD. No debug or generated-key fallback is allowed.')
+    }
+}
+
 android {
     namespace 'com.sicairos.workstation'
     compileSdk 35
@@ -10,10 +26,23 @@ android {
         versionCode 7
         versionName '0.3.4'
     }
+    signingConfigs {
+        production {
+            if (productionSigningReady) {
+                storeFile file(productionSigning.path)
+                storePassword productionSigning.storePassword
+                keyAlias productionSigning.alias
+                keyPassword productionSigning.keyPassword
+            }
+        }
+    }
     buildTypes {
         debug {
             applicationIdSuffix '.debug'
             versionNameSuffix '-debug'
+        }
+        release {
+            signingConfig signingConfigs.production
         }
     }
     compileOptions {
