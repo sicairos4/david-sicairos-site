@@ -1,0 +1,27 @@
+name: Public Files sync failure report
+on:
+  workflow_run:
+    workflows: ['Public Files Drive Sync']
+    types: [completed]
+permissions:
+  contents: read
+  issues: write
+concurrency:
+  group: public-files-sync-incident
+  cancel-in-progress: false
+jobs:
+  report:
+    if: github.event.workflow_run.conclusion == 'failure' && vars.PUBLIC_FILES_SYNC_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Open or annotate incident without logging private content
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          set -euo pipefail
+          title='Public Files import failed'
+          body=$(printf 'Scheduled Public Files draft import failed. Do not publish records or retry uncertain writes blindly. Inspect the private Actions log and use the import runbook. Run: %s\n\nNo document content or credentials are included in this issue.\n' "$RUN_URL")
+          existing=$(gh issue list -R "$REPOSITORY" --state open --search "$title in:title" --json number,title --jq '.[] | select(.title == "Public Files import failed") | .number' | head -n 1)
+          if [ -n "$existing" ]; then gh issue comment "$existing" -R "$REPOSITORY" --body "$body"; else gh issue create -R "$REPOSITORY" --title "$title" --body "$body"; fi
