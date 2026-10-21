@@ -6,9 +6,11 @@
 .site-toolbar.toolbar-overflow .nav{display:none!important}
 .site-toolbar.toolbar-overflow .nav-burger{display:inline-flex!important}
 .site-toolbar.toolbar-overflow .site-actions>.nav-cta{display:none!important}
-body.toolbar-compact #mobile-menu:not([hidden]){display:block!important}
+body.toolbar-compact #mobile-menu:not([hidden]){display:block!important;overflow-y:auto;overscroll-behavior:contain;max-height:calc(100dvh - var(--toolbar-bottom,80px));padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));scroll-padding-bottom:24px}
 body.toolbar-compact #mobile-menu[hidden]{display:none!important}
+body.toolbar-compact #mobile-menu a,body.toolbar-compact #mobile-menu button{min-height:44px;overflow-wrap:anywhere}
+.site-toolbar a:focus-visible,.site-toolbar button:focus-visible,#mobile-menu a:focus-visible,#mobile-menu button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
 .site-toolbar .site-actions .theme-toggle::before,.site-toolbar .site-actions .theme-toggle::after{content:none!important}
 @media(max-width:1200px){.site-toolbar .site-actions>.nav-cta{display:none!important}}
-@media(prefers-reduced-motion:reduce){.site-toolbar .site-actions{transition:none!important}}
-@media print{.site-toolbar .site-actions{display:none!important}}
+@media(prefers-reduced-motion:reduce){.site-toolbar .site-actions,#mobile-menu,#mobile-menu *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media print{.site-toolbar .site-actions,#mobile-menu{display:none!important}}
