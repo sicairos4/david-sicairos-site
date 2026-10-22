@@ -16,3 +16,5 @@
 .edition .edition-date { color: var(--muted, #5d6a79); font-size: 0.9em; margin: 0; }
 .edition a { text-decoration: none; }
 .edition a:hover h3, .edition a:focus-visible h3 { text-decoration: underline; }
+/* Master Tracker intro (index-tracker/). */
+.tracker-intro { max-width: 68ch; line-height: 1.65; font-size: 1.05rem; margin: 14px 0; }
