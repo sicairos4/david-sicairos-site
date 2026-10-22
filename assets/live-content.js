@@ -1,4 +1,6 @@
 (async function(){
+ const auditHero=document.getElementById('engine');
+ const preserveAuditHero=!!auditHero?.querySelector('#featuredTitle');
  function base(){
   const paths=['data/site-config.json','../data/site-config.json'];
   return paths.reduce((p,c)=>p.catch(()=>fetch(c).then(r=>{if(!r.ok)throw new Error('Config unavailable');return r.json();})),Promise.reject());
@@ -15,10 +17,12 @@
    if(typeof row.key!=='string')return;
    if(row.key.startsWith('el:')){
     const parts=row.key.split(':');
-    if(parts[1]===page&&typeof row.value==='string'){try{const el=document.querySelector(parts[2]);if(el)el.textContent=row.value;}catch(e){}}
+    if(parts[1]===page&&typeof row.value==='string'){try{const el=document.querySelector(parts[2]);if(el&&!(preserveAuditHero&&(auditHero.contains(el)||el.contains(auditHero))))el.textContent=row.value;}catch(e){}}
    }else if(row.value&&typeof row.value==='object'){cfg[row.key]=row.value;}
   });
  }catch(e){console.warn('Live content unavailable; retaining static content.');}
+ // The homepage Audit introduction is editorial copy in index.html, not a rotating featured story.
+ if(preserveAuditHero)delete cfg.featuredStory;
  window.SITE_CONFIG=cfg;
  document.dispatchEvent(new CustomEvent('site-config-ready',{detail:cfg}));
  function render(){
