@@ -1,0 +1,65 @@
+name: Workstation logout source and APK
+on:
+  push:
+    branches: [fix/workstation-tool-first-20261022]
+    paths: ['scripts/finish_workstation_logout.py', '.github/workflows/workstation-logout-build.yml']
+permissions:
+  contents: write
+concurrency:
+  group: workstation-tool-first-build
+  cancel-in-progress: false
+jobs:
+  implement-and-build:
+    if: github.repository == 'sicairos4/david-sicairos-site' && github.ref == 'refs/heads/fix/workstation-tool-first-20261022'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply logout corrections
+        run: python scripts/finish_workstation_logout.py
+      - name: Commit logout corrections to the fix branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add assets/connect-app.js assets/workstation/account-profile.js assets/workstation/account-entry.js
+          if ! git diff --cached --quiet; then
+            git commit -m 'fix(workstation): share account client and sign out on this device'
+            git push origin HEAD:fix/workstation-tool-first-20261022
+          fi
+          echo "SOURCE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+      - name: Install SDK
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Compile debug APK
+        working-directory: android
+        run: gradle --no-daemon :app:assembleDebug
+      - name: Package APK
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p delivery
+          cp android/app/build/outputs/apk/debug/app-debug.apk delivery/209-connect-workstation-debug.apk
+          printf '%s\n' "Source revision: $SOURCE_SHA" 'Debug artifact only. No test steps or live account operations were performed.' 'Hosted web changes remain branch-only until merged and deployed.' 'Signing may differ from an installed preview. Do not uninstall or clear app data automatically.' 'Installation, entry flow, and logout acceptance are not established by compilation.' > delivery/BUILD-NOTES.txt
+          (cd delivery && sha256sum 209-connect-workstation-debug.apk > SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: workstation-logout-${{ github.run_id }}
+          path: delivery/
+          if-no-files-found: error
+          retention-days: 7
