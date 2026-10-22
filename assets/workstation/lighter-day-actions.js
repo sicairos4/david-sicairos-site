@@ -21,3 +21,4 @@ function boot(){
 }
 if(document.readyState==='complete')boot();else g.addEventListener('load',boot,{once:true});
 })(globalThis);
+if(typeof document!=='undefined')globalThis.WorkstationModules?.run('cross-day-move.js');
