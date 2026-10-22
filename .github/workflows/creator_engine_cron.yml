@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
     inputs:
       query:
-        description: Research query (do not include private writing)
+        description: Research query (never include secrets or private writing)
         required: true
         type: string
       title:
@@ -21,6 +21,16 @@ on:
         default: none
         type: choice
         options: [none, day, week, month, year]
+      generate:
+        description: Also call Gemini to generate review-only drafts
+        required: true
+        default: false
+        type: boolean
+      platforms:
+        description: Optional comma-separated variants (requires generation)
+        required: false
+        default: ''
+        type: string
 permissions:
   contents: read
 concurrency:
@@ -37,19 +47,38 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Prepare research and Muse review payload
+      - name: Prepare research, optional drafts, and Muse review payload
         env:
           PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          GEMINI_API_KEY: ${{ inputs.generate && secrets.GEMINI_API_KEY || '' }}
+          GEMINI_MODEL: ${{ vars.GEMINI_MODEL }}
           RESEARCH_QUERY: ${{ inputs.query }}
           REVIEW_TITLE: ${{ inputs.title }}
           CONTENT_NODE: ${{ inputs.node }}
           RECENCY: ${{ inputs.recency }}
+          GENERATE: ${{ inputs.generate }}
+          PLATFORMS: ${{ inputs.platforms }}
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p output
           args=(--query "$RESEARCH_QUERY" --title "$REVIEW_TITLE" --node "$CONTENT_NODE" --output output/review-bundle.json)
           if [[ "$RECENCY" != none ]]; then args+=(--recency "$RECENCY"); fi
+          if [[ "$GENERATE" == true ]]; then args+=(--generate); fi
+          if [[ -n "$PLATFORMS" ]]; then
+            if [[ "$GENERATE" != true ]]; then
+              echo 'Platform variants require generation.' >&2
+              exit 1
+            fi
+            IFS=',' read -r -a requested <<< "$PLATFORMS"
+            for platform in "${requested[@]}"; do
+              platform="${platform//[[:space:]]/}"
+              case "$platform" in
+                facebook|instagram|threads|linkedin|bluesky|newsletter|youtube) args+=(--platform "$platform") ;;
+                *) echo 'Unsupported platform selection.' >&2; exit 1 ;;
+              esac
+            done
+          fi
           python creator_engine_bus.py "${args[@]}"
       - name: Retain review bundle
         uses: actions/upload-artifact@v4
