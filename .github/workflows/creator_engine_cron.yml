@@ -1,0 +1,60 @@
+name: Creator Engine review bundle
+on:
+  workflow_dispatch:
+    inputs:
+      query:
+        description: Research query (do not include private writing)
+        required: true
+        type: string
+      title:
+        description: Muse review title
+        required: true
+        type: string
+      node:
+        description: Content node
+        required: true
+        type: choice
+        options: [personal, civic, wellness]
+      recency:
+        description: Optional search window
+        required: true
+        default: none
+        type: choice
+        options: [none, day, week, month, year]
+permissions:
+  contents: read
+concurrency:
+  group: creator-engine-review-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Prepare research and Muse review payload
+        env:
+          PERPLEXITY_API_KEY: ${{ secrets.PERPLEXITY_API_KEY }}
+          RESEARCH_QUERY: ${{ inputs.query }}
+          REVIEW_TITLE: ${{ inputs.title }}
+          CONTENT_NODE: ${{ inputs.node }}
+          RECENCY: ${{ inputs.recency }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p output
+          args=(--query "$RESEARCH_QUERY" --title "$REVIEW_TITLE" --node "$CONTENT_NODE" --output output/review-bundle.json)
+          if [[ "$RECENCY" != none ]]; then args+=(--recency "$RECENCY"); fi
+          python creator_engine_bus.py "${args[@]}"
+      - name: Retain review bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: creator-review-${{ github.run_id }}-${{ github.run_attempt }}
+          path: output/review-bundle.json
+          if-no-files-found: error
+          retention-days: 7
