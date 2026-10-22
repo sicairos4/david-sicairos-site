@@ -1,0 +1,18 @@
+/* Subscribe form slots + readability upgrades (site upgrade 2026-10-22).
+   Loaded by assets/topbar.js on every page that uses the shared toolbar,
+   so the form styling is consistent site-wide. */
+.subscribe-slot-ready { margin: 16px 0; }
+.subscribe-frame { width: 100%; min-height: 260px; border: 0; border-radius: 12px; background: transparent; }
+.subscribe-panel { border: 1px solid var(--line, #cfdbce); border-radius: 14px; padding: 20px; background: var(--panel, #fffef8); max-width: 560px; }
+.subscribe-panel h3 { margin: 0 0 8px; }
+.subscribe-panel p { line-height: 1.6; margin: 0 0 10px; }
+.subscribe-note { color: var(--muted, #5d6a79); font-size: 0.95em; }
+/* Readability: keep long-form prose to a comfortable measure on edited pages. */
+.prose p, .prose li { max-width: 68ch; line-height: 1.65; }
+/* Archive edition list (signal-archive.html). */
+.edition-list { display: grid; gap: 12px; margin: 16px 0; }
+.edition { border: 1px solid var(--line, #cfdbce); border-radius: 12px; padding: 14px 16px; background: var(--panel, #fffef8); }
+.edition h3 { margin: 0 0 4px; font-size: 1.05rem; }
+.edition .edition-date { color: var(--muted, #5d6a79); font-size: 0.9em; margin: 0; }
+.edition a { text-decoration: none; }
+.edition a:hover h3, .edition a:focus-visible h3 { text-decoration: underline; }
