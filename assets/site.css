@@ -1,3 +1,4 @@
+@import url('controls-modern.css');
 :root{--bg:#f4f8f4;--panel:#fff;--line:#d8e4d8;--text:#17251d;--muted:#5d7263;--accent:#2f7d55;--radius:18px;--max:1120px;--btn-h:52px}
 [data-theme="midnight-ledger"]{--bg:#14171b;--panel:#1d2127;--line:#2b3138;--text:#f4f1ea;--muted:#a8b0ba;--accent:#c9a227}
 [data-theme="civic-gold"]{--bg:#faf7f2;--panel:#fff;--line:#e3ddd2;--text:#101418;--muted:#5a6470;--accent:#a67c1b}

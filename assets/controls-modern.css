@@ -1,0 +1,21 @@
+/* Shared controls: use existing theme tokens; no new theme or stored preference. */
+:root{--control-radius:14px;--control-fill:var(--panel);--control-border:var(--line);--control-ink:var(--text)}
+html[data-theme="midnight-ledger"]{color-scheme:dark;--control-fill:#20262d;--control-border:#53606d;--control-ink:#f4f1ea}
+html[data-theme="valley-light"],html[data-theme="civic-gold"]{color-scheme:light}
+body :is(input:not([type]),input[type="text"],input[type="email"],input[type="password"],input[type="url"],input[type="search"],input[type="number"],input[type="date"],input[type="month"],input[type="time"],textarea,select){font:inherit;color:var(--control-ink);background-color:var(--control-fill);border:1px solid var(--control-border);border-radius:var(--control-radius);padding:10px 12px;min-height:44px;max-width:100%;box-sizing:border-box}
+body textarea{line-height:1.55;resize:vertical}
+body button:not(.theme-toggle):not(.member-theme):not(.slider-dot){font:inherit;line-height:1.35;border-radius:var(--control-radius);cursor:pointer}
+body button:not([class]):not([aria-label]){min-height:44px;padding:10px 14px;border:1px solid var(--control-border);background-color:var(--control-fill);color:var(--control-ink)}
+body :is(button,input,textarea,select,a,summary):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+body :is(input,textarea)::placeholder{color:var(--muted);opacity:1}
+body :is(button,input,textarea,select):disabled{cursor:not-allowed;opacity:.65}
+html[data-theme="midnight-ledger"] body :is(a.btn,a.cta,button.btn){background:#c9a227;color:#14171b;box-shadow:0 3px 12px #0003}
+html[data-theme="midnight-ledger"] body :is(.btn.ghost,.cta.ghost){background:var(--panel);color:#e4c66b;box-shadow:inset 0 0 0 1px #8a7437}
+html[data-theme="midnight-ledger"] .social-desk{background:var(--panel);border-color:#53606d}
+html[data-theme="midnight-ledger"] .social-desk-preview{background:#171c22;color:var(--text);border-color:#53606d}
+body #creatorPostBuilder{border:1px solid var(--line);border-radius:16px;padding:16px;margin-block:18px;min-width:0}
+body #creatorPostBuilder legend{font-weight:700;color:var(--accent)}
+body #creatorPostBuilder :is(input,textarea,select){width:100%}
+body #creatorPostBuilder button{margin:6px 8px 6px 0;min-height:44px;padding:10px 14px;background:var(--panel);color:var(--text);border:1px solid var(--line)}
+@media(max-width:600px){body :is(input,textarea,select){font-size:16px}body #creatorPostBuilder{padding:12px}}
+@media(prefers-reduced-motion:reduce){body :is(button,input,textarea,select){transition:none!important}}
