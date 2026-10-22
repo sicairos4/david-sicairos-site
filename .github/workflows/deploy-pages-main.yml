@@ -1,0 +1,56 @@
+name: Deploy main to existing GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+concurrency:
+  group: existing-pages-main-deployment
+  cancel-in-progress: false
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Request existing Pages production build and await receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          pages=$(gh api "repos/$REPOSITORY/pages")
+          source_branch=$(jq -r '.source.branch // empty' <<< "$pages")
+          source_path=$(jq -r '.source.path // empty' <<< "$pages")
+          build_type=$(jq -r '.build_type // "legacy"' <<< "$pages")
+          default_branch=$(gh api "repos/$REPOSITORY" --jq '.default_branch')
+          if [[ "$build_type" != "legacy" || "$source_branch" != "main" || "$source_path" != "/" || "$default_branch" != "main" ]]; then
+            echo '::error::Pages is not configured for the existing main/root branch build. No Pages settings or DNS were changed; no rebuild was requested.'
+            exit 1
+          fi
+          requested_sha=$(gh api "repos/$REPOSITORY/commits/main" --jq '.sha')
+          receipt=$(gh api --method POST "repos/$REPOSITORY/pages/builds")
+          printf '### Pages rebuild requested\n\nSource: `%s`\n\n' "$requested_sha" >> "$GITHUB_STEP_SUMMARY"
+          jq -r '"Receipt: " + .url + "\nInitial state: " + .status' <<< "$receipt" >> "$GITHUB_STEP_SUMMARY"
+          for attempt in $(seq 1 36); do
+            sleep 10
+            latest=$(gh api "repos/$REPOSITORY/pages/builds/latest")
+            state=$(jq -r '.status' <<< "$latest")
+            revision=$(jq -r '.commit // empty' <<< "$latest")
+            if [[ "$revision" != "$requested_sha" ]]; then
+              continue
+            fi
+            if [[ "$state" == "built" ]]; then
+              printf '\nGitHub reports this revision built successfully.\n\nNo browser or application acceptance checks were performed.\n' >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            if [[ "$state" == "errored" ]]; then
+              echo '::error::GitHub reports the requested Pages build errored. Deployment is not reported as successful.'
+              exit 1
+            fi
+          done
+          echo '::error::No successful build receipt for the requested revision was received within six minutes. The build may still be pending; deployment is not confirmed.'
+          exit 1
