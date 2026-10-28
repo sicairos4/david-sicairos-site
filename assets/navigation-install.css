@@ -11,6 +11,19 @@ body.toolbar-compact #mobile-menu[hidden]{display:none!important}
 body.toolbar-compact #mobile-menu a,body.toolbar-compact #mobile-menu button{min-height:44px;overflow-wrap:anywhere}
 .site-toolbar a:focus-visible,.site-toolbar button:focus-visible,#mobile-menu a:focus-visible,#mobile-menu button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
 .site-toolbar .site-actions .theme-toggle::before,.site-toolbar .site-actions .theme-toggle::after{content:none!important}
+/* Direct links and dropdown triggers share one flat geometry, not fake dropdowns. */
+body .site-toolbar .nav-left{align-items:center;gap:4px}
+body .site-toolbar .nav-left>a,body .site-toolbar .nav-group>button{appearance:none!important;display:inline-flex!important;align-items:center;justify-content:center;gap:6px;min-height:44px!important;height:auto;min-width:0;padding:10px 12px!important;margin:0!important;font-family:inherit!important;font-size:13px!important;font-weight:600!important;line-height:1.25!important;letter-spacing:normal!important;text-transform:none!important;border:1px solid transparent!important;border-radius:8px!important;background:transparent!important;color:var(--text,#183e30)!important;box-shadow:none!important;text-shadow:none!important;transform:none!important;white-space:nowrap;text-decoration:none;cursor:pointer}
+body .site-toolbar .nav-left>a:hover,body .site-toolbar .nav-group>button:hover,body .site-toolbar .nav-group>button[aria-expanded=true]{background:color-mix(in srgb,var(--accent,#2f7d55) 10%,var(--bg,#fff))!important;border-color:var(--line,#dfe7e1)!important}
+body .site-toolbar .nav-left>a[aria-current=page]{text-decoration:underline;text-underline-offset:5px;border-color:var(--line,#dfe7e1)!important}
+body .site-toolbar .nav-left>a::before,body .site-toolbar .nav-left>a::after,body .site-toolbar .nav-group>button::before,body .site-toolbar .nav-group>button::after{content:none!important}
+body .site-toolbar :is(a,button),body #mobile-menu :is(a,button){box-shadow:none!important;text-shadow:none!important;background-image:none!important;transform:none!important;filter:none!important}
+body .site-toolbar .dropdown{box-shadow:none!important;border:1px solid var(--line,#dfe7e1)}
+body .site-toolbar .site-actions .theme-toggle,body .site-toolbar .nav-burger{appearance:none!important;border:1px solid var(--line,#b8c8bf)!important;background:var(--panel,#fff)!important;color:var(--text,#183e30)!important}
+body #mobile-menu :is(a,button){appearance:none!important;font-family:inherit!important;font-size:1rem;line-height:1.4;border-radius:8px!important}
+body #mobile-menu .mm-group>button,body #mobile-menu>a:not(.mm-cta){font-weight:600}
+body #mobile-menu .mm-group>button{border:1px solid transparent!important;background:transparent!important}
+body #mobile-menu .mm-group>button[aria-expanded=true],body #mobile-menu a[aria-current=page]{background:color-mix(in srgb,var(--accent,#2f7d55) 10%,var(--panel,#fff))!important}
 @media(max-width:1200px){.site-toolbar .site-actions>.nav-cta{display:none!important}}
 @media(prefers-reduced-motion:reduce){.site-toolbar .site-actions,#mobile-menu,#mobile-menu *{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
 @media print{.site-toolbar .site-actions,#mobile-menu{display:none!important}}
