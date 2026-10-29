@@ -1,0 +1,65 @@
+name: Workstation tool-first source and APK
+on:
+  push:
+    branches: [fix/workstation-tool-first-20261022]
+    paths: ['scripts/finish_workstation_entry.py', 'assets/workstation/account-entry.js', '.github/workflows/workstation-tool-first-build.yml']
+permissions:
+  contents: write
+concurrency:
+  group: workstation-tool-first-build
+  cancel-in-progress: false
+jobs:
+  implement-and-build:
+    if: github.repository == 'sicairos4/david-sicairos-site' && github.ref == 'refs/heads/fix/workstation-tool-first-20261022'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Apply explicit entry-flow edits
+        run: python scripts/finish_workstation_entry.py
+      - name: Commit entry-flow source to this fix branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add members/app.html assets/connect-core.js assets/connect-app.js assets/member-session.js assets/workstation/entry-flow.js android/app/src/main/AndroidManifest.xml
+          if ! git diff --cached --quiet; then
+            git commit -m 'fix(workstation): open usable tools before optional account sign-in'
+            git push origin HEAD:fix/workstation-tool-first-20261022
+          fi
+          echo "SOURCE_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: platform-tools
+      - name: Install Android SDK
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.13'
+      - name: Compile entry-flow debug APK
+        working-directory: android
+        run: gradle --no-daemon :app:assembleDebug
+      - name: Package debug artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p delivery
+          cp android/app/build/outputs/apk/debug/app-debug.apk delivery/209-connect-workstation-entry-debug.apk
+          printf '%s\n' "Source revision: $SOURCE_SHA" 'Source changes were committed to the fix branch; not merged to main.' 'No test steps or live sign-in checks were performed by this workflow.' 'Debug signing may differ from the installed APK. Do not uninstall or clear data automatically.' 'The app loads hosted website content; branch-only web changes are not live until separately merged and deployed.' 'This artifact does not establish installation, entry-flow acceptance, or successful Google sign-in.' > delivery/BUILD-NOTES.txt
+          (cd delivery && sha256sum 209-connect-workstation-entry-debug.apk > SHA256SUMS.txt)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: workstation-tool-first-${{ github.run_id }}
+          path: delivery/
+          if-no-files-found: error
+          retention-days: 7
