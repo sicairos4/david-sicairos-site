@@ -1,0 +1,55 @@
+{
+  "edition": "2026-10-29",
+  "package_type": "newly assembled self-guided kits; not replacements for historical PDFs",
+  "entry_page": "course-kits.html",
+  "blank_template_download": "course-kit-templates.md",
+  "access": "public reading; no account required",
+  "privacy": "answers in page memory only; text export includes answers; no automatic account import",
+  "kits": [
+    {
+      "id": "day",
+      "title": "Build Your Intentional Day",
+      "outcome": "priority, cue, routine, realistic day and review adjustment",
+      "lessons": ["outcome and constraint", "small start and fallback", "actual day", "review and adjustment"],
+      "existing_resources": ["practice-lessons.html#one-page-priority", "practice-lessons.html#two-minute-rule", "practice-lessons.html#habit-stacking", "practice-lessons.html#realignment-method", "../planning.html#morning", "../planning.html#day"],
+      "optional_tool": "../members/workstation.html"
+    },
+    {
+      "id": "offer",
+      "title": "From Personal Brand to First Offer",
+      "outcome": "audience, bounded offer, actual usable sample and feedback plan",
+      "lessons": ["audience and voice", "offer boundaries", "usable sample", "feedback and revision"],
+      "existing_resources": ["pathways.html#personal-brand", "pathways.html#digital-product", "pathways.html#content-calendar", "practice-lessons.html#map-workflow", "practice-lessons.html#systems-for-creators", "workbooks.html"],
+      "optional_tool": "../studio.html#generator"
+    },
+    {
+      "id": "evidence",
+      "title": "Public Records to Clear Evidence",
+      "outcome": "neutral question, request draft, provenance log and traceable brief",
+      "lessons": ["neutral question", "focused request", "provenance and gaps", "brief with limitations"],
+      "existing_resources": ["../research.html", "../index-tracker/", "../cpra-playbook/", "../public-files.html"],
+      "example_policy": "fictional agency, documents and dates; no private archive reuse"
+    }
+  ],
+  "downloads": {
+    "blank": "static Markdown companion",
+    "completed": "browser-generated text export of selected kit plus answers",
+    "pdf": "browser Print / Save PDF; no pre-generated PDF claimed"
+  },
+  "video_policy": "existing companion videos linked at lesson destinations; no new video or transcript claimed; written instruction stands alone",
+  "status": {
+    "content": "drafted for repository commit",
+    "publication": "not verified",
+    "automated_tests": "not run",
+    "browser_download_print_checks": "not run",
+    "live_links_and_video_playback": "not verified",
+    "captions_and_transcripts": "not verified",
+    "commerce": "unchanged; no product fulfillment configured"
+  },
+  "follow_up": [
+    "Add approved catalog/store discovery links separately; existing files are unchanged in this additive batch.",
+    "Verify captions/transcripts and source destinations before claiming accessibility or operational readiness.",
+    "Review and revise the historical planner noon label only in an explicitly approved revised edition.",
+    "Resolve free/paid boundaries and exact fulfillment before changing checkout."
+  ]
+}
