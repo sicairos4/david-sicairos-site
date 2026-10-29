@@ -1,0 +1,52 @@
+name: Reconcile Workstation fix with main
+on:
+  push:
+    branches: [fix/workstation-tool-first-20261022]
+    paths: ['.github/workflows/workstation-reconcile-main.yml']
+permissions:
+  contents: write
+concurrency:
+  group: workstation-main-reconciliation
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    if: github.repository == 'sicairos4/david-sicairos-site' && github.ref == 'refs/heads/fix/workstation-tool-first-20261022'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Merge pinned main into fix branch with narrow conflict resolution
+        env:
+          BASE: 61fdd82a645333c9b1b2eb0f9fa2df1b4d151fa2
+          RESOLVED: 735c813ee1b85e51604b06c3aad772e0031e4b02
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin main fix/workstation-tool-first-20261022
+          git merge-base --is-ancestor "$RESOLVED" HEAD
+          git diff --exit-code "$RESOLVED" HEAD -- assets/member-session.js
+          if git merge-base --is-ancestor "$BASE" HEAD; then
+            echo 'Pinned main is already integrated.'
+            exit 0
+          fi
+          rc=0
+          git merge --no-commit --no-ff "$BASE" || rc=$?
+          mapfile -t conflicts < <(git diff --name-only --diff-filter=U)
+          if (( ${#conflicts[@]} )); then
+            if (( ${#conflicts[@]} != 1 )) || [[ "${conflicts[0]}" != assets/member-session.js ]]; then
+              printf 'Unresolved source conflict: %s\n' "${conflicts[@]}"
+              git merge --abort
+              exit 1
+            fi
+            git show "$RESOLVED:assets/member-session.js" > assets/member-session.js
+            git add assets/member-session.js
+          elif (( rc != 0 )); then
+            git merge --abort || true
+            exit "$rc"
+          fi
+          git commit -m 'Merge current main into Workstation fix; preserve reconciled module loader'
+          git push origin HEAD:fix/workstation-tool-first-20261022
