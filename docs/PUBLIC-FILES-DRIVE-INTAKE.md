@@ -1,0 +1,13 @@
+# Drive intake and review controls
+
+Source-only UI extension of audit-workspace.html. No migration, bucket, storage duplication, permission change, publication, tests or deployment verification are performed by this commit. Muse's tracker and canonical-manifest ownership remain untouched.
+
+The existing audit_archive_documents drive_file_id, sha256, original_filename, intake_metadata and version fields are used. Drive remains the original-file archive. Intake can be recorded without a public URL. Existing original IDs/checksums are not replaced; create a distinct reference for another original. Production-batch and message references remain private metadata. Missing/blocked attachments must not be given fabricated Drive IDs or hashes.
+
+The extension reads a complete owner/private-filtered metadata index with a 20,000-row ceiling, binds saves to the authenticated owner and loaded version, preserves unrelated intake metadata and clears its fields on identity changes or when the main private desk hides. It does not relax existing server policies. A denied/uncertain write is not retried. Base archive rows refresh through the existing Load my archive control.
+
+A proposed copy has a separate Drive ID and recorded hash. Review records bind the original/copy/public metadata snapshot, browser-calculated snapshot digest, operator identity and external safety/redaction receipt references. These are operator attestations, not server-verified Drive hashes, immutable Drive versions, digital signatures, automated malware scans or proof of effective redaction. Editing the saved binding clears its current-review pointer; prior recorded receipts are preserved up to the interface limit. Review references can be retrieved from their private receipt history; draft safety/redaction text is not persisted before review.
+
+The UI never writes pf_documents, changes top-level access/review/file-state enums, changes Drive sharing, uploads bytes or writes a manifest. Proposed public metadata is shown before review; private notes and source-message references are not included in that preview. Source links exclude common email/Drive-original hosts as a conservative guard, not a comprehensive confidentiality detector.
+
+Remaining: trusted server-side Drive ID/hash/version matching at release time; explicit authorized linkage to existing catalog drafts; canonical manifest integration; durable publication/withdrawal receipts and Drive permission handling; actual retrieval of blocked attachments; operational recovery and cleanup. The Supabase-storage proposal from earlier conversation was superseded and is not activated by this implementation. Batches 1 and 2 are not claimed complete or accepted.

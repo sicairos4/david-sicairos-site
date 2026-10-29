@@ -13,6 +13,20 @@
 .su-course .btn{margin-top:auto;align-self:flex-start}
 .su-badge{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:var(--accent-soft,#eef2ff);color:var(--accent,#4338ca);font-weight:600}
 .su-empty{grid-column:1/-1;text-align:center;padding:32px;color:var(--muted,#5b6472)}
+/* SU video embeds: same container width as catalog/tools, so videos line up with the page grid, not a narrower 960px column */
+.su-video{max-width:1100px;margin:28px auto;padding:0 20px}
+.su-video h2{margin:0 0 10px}
+.su-video video{width:100%;height:auto;border-radius:14px;background:#14171B;display:block}
+.su-video p{margin:10px 0 0;color:var(--muted,#5b6472)}
+/* Inside a .wrap section (e.g. Experience lifestyle block), do not double-center: fill the wrap width */
+.wrap .su-video{max-width:none;margin:28px 0;padding:0}
+/* SU hero links: real buttons, centered as a row, not a wrapped text-link sentence */
+.su-hero-links{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center;margin:20px auto 0;max-width:1100px}
+.su-hero-links .btn{margin:0}
+@media(max-width:640px){
+.su-video{padding:0 16px}
+.su-hero-links .btn{flex:1 1 100%;justify-content:center}
+}
 @media(max-width:640px){
 .su-catalog{grid-template-columns:1fr;padding:20px 16px;gap:12px}
 .su-tools{padding:0 16px 8px;flex-direction:column;align-items:stretch}
