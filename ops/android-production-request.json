@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "request_id": "android-production-20261030",
+  "application_id": "com.sicairos.workstation",
+  "requested_artifacts": ["release_apk", "release_aab", "build_receipt", "sha256_checksums"],
+  "source": "request commit on main, pinned by github.sha",
+  "signing_identity": "existing android-production environment secrets only",
+  "generate_new_signing_key": false,
+  "publish_to_play": false,
+  "create_github_release": false,
+  "update_public_downloads": false
+}

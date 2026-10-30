@@ -1,6 +1,9 @@
 name: Android production-signed artifacts
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['ops/android-production-request.json']
 permissions:
   contents: read
 concurrency:
