@@ -1,0 +1,42 @@
+-- Private metadata import; target project uwidjnnhdgtrpsymuhwp.
+-- Requires actual source rows and owner; generated SQL needs exact approval.
+\set ON_ERROR_STOP on
+BEGIN;
+SET LOCAL standard_conforming_strings = on;
+SET LOCAL lock_timeout = '5s';
+SET LOCAL statement_timeout = '30s';
+LOCK TABLE public.audit_archive_documents IN SHARE ROW EXCLUSIVE MODE;
+CREATE TEMP TABLE archive_import_context(owner_id uuid NOT NULL,source_sha256 text NOT NULL) ON COMMIT DROP;
+INSERT INTO archive_import_context VALUES(:'owner_uuid'::uuid,:'source_sha256');
+CREATE TEMP TABLE archive_import_rows(external_id text PRIMARY KEY,title text NOT NULL,original_filename text NOT NULL,entity_labels text[] NOT NULL,intake_metadata jsonb NOT NULL) ON COMMIT DROP;
+INSERT INTO archive_import_rows
+SELECT x.external_id,x.title,x.original_filename,x.entity_labels,x.intake_metadata
+FROM jsonb_to_recordset(:'records_json'::jsonb) AS x(external_id text,title text,original_filename text,entity_labels text[],intake_metadata jsonb);
+DO $guard$
+DECLARE c archive_import_context%ROWTYPE;
+BEGIN
+ SELECT * INTO STRICT c FROM archive_import_context;
+ IF c.source_sha256 !~ '^[0-9a-f]{64}$' THEN RAISE EXCEPTION 'Invalid source fingerprint'; END IF;
+ IF NOT EXISTS(SELECT 1 FROM auth.users WHERE id=c.owner_id) THEN RAISE EXCEPTION 'Owner must be an existing account'; END IF;
+ IF NOT(SELECT relrowsecurity FROM pg_class WHERE oid='public.audit_archive_documents'::regclass) THEN RAISE EXCEPTION 'Archive RLS is disabled'; END IF;
+ IF(SELECT count(*) FROM archive_import_rows)<>88 THEN RAISE EXCEPTION 'Exactly 88 source records required'; END IF;
+ IF EXISTS(SELECT 1 FROM archive_import_rows WHERE length(external_id) NOT BETWEEN 1 AND 200 OR length(title) NOT BETWEEN 1 AND 500 OR length(original_filename)>500 OR jsonb_typeof(intake_metadata)<>'object' OR octet_length(intake_metadata::text)>200000 OR intake_metadata->'archive_import'->>'source_sha256' IS DISTINCT FROM c.source_sha256) THEN RAISE EXCEPTION 'Invalid staged metadata'; END IF;
+ IF EXISTS(SELECT 1 FROM public.audit_archive_documents d JOIN archive_import_rows r USING(external_id) WHERE d.owner_id=c.owner_id GROUP BY d.external_id HAVING count(*)>1) THEN RAISE EXCEPTION 'Duplicate existing source identity'; END IF;
+ IF EXISTS(SELECT 1 FROM public.audit_archive_documents d JOIN archive_import_rows r USING(external_id) WHERE d.owner_id=c.owner_id AND d.intake_metadata->'archive_import' IS DISTINCT FROM r.intake_metadata->'archive_import') THEN RAISE EXCEPTION 'Source binding changed; refusing overwrite'; END IF;
+END
+$guard$;
+WITH inserted AS(
+ INSERT INTO public.audit_archive_documents(owner_id,external_id,title,original_filename,entity_labels,file_state,access_level,review_status,notes,intake_metadata)
+ SELECT c.owner_id,r.external_id,r.title,r.original_filename,r.entity_labels,'none','private','unreviewed','Metadata reference only. Original bytes, Drive mapping and release approval are not established. Preserve CHP/publication holds.',r.intake_metadata
+ FROM archive_import_rows r CROSS JOIN archive_import_context c
+ WHERE NOT EXISTS(SELECT 1 FROM public.audit_archive_documents d WHERE d.owner_id=c.owner_id AND d.external_id=r.external_id)
+ RETURNING id,external_id,owner_id,file_state,access_level,review_status
+)
+SELECT jsonb_build_object('operation','archive-metadata-20261024','observed_at',clock_timestamp(),'source_sha256',(SELECT source_sha256 FROM archive_import_context),'inserted',(SELECT count(*) FROM inserted),'existing_skipped',88-(SELECT count(*) FROM inserted),'missing_entries_imported',0,'document_bytes_uploaded',0,'published',0,'inserted_rows',coalesce((SELECT jsonb_agg(to_jsonb(i) ORDER BY i.external_id) FROM inserted i),'[]'::jsonb)) AS private_import_receipt;
+DO $postcondition$
+BEGIN
+ IF(SELECT count(*) FROM public.audit_archive_documents d JOIN archive_import_rows r USING(external_id) JOIN archive_import_context c ON c.owner_id=d.owner_id)<>88 THEN RAISE EXCEPTION 'Source metadata coverage failed'; END IF;
+END
+$postcondition$;
+-- No public catalog, extraction/page, request-status, policy, sharing or publication changes.
+ROLLBACK;
