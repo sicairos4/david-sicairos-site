@@ -3,9 +3,9 @@ on:
   workflow_dispatch:
   push:
     branches: [main, workstation/shared-core-release]
-    paths: ['assets/workstation/print.js', 'assets/workstation/morning.js', 'tests/workstation-print.test.cjs', '.github/workflows/workstation-print-tests.yml']
+    paths: ['assets/workstation/print.js', 'assets/workstation/morning.js', 'assets/workstation/range-report.js', 'tests/workstation-print.test.cjs', 'tests/workstation-range-report.test.cjs', '.github/workflows/workstation-print-tests.yml']
   pull_request:
-    paths: ['assets/workstation/print.js', 'assets/workstation/morning.js', 'tests/workstation-print.test.cjs', '.github/workflows/workstation-print-tests.yml']
+    paths: ['assets/workstation/print.js', 'assets/workstation/morning.js', 'assets/workstation/range-report.js', 'tests/workstation-print.test.cjs', 'tests/workstation-range-report.test.cjs', '.github/workflows/workstation-print-tests.yml']
 permissions:
   contents: read
 jobs:
@@ -20,4 +20,5 @@ jobs:
         with:
           node-version: '22'
       - run: node --check assets/workstation/print.js
-      - run: node --test tests/workstation-print.test.cjs tests/workstation-morning.test.cjs
+      - run: node --check assets/workstation/range-report.js
+      - run: node --test tests/workstation-print.test.cjs tests/workstation-morning.test.cjs tests/workstation-range-report.test.cjs

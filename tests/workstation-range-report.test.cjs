@@ -1,0 +1,13 @@
+const test=require('node:test'),assert=require('node:assert/strict');
+const R=require('../assets/workstation/range-report.js');
+const day='2026-10-30',owner='test-owner';
+const row=()=>({user_id:owner,day,plan:{workspaceTasks:[{text:'task',done:false}],scheduleBlocks:[],weeklyReview:'private review',eveningCloseout:{helped:'private answer'}},journal:'private journal',lesson:'private lesson'});
+test('calendar ranges include leap day and both endpoints',()=>{assert.deepEqual(R.daysBetween('2024-02-28','2024-03-01'),['2024-02-28','2024-02-29','2024-03-01']);assert.deepEqual(R.daysBetween(day,day),[day]);});
+test('invalid, reversed and over-31-day ranges reject',()=>{for(const pair of [['2026-02-30',day],[day,'2026-10-29'],['2026-01-01','2026-02-01']])assert.throws(()=>R.daysBetween(...pair));});
+test('private writing and unrelated plan fields excluded by default',()=>{const out=R.projectRows([row()],[day],{tasks:true},owner)[0];assert.equal(out.total,1);assert.equal(out.done,0);for(const key of ['journal','lesson','weekly','closeout','plan','user_id'])assert.equal(key in out,false);assert.equal(JSON.stringify(out).includes('private'),false);});
+test('private writing included only for selected sections',()=>{const out=R.projectRows([row()],[day],{journal:true,closeout:true},owner)[0];assert.equal(out.journal,'private journal');assert.equal(out.closeout[0].text,'private answer');assert.equal('lesson' in out,false);assert.deepEqual(out.tasks,[]);});
+test('foreign owners, duplicate dates and out-of-range dates reject',()=>{assert.throws(()=>R.projectRows([row()],[day],{},'someone-else'));assert.throws(()=>R.projectRows([row(),row()],[day],{},owner));assert.throws(()=>R.projectRows([row()],['2026-10-29'],{},owner));});
+test('missing records remain missing rather than fabricated',()=>assert.deepEqual(R.projectRows([],[day],{},owner),[]));
+test('malformed tasks and oversized writing reject',()=>{const r=row();r.plan.workspaceTasks[0].done='yes';assert.throws(()=>R.projectRows([r],[day],{},owner));const s=row();s.journal='x'.repeat(100001);assert.throws(()=>R.projectRows([s],[day],{journal:true},owner));});
+test('abort stops a hung authentication/read promise',async()=>{const controller=new AbortController(),pending=R.wait(new Promise(()=>{}),controller.signal);controller.abort();await assert.rejects(pending,/cancelled or timed out/);});
+test('already aborted and normally resolved reads are handled',async()=>{const c=new AbortController();c.abort();await assert.rejects(R.wait(Promise.resolve('late'),c.signal));const d=new AbortController();assert.equal(await R.wait(Promise.resolve('ready'),d.signal),'ready');});
