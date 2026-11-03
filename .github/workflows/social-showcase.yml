@@ -1,0 +1,42 @@
+name: Collect public social showcase
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/collect-social-showcase.py'
+      - '.github/workflows/social-showcase.yml'
+  schedule:
+    - cron: '13,43 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: public-social-showcase-collection
+  cancel-in-progress: false
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect public posts and video entries
+        run: python scripts/collect-social-showcase.py
+      - name: Save public showcase and request Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/social-showcase.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh public YouTube and Bluesky showcase'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          gh api --method POST repos/${{ github.repository }}/pages/builds
