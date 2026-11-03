@@ -1,0 +1,40 @@
+name: Add selected LinkedIn showcase posts
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/add-linkedin-showcase.py'
+      - '.github/workflows/linkedin-showcase.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+concurrency:
+  group: selected-linkedin-showcase
+  cancel-in-progress: false
+jobs:
+  add:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Merge sourced LinkedIn selections
+        run: python scripts/add-linkedin-showcase.py
+      - name: Save collection and request Pages rebuild
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/social-showcase.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Add selected LinkedIn posts to social collection'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          gh api --method POST repos/${{ github.repository }}/pages/builds
