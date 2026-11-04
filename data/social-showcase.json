@@ -476,12 +476,12 @@
   "collection_status": {
     "bluesky": {
       "state": "collected",
-      "collected_at": "2026-11-04T14:53:44.030503+00:00",
+      "collected_at": "2026-11-04T21:20:08.529185+00:00",
       "count": 12
     },
     "youtube": {
       "state": "collected",
-      "collected_at": "2026-11-04T14:53:44.409949+00:00",
+      "collected_at": "2026-11-04T21:20:08.681461+00:00",
       "count": 15
     }
   },
