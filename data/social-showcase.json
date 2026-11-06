@@ -317,6 +317,123 @@
       "origin": "public_youtube"
     },
     {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzmg7c3eob2z",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "ICE broke a US citizen student's wrist walking to school in Santa Maria, and the video backs his account Erik Zepeda, a ",
+      "caption": "ICE broke a US citizen student's wrist walking to school in Santa Maria, and the video backs his account Erik Zepeda, a 20-year-old US citizen with disabilities, was stopped by ICE officers on Oct. 21 while walking to his high school in Santa Maria, a farmworker city where 79% of residents are…",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-06T03:16:40.196663+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzmg7c3eob2z",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzmdckaixo2q",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Commentary: Meet California's first Latino governor. No, not Xavier Becerra - Los Angeles Times Publisher: Los Angeles T",
+      "caption": "Commentary: Meet California's first Latino governor. No, not Xavier Becerra - Los Angeles Times Publisher: Los Angeles Times",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-06T02:24:48.209967+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzmdckaixo2q",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzmc3pc3oz2w",
+      "platform": "bluesky",
+      "kind": "photo",
+      "title": "See Gov.-elect Xavier Becerra speak with California Legislature leaders (Video) - Sacramento Bee Publisher: Sacramento B",
+      "caption": "See Gov.-elect Xavier Becerra speak with California Legislature leaders (Video) - Sacramento Bee Publisher: Sacramento Bee",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-06T02:03:05.043218+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzmc3pc3oz2w",
+      "thumbnail": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:uwl6atgpbqehumm7b74nklox/bafkreidwo3k3aq7xg6cn5uo3imyms75xruu66a5g5etzltsxf6eiqu5cea",
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzmbe2r7ux2q",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Merced election results: Gray re-elected, Soria and Pacheco win, Boyenga leads Lopez 51-49, Measure B passes Rep. Adam G",
+      "caption": "Merced election results: Gray re-elected, Soria and Pacheco win, Boyenga leads Lopez 51-49, Measure B passes Rep. Adam Gray leads Republican Kevin Lincoln about 61% to 39% in Congressional District 13, per the Secretary of State's early returns.",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-06T01:49:51.480901+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzmbe2r7ux2q",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzm7skx54e23",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Culver City teen voting measure trailing in early returns - Los Angeles Times Publisher: Los Angeles Times",
+      "caption": "Culver City teen voting measure trailing in early returns - Los Angeles Times Publisher: Los Angeles Times",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-06T01:22:10.955637+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzm7skx54e23",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzm5vlglca26",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Xavier Becerra: What to Expect From California’s New Governor - LAmag Publisher: LAmag",
+      "caption": "Xavier Becerra: What to Expect From California’s New Governor - LAmag Publisher: LAmag",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-06T00:48:04.605402+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzm5vlglca26",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzm55ins5r23",
+      "platform": "bluesky",
+      "kind": "photo",
+      "title": "Xavier Becerra holds first news conference as CA’s governor-elect - KTLA Publisher: KTLA",
+      "caption": "Xavier Becerra holds first news conference as CA’s governor-elect - KTLA Publisher: KTLA",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-06T00:34:36.407430+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzm55ins5r23",
+      "thumbnail": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:uwl6atgpbqehumm7b74nklox/bafkreicmnam4wo57luk4wugbbnb4xwphux4g5kxq6wisnkzjrraqipcyke",
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzlzusxocj2w",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Notorious Fresno-area killers are on Gov. Newsom’s clemency list. Here are their crimes - Fresno Bee Publisher: Fresno B",
+      "caption": "Notorious Fresno-area killers are on Gov. Newsom’s clemency list. Here are their crimes - Fresno Bee Publisher: Fresno Bee",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-05T23:36:03.676581+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzlzusxocj2w",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzlyeb3zk22q",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Californians reject Prop 39, a voter ID requirement proposal, NBC News projects - NBC Los Angeles Publisher: NBC Los Ang",
+      "caption": "Californians reject Prop 39, a voter ID requirement proposal, NBC News projects - NBC Los Angeles Publisher: NBC Los Angeles",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-05T23:08:54.577236+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzlyeb3zk22q",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
       "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzltj5dqbf25",
       "platform": "bluesky",
       "kind": "conversation",
@@ -328,69 +445,17 @@
       "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzltj5dqbf25",
       "thumbnail": null,
       "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzlr27chf22s",
-      "platform": "bluesky",
-      "kind": "photo",
-      "title": "Gavin Newsom seeks to clear death row, commutes sentences for hundreds of prisoners Gov. Gavin Newsom commuted death sen",
-      "caption": "Gavin Newsom seeks to clear death row, commutes sentences for hundreds of prisoners Gov. Gavin Newsom commuted death sentences for 548 state prisoners, saying \"state-sanctioned killing is incompatible with California’s values.\" Victims rights advocates criticized his decision.",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-05T20:58:00.913622+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzlr27chf22s",
-      "thumbnail": "https://cdn.bsky.app/img/feed_thumbnail/plain/did:plc:uwl6atgpbqehumm7b74nklox/bafkreihuan6mkpf5hsempbxcqnqvwavhk6xxmrbsg7ih5zbjxyzgo3yucm",
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzlp44zjtz2l",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "Latino voters influenced midterm elections with record turnout as Xavier Becerra and Gina Hinojosa win California, Texas",
-      "caption": "Latino voters influenced midterm elections with record turnout as Xavier Becerra and Gina Hinojosa win California, Texas governors - ABC7 Chicago Publisher: ABC7 Chicago",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-05T20:23:18.212016+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzlp44zjtz2l",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzllc3ilbt23",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "What California voting laws look like after Proposition 39's defeat - The Desert Sun Publisher: The Desert Sun",
-      "caption": "What California voting laws look like after Proposition 39's defeat - The Desert Sun Publisher: The Desert Sun",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-05T19:15:02.607729+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzllc3ilbt23",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3mzliwvcoek26",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "Latino voters influenced midterm elections with record turnout as Xavier Becerra and Gina Hinojosa win California, Texas",
-      "caption": "Latino voters influenced midterm elections with record turnout as Xavier Becerra and Gina Hinojosa win California, Texas governors - ABC7 Los Angeles Publisher: ABC7 Los Angeles",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-05T18:32:59.775172+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3mzliwvcoek26",
-      "thumbnail": null,
-      "origin": "public_bluesky"
     }
   ],
   "collection_status": {
     "bluesky": {
       "state": "collected",
-      "collected_at": "2026-11-05T22:53:29.893587+00:00",
-      "count": 5
+      "collected_at": "2026-11-06T03:26:32.691379+00:00",
+      "count": 10
     },
     "youtube": {
       "state": "collection_unavailable",
-      "last_attempt_at": "2026-11-05T22:53:29.933986+00:00",
+      "last_attempt_at": "2026-11-06T03:26:32.722933+00:00",
       "retained_previous_collection": true
     }
   },
