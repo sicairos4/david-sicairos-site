@@ -1,0 +1,11 @@
+[Unit]
+Description=209 browser host consumer timer (disabled until authorized integration is ready)
+
+[Timer]
+OnBootSec=30s
+OnUnitInactiveSec=15s
+AccuracySec=1s
+Unit=209-browser.service
+
+[Install]
+WantedBy=timers.target

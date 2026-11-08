@@ -1,0 +1,20 @@
+[Unit]
+Description=209 browser single-job consumer
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=browser209
+Group=browser209
+WorkingDirectory=/opt/209-browser/worker
+EnvironmentFile=/etc/209-browser/worker.env
+ExecStart=/opt/209-browser/run-once.sh
+UMask=0077
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/209-browser
+TimeoutStartSec=210
+TimeoutStopSec=20
+Restart=no

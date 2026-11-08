@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "deployed": false,
+  "primary": {
+    "mode": "cloud_linux_local_chromium",
+    "provider_candidate": "digital_ocean",
+    "authentication": "pending",
+    "server_id": null,
+    "remote_execution_connection": null,
+    "active": false
+  },
+  "fallback": {
+    "mode": "owner_controlled_linux_local_chromium",
+    "host_id": null,
+    "role": "standby",
+    "active": false
+  },
+  "automatic_promotion": false,
+  "cross_host_account_lease_implemented": false,
+  "credentials_or_cookies_in_file": false
+}
