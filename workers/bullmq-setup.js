@@ -1,123 +1,61 @@
-// Muse BullMQ worker setup — per-lane dispatch, shared verify/repair, flow-based lifecycle
-import { QueuePro, WorkerPro, FlowProducer } from '@taskforcesh/bullmq-pro';
-import IORedis from 'ioredis';
+import { QueuePro, WorkerPro } from '@taskforcesh/bullmq-pro';
 
-const connection = {
-  host: process.env.REDIS_HOST,
-  port: 6379,
-  maxRetriesPerRequest: null,
-  enableReadyCheck: true
-};
-
-const LANES = {
-  ig: 2, 'fb-profile': 2, 'fb-page': 2, tiktok: 1,
-  youtube: 2, linkedin: 1, threads: 4, bluesky: 4
-};
-
-// One queue per lane, grouped
-export const dispatchQueues = Object.fromEntries(
-  Object.keys(LANES).map(lane => [
-    lane,
-    new QueuePro(`dispatch-${lane}`, { connection })
-  ])
-);
-
-export const verifyQueue = new QueuePro('verify', { connection });
-export const repairQueue = new QueuePro('repair', { connection });
-export const lifecycleQueue = new QueuePro('lifecycle', { connection });
-export const loggingQueue = new QueuePro('logging', { connection });
-
-// Per-lane dispatch workers — isolated processes
+const LANES = { ig: 2, 'fb-profile': 2, 'fb-page': 2, tiktok: 1, youtube: 2, linkedin: 1, threads: 4, bluesky: 4 };
+let runtime;
+export function configurePublishingRuntime({ connection, adapters, store }) {
+  if (runtime) throw new Error('RUNTIME_ALREADY_CONFIGURED');
+  if (!connection || !adapters || typeof store?.dispatchOnce !== 'function' || typeof store?.recordVerified !== 'function' || typeof store?.recordUncertain !== 'function') throw new Error('EXPLICIT_CONNECTION_ADAPTERS_AND_DURABLE_STORE_REQUIRED');
+  runtime = { connection, adapters, store };
+}
+function adapterFor(lane) {
+  if (!runtime) throw new Error('RUNTIME_NOT_CONFIGURED');
+  const adapter = runtime.adapters[lane];
+  if (!Object.hasOwn(LANES, lane) || typeof adapter?.preflight !== 'function' || typeof adapter?.publish !== 'function' || typeof adapter?.verify !== 'function') throw new Error('LANE_ADAPTER_NOT_CONFIGURED:' + lane);
+  return adapter;
+}
+export const dispatchQueues = {};
 export function startDispatchWorkers() {
-  return Object.entries(LANES).map(([lane, groupConc]) =>
-    new WorkerPro(`dispatch-${lane}`, async job => {
-      // 1. pull staged candidate for this lane
-      // 2. publish via lane-specific adapter (API or browser)
-      // 3. return dispatch receipt (postId, timestamp)
-      return await publishToLane(lane, job.data);
-    }, {
-      connection,
-      concurrency: groupConc * 2,
-      group: { concurrency: groupConc },
-      stalledInterval: 30000,
-      maxStalledCount: 2
-    })
-  );
-}
-
-// Shared verify worker — confirms post actually landed
-export function startVerifyWorker() {
-  return new WorkerPro('verify', async job => {
-    const ok = await verifyPostLanded(job.data.lane, job.data.receipt);
-    if (!ok) throw new Error(`VERIFY_FAILED:${job.data.lane}:${job.data.postId}`);
-    return { verified: true, lane: job.data.lane };
-  }, { connection, concurrency: 8 });
-}
-
-// Repair worker — 2FA walls, browser recovery, retries
-export function startRepairWorker() {
-  return new WorkerPro('repair', async job => {
-    return await repairLane(job.data.lane, job.data.originalJobId);
-  }, {
-    connection,
-    concurrency: 2,
-    limiter: { max: 3, duration: 60000 }
+  if (!runtime) throw new Error('RUNTIME_NOT_CONFIGURED');
+  return Object.entries(LANES).filter(([lane]) => runtime.adapters[lane]).map(([lane, concurrency]) => {
+    adapterFor(lane);
+    dispatchQueues[lane] = new QueuePro('dispatch-' + lane, { connection: runtime.connection });
+    return new WorkerPro('dispatch-' + lane, async job => {
+      const adapter = adapterFor(lane);
+      const post = job.data.post;
+      if (!post?.id || !post.accountId || !post.idempotencyKey || post.authorization?.status !== 'approved' || !post.authorization.reference) throw new Error('APPROVED_JOB_AND_TARGET_REQUIRED');
+      const due = Date.parse(post.scheduledAt), expiry = Date.parse(post.expiresAt);
+      if (!Number.isFinite(due) || !Number.isFinite(expiry) || due > Date.now() || expiry <= Date.now() || expiry <= due) throw new Error('JOB_NOT_DUE_OR_EXPIRED');
+      await adapter.preflight(structuredClone(post));
+      if (Date.parse(post.expiresAt) <= Date.now()) throw new Error('JOB_EXPIRED_DURING_PREFLIGHT');
+      // Store must atomically claim the approved canonical job, persist submission intent,
+      // and never invoke send again for submitted, accepted, or uncertain jobs.
+      // It must validate the canonical account, payload, approval, schedule and expiry.
+      const receipt = await runtime.store.dispatchOnce({ lane, post: structuredClone(post), send: canonicalPost => adapter.publish(canonicalPost) });
+      if (!receipt?.postId || receipt.accountId !== post.accountId || receipt.platform !== post.platform) {
+        await runtime.store.recordUncertain({ lane, jobId: post.id, reason: 'Missing or mismatched receipt; reconcile before resend.' });
+        throw new Error('MATCHING_RECEIPT_REQUIRED');
+      }
+      let verification;
+      try { verification = await adapter.verify({ post: structuredClone(post), receipt }); }
+      catch {
+        await runtime.store.recordUncertain({ lane, jobId: post.id, receipt, reason: 'Verification failed; do not resend automatically.' });
+        throw new Error('VERIFICATION_UNCERTAIN');
+      }
+      if (verification?.verified !== true || verification.postId !== receipt.postId || verification.accountId !== post.accountId) {
+        await runtime.store.recordUncertain({ lane, jobId: post.id, receipt, reason: 'Public verification not established; do not resend automatically.' });
+        throw new Error('PUBLIC_VERIFICATION_REQUIRED');
+      }
+      await runtime.store.recordVerified({ lane, jobId: post.id, receipt, verification });
+      return { verified: true, receipt };
+    }, { connection: runtime.connection, concurrency, maxStalledCount: 0 });
   });
 }
-
-// Flow: dispatch → verify → log (parent waits for all)
 export async function enqueuePublish(lane, postData) {
-  const flowProducer = new FlowProducer({ connection });
-  return await flowProducer.add({
-    name: 'publish-post',
-    queueName: 'lifecycle',
-    data: { lane, postId: postData.id },
-    children: [
-      {
-        name: 'dispatch',
-        queueName: `dispatch-${lane}`,
-        data: { lane, post: postData },
-        opts: { group: { id: lane }, groupAffinity: true }
-      },
-      {
-        name: 'verify',
-        queueName: 'verify',
-        data: { lane, postId: postData.id },
-        opts: { failParentOnFailure: true }
-      },
-      {
-        name: 'log-result',
-        queueName: 'logging',
-        data: { lane, postId: postData.id },
-        opts: { continueParentOnFailure: true }
-      }
-    ]
-  });
+  adapterFor(lane);
+  if (!postData?.id || !postData.idempotencyKey) throw new Error('JOB_ID_AND_IDEMPOTENCY_KEY_REQUIRED');
+  const queue = dispatchQueues[lane] ||= new QueuePro('dispatch-' + lane, { connection: runtime.connection });
+  return queue.add('publish-verify-record', { lane, post: postData }, { attempts: 1 });
 }
-
-// On recoverable dispatch failure → repair branch, don't fail whole flow
-export function wireFailureHandling() {
-  Object.entries(dispatchQueues).forEach(([lane, queue]) => {
-    queue.on('failed', async (job, err) => {
-      if (isRecoverable(err)) {
-        await repairQueue.add('repair', {
-          lane,
-          originalJobId: job.id,
-          error: err.message
-        }, {
-          attempts: 3,
-          backoff: { type: 'exponential', delay: 60000 }
-        });
-      }
-    });
-  });
-}
-
-function isRecoverable(err) {
-  return /2FA|browser|timeout|navigation/i.test(err.message);
-}
-
-// Placeholder adapters — replace with Muse's real lane implementations
-async function publishToLane(lane, data) { /* lane-specific publish */ }
-async function verifyPostLanded(lane, receipt) { /* check post exists */ }
-async function repairLane(lane, jobId) { /* 2FA / browser recovery */ }
+export function startVerifyWorker() { throw new Error('VERIFICATION_RUNS_AFTER_DISPATCH_IN_SAME_JOB'); }
+export function startRepairWorker() { throw new Error('REPAIR_REQUIRES_EXPLICIT_RECONCILIATION_NO_AUTOMATIC_RESEND'); }
+export function wireFailureHandling() { throw new Error('AUTOMATIC_REPAIR_DISABLED_RECONCILE_UNCERTAIN_POSTS'); }
