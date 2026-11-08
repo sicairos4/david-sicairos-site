@@ -118,7 +118,7 @@ def main():
     now = datetime.now(timezone.utc).isoformat()
     receipt.update(state='drive_verified_backend_pending', drive_written_at_utc=now)
     record()
-    updated = http('PATCH', rest + 'operations_ledger', {**bh, 'Content-Type': 'application/json', 'Prefer': 'return=representation'}, params={'ledger_key': 'eq.' + config['ledger_key'], 'updated_at': 'eq.' + ledger[0]['updated_at']}, json={'last_drive_sync_at': now, 'updated_at': now}).json()
+    updated = http('PATCH', rest + 'operations_ledger', {**bh, 'Content-Type': 'application/json', 'Prefer': 'return=representation'}, params={'ledger_key': 'eq.' + config['ledger_key'], 'updated_at': 'eq.' + ledger[0]['updated_at'], 'select': 'ledger_key,last_drive_sync_at,updated_at'}, json={'last_drive_sync_at': now, 'updated_at': now}).json()
     if len(updated) != 1:
         raise Blocked('backend_changed_after_drive_write_reconcile')
     receipt['state'] = 'drive_and_backend_sync_verified'
