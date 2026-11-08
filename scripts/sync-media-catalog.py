@@ -1,4 +1,4 @@
-import base64, datetime as dt, html, json, os, re, tempfile, urllib.parse, urllib.request, xml.etree.ElementTree as ET
+import base64, datetime as dt, email.utils, html, json, os, re, tempfile, urllib.parse, urllib.request, xml.etree.ElementTree as ET
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 NOW=dt.datetime.now(dt.timezone.utc).isoformat()
@@ -7,6 +7,35 @@ try: old=json.loads(PATH.read_text())
 except FileNotFoundError: old={'items':[],'sources':{}}
 items={i['id']:i for i in old.get('items',[])}
 sources=dict(old.get('sources',{}))
+def normalize_date(raw):
+    result={'original':raw,'precision':'unknown','utc_iso':None,'utc_epoch':None,'timezone_assumed_utc':False}
+    if raw is None or raw=='':
+        result['precision']='none'; return result
+    if not isinstance(raw,str): return result
+    value=raw.strip()
+    if not value:
+        result['precision']='none'; return result
+    try:
+        assumed=False
+        if re.fullmatch(r'\d{4}',value):
+            parsed=dt.datetime(int(value),1,1,tzinfo=dt.timezone.utc); precision='year'; assumed=True
+        elif re.fullmatch(r'\d{4}-\d{2}',value):
+            year,month=map(int,value.split('-')); parsed=dt.datetime(year,month,1,tzinfo=dt.timezone.utc); precision='month'; assumed=True
+        elif re.fullmatch(r'\d{4}-\d{2}-\d{2}',value):
+            parsed=dt.datetime.strptime(value,'%Y-%m-%d').replace(tzinfo=dt.timezone.utc); precision='date'; assumed=True
+        else:
+            try:
+                parsed=dt.datetime.fromisoformat(value[:-1]+'+00:00' if value.endswith('Z') else value)
+                precision='fractional_second' if re.search(r'[T ]\d{2}:\d{2}:\d{2}[.,]\d+',value) else ('second' if re.search(r'[T ]\d{2}:\d{2}:\d{2}',value) else 'minute')
+            except ValueError:
+                parsed=email.utils.parsedate_to_datetime(value); precision='second'
+            if parsed.tzinfo is None:
+                parsed=parsed.replace(tzinfo=dt.timezone.utc); assumed=True
+        parsed=parsed.astimezone(dt.timezone.utc)
+        result.update(precision=precision,utc_iso=parsed.isoformat(),utc_epoch=int(parsed.timestamp()),timezone_assumed_utc=assumed)
+    except (ValueError,TypeError,OverflowError,OSError): pass
+    return result
+
 def read(url,headers=None,data=None):
     if urllib.parse.urlparse(url).scheme!='https': raise ValueError('https_required')
     req=urllib.request.Request(url,data=data,headers={'User-Agent':'209-Catalog/1.0',**(headers or {})})
@@ -78,7 +107,11 @@ def spotify():
     else: raise RuntimeError('pagination_limit')
     return rows,{'coverage':'public_show_episodes_US_market','owner_reported_uploads':8,'discrepancy':len(rows)!=8}
 for name,fn in [('youtube',youtube),('beehiiv',beehiiv),('spotify',spotify)]: collect(name,fn)
-ordered=sorted(items.values(),key=lambda i:i.get('published_at') or '',reverse=True)
+for item in items.values(): item['published_date']=normalize_date(item.get('published_at'))
+def date_key(item):
+    epoch=item['published_date']['utc_epoch']
+    return (epoch is not None,epoch if epoch is not None else 0,item['id'])
+ordered=sorted(items.values(),key=date_key,reverse=True)
 save(PATH,{'version':1,'generated_at':NOW,'items':ordered,'sources':sources})
 briefs=[{'source_id':i['id'],'source_url':i['url'],'title':i['title'],'state':'draft_requires_review','instruction':'Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval.'} for i in ordered[:40]]
 save(ROOT/'data/media-draft-briefs.json',{'generated_at':NOW,'publishing_enabled':False,'briefs':briefs})
