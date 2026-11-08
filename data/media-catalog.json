@@ -1,1 +1,283 @@
-{"version":1,"generated_at":null,"items":[],"sources":{"youtube":{"status":"not_collected","last_success_at":null},"beehiiv":{"status":"not_collected","last_success_at":null},"spotify":{"status":"not_collected","last_success_at":null,"owner_reported_uploads":8}}}
+{
+  "version": 1,
+  "generated_at": "2026-11-08T19:54:46.400214+00:00",
+  "items": [
+    {
+      "id": "youtube:7Zib2HUSbm4",
+      "platform": "youtube",
+      "title": "124.3 million ballots — the second-highest midterm turnout in more than a century. #centralvalley",
+      "published_at": "2026-11-07T20:38:25+00:00",
+      "url": "https://www.youtube.com/watch?v=7Zib2HUSbm4",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-07T20:38:25+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-07T20:38:25+00:00",
+        "utc_epoch": 1794083905,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:5oP_L4XyAp8",
+      "platform": "youtube",
+      "title": "WATERGATE 2.0: Midterm wave bigger than when Watergate Dems won both house and Senate in what year??",
+      "published_at": "2026-11-07T16:09:26+00:00",
+      "url": "https://www.youtube.com/watch?v=5oP_L4XyAp8",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-07T16:09:26+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-07T16:09:26+00:00",
+        "utc_epoch": 1794067766,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:pyeyY157_Z8",
+      "platform": "youtube",
+      "title": "Razor-thin 50.96% to 49.04% split. Boyenga took Atwater, McSwain in early mail. # #mercedcounty #usa",
+      "published_at": "2026-11-04T13:36:19+00:00",
+      "url": "https://www.youtube.com/watch?v=pyeyY157_Z8",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-04T13:36:19+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-04T13:36:19+00:00",
+        "utc_epoch": 1793799379,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Zk9jneNuWQw",
+      "platform": "youtube",
+      "title": "🏃 LATE RUN Pushed the jog a little later today and stepped right into that crisp chill.",
+      "published_at": "2026-11-03T16:22:43+00:00",
+      "url": "https://www.youtube.com/watch?v=Zk9jneNuWQw",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-03T16:22:43+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-03T16:22:43+00:00",
+        "utc_epoch": 1793722963,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:W_3vVO9cG7k",
+      "platform": "youtube",
+      "title": "A Truth Social post is not a law",
+      "published_at": "2026-10-22T08:29:49+00:00",
+      "url": "https://www.youtube.com/watch?v=W_3vVO9cG7k",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-22T08:29:49+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-22T08:29:49+00:00",
+        "utc_epoch": 1792657789,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:O-a-0ZVfuTk",
+      "platform": "youtube",
+      "title": "The Threat, Then the Firing: Sept 11 to Sept 18, 2025",
+      "published_at": "2026-10-20T04:14:46+00:00",
+      "url": "https://www.youtube.com/watch?v=O-a-0ZVfuTk",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-20T04:14:46+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-20T04:14:46+00:00",
+        "utc_epoch": 1792469686,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:HI5CKw42dko",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: No Tenure, No Protection - A Systems Read",
+      "published_at": "2026-10-19T20:02:58+00:00",
+      "url": "https://www.youtube.com/watch?v=HI5CKw42dko",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-19T20:02:58+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-19T20:02:58+00:00",
+        "utc_epoch": 1792440178,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:I8KEkDe9gAA",
+      "platform": "youtube",
+      "title": "ICE at Airports Monday: The Funding Fight Behind the Announcement",
+      "published_at": "2026-10-19T09:18:40+00:00",
+      "url": "https://www.youtube.com/watch?v=I8KEkDe9gAA",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-19T09:18:40+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-19T09:18:40+00:00",
+        "utc_epoch": 1792401520,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:8JTX4WtJhrU",
+      "platform": "youtube",
+      "title": "The Stadium Receipt: What $10.1M at El Capitan Says About District Priorities",
+      "published_at": "2026-10-19T05:20:14+00:00",
+      "url": "https://www.youtube.com/watch?v=8JTX4WtJhrU",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-19T05:20:14+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-19T05:20:14+00:00",
+        "utc_epoch": 1792387214,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:-l3Wuh2p5Cw",
+      "platform": "youtube",
+      "title": "The 209 Signal — Oct 18: 16 days out; the flips, the firing and the machine we are building.",
+      "published_at": "2026-10-18T22:33:29+00:00",
+      "url": "https://www.youtube.com/watch?v=-l3Wuh2p5Cw",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-18T22:33:29+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-18T22:33:29+00:00",
+        "utc_epoch": 1792362809,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Jw3PjNLRZwk",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Order Is a File",
+      "published_at": "2026-10-18T21:02:44+00:00",
+      "url": "https://www.youtube.com/watch?v=Jw3PjNLRZwk",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-18T21:02:44+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-18T21:02:44+00:00",
+        "utc_epoch": 1792357364,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:eXZSPgBnUyA",
+      "platform": "youtube",
+      "title": "The Map Is Infrastructure: How 300K Signatures Beat a Backroom Gerrymander",
+      "published_at": "2026-10-18T19:30:20+00:00",
+      "url": "https://www.youtube.com/watch?v=eXZSPgBnUyA",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-18T19:30:20+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-18T19:30:20+00:00",
+        "utc_epoch": 1792351820,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:wcKeBpMAyos",
+      "platform": "youtube",
+      "title": "A Sanctuary Law Is Only As Strong As Its Warrant | Salem, Oregon ICE Detentions",
+      "published_at": "2026-10-18T14:08:10+00:00",
+      "url": "https://www.youtube.com/watch?v=wcKeBpMAyos",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-18T14:08:10+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-18T14:08:10+00:00",
+        "utc_epoch": 1792332490,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:r0mGkJYqIsE",
+      "platform": "youtube",
+      "title": "Her #1 Promise Is 3rd Grade Reading. Her District's 3rd Grade Reading Collapsed.",
+      "published_at": "2026-10-18T02:44:09+00:00",
+      "url": "https://www.youtube.com/watch?v=r0mGkJYqIsE",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-18T02:44:09+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-18T02:44:09+00:00",
+        "utc_epoch": 1792291449,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:K2ETNGtwaAQ",
+      "platform": "youtube",
+      "title": "Audit the Number, Not the Headline: 131 Arrests and the Paper That Has Not Landed",
+      "published_at": "2026-10-17T23:01:19+00:00",
+      "url": "https://www.youtube.com/watch?v=K2ETNGtwaAQ",
+      "description": "",
+      "observed_at": "2026-11-08T19:54:46.400214+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-10-17T23:01:19+00:00",
+        "precision": "second",
+        "utc_iso": "2026-10-17T23:01:19+00:00",
+        "utc_epoch": 1792278079,
+        "timezone_assumed_utc": false
+      }
+    }
+  ],
+  "sources": {
+    "youtube": {
+      "status": "ok",
+      "last_attempt_at": "2026-11-08T19:54:46.400214+00:00",
+      "last_success_at": "2026-11-08T19:54:46.400214+00:00",
+      "returned_count": 15,
+      "coverage": "recent_feed_window_not_full_archive"
+    },
+    "beehiiv": {
+      "status": "blocked",
+      "last_success_at": null,
+      "last_attempt_at": "2026-11-08T19:54:46.400214+00:00",
+      "error_type": "RuntimeError"
+    },
+    "spotify": {
+      "status": "blocked",
+      "last_success_at": null,
+      "owner_reported_uploads": 8,
+      "last_attempt_at": "2026-11-08T19:54:46.400214+00:00",
+      "error_type": "RuntimeError"
+    }
+  }
+}
