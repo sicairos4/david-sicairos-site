@@ -1,0 +1,58 @@
+name: Refresh public media catalog
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '37 * * * *'
+  repository_dispatch:
+    types: [media-catalog-refresh]
+permissions:
+  contents: read
+concurrency:
+  group: media-catalog-sync
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Collect public sources; preserve old records on source failure
+        id: collect
+        continue-on-error: true
+        env:
+          SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
+          SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+          BEEHIIV_PUBLIC_RSS_URL: ${{ vars.BEEHIIV_PUBLIC_RSS_URL }}
+        run: python scripts/sync-media-catalog.py
+      - name: Commit catalog status and request existing main/root Pages build
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          git config user.name '209 catalog automation'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/media-catalog.json data/media-draft-briefs.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh public media catalog and source health'
+            git push origin HEAD:main
+            pages=$(gh api "repos/$REPOSITORY/pages")
+            if [[ $(jq -r '.build_type // "legacy"' <<< "$pages") != legacy || $(jq -r '.source.branch // empty' <<< "$pages") != main || $(jq -r '.source.path // empty' <<< "$pages") != / ]]; then
+              echo '::error::Existing Pages configuration differs; no Pages settings were changed.'
+              exit 1
+            fi
+            gh api --method POST "repos/$REPOSITORY/pages/builds" --jq '{status,url}'
+          fi
+      - name: Report partial collection failure
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo 'Some sources failed. Read data/media-catalog.json; retained items are not fresh observations.' >> "$GITHUB_STEP_SUMMARY"
+          exit 1
