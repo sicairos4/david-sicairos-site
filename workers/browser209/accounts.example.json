@@ -1,0 +1,18 @@
+{
+  "facebook_209connect": {
+    "enabled": false,
+    "allowed_hosts": ["www.facebook.com", "facebook.com"],
+    "resource_hosts": ["www.facebook.com", "facebook.com", "static.xx.fbcdn.net", "scontent.xx.fbcdn.net"],
+    "start_url": "https://www.facebook.com/",
+    "identity_selector": "REPLACE_WITH_ACCOUNT_IDENTITY_LOCATOR",
+    "identity_text": "209Connect California"
+  },
+  "facebook_personal": {
+    "enabled": false,
+    "allowed_hosts": ["www.facebook.com", "facebook.com"],
+    "resource_hosts": ["www.facebook.com", "facebook.com", "static.xx.fbcdn.net", "scontent.xx.fbcdn.net"],
+    "start_url": "https://www.facebook.com/",
+    "identity_selector": "REPLACE_WITH_ACCOUNT_IDENTITY_LOCATOR",
+    "identity_text": "REPLACE_WITH_VISIBLE_IDENTITY"
+  }
+}

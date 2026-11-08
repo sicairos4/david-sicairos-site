@@ -1,0 +1,6 @@
+.env
+accounts.json
+.venv/
+__pycache__/
+state/
+*.sqlite*
