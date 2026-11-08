@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "coordination_id": "209-20261108-0542-PST",
+  "supabase_url": "https://uwidjnnhdgtrpsymuhwp.supabase.co",
+  "schema": "publishing_209",
+  "ledger_key": "shared-operations-v1",
+  "drive_file_id": "1iMFPJ_iN2Lc6SqfSp9DtqqP86984ESYE",
+  "expected_owner": "sicairos4@gmail.com",
+  "backend_role": "operations_sync",
+  "default_mode": "stage",
+  "schedule_enabled": false,
+  "required_runner_secrets": ["OPS_LEDGER_API_KEY", "OPS_LEDGER_BEARER", "GDRIVE_LEDGER_OAUTH_JSON"],
+  "required_apply_variable": "OPS_DRIVE_CONDITIONAL_WRITE_PROOF",
+  "prerequisites": ["Provision dedicated operations_sync role with required RLS policies and minimal SELECT plus last_drive_sync_at/updated_at UPDATE grants; not provisioned by this commit", "Authorize owner Google OAuth independently; chat credentials do not transfer", "Verify actual HTTP If-Match enforcement and record approval before apply", "Check for another updater before future schedule activation"],
+  "status": "source_configuration_only_not_installed_or_run"
+}
