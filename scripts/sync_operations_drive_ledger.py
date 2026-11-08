@@ -78,14 +78,14 @@ def main():
     if start in text and text.index(start) > text.index(end):
         raise Blocked('managed_markers_reversed')
     def clean(value):
-        result = str(value if value is not None else 'unknown').replace('\\n', ' ').replace('\\r', ' ').replace('|', '/')
-        if len(result) > 500 or re.search(r'Bearer\\s|eyJ[A-Za-z0-9_-]{16}|(?i:password|secret|access_token)\\s*[:=]|[?&](?:token|key|code)=', result):
+        result = str(value if value is not None else 'unknown').replace('\n', ' ').replace('\r', ' ').replace('|', '/')
+        if len(result) > 500 or re.search(r'Bearer\s|eyJ[A-Za-z0-9_-]{16}|(?i:password|secret|access_token)\s*[:=]|[?&](?:token|key|code)=', result):
             raise Blocked('unsafe_export_field')
         return result
     lines = [start, '## Backend managed backlog', 'Coordination: ' + config['coordination_id'], '| Task | Priority | Title | Owner | State | Updated UTC |', '|---|---|---|---|---|---|']
     lines += ['| ' + ' | '.join(clean(row.get(field)) for field in fields) + ' |' for row in rows]
-    block = '\\n'.join(lines + [end])
-    rendered = text.split(start)[0] + block + text.split(end)[1] if start in text else text.rstrip() + '\\n\\n' + block + '\\n'
+    block = '\n'.join(lines + [end])
+    rendered = text.split(start)[0] + block + text.split(end)[1] if start in text else text.rstrip() + '\n\n' + block + '\n'
     body = rendered.encode()
     receipt = {'file_id': config['drive_file_id'], 'coordination_id': config['coordination_id'], 'mode': mode, 'rows': len(rows), 'before_sha256': hashlib.sha256(before).hexdigest(), 'proposed_sha256': hashlib.sha256(body).hexdigest(), 'state': 'staged_only', 'external_write': False}
     save('original.txt', before)
