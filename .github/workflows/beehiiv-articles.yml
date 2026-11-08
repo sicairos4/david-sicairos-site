@@ -17,7 +17,7 @@ concurrency:
 jobs:
   import:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,16 +30,56 @@ jobs:
         env:
           BEEHIIV_API_KEY: ${{ secrets.BEEHIIV_API_KEY }}
           BEEHIIV_PUBLICATION_ID: pub_16f23338-bd23-443e-9a22-fad5e136629b
-      - name: Commit archive and request existing Pages rebuild
+      - name: Validate archive and report thumbnail coverage
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq -e '.articles | length > 0' data/newsletters.json >/dev/null
+          jq -e 'all(.articles[]; (.html | type == "string" and length > 0) and (.slug | type == "string" and length > 0))' data/newsletters.json >/dev/null
+          count=$(jq '.articles | length' data/newsletters.json)
+          images=$(jq '[.articles[] | select((.thumbnail // "") | length > 0)] | length' data/newsletters.json)
+          printf '### Public article import\n\nArticles: %s\n\nWith source thumbnails: %s\n\nMissing source thumbnails are not replaced with invented images.\n' "$count" "$images" >> "$GITHUB_STEP_SUMMARY"
+      - name: Commit archive and verify existing Pages build
         env:
           GH_TOKEN: ${{ github.token }}
+        shell: bash
         run: |
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add data/newsletters.json
-          if git diff --cached --quiet; then exit 0; fi
-          git commit -m 'Refresh public Signal editions'
-          git pull --rebase origin main
-          git push origin HEAD:main
-          gh api --method POST repos/${{ github.repository }}/pages/builds
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh public Signal editions'
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+          pages=$(gh api "repos/${{ github.repository }}/pages")
+          jq -e '.source.branch == "main" and .source.path == "/" and ((.build_type // "legacy") == "legacy")' <<< "$pages" >/dev/null
+          revision=$(git rev-parse HEAD)
+          gh api --method POST "repos/${{ github.repository }}/pages/builds" > "$RUNNER_TEMP/signal-build.json"
+          printf '\nRequested build revision: `%s`\n' "$revision" >> "$GITHUB_STEP_SUMMARY"
+          built=false
+          for attempt in $(seq 1 48); do
+            sleep 10
+            latest=$(gh api "repos/${{ github.repository }}/pages/builds/latest")
+            if [[ $(jq -r '.commit' <<< "$latest") != "$revision" ]]; then continue; fi
+            status=$(jq -r '.status' <<< "$latest")
+            if [[ "$status" == errored ]]; then echo '::error::Pages build errored'; exit 1; fi
+            if [[ "$status" == built ]]; then built=true; break; fi
+          done
+          if [[ "$built" != true ]]; then echo '::error::Exact revision build not verified; reconcile before retry'; exit 1; fi
+          echo 'Exact revision Pages build verified.' >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify deployed archive and public route responses
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://209connect.com'
+          curl --fail --silent --show-error --location --max-time 45 "$base/data/newsletters.json?verify=$GITHUB_RUN_ID" -o "$RUNNER_TEMP/live-newsletters.json"
+          diff <(jq -S . data/newsletters.json) <(jq -S . "$RUNNER_TEMP/live-newsletters.json")
+          echo 'Live article archive matches imported content.' >> "$GITHUB_STEP_SUMMARY"
+          for path in signal.html signal-archive.html signal-subscribe.html newsletter.html social.html public-files.html library.html multimedia/ login.html members/guest.html support.html privacy.html store.html; do
+            code=$(curl --silent --show-error --location --max-time 30 --output /dev/null --write-out '%{http_code}' "$base/$path")
+            printf '\nRoute `%s`: HTTP %s\n' "$path" "$code" >> "$GITHUB_STEP_SUMMARY"
+            if [[ "$code" != 200 ]]; then echo "::error::Route failed: $path ($code)"; exit 1; fi
+          done
+          echo 'HTTP/data verification only. Interactive menus, search, image loading, authentication, signup, payment and account persistence are not browser-verified by this workflow.' >> "$GITHUB_STEP_SUMMARY"
