@@ -5,6 +5,7 @@ on:
     paths:
       - '.github/workflows/beehiiv-articles.yml'
       - 'scripts/import-beehiiv.py'
+      - 'docs/newsletter-archive.md'
   schedule:
     - cron: '17 * * * *'
   workflow_dispatch:
