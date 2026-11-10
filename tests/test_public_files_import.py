@@ -16,8 +16,21 @@ class Validation(unittest.TestCase):
   d=copy.deepcopy(BASE);d['documents']*=2
   with self.assertRaises(ValueError):m.validate(d)
  def test_draft_only(self):
-  d=copy.deepcopy(BASE);d['documents'][0].update(review_status='published',redaction_reviewed=True)
-  row=m.validate(d)[0];self.assertEqual(row['review_status'],'draft');self.assertFalse(row['redaction_reviewed'])
+  for explicit in (False,True):
+   with self.subTest(explicit=explicit):
+    d=copy.deepcopy(BASE)
+    if explicit:d['documents'][0].update(review_status='draft',redaction_reviewed=False)
+    row=m.validate(d)[0];self.assertEqual(row['review_status'],'draft');self.assertIs(row['redaction_reviewed'],False)
+ def test_intake_rejects_release_authorization(self):
+  for fields in ({'review_status':'published'},{'redaction_reviewed':True},{'review_status':'published','redaction_reviewed':True}):
+   with self.subTest(fields=fields):
+    d=copy.deepcopy(BASE);d['documents'][0].update(fields)
+    with self.assertRaisesRegex(ValueError,'Intake cannot authorize review or release'):m.validate(d)
+ def test_intake_rejects_non_boolean_redaction_flags(self):
+  for value in (0,1,None,'false','true'):
+   with self.subTest(value=value):
+    d=copy.deepcopy(BASE);d['documents'][0]['redaction_reviewed']=value
+    with self.assertRaisesRegex(ValueError,'Intake cannot authorize review or release'):m.validate(d)
  def test_private_extras(self):
   d=copy.deepcopy(BASE);d['documents'][0]['gmail_message_id']='private'
   self.assertNotIn('gmail_message_id',m.validate(d)[0])
