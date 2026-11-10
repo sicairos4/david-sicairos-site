@@ -32,6 +32,10 @@ jobs:
           SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
           BEEHIIV_PUBLIC_RSS_URL: ${{ vars.BEEHIIV_PUBLIC_RSS_URL }}
         run: python scripts/sync-media-catalog.py
+      - name: Reuse existing public newsletter archive without masking live source failures
+        id: archive
+        continue-on-error: true
+        run: python scripts/merge-newsletter-catalog.py
       - name: Commit catalog status and request existing main/root Pages build
         env:
           GH_TOKEN: ${{ github.token }}
@@ -51,8 +55,8 @@ jobs:
             fi
             gh api --method POST "repos/$REPOSITORY/pages/builds" --jq '{status,url}'
           fi
-      - name: Report partial collection failure
-        if: steps.collect.outcome == 'failure'
+      - name: Report partial collection or archive merge failure
+        if: steps.collect.outcome == 'failure' || steps.archive.outcome == 'failure'
         run: |
-          echo 'Some sources failed. Read data/media-catalog.json; retained items are not fresh observations.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Some live sources or the archive merge failed. Read data/media-catalog.json; cached archive timestamps do not establish a fresh source observation.' >> "$GITHUB_STEP_SUMMARY"
           exit 1
