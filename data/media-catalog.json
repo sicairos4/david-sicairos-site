@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-09T17:45:47.332910+00:00",
+  "generated_at": "2026-11-10T01:44:29.540037+00:00",
   "items": [
     {
       "id": "youtube:7Zib2HUSbm4",
@@ -260,23 +260,24 @@
   ],
   "sources": {
     "youtube": {
-      "status": "ok",
-      "last_attempt_at": "2026-11-09T17:45:47.332910+00:00",
+      "status": "error",
+      "last_attempt_at": "2026-11-10T01:44:29.540037+00:00",
       "last_success_at": "2026-11-09T17:45:47.332910+00:00",
       "returned_count": 15,
-      "coverage": "recent_feed_window_not_full_archive"
+      "coverage": "recent_feed_window_not_full_archive",
+      "error_type": "HTTPError"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-09T17:45:47.332910+00:00",
+      "last_attempt_at": "2026-11-10T01:44:29.540037+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-09T17:45:47.332910+00:00",
+      "last_attempt_at": "2026-11-10T01:44:29.540037+00:00",
       "error_type": "RuntimeError"
     }
   }
