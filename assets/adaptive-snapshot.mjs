@@ -4,6 +4,7 @@ const object=x=>x!==null&&typeof x==='object'&&!Array.isArray(x);
 const text=x=>typeof x==='string'&&x.trim().length>0;
 const iso=x=>typeof x==='string'&&/(Z|[+-]\d{2}:\d{2})$/.test(x)&&Number.isFinite(Date.parse(x));
 const count=x=>Number.isSafeInteger(x)&&x>=0;
+const expiryCleanups=new WeakMap();
 export function project(s,now=Date.now()){
  const empty=state=>({state,candidates:[]});
  if(s==null)return empty('missing');
@@ -25,6 +26,10 @@ export function project(s,now=Date.now()){
  return {state:'fresh',collectedAt:s.collected_at,expiresAt:s.expires_at,evidenceId:s.evidence_id,candidates:rows.map(r=>({path:r.path,sessions:r.sessions,lift:r.engagement_lift_pct}))};
 }
 export function render(target,model){
+ const previous=expiryCleanups.get(target);if(previous)previous();
+ const deadline=model.state==='fresh'?Date.parse(model.expiresAt):NaN;
+ if(model.state==='fresh'&&!Number.isFinite(deadline))model={state:'invalid',candidates:[]};
+ else if(model.state==='fresh'&&Date.now()>=deadline)model={state:'stale',candidates:[]};
  const d=target.ownerDocument,f=d.createDocumentFragment();
  const add=(tag,value)=>{const e=d.createElement(tag);e.textContent=value;f.append(e);};
  const labels={fresh:'Current adaptive review snapshot.',missing:'No adaptive snapshot is stored.',stale:'Snapshot expired; candidates withheld.',invalid:'Unsupported or inconsistent snapshot.',unavailable:'Snapshot unavailable; no healthy or empty state inferred.'};
@@ -36,4 +41,14 @@ export function render(target,model){
  }
  add('p','Review only. No recommendations executed; social publication is not established by this snapshot.');
  target.replaceChildren(f);
+ if(model.state==='fresh'){
+  const view=d.defaultView;let timer;
+  const release=()=>{clearTimeout(timer);d.removeEventListener('visibilitychange',refresh);if(view)view.removeEventListener('pageshow',refresh);expiryCleanups.delete(target);};
+  const refresh=()=>{
+   if(target.isConnected===false){release();return;}
+   if(Date.now()>=deadline){render(target,{state:'stale',candidates:[]});return;}
+   clearTimeout(timer);timer=setTimeout(refresh,Math.min(deadline-Date.now()+1,2147483647));
+  };
+  expiryCleanups.set(target,release);d.addEventListener('visibilitychange',refresh);if(view)view.addEventListener('pageshow',refresh);refresh();
+ }
 }
