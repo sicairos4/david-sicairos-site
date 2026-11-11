@@ -1,0 +1,13 @@
+{
+  "request_id": "production-20261111T1340Z",
+  "requested_at": "2026-11-11T13:40:00Z",
+  "environment": "production",
+  "repository": "sicairos4/david-sicairos-site",
+  "branch": "main",
+  "observed_source_revision": "6c413b72edcdb4d6dac6a125da5f09f660e5e568",
+  "workflow": ".github/workflows/deploy-pages-main.yml",
+  "trigger": "main_branch_push",
+  "purpose": "Rebuild the existing GitHub Pages site with the committed adaptive dashboard connection.",
+  "status": "requested_not_confirmed",
+  "scope": "No application code, DNS, Pages configuration, database, publishing activation, or analytics activation changes. Existing push-triggered workflows may run."
+}
