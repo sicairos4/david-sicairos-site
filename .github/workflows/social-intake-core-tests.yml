@@ -1,0 +1,36 @@
+name: Social intake controller regression
+on:
+  pull_request:
+    paths:
+      - 'members/app.html'
+      - 'assets/workstation/social-intake-*.js'
+      - 'assets/workstation/member-publishing-status.js'
+      - 'tests/social-intake-core.test.cjs'
+      - 'tests/member-publishing-status.test.cjs'
+      - 'tests/social-intake-panel.smoke.cjs'
+      - '.github/workflows/social-intake-core-tests.yml'
+  push:
+    branches: ['repair/desk-review-only-20261111']
+    paths:
+      - 'members/app.html'
+      - 'assets/workstation/social-intake-*.js'
+      - 'assets/workstation/member-publishing-status.js'
+      - 'tests/social-intake-core.test.cjs'
+      - 'tests/member-publishing-status.test.cjs'
+      - 'tests/social-intake-panel.smoke.cjs'
+      - '.github/workflows/social-intake-core-tests.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check assets/workstation/social-intake-panel.js
+      - run: node --test tests/social-intake-core.test.cjs tests/member-publishing-status.test.cjs
+      - run: node tests/social-intake-panel.smoke.cjs assets/workstation/social-intake-panel.js
