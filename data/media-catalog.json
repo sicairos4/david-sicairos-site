@@ -1,7 +1,160 @@
 {
   "version": 1,
-  "generated_at": "2026-11-12T11:45:09.746559+00:00",
+  "generated_at": "2026-11-12T20:21:56.147198+00:00",
   "items": [
+    {
+      "id": "youtube:w4cCr7gUCRk",
+      "platform": "youtube",
+      "title": "The $75 Billion Trade: Jeffries Draws the Line on ICE Funding",
+      "published_at": "2026-11-12T20:19:23+00:00",
+      "url": "https://www.youtube.com/watch?v=w4cCr7gUCRk",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T20:19:23+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T20:19:23+00:00",
+        "utc_epoch": 1794514763,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:L3OVp3dYL3g",
+      "platform": "youtube",
+      "title": "The water isn't coming back.",
+      "published_at": "2026-11-12T17:17:56+00:00",
+      "url": "https://www.youtube.com/watch?v=L3OVp3dYL3g",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T17:17:56+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T17:17:56+00:00",
+        "utc_epoch": 1794503876,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Jp9-clWszc8",
+      "platform": "youtube",
+      "title": "Newsom announces $1.3B for cleaner transit; Merced County to expand zero-emission microtransit",
+      "published_at": "2026-11-12T15:44:01+00:00",
+      "url": "https://www.youtube.com/watch?v=Jp9-clWszc8",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T15:44:01+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T15:44:01+00:00",
+        "utc_epoch": 1794498241,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:KDKsxDnhitM",
+      "platform": "youtube",
+      "title": "New ICE detention facility opens in Appleton, Minnesota: 1,600 beds, $495.6 million",
+      "published_at": "2026-11-12T15:10:15+00:00",
+      "url": "https://www.youtube.com/watch?v=KDKsxDnhitM",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T15:10:15+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T15:10:15+00:00",
+        "utc_epoch": 1794496215,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:uS_xGsgW0Ck",
+      "platform": "youtube",
+      "title": "LAUSD locks in $100M a year for Black Student Achievement Plan",
+      "published_at": "2026-11-12T14:50:09+00:00",
+      "url": "https://www.youtube.com/watch?v=uS_xGsgW0Ck",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T14:50:09+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T14:50:09+00:00",
+        "utc_epoch": 1794495009,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:O5oGTEB-7NA",
+      "platform": "youtube",
+      "title": "Valedictorian detained at ICE check-in with her mother, held in Louisiana",
+      "published_at": "2026-11-12T14:22:57+00:00",
+      "url": "https://www.youtube.com/watch?v=O5oGTEB-7NA",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T14:22:57+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T14:22:57+00:00",
+        "utc_epoch": 1794493377,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:voQK831zN3E",
+      "platform": "youtube",
+      "title": "California kills the billionaire tax and locks the door with Prop 42",
+      "published_at": "2026-11-12T13:49:28+00:00",
+      "url": "https://www.youtube.com/watch?v=voQK831zN3E",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T13:49:28+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T13:49:28+00:00",
+        "utc_epoch": 1794491368,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:_A81lVzw_zk",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: I Backed Lopez",
+      "published_at": "2026-11-12T12:29:10+00:00",
+      "url": "https://www.youtube.com/watch?v=_A81lVzw_zk",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T12:29:10+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T12:29:10+00:00",
+        "utc_epoch": 1794486550,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:_MySA5bv2vA",
+      "platform": "youtube",
+      "title": "715 Votes Decide Who Runs Merced County Schools.",
+      "published_at": "2026-11-12T12:11:55+00:00",
+      "url": "https://www.youtube.com/watch?v=_MySA5bv2vA",
+      "description": "",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-12T12:11:55+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-12T12:11:55+00:00",
+        "utc_epoch": 1794485515,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:0Sr0jFgUY5U",
       "platform": "youtube",
@@ -9,7 +162,7 @@
       "published_at": "2026-11-12T10:26:59+00:00",
       "url": "https://www.youtube.com/watch?v=0Sr0jFgUY5U",
       "description": "",
-      "observed_at": "2026-11-12T11:45:09.746559+00:00",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-12T10:26:59+00:00",
@@ -26,7 +179,7 @@
       "published_at": "2026-11-12T10:19:17+00:00",
       "url": "https://www.youtube.com/watch?v=mAnuR_CVFDQ",
       "description": "",
-      "observed_at": "2026-11-12T11:45:09.746559+00:00",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-12T10:19:17+00:00",
@@ -43,7 +196,7 @@
       "published_at": "2026-11-12T10:15:50+00:00",
       "url": "https://www.youtube.com/watch?v=LDBDzrX6GP0",
       "description": "",
-      "observed_at": "2026-11-12T11:45:09.746559+00:00",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-12T10:15:50+00:00",
@@ -60,7 +213,7 @@
       "published_at": "2026-11-11T21:41:48+00:00",
       "url": "https://www.youtube.com/watch?v=_B_0icG7BQM",
       "description": "",
-      "observed_at": "2026-11-12T11:45:09.746559+00:00",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-11T21:41:48+00:00",
@@ -77,7 +230,7 @@
       "published_at": "2026-11-07T20:38:25+00:00",
       "url": "https://www.youtube.com/watch?v=7Zib2HUSbm4",
       "description": "",
-      "observed_at": "2026-11-12T11:45:09.746559+00:00",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-07T20:38:25+00:00",
@@ -94,7 +247,7 @@
       "published_at": "2026-11-07T16:09:26+00:00",
       "url": "https://www.youtube.com/watch?v=5oP_L4XyAp8",
       "description": "",
-      "observed_at": "2026-11-12T11:45:09.746559+00:00",
+      "observed_at": "2026-11-12T20:21:56.147198+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-07T16:09:26+00:00",
@@ -329,22 +482,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-12T11:45:09.746559+00:00",
-      "last_success_at": "2026-11-12T11:45:09.746559+00:00",
+      "last_attempt_at": "2026-11-12T20:21:56.147198+00:00",
+      "last_success_at": "2026-11-12T20:21:56.147198+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-12T11:45:09.746559+00:00",
+      "last_attempt_at": "2026-11-12T20:21:56.147198+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-12T11:45:09.746559+00:00",
+      "last_attempt_at": "2026-11-12T20:21:56.147198+00:00",
       "error_type": "RuntimeError"
     }
   }
