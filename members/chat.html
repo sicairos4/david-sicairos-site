@@ -32,7 +32,7 @@ load();setInterval(load,5000);
 });
 async function load(){
 const rows=await(await fetch('https://uwidjnnhdgtrpsymuhwp.supabase.co/rest/v1/community_messages?select=*&order=created_at.asc&limit=50',{headers:{apikey:'sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN',Authorization:'Bearer sb_publishable_4p80QT7444VeKUlp4ncNvg_OFa9ptaN'}})).json();
-document.getElementById('messages').innerHTML=rows.length?rows.map(m=>'<div class="msg"><img src="'+(m.avatar_url||'')+'" onerror="this.style.display=\'none\'"><div><strong>'+(m.display_name||m.email)+'</strong><div class="muted">'+new Date(m.created_at).toLocaleTimeString()+'</div><div class="bubble">'+m.message+'</div></div></div>').join(''):'<p class="muted">No messages yet—say hello.</p>';
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));document.getElementById('messages').innerHTML=rows.length?rows.map(m=>'<div class="msg"><img src="'+esc(m.avatar_url||'')+'" onerror="this.style.display=\'none\'"><div><strong>'+esc(m.display_name||m.email)+'</strong><div class="muted">'+new Date(m.created_at).toLocaleTimeString()+'</div><div class="bubble">'+esc(m.message)+'</div></div></div>').join(''):'<p class="muted">No messages yet—say hello.</p>';
 }
 async function send(){
 const t=document.getElementById('msg').value;

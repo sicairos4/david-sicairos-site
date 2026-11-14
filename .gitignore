@@ -1,0 +1,4 @@
+# Generated SU media + diagnostics: never committed (Pages 1 GB cap)
+sovereign-university/media/
+*.bak*
+*.diag-tmp*
