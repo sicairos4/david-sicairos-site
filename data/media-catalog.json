@@ -1,7 +1,211 @@
 {
   "version": 1,
-  "generated_at": "2026-11-15T02:06:18.247979+00:00",
+  "generated_at": "2026-11-15T09:50:30.856972+00:00",
   "items": [
+    {
+      "id": "youtube:b7hLApllmL0",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: The Next Room",
+      "published_at": "2026-11-15T09:50:26+00:00",
+      "url": "https://www.youtube.com/watch?v=b7hLApllmL0",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T09:50:26+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T09:50:26+00:00",
+        "utc_epoch": 1794736226,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:u4ALf2zfm8c",
+      "platform": "youtube",
+      "title": "TRAIN THROUGH IT",
+      "published_at": "2026-11-15T09:26:18+00:00",
+      "url": "https://www.youtube.com/watch?v=u4ALf2zfm8c",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T09:26:18+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T09:26:18+00:00",
+        "utc_epoch": 1794734778,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:DOrVaI_4jsY",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: The Letter With No Reason",
+      "published_at": "2026-11-15T09:00:17+00:00",
+      "url": "https://www.youtube.com/watch?v=DOrVaI_4jsY",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T09:00:17+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T09:00:17+00:00",
+        "utc_epoch": 1794733217,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:J4eXU5jllPo",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: The System Angle",
+      "published_at": "2026-11-15T07:58:28+00:00",
+      "url": "https://www.youtube.com/watch?v=J4eXU5jllPo",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T07:58:28+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T07:58:28+00:00",
+        "utc_epoch": 1794729508,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:ic3XSSSt1g4",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Atwater Angle",
+      "published_at": "2026-11-15T07:02:38+00:00",
+      "url": "https://www.youtube.com/watch?v=ic3XSSSt1g4",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T07:02:38+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T07:02:38+00:00",
+        "utc_epoch": 1794726158,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:c686yHTcXrM",
+      "platform": "youtube",
+      "title": "They have 10 days to answer.",
+      "published_at": "2026-11-15T06:33:08+00:00",
+      "url": "https://www.youtube.com/watch?v=c686yHTcXrM",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T06:33:08+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T06:33:08+00:00",
+        "utc_epoch": 1794724388,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:0nEWhuYSCqU",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Leadership After",
+      "published_at": "2026-11-15T06:08:18+00:00",
+      "url": "https://www.youtube.com/watch?v=0nEWhuYSCqU",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T06:08:18+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T06:08:18+00:00",
+        "utc_epoch": 1794722898,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:c1zeWlaDipc",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: The Paper Trail",
+      "published_at": "2026-11-15T04:20:04+00:00",
+      "url": "https://www.youtube.com/watch?v=c1zeWlaDipc",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T04:20:04+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T04:20:04+00:00",
+        "utc_epoch": 1794716404,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:uSfgQ0mNslA",
+      "platform": "youtube",
+      "title": "Ask for the record, not the answer.",
+      "published_at": "2026-11-15T01:08:08+00:00",
+      "url": "https://www.youtube.com/watch?v=uSfgQ0mNslA",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T01:08:08+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T01:08:08+00:00",
+        "utc_epoch": 1794704888,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:A4jjdYpdfmg",
+      "platform": "youtube",
+      "title": "The Receipt: $52,880.73 in 38 payments",
+      "published_at": "2026-11-14T22:30:10+00:00",
+      "url": "https://www.youtube.com/watch?v=A4jjdYpdfmg",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-14T22:30:10+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-14T22:30:10+00:00",
+        "utc_epoch": 1794695410,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:OzdyB-AoqDc",
+      "platform": "youtube",
+      "title": "The Receipt: $52,880.73 in 38 payments",
+      "published_at": "2026-11-14T21:20:40+00:00",
+      "url": "https://www.youtube.com/watch?v=OzdyB-AoqDc",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-14T21:20:40+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-14T21:20:40+00:00",
+        "utc_epoch": 1794691240,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Z7NAvz2HLBs",
+      "platform": "youtube",
+      "title": "Boyenga leads Lopez by 1,008 votes, 33,067 to 32,059, and her consultant is already calling it over.",
+      "published_at": "2026-11-14T20:58:13+00:00",
+      "url": "https://www.youtube.com/watch?v=Z7NAvz2HLBs",
+      "description": "",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-14T20:58:13+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-14T20:58:13+00:00",
+        "utc_epoch": 1794689893,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:uWZ-eaargUs",
       "platform": "youtube",
@@ -9,7 +213,7 @@
       "published_at": "2026-11-14T12:41:48+00:00",
       "url": "https://www.youtube.com/watch?v=uWZ-eaargUs",
       "description": "",
-      "observed_at": "2026-11-14T17:16:29.640520+00:00",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-14T12:41:48+00:00",
@@ -26,7 +230,7 @@
       "published_at": "2026-11-14T06:13:59+00:00",
       "url": "https://www.youtube.com/watch?v=1nFuNUWaOis",
       "description": "",
-      "observed_at": "2026-11-14T17:16:29.640520+00:00",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-14T06:13:59+00:00",
@@ -43,7 +247,7 @@
       "published_at": "2026-11-14T01:21:26+00:00",
       "url": "https://www.youtube.com/watch?v=v88RJr0O-GE",
       "description": "",
-      "observed_at": "2026-11-14T17:16:29.640520+00:00",
+      "observed_at": "2026-11-15T09:50:30.856972+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-14T01:21:26+00:00",
@@ -668,24 +872,23 @@
   ],
   "sources": {
     "youtube": {
-      "status": "error",
-      "last_attempt_at": "2026-11-15T02:06:18.247979+00:00",
-      "last_success_at": "2026-11-14T17:16:29.640520+00:00",
+      "status": "ok",
+      "last_attempt_at": "2026-11-15T09:50:30.856972+00:00",
+      "last_success_at": "2026-11-15T09:50:30.856972+00:00",
       "returned_count": 15,
-      "coverage": "recent_feed_window_not_full_archive",
-      "error_type": "HTTPError"
+      "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-15T02:06:18.247979+00:00",
+      "last_attempt_at": "2026-11-15T09:50:30.856972+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-15T02:06:18.247979+00:00",
+      "last_attempt_at": "2026-11-15T09:50:30.856972+00:00",
       "error_type": "RuntimeError"
     }
   }
