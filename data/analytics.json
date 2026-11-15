@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T07:44:47-08:00",
-  "generated_at_pt": "2026-11-15 07:44 PT",
+  "generated_at": "2026-11-15T10:02:36-08:00",
+  "generated_at_pt": "2026-11-15 10:02 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T07:44:48-08:00",
+    "collected_at": "2026-11-15T10:02:36-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -73,20 +73,20 @@
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 22,
-      "facebook": 135,
-      "instagram": 143,
-      "linkedin": 9,
-      "threads": 6,
-      "tiktok": 36,
-      "unknown": 25,
-      "youtube": 57
+      "bluesky": 17,
+      "facebook": 121,
+      "instagram": 130,
+      "linkedin": 4,
+      "threads": 2,
+      "tiktok": 22,
+      "unknown": 22,
+      "youtube": 31
     },
     "verified_7d": {
-      "bluesky": 194,
+      "bluesky": 196,
       "facebook": 249,
-      "instagram": 284,
-      "linkedin": 215,
+      "instagram": 290,
+      "linkedin": 212,
       "threads": 140,
       "tiktok": 91,
       "unknown": 119,
@@ -94,16 +94,16 @@
     },
     "latest_verified": {
       "bluesky": {
-        "observed_at_utc": "2026-11-15T14:50:50+00:00",
-        "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2e7itrhrz2h"
+        "observed_at_utc": "2026-11-15T16:31:09+00:00",
+        "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2edl7hmwj2v"
       },
       "facebook": {
         "observed_at_utc": "2026-11-15T13:41:00+00:00",
         "url": null
       },
       "instagram": {
-        "observed_at_utc": "2026-11-15T14:57:03+00:00",
-        "url": "https://www.instagram.com/reel/Dfw-FekAm5c/"
+        "observed_at_utc": "2026-11-15T16:40:43+00:00",
+        "url": "https://www.instagram.com/reel/DfxExzFAlFP/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-15T13:47:00+00:00",
@@ -127,10 +127,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T07:44:47-08:00",
-    "receipts_lines": 4278,
-    "receipts_parsed": 4278,
-    "verified_rows": 2963,
+    "collected_at": "2026-11-15T10:02:36-08:00",
+    "receipts_lines": 4298,
+    "receipts_parsed": 4298,
+    "verified_rows": 2971,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 755,
     "caveats": [
@@ -140,79 +140,85 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-15 07:42 PT",
+    "generated_pt": "2026-11-15 09:07 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "analytics": 4,
-      "bluesky": 119,
-      "facebook": 166,
-      "facebook-profile": 1,
-      "instagram_hub": 186,
-      "instagram_personal": 22,
-      "linkedin": 32,
-      "threads": 86,
-      "tiktok": 21,
-      "trends": 5,
+      "analytics": 2,
+      "bluesky": 113,
+      "facebook": 156,
+      "instagram_hub": 187,
+      "instagram_personal": 21,
+      "linkedin": 28,
+      "threads": 84,
+      "tiktok": 16,
+      "trends": 3,
       "video": 1,
-      "youtube": 17
+      "youtube": 14
     },
-    "fact_rows_total": 16084,
+    "fact_rows_total": 16159,
     "directives_advisory": [
       {
-        "rule": "R-CROSSPOST",
+        "rule": "R-VOICE",
         "mode": "ADVISORY",
-        "target": "@209media.connect",
-        "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 7.0x median (8 engagement, bar 3), not yet amplified"
+        "target": "all lanes",
+        "action": "write like the breakout, not the wire: first-person personal stake + verdict sentence + one concrete fact; a contradiction or reversal; number up front + what it means + do this; short root with whitespace breaks between beats, link/source in the reply never the root; NO hashtags in roots (winners run clean); daytime only, never lead with an overnight post",
+        "because": "Threads DfukpfLG8Kl Nov 14 07:53 PT: 13,049 engagements, 3,262x median \u2014 'Maga called my school district because I didn't like Charlie Kirk...'; David's voice beats the wire on every measured platform; bare headlines and bare results with no 'what it means' never win"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 7.25x median (29 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3262.25x median (13049 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 9.25x median (37 engagement, bar 12), not yet amplified"
+        "because": "breakout at 441.25x median (1765 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 6.0x median (6 engagement, bar 3.0), not yet amplified"
+        "because": "breakout at 331.25x median (1325 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified"
-      },
-      {
-        "rule": "R-CROSSPOST",
-        "mode": "ADVISORY",
-        "target": "@sicairosdavid_",
-        "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 4.0x median (4 engagement, bar 3.0), not yet amplified"
+        "because": "breakout at 313.0x median (1252 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 6.0x median (24 engagement, bar 12), not yet amplified"
+        "because": "breakout at 267.25x median (1069 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 15.5x median (62 engagement, bar 12), not yet amplified"
+        "because": "breakout at 193.75x median (775 engagement, bar 12), not yet amplified"
+      },
+      {
+        "rule": "R-CROSSPOST",
+        "mode": "ADVISORY",
+        "target": "@209media.connect",
+        "action": "stage UPDATE video + cross-platform repost within 24h",
+        "because": "breakout at 144.75x median (579 engagement, bar 12), not yet amplified"
+      },
+      {
+        "rule": "R-CROSSPOST",
+        "mode": "ADVISORY",
+        "target": "@209media.connect",
+        "action": "stage UPDATE video + cross-platform repost within 24h",
+        "because": "breakout at 127.25x median (509 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-FORMAT",
@@ -230,81 +236,81 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T07:44:47-08:00"
+    "collected_at": "2026-11-15T10:02:36-08:00"
   },
   "top_posts_lab": {
-    "run_file": "run-2026-11-14-scored.json",
-    "checks": 214,
+    "run_file": "run-2026-11-15-scored.json",
+    "checks": 195,
     "top_unified": [
       {
-        "url": "https://www.threads.com/@209media.connect/post/DfdMbROoP0S",
-        "platform": "threads",
-        "cohort": "7D",
-        "published_pt": "2026-11-07 13:54 PT",
-        "views": 6322,
-        "engagement": 609,
-        "likes": 521,
-        "replies": 53,
-        "reposts": 32,
-        "unified_score": 11.53,
-        "engagement_rate": 0.09633
-      },
-      {
-        "url": "https://www.threads.com/@209media.connect/post/DfYpL6RGwki",
-        "platform": "threads",
-        "cohort": "7D",
-        "published_pt": "2026-11-05 19:29 PT",
-        "views": 464,
-        "engagement": 94,
-        "likes": 80,
-        "replies": 2,
-        "reposts": 11,
-        "unified_score": 9.62,
-        "engagement_rate": 0.20259
-      },
-      {
-        "url": "https://www.threads.com/@209media.connect/post/DfrRNETG8Uy",
+        "url": "https://www.threads.com/@209media.connect/post/DftORD0lXEA",
         "platform": "threads",
         "cohort": "24H",
-        "published_pt": "2026-11-13 01:05 PT",
-        "views": 142,
-        "engagement": 39,
-        "likes": 37,
-        "replies": 0,
-        "reposts": 2,
-        "unified_score": 7.46,
-        "engagement_rate": 0.27465
+        "published_pt": "2026-11-13 19:18 PT",
+        "views": 3553,
+        "engagement": 480,
+        "likes": 443,
+        "replies": 6,
+        "reposts": 27,
+        "unified_score": 7.92,
+        "engagement_rate": 0.1351
       },
       {
-        "url": "https://www.threads.com/@209media.connect/post/DfYrEMFGy57",
+        "url": "https://www.threads.com/@209media.connect/post/DfsnnpGFDzv",
         "platform": "threads",
-        "cohort": "7D",
-        "published_pt": "2026-11-05 19:46 PT",
-        "views": 203,
-        "engagement": 29,
-        "likes": 29,
-        "replies": 0,
-        "reposts": 0,
-        "unified_score": 6.68,
-        "engagement_rate": 0.14286
+        "cohort": "24H",
+        "published_pt": "2026-11-13 13:40 PT",
+        "views": 2267,
+        "engagement": 310,
+        "likes": 292,
+        "replies": 5,
+        "reposts": 13,
+        "unified_score": 7.5,
+        "engagement_rate": 0.13674
       },
       {
-        "url": "https://www.threads.com/@209media.connect/post/DfauhaxDm-V",
+        "url": "https://www.threads.com/@209media.connect/post/DftEiWHDiMF",
+        "platform": "threads",
+        "cohort": "24H",
+        "published_pt": "2026-11-13 17:53 PT",
+        "views": 1138,
+        "engagement": 148,
+        "likes": 127,
+        "replies": 15,
+        "reposts": 5,
+        "unified_score": 6.86,
+        "engagement_rate": 0.13005
+      },
+      {
+        "url": "https://www.threads.com/@209media.connect/post/DffQmD2kcQw",
         "platform": "threads",
         "cohort": "7D",
-        "published_pt": "2026-11-06 14:54 PT",
-        "views": 378,
-        "engagement": 51,
-        "likes": 48,
+        "published_pt": "2026-11-08 09:09 PT",
+        "views": 55771,
+        "engagement": 378,
+        "likes": 358,
+        "replies": 4,
+        "reposts": 13,
+        "unified_score": 6.77,
+        "engagement_rate": 0.00678
+      },
+      {
+        "url": "https://www.threads.com/@209media.connect/post/Dfssw5jARCr",
+        "platform": "threads",
+        "cohort": "24H",
+        "published_pt": "2026-11-13 14:25 PT",
+        "views": 371,
+        "engagement": 88,
+        "likes": 79,
         "replies": 1,
-        "reposts": 2,
-        "unified_score": 6.47,
-        "engagement_rate": 0.13492
+        "reposts": 8,
+        "unified_score": 6.41,
+        "engagement_rate": 0.2372
       }
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T07:44:47-08:00"
+    "collected_at": "2026-11-15T10:02:36-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -500,59 +506,66 @@
   },
   "recommendations": [
     {
-      "rule": "R-CROSSPOST",
-      "target": "@209media.connect",
-      "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 7.0x median (8 engagement, bar 3), not yet amplified",
+      "rule": "R-VOICE",
+      "target": "all lanes",
+      "action": "write like the breakout, not the wire: first-person personal stake + verdict sentence + one concrete fact; a contradiction or reversal; number up front + what it means + do this; short root with whitespace breaks between beats, link/source in the reply never the root; NO hashtags in roots (winners run clean); daytime only, never lead with an overnight post",
+      "because": "Threads DfukpfLG8Kl Nov 14 07:53 PT: 13,049 engagements, 3,262x median \u2014 'Maga called my school district because I didn't like Charlie Kirk...'; David's voice beats the wire on every measured platform; bare headlines and bare results with no 'what it means' never win",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 7.25x median (29 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3262.25x median (13049 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 9.25x median (37 engagement, bar 12), not yet amplified",
+      "because": "breakout at 441.25x median (1765 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 6.0x median (6 engagement, bar 3.0), not yet amplified",
+      "because": "breakout at 331.25x median (1325 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified",
-      "mode": "ADVISORY -- needs David's word before any AUTO promotion"
-    },
-    {
-      "rule": "R-CROSSPOST",
-      "target": "@sicairosdavid_",
-      "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 4.0x median (4 engagement, bar 3.0), not yet amplified",
+      "because": "breakout at 313.0x median (1252 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 6.0x median (24 engagement, bar 12), not yet amplified",
+      "because": "breakout at 267.25x median (1069 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 15.5x median (62 engagement, bar 12), not yet amplified",
+      "because": "breakout at 193.75x median (775 engagement, bar 12), not yet amplified",
+      "mode": "ADVISORY -- needs David's word before any AUTO promotion"
+    },
+    {
+      "rule": "R-CROSSPOST",
+      "target": "@209media.connect",
+      "action": "stage UPDATE video + cross-platform repost within 24h",
+      "because": "breakout at 144.75x median (579 engagement, bar 12), not yet amplified",
+      "mode": "ADVISORY -- needs David's word before any AUTO promotion"
+    },
+    {
+      "rule": "R-CROSSPOST",
+      "target": "@209media.connect",
+      "action": "stage UPDATE video + cross-platform repost within 24h",
+      "because": "breakout at 127.25x median (509 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
