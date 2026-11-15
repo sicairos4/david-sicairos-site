@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T13:36:49-08:00",
-  "generated_at_pt": "2026-11-15 13:36 PT",
+  "generated_at": "2026-11-15T14:11:08-08:00",
+  "generated_at_pt": "2026-11-15 14:11 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -29,17 +29,17 @@
   "meta": {
     "fb_reach_28d": null,
     "note": "page_impressions_unique returned EMPTY data on all 5 pages (period days_28 and period day + since/until both probed 2026-11-13); reach not measurable with current tokens",
-    "post_engagements_28d": 15656,
+    "post_engagements_28d": 9383,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T13:36:51-08:00",
+    "collected_at": "2026-11-15T14:11:08-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
         "name": "209Connect California",
         "followers": 570,
         "fans": 570,
-        "post_engagements_28d": 6253
+        "post_engagements_28d": 0
       },
       {
         "page_id": "1631703800283832",
@@ -53,7 +53,7 @@
         "name": "Elevated209 CBD",
         "followers": 115,
         "fans": 115,
-        "post_engagements_28d": 20
+        "post_engagements_28d": 0
       },
       {
         "page_id": "109230148785851",
@@ -74,20 +74,20 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 14,
-      "facebook": 109,
-      "instagram": 132,
+      "facebook": 110,
+      "instagram": 139,
       "linkedin": 1,
-      "tiktok": 18,
-      "unknown": 14,
+      "tiktok": 26,
+      "unknown": 13,
       "youtube": 16
     },
     "verified_7d": {
       "bluesky": 197,
-      "facebook": 255,
-      "instagram": 298,
+      "facebook": 261,
+      "instagram": 304,
       "linkedin": 207,
       "threads": 140,
-      "tiktok": 95,
+      "tiktok": 103,
       "unknown": 119,
       "youtube": 121
     },
@@ -97,12 +97,12 @@
         "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2ehxlbo4s2d"
       },
       "facebook": {
-        "observed_at_utc": "2026-11-15T21:00:07+00:00",
+        "observed_at_utc": "2026-11-15T21:51:40+00:00",
         "url": "https://www.facebook.com/122324146208193779/posts/122326537382193779"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-15T20:51:38+00:00",
-        "url": "https://www.instagram.com/reel/Dfxf-DfHOJQ/"
+        "observed_at_utc": "2026-11-15T21:51:40+00:00",
+        "url": "https://www.instagram.com/reel/Dfxsx0zvyX0/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-15T13:47:00+00:00",
@@ -113,7 +113,7 @@
         "url": null
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-15T21:28:00+00:00",
+        "observed_at_utc": "2026-11-15T21:56:00+00:00",
         "url": "https://www.tiktok.com/@sicairosdavid/video/7708419089118579982"
       },
       "unknown": {
@@ -126,10 +126,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T13:36:49-08:00",
-    "receipts_lines": 4319,
-    "receipts_parsed": 4319,
-    "verified_rows": 2992,
+    "collected_at": "2026-11-15T14:11:08-08:00",
+    "receipts_lines": 4340,
+    "receipts_parsed": 4340,
+    "verified_rows": 3013,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 755,
     "caveats": [
@@ -234,7 +234,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T13:36:49-08:00"
+    "collected_at": "2026-11-15T14:11:08-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +308,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T13:36:49-08:00"
+    "collected_at": "2026-11-15T14:11:08-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
