@@ -18,7 +18,43 @@ const tasks=[
 ()=>load('museList','muse-morning.json',m=>{if(!m.source||!m.verified_at){message('museList','No source and verification timestamp supplied. Publishing is not verified.');return}list('museList',m.lanes,(c,r)=>c.append(node('h3',r.lane||'Lane'),node('p','Reported verified count: '+(Number.isFinite(r.verified)?r.verified:'Not supplied')),node('p','Source: '+m.source+' · '+m.verified_at,'source-note')))}),
 ()=>load('calList','calendar.json',rows=>list('calList',rows,(c,r)=>c.append(node('h3',r.mission||'Planned activity'),node('p',(r.date||'Unscheduled')+' · '+(r.platform||'Platform not supplied'))))),
 ()=>load('shiftList','shift.json',s=>list('shiftList',(s.shift_log||[]).filter(r=>r.evidence_id&&r.source),(c,r)=>c.append(node('h3',r.date||'Recorded change'),node('p',r.trigger||'Evidence-backed change'),node('p','Source: '+r.source+' · Evidence: '+r.evidence_id,'source-note')))),
-()=>load('analyticsGrid','analytics.json',a=>{const box=document.getElementById('analyticsGrid');box.replaceChildren();for(const [key,name,field,label] of [['beehiiv','Beehiiv','subscribers','subscribers'],['ga4','GA4','sessions_28d','sessions (28 days)'],['youtube','YouTube','views_28d','views (28 days)'],['meta','Meta','fb_reach_28d','Facebook reach (28 days)']]){const x=a[key]||{},card=node('article',undefined,'card');card.append(node('h3',name));const time=Date.parse(x.collected_at),age=Date.now()-time;const verified=typeof x.source==='string'&&x.source.trim()&&Number.isFinite(time)&&age>=-300000&&age<=172800000&&typeof x[field]==='number'&&Number.isFinite(x[field])&&x[field]>=0;card.append(node('p',verified?x[field].toLocaleString()+' '+label:'No fresh source-backed measurement'));if(verified)card.append(node('p',x.source+' · '+x.collected_at,'source-note'));box.append(card)}message('recList','Recommendations are withheld until their underlying measurements and evidence are verified.')}),
+()=>load('analyticsGrid','analytics.json',a=>{
+  const box=document.getElementById('analyticsGrid');box.replaceChildren();
+  const gen=Date.parse(a.generated_at),genAge=Date.now()-gen;
+  const fresh=Number.isFinite(genAge)&&genAge>=-300000&&genAge<=3600000;
+  const head=node('p',fresh
+    ? 'Updated '+Math.max(0,Math.round(genAge/60000))+' minutes ago · regenerated '+(a.generated_at_pt||a.generated_at)+' · refresh every '+(a.refresh_cadence_minutes||15)+' min'
+    : 'STALE — last generated '+(a.generated_at_pt||a.generated_at||'unknown')+'. Do not trust these numbers until the feed runs again.');
+  head.className='source-note';box.append(head);
+  const ok=(x,field)=>{const t=Date.parse(x.collected_at),age=Date.now()-t;
+    return typeof x.source==='string'&&x.source.trim()&&Number.isFinite(t)&&age>=-300000&&age<=172800000
+      &&typeof x[field]==='number'&&Number.isFinite(x[field])&&x[field]>=0;};
+  const sectionFresh=x=>{const t=Date.parse(x.collected_at),age=Date.now()-t;
+    return typeof x.source==='string'&&x.source.trim()&&Number.isFinite(t)&&age>=-300000&&age<=172800000;};
+  const card=(name,text,sourceNote)=>{const c=node('article',undefined,'card');
+    c.append(node('h3',name));c.append(node('p',text));
+    if(sourceNote)c.append(node('p',sourceNote,'source-note'));box.append(c);};
+  for(const [key,name,field,label] of [['beehiiv','Beehiiv','subscribers','subscribers'],['ga4','GA4','sessions_28d','sessions (28 days)'],['youtube','YouTube','views_28d','views (28 days)'],['meta','Meta','fb_reach_28d','Facebook reach (28 days)']]){
+    const x=a[key]||{};
+    card(name,ok(x,field)?x[field].toLocaleString()+' '+label:'No fresh source-backed measurement',
+      ok(x,field)?x.source+' · '+x.collected_at:null);}
+  const m=a.meta||{};
+  card('Facebook engagements (28d)',ok(m,'post_engagements_28d')?m.post_engagements_28d.toLocaleString()+' post engagements':'No fresh source-backed measurement',
+    ok(m,'post_engagements_28d')?m.source+' · '+m.collected_at:null);
+  const v=a.verified_publishes||{};
+  const sum=o=>Object.values(o||{}).reduce((s,n)=>s+(typeof n==='number'?n:0),0);
+  card('Verified publishes (24h)',sectionFresh(v)?sum(v.verified_24h).toLocaleString()+' verified':'No fresh source-backed measurement',
+    sectionFresh(v)?v.source+' · '+v.collected_at:null);
+  card('Verified publishes (7d)',sectionFresh(v)?sum(v.verified_7d).toLocaleString()+' verified':'No fresh source-backed measurement',
+    sectionFresh(v)?v.source+' · '+v.collected_at:null);
+  const lab=a.top_posts_lab||{},top=(lab.top_unified||[])[0];
+  card('Top scored post',top&&typeof top.unified_score==='number'?top.platform+' · Unified '+top.unified_score+' · '+(top.views||'?')+' views':'No fresh source-backed measurement',
+    top?lab.source+' · '+lab.collected_at:null);
+  const st=a.steering||{};
+  card('Posts last 24h (all lanes)',sectionFresh(st)?sum(st.posts_last_24h_by_lane).toLocaleString()+' posts':'No fresh source-backed measurement',
+    sectionFresh(st)?st.source+' · '+st.collected_at:null);
+  message('recList','Recommendations are withheld until their underlying measurements and evidence are verified.');
+}),
 async()=>{try{const data=await Promise.all(['signals.json','decisions.json','experiments.json'].map(f=>json(new URL(f,base))));const entries=[['Signals',data[0].posts],['Decisions',data[1].directives],['Experiments',data[2].experiments]];list('loopGrid',entries,(c,[name,rows])=>c.append(node('h3',name),node('p',Array.isArray(rows)?rows.length+' configured entries; execution not inferred.':'No valid snapshot supplied.')))}catch{message('loopGrid','Growth-loop snapshots unavailable.')}}
 ];
 async function remote(id,path,format){try{list(id,await json(sb+path,{headers}),format)}catch{message(id,'Public feed unavailable. No successful ingestion or zero count is inferred.')}}
