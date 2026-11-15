@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-11-15T17:24:19.170785+00:00",
+  "generated_at": "2026-11-15T22:02:53.974873+00:00",
   "items": [
     {
       "id": "youtube:HcW51GoHO_M",
@@ -9,7 +9,7 @@
       "published_at": "2026-11-15T15:46:15+00:00",
       "url": "https://www.youtube.com/watch?v=HcW51GoHO_M",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T15:46:15+00:00",
@@ -26,7 +26,7 @@
       "published_at": "2026-11-15T14:29:54+00:00",
       "url": "https://www.youtube.com/watch?v=-6AhzOYZD0k",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T14:29:54+00:00",
@@ -43,7 +43,7 @@
       "published_at": "2026-11-15T12:02:29+00:00",
       "url": "https://www.youtube.com/watch?v=FL6MAHvnQSU",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T12:02:29+00:00",
@@ -60,7 +60,7 @@
       "published_at": "2026-11-15T11:30:05+00:00",
       "url": "https://www.youtube.com/watch?v=rzlSdsXki8g",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T11:30:05+00:00",
@@ -77,7 +77,7 @@
       "published_at": "2026-11-15T10:11:41+00:00",
       "url": "https://www.youtube.com/watch?v=K0x8QqR_OmU",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T10:11:41+00:00",
@@ -94,7 +94,7 @@
       "published_at": "2026-11-15T09:50:26+00:00",
       "url": "https://www.youtube.com/watch?v=b7hLApllmL0",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T09:50:26+00:00",
@@ -111,7 +111,7 @@
       "published_at": "2026-11-15T09:26:18+00:00",
       "url": "https://www.youtube.com/watch?v=u4ALf2zfm8c",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T09:26:18+00:00",
@@ -128,7 +128,7 @@
       "published_at": "2026-11-15T09:00:17+00:00",
       "url": "https://www.youtube.com/watch?v=DOrVaI_4jsY",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T09:00:17+00:00",
@@ -145,7 +145,7 @@
       "published_at": "2026-11-15T07:58:28+00:00",
       "url": "https://www.youtube.com/watch?v=J4eXU5jllPo",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T07:58:28+00:00",
@@ -162,7 +162,7 @@
       "published_at": "2026-11-15T07:02:38+00:00",
       "url": "https://www.youtube.com/watch?v=ic3XSSSt1g4",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T07:02:38+00:00",
@@ -179,7 +179,7 @@
       "published_at": "2026-11-15T06:33:08+00:00",
       "url": "https://www.youtube.com/watch?v=c686yHTcXrM",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T06:33:08+00:00",
@@ -196,7 +196,7 @@
       "published_at": "2026-11-15T06:08:18+00:00",
       "url": "https://www.youtube.com/watch?v=0nEWhuYSCqU",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T06:08:18+00:00",
@@ -213,7 +213,7 @@
       "published_at": "2026-11-15T04:20:04+00:00",
       "url": "https://www.youtube.com/watch?v=c1zeWlaDipc",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T04:20:04+00:00",
@@ -230,7 +230,7 @@
       "published_at": "2026-11-15T01:08:08+00:00",
       "url": "https://www.youtube.com/watch?v=uSfgQ0mNslA",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T01:08:08+00:00",
@@ -247,7 +247,7 @@
       "published_at": "2026-11-14T22:30:10+00:00",
       "url": "https://www.youtube.com/watch?v=A4jjdYpdfmg",
       "description": "",
-      "observed_at": "2026-11-15T17:24:19.170785+00:00",
+      "observed_at": "2026-11-15T22:02:53.974873+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-14T22:30:10+00:00",
@@ -958,22 +958,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-15T17:24:19.170785+00:00",
-      "last_success_at": "2026-11-15T17:24:19.170785+00:00",
+      "last_attempt_at": "2026-11-15T22:02:53.974873+00:00",
+      "last_success_at": "2026-11-15T22:02:53.974873+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-15T17:24:19.170785+00:00",
+      "last_attempt_at": "2026-11-15T22:02:53.974873+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-15T17:24:19.170785+00:00",
+      "last_attempt_at": "2026-11-15T22:02:53.974873+00:00",
       "error_type": "RuntimeError"
     }
   }
