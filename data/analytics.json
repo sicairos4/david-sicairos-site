@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T10:02:36-08:00",
-  "generated_at_pt": "2026-11-15 10:02 PT",
+  "generated_at": "2026-11-15T10:24:01-08:00",
+  "generated_at_pt": "2026-11-15 10:24 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T10:02:36-08:00",
+    "collected_at": "2026-11-15T10:24:02-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -85,8 +85,8 @@
     "verified_7d": {
       "bluesky": 196,
       "facebook": 249,
-      "instagram": 290,
-      "linkedin": 212,
+      "instagram": 289,
+      "linkedin": 210,
       "threads": 140,
       "tiktok": 91,
       "unknown": 119,
@@ -127,7 +127,7 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T10:02:36-08:00",
+    "collected_at": "2026-11-15T10:24:01-08:00",
     "receipts_lines": 4298,
     "receipts_parsed": 4298,
     "verified_rows": 2971,
@@ -236,7 +236,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T10:02:36-08:00"
+    "collected_at": "2026-11-15T10:24:01-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -310,7 +310,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T10:02:36-08:00"
+    "collected_at": "2026-11-15T10:24:01-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
