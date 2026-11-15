@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-14T16:38:30-08:00",
-  "generated_at_pt": "2026-11-14 16:38 PT",
+  "generated_at": "2026-11-15T02:09:41-08:00",
+  "generated_at_pt": "2026-11-15 02:09 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -29,81 +29,81 @@
   "meta": {
     "fb_reach_28d": null,
     "note": "page_impressions_unique returned EMPTY data on all 5 pages (period days_28 and period day + since/until both probed 2026-11-13); reach not measurable with current tokens",
-    "post_engagements_28d": 15789,
+    "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-14T16:38:30-08:00",
+    "collected_at": "2026-11-15T02:09:42-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
         "name": "209Connect California",
         "followers": 570,
         "fans": 570,
-        "post_engagements_28d": 6470
+        "post_engagements_28d": 6253
       },
       {
         "page_id": "1631703800283832",
         "name": "DBeastco Wellness",
         "followers": 869,
         "fans": 869,
-        "post_engagements_28d": 9125
+        "post_engagements_28d": 9190
       },
       {
         "page_id": "187834931085359",
         "name": "Elevated209 CBD",
         "followers": 115,
         "fans": 115,
-        "post_engagements_28d": 14
+        "post_engagements_28d": 20
       },
       {
         "page_id": "109230148785851",
         "name": "Intentionally Us",
         "followers": 0,
         "fans": 0,
-        "post_engagements_28d": 50
+        "post_engagements_28d": 57
       },
       {
         "page_id": "213298825201598",
         "name": "ProblemSolved Designs",
         "followers": 188,
         "fans": 188,
-        "post_engagements_28d": 130
+        "post_engagements_28d": 136
       }
     ]
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 41,
-      "facebook": 117,
-      "instagram": 84,
-      "linkedin": 44,
-      "threads": 20,
-      "tiktok": 68,
-      "unknown": 37,
-      "youtube": 97
+      "bluesky": 28,
+      "facebook": 154,
+      "instagram": 139,
+      "linkedin": 24,
+      "threads": 10,
+      "tiktok": 55,
+      "unknown": 32,
+      "youtube": 73
     },
     "verified_7d": {
-      "bluesky": 183,
-      "facebook": 158,
-      "instagram": 183,
-      "linkedin": 218,
+      "bluesky": 187,
+      "facebook": 241,
+      "instagram": 256,
+      "linkedin": 214,
       "threads": 140,
-      "tiktok": 77,
-      "unknown": 108,
-      "youtube": 106
+      "tiktok": 83,
+      "unknown": 118,
+      "youtube": 112
     },
     "latest_verified": {
       "bluesky": {
-        "observed_at_utc": "2026-11-14T21:28:00+00:00",
-        "url": null
+        "observed_at_utc": "2026-11-15T09:52:43+00:00",
+        "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2dqjq5s6m2v"
       },
       "facebook": {
-        "observed_at_utc": "2026-11-15T00:26:17+00:00",
-        "url": "https://www.facebook.com/122324146208193779/posts/122326412102193779"
+        "observed_at_utc": "2026-11-15T09:30:40+00:00",
+        "url": "https://www.facebook.com/122355740132212870/posts/122359481834212870"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-14T23:44:00+00:00",
-        "url": "https://www.instagram.com/reel/DfvaTSIk7Mn/"
+        "observed_at_utc": "2026-11-15T10:06:18+00:00",
+        "url": "https://www.instagram.com/reel/DfwgyGYClYb/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-14T21:24:00+00:00",
@@ -114,25 +114,25 @@
         "url": null
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-14T21:19:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7708059023987281165"
+        "observed_at_utc": "2026-11-15T09:19:00+00:00",
+        "url": "https://www.tiktok.com/@sicairosdavid/video/7708326581491535118"
       },
       "unknown": {
-        "observed_at_utc": "2026-11-15T00:19:07+00:00",
-        "url": "https://www.linkedin.com/feed/update/urn:li:share:7527501130914955264/"
+        "observed_at_utc": "2026-11-15T07:53:43+00:00",
+        "url": "https://www.linkedin.com/feed/update/urn:li:share:7527639491050749952/"
       },
       "youtube": {
-        "observed_at_utc": "2026-11-14T23:58:00+00:00",
-        "url": "https://www.youtube.com/watch?v=A4jjdYpdfmg"
+        "observed_at_utc": "2026-11-15T09:43:00+00:00",
+        "url": "https://youtube.com/shorts/b7hLApllmL0"
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-14T16:38:30-08:00",
-    "receipts_lines": 3878,
-    "receipts_parsed": 3878,
-    "verified_rows": 2708,
+    "collected_at": "2026-11-15T02:09:41-08:00",
+    "receipts_lines": 4154,
+    "receipts_parsed": 4154,
+    "verified_rows": 2894,
     "verified_no_parseable_time": 299,
-    "verified_unknown_platform": 744,
+    "verified_unknown_platform": 754,
     "caveats": [
       "Threads/Bluesky API publishes live in api_daemon.log, not the receipts file, so their verified counts here are a lower bound.",
       "299 verified rows carry no parseable timestamp (not epoch, ISO, or PT stamp) and are excluded from the 24h/7d windows (counted in verified_rows).",
@@ -140,43 +140,57 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-14 16:13 PT",
+    "generated_pt": "2026-11-15 01:56 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
       "analytics": 5,
-      "bluesky": 123,
-      "facebook": 267,
+      "bluesky": 118,
+      "facebook": 233,
       "facebook-profile": 1,
-      "instagram_hub": 114,
-      "instagram_personal": 8,
-      "linkedin": 44,
-      "threads": 90,
-      "tiktok": 22,
-      "trends": 5,
-      "youtube": 16
+      "instagram_hub": 157,
+      "instagram_personal": 21,
+      "linkedin": 34,
+      "threads": 85,
+      "tiktok": 21,
+      "trends": 6,
+      "youtube": 14
     },
-    "fact_rows_total": 15719,
+    "fact_rows_total": 15962,
     "directives_advisory": [
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 11.0x median (44 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 1713.25x median (6853 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3.25x median (13 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 4.75x median (19 engagement, bar 12), not yet amplified"
+        "because": "breakout at 7.0x median (8 engagement, bar 3), not yet amplified"
+      },
+      {
+        "rule": "R-CROSSPOST",
+        "mode": "ADVISORY",
+        "target": "@209media.connect",
+        "action": "stage UPDATE video + cross-platform repost within 24h",
+        "because": "breakout at 7.25x median (29 engagement, bar 12), not yet amplified"
+      },
+      {
+        "rule": "R-CROSSPOST",
+        "mode": "ADVISORY",
+        "target": "@209media.connect",
+        "action": "stage UPDATE video + cross-platform repost within 24h",
+        "because": "breakout at 8.5x median (36 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -197,28 +211,14 @@
         "mode": "ADVISORY",
         "target": "@sicairosdavid_",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified"
-      },
-      {
-        "rule": "R-CROSSPOST",
-        "mode": "ADVISORY",
-        "target": "@209media.connect",
-        "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 5.0x median (20 engagement, bar 12), not yet amplified"
-      },
-      {
-        "rule": "R-CROSSPOST",
-        "mode": "ADVISORY",
-        "target": "@209media.connect",
-        "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified"
+        "because": "breakout at 4.0x median (4 engagement, bar 3.0), not yet amplified"
       },
       {
         "rule": "R-FORMAT",
         "mode": "ADVISORY",
         "target": "threads",
         "action": "keep preferring the leading format in picks",
-        "because": "format tally leader: solo KEEPS TOTAL CROWN (12115 total / 1023 posts / avg 11.84 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.47)"
+        "because": "format tally leader: solo KEEPS TOTAL CROWN (12194 total / 1042 posts / avg 11.70 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.33)"
       },
       {
         "rule": "R-SLOT",
@@ -229,7 +229,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-14T16:38:30-08:00"
+    "collected_at": "2026-11-15T02:09:41-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-14-scored.json",
@@ -303,7 +303,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-14T16:38:30-08:00"
+    "collected_at": "2026-11-15T02:09:41-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261114.json",
@@ -480,21 +480,35 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 11.0x median (44 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 1713.25x median (6853 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3.25x median (13 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 4.75x median (19 engagement, bar 12), not yet amplified",
+      "because": "breakout at 7.0x median (8 engagement, bar 3), not yet amplified",
+      "mode": "ADVISORY -- needs David's word before any AUTO promotion"
+    },
+    {
+      "rule": "R-CROSSPOST",
+      "target": "@209media.connect",
+      "action": "stage UPDATE video + cross-platform repost within 24h",
+      "because": "breakout at 7.25x median (29 engagement, bar 12), not yet amplified",
+      "mode": "ADVISORY -- needs David's word before any AUTO promotion"
+    },
+    {
+      "rule": "R-CROSSPOST",
+      "target": "@209media.connect",
+      "action": "stage UPDATE video + cross-platform repost within 24h",
+      "because": "breakout at 8.5x median (36 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -515,28 +529,14 @@
       "rule": "R-CROSSPOST",
       "target": "@sicairosdavid_",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified",
-      "mode": "ADVISORY -- needs David's word before any AUTO promotion"
-    },
-    {
-      "rule": "R-CROSSPOST",
-      "target": "@209media.connect",
-      "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 5.0x median (20 engagement, bar 12), not yet amplified",
-      "mode": "ADVISORY -- needs David's word before any AUTO promotion"
-    },
-    {
-      "rule": "R-CROSSPOST",
-      "target": "@209media.connect",
-      "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3.0x median (3 engagement, bar 3.0), not yet amplified",
+      "because": "breakout at 4.0x median (4 engagement, bar 3.0), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-FORMAT",
       "target": "threads",
       "action": "keep preferring the leading format in picks",
-      "because": "format tally leader: solo KEEPS TOTAL CROWN (12115 total / 1023 posts / avg 11.84 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.47)",
+      "because": "format tally leader: solo KEEPS TOTAL CROWN (12194 total / 1042 posts / avg 11.70 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.33)",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
