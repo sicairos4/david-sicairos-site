@@ -1,7 +1,42 @@
 {
-  "generated_at": "2026-11-15T09:50:30.856972+00:00",
+  "generated_at": "2026-11-15T17:24:19.170785+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:HcW51GoHO_M",
+      "source_url": "https://www.youtube.com/watch?v=HcW51GoHO_M",
+      "title": "Some people read the filing. Others hope you never do.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:-6AhzOYZD0k",
+      "source_url": "https://www.youtube.com/watch?v=-6AhzOYZD0k",
+      "title": "ILLEGALLY FIRED: A LETTER TO MUHSD | 209connect Newsletter — Read Aloud",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:FL6MAHvnQSU",
+      "source_url": "https://www.youtube.com/watch?v=FL6MAHvnQSU",
+      "title": "ILLEGALLY FIRED: Boring Works",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:rzlSdsXki8g",
+      "source_url": "https://www.youtube.com/watch?v=rzlSdsXki8g",
+      "title": "ILLEGALLY FIRED: One Money Check",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:K0x8QqR_OmU",
+      "source_url": "https://www.youtube.com/watch?v=K0x8QqR_OmU",
+      "title": "ILLEGALLY FIRED: Papered Over",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:b7hLApllmL0",
       "source_url": "https://www.youtube.com/watch?v=b7hLApllmL0",
@@ -244,41 +279,6 @@
       "source_id": "youtube:LDBDzrX6GP0",
       "source_url": "https://www.youtube.com/watch?v=LDBDzrX6GP0",
       "title": "The $75 Billion Trade: Jeffries Draws the Line on ICE Funding",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:_B_0icG7BQM",
-      "source_url": "https://www.youtube.com/watch?v=_B_0icG7BQM",
-      "title": "Scheduled Is Not the Same as Done",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:7Zib2HUSbm4",
-      "source_url": "https://www.youtube.com/watch?v=7Zib2HUSbm4",
-      "title": "124.3 million ballots — the second-highest midterm turnout in more than a century. #centralvalley",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:5oP_L4XyAp8",
-      "source_url": "https://www.youtube.com/watch?v=5oP_L4XyAp8",
-      "title": "WATERGATE 2.0: Midterm wave bigger than when Watergate Dems won both house and Senate in what year??",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:pyeyY157_Z8",
-      "source_url": "https://www.youtube.com/watch?v=pyeyY157_Z8",
-      "title": "Razor-thin 50.96% to 49.04% split. Boyenga took Atwater, McSwain in early mail. # #mercedcounty #usa",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:Zk9jneNuWQw",
-      "source_url": "https://www.youtube.com/watch?v=Zk9jneNuWQw",
-      "title": "🏃 LATE RUN Pushed the jog a little later today and stepped right into that crisp chill.",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
