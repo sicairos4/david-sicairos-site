@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T14:11:08-08:00",
-  "generated_at_pt": "2026-11-15 14:11 PT",
+  "generated_at": "2026-11-15T14:33:41-08:00",
+  "generated_at_pt": "2026-11-15 14:33 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -29,17 +29,17 @@
   "meta": {
     "fb_reach_28d": null,
     "note": "page_impressions_unique returned EMPTY data on all 5 pages (period days_28 and period day + since/until both probed 2026-11-13); reach not measurable with current tokens",
-    "post_engagements_28d": 9383,
+    "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T14:11:08-08:00",
+    "collected_at": "2026-11-15T14:33:42-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
         "name": "209Connect California",
         "followers": 570,
         "fans": 570,
-        "post_engagements_28d": 0
+        "post_engagements_28d": 6253
       },
       {
         "page_id": "1631703800283832",
@@ -53,7 +53,7 @@
         "name": "Elevated209 CBD",
         "followers": 115,
         "fans": 115,
-        "post_engagements_28d": 0
+        "post_engagements_28d": 20
       },
       {
         "page_id": "109230148785851",
@@ -75,7 +75,7 @@
     "verified_24h": {
       "bluesky": 14,
       "facebook": 110,
-      "instagram": 139,
+      "instagram": 144,
       "linkedin": 1,
       "tiktok": 26,
       "unknown": 13,
@@ -84,7 +84,7 @@
     "verified_7d": {
       "bluesky": 197,
       "facebook": 261,
-      "instagram": 304,
+      "instagram": 309,
       "linkedin": 207,
       "threads": 140,
       "tiktok": 103,
@@ -101,8 +101,8 @@
         "url": "https://www.facebook.com/122324146208193779/posts/122326537382193779"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-15T21:51:40+00:00",
-        "url": "https://www.instagram.com/reel/Dfxsx0zvyX0/"
+        "observed_at_utc": "2026-11-15T22:28:15+00:00",
+        "url": "https://www.instagram.com/reel/Dfx0WzuDF-R/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-15T13:47:00+00:00",
@@ -126,10 +126,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T14:11:08-08:00",
-    "receipts_lines": 4340,
-    "receipts_parsed": 4340,
-    "verified_rows": 3013,
+    "collected_at": "2026-11-15T14:33:41-08:00",
+    "receipts_lines": 4345,
+    "receipts_parsed": 4345,
+    "verified_rows": 3018,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 755,
     "caveats": [
@@ -139,21 +139,21 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-15 11:47 PT",
+    "generated_pt": "2026-11-15 14:30 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 99,
-      "facebook": 119,
-      "instagram_hub": 178,
-      "instagram_personal": 19,
-      "linkedin": 18,
-      "threads": 78,
-      "tiktok": 12,
+      "bluesky": 90,
+      "facebook": 88,
+      "instagram_hub": 190,
+      "instagram_personal": 22,
+      "linkedin": 15,
+      "threads": 73,
+      "tiktok": 13,
       "trends": 1,
       "video": 1,
       "youtube": 13
     },
-    "fact_rows_total": 16173,
+    "fact_rows_total": 16216,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -167,14 +167,14 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3356.0x median (13424 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3413.25x median (13653 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 441.25x median (1765 engagement, bar 12), not yet amplified"
+        "because": "breakout at 443.5x median (1774 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -195,7 +195,7 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 267.25x median (1069 engagement, bar 12), not yet amplified"
+        "because": "breakout at 274.75x median (1099 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -234,7 +234,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T14:11:08-08:00"
+    "collected_at": "2026-11-15T14:33:41-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +308,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T14:11:08-08:00"
+    "collected_at": "2026-11-15T14:33:41-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -514,14 +514,14 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3356.0x median (13424 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3413.25x median (13653 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 441.25x median (1765 engagement, bar 12), not yet amplified",
+      "because": "breakout at 443.5x median (1774 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -542,7 +542,7 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 267.25x median (1069 engagement, bar 12), not yet amplified",
+      "because": "breakout at 274.75x median (1099 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
