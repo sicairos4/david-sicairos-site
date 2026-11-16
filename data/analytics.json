@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T05:49:29-08:00",
-  "generated_at_pt": "2026-11-16 05:49 PT",
+  "generated_at": "2026-11-16T06:27:01-08:00",
+  "generated_at_pt": "2026-11-16 06:27 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T05:49:29-08:00",
+    "collected_at": "2026-11-16T06:27:01-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -73,23 +73,23 @@
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 22,
+      "bluesky": 19,
       "facebook": 35,
-      "instagram": 114,
+      "instagram": 110,
       "linkedin": 12,
       "threads": 13,
-      "tiktok": 131,
-      "unknown": 4,
+      "tiktok": 132,
+      "unknown": 6,
       "youtube": 19
     },
     "verified_7d": {
       "bluesky": 202,
       "facebook": 280,
       "instagram": 382,
-      "linkedin": 199,
+      "linkedin": 197,
       "threads": 148,
-      "tiktok": 222,
-      "unknown": 123,
+      "tiktok": 223,
+      "unknown": 125,
       "youtube": 140
     },
     "latest_verified": {
@@ -114,12 +114,12 @@
         "url": "https://www.threads.com/@ufwupdates/post/DfvH2FPjQA9"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-16T12:46:00+00:00",
+        "observed_at_utc": "2026-11-16T13:53:00+00:00",
         "url": null
       },
       "unknown": {
-        "observed_at_utc": "2026-11-16T12:49:43+00:00",
-        "url": "https://www.youtube.com/shorts/nCslJmeHrpw"
+        "observed_at_utc": "2026-11-16T14:13:49+00:00",
+        "url": "https://www.youtube.com/watch?v=HkV80jGoJNU"
       },
       "youtube": {
         "observed_at_utc": "2026-11-16T11:01:00+00:00",
@@ -127,12 +127,12 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T05:49:29-08:00",
-    "receipts_lines": 4753,
-    "receipts_parsed": 4753,
-    "verified_rows": 3301,
+    "collected_at": "2026-11-16T06:27:01-08:00",
+    "receipts_lines": 4757,
+    "receipts_parsed": 4757,
+    "verified_rows": 3304,
     "verified_no_parseable_time": 305,
-    "verified_unknown_platform": 759,
+    "verified_unknown_platform": 761,
     "caveats": [
       "Threads/Bluesky API publishes live in api_daemon.log, not the receipts file, so their verified counts here are a lower bound.",
       "305 verified rows carry no parseable timestamp (not epoch, ISO, or PT stamp) and are excluded from the 24h/7d windows (counted in verified_rows).",
@@ -140,20 +140,20 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 05:24 PT",
+    "generated_pt": "2026-11-16 06:07 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 69,
-      "facebook": 63,
-      "instagram_hub": 172,
-      "instagram_personal": 19,
+      "bluesky": 66,
+      "facebook": 56,
+      "instagram_hub": 160,
+      "instagram_personal": 18,
       "linkedin": 6,
       "threads": 79,
       "tiktok": 17,
       "video": 1,
       "youtube": 16
     },
-    "fact_rows_total": 16484,
+    "fact_rows_total": 16486,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -223,7 +223,7 @@
         "mode": "ADVISORY",
         "target": "threads",
         "action": "keep preferring the leading format in picks",
-        "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34)"
+        "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34) - CARRIED, no live read this tick"
       },
       {
         "rule": "R-SLOT",
@@ -234,7 +234,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T05:49:29-08:00"
+    "collected_at": "2026-11-16T06:27:01-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +308,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T05:49:29-08:00"
+    "collected_at": "2026-11-16T06:27:01-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -570,7 +570,7 @@
       "rule": "R-FORMAT",
       "target": "threads",
       "action": "keep preferring the leading format in picks",
-      "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34)",
+      "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34) - CARRIED, no live read this tick",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
