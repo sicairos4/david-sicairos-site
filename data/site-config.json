@@ -20,14 +20,14 @@
     },
     {
       "metric": "Facebook \u2014 verified publishes (24h)",
-      "value": "102",
-      "trend": "7d: 267",
+      "value": "105",
+      "trend": "7d: 270",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
       "metric": "Instagram \u2014 verified publishes (24h)",
-      "value": "156",
-      "trend": "7d: 329",
+      "value": "160",
+      "trend": "7d: 333",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
@@ -87,7 +87,7 @@
       "followers": 570,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-15T18:13:02-08:00"
+      "verified_on": "2026-11-15T19:03:20-08:00"
     },
     {
       "name": "Facebook \u2014 DBeastco Wellness",
@@ -96,7 +96,7 @@
       "followers": 869,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-15T18:13:02-08:00"
+      "verified_on": "2026-11-15T19:03:20-08:00"
     },
     {
       "name": "Facebook \u2014 Elevated209 CBD",
@@ -105,7 +105,7 @@
       "followers": 115,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-15T18:13:02-08:00"
+      "verified_on": "2026-11-15T19:03:20-08:00"
     },
     {
       "name": "Facebook \u2014 Intentionally Us",
@@ -114,7 +114,7 @@
       "followers": 0,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-15T18:13:02-08:00"
+      "verified_on": "2026-11-15T19:03:20-08:00"
     },
     {
       "name": "Facebook \u2014 ProblemSolved Designs",
@@ -123,7 +123,7 @@
       "followers": 188,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-15T18:13:02-08:00"
+      "verified_on": "2026-11-15T19:03:20-08:00"
     }
   ],
   "unverifiedPlatforms": [

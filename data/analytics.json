@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T18:12:48-08:00",
-  "generated_at_pt": "2026-11-15 18:12 PT",
+  "generated_at": "2026-11-15T19:03:08-08:00",
+  "generated_at_pt": "2026-11-15 19:03 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T18:12:48-08:00",
+    "collected_at": "2026-11-15T19:03:09-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -74,8 +74,8 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 15,
-      "facebook": 102,
-      "instagram": 156,
+      "facebook": 105,
+      "instagram": 160,
       "linkedin": 1,
       "threads": 3,
       "tiktok": 45,
@@ -84,8 +84,8 @@
     },
     "verified_7d": {
       "bluesky": 198,
-      "facebook": 267,
-      "instagram": 329,
+      "facebook": 270,
+      "instagram": 333,
       "linkedin": 205,
       "threads": 143,
       "tiktok": 122,
@@ -98,12 +98,12 @@
         "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2f74fpspi2c"
       },
       "facebook": {
-        "observed_at_utc": "2026-11-16T01:43:00+00:00",
-        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid033UiWP5yTRGbMshy2C2zJWtL7pkXXTZ6BX9AF8g9KYGSrKqM44PB9mz6ixWDexnVql"
+        "observed_at_utc": "2026-11-16T02:58:36+00:00",
+        "url": "https://www.facebook.com/122324146208193779/posts/122326570994193779"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-16T02:08:28+00:00",
-        "url": "https://www.instagram.com/reel/DfyNACKkdNi/"
+        "observed_at_utc": "2026-11-16T03:02:00+00:00",
+        "url": "https://www.instagram.com/p/DfyVsrRDuPO/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-15T13:47:00+00:00",
@@ -127,10 +127,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T18:12:48-08:00",
-    "receipts_lines": 4405,
-    "receipts_parsed": 4405,
-    "verified_rows": 3074,
+    "collected_at": "2026-11-15T19:03:08-08:00",
+    "receipts_lines": 4412,
+    "receipts_parsed": 4412,
+    "verified_rows": 3081,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 755,
     "caveats": [
@@ -140,13 +140,13 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-15 18:07 PT",
+    "generated_pt": "2026-11-15 19:00 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 83,
-      "facebook": 80,
-      "instagram_hub": 180,
-      "instagram_personal": 23,
+      "bluesky": 82,
+      "facebook": 99,
+      "instagram_hub": 185,
+      "instagram_personal": 26,
       "linkedin": 10,
       "threads": 75,
       "tiktok": 16,
@@ -154,7 +154,7 @@
       "video": 1,
       "youtube": 17
     },
-    "fact_rows_total": 16275,
+    "fact_rows_total": 16310,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -168,14 +168,14 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3437.0x median (13748 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3456.0x median (13824 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 443.5x median (1774 engagement, bar 12), not yet amplified"
+        "because": "breakout at 444.25x median (1777 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -196,7 +196,7 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 274.75x median (1099 engagement, bar 12), not yet amplified"
+        "because": "breakout at 276.0x median (1104 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -210,7 +210,7 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 145.0x median (580 engagement, bar 12), not yet amplified"
+        "because": "breakout at 145.25x median (581 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -224,7 +224,7 @@
         "mode": "ADVISORY",
         "target": "threads",
         "action": "keep preferring the leading format in picks",
-        "because": "format tally leader: solo KEEPS TOTAL CROWN (12295 total / 1068 posts / avg 11.51 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.14)"
+        "because": "format tally leader: solo KEEPS TOTAL CROWN (12673 total / 1072 posts / avg 11.82 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.45)"
       },
       {
         "rule": "R-SLOT",
@@ -235,7 +235,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T18:12:48-08:00"
+    "collected_at": "2026-11-15T19:03:08-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -309,7 +309,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T18:12:48-08:00"
+    "collected_at": "2026-11-15T19:03:08-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -515,14 +515,14 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3437.0x median (13748 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3456.0x median (13824 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 443.5x median (1774 engagement, bar 12), not yet amplified",
+      "because": "breakout at 444.25x median (1777 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -543,7 +543,7 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 274.75x median (1099 engagement, bar 12), not yet amplified",
+      "because": "breakout at 276.0x median (1104 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -557,7 +557,7 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 145.0x median (580 engagement, bar 12), not yet amplified",
+      "because": "breakout at 145.25x median (581 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -571,7 +571,7 @@
       "rule": "R-FORMAT",
       "target": "threads",
       "action": "keep preferring the leading format in picks",
-      "because": "format tally leader: solo KEEPS TOTAL CROWN (12295 total / 1068 posts / avg 11.51 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.14)",
+      "because": "format tally leader: solo KEEPS TOTAL CROWN (12673 total / 1072 posts / avg 11.82 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.45)",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
