@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T17:31:30-08:00",
-  "generated_at_pt": "2026-11-15 17:31 PT",
+  "generated_at": "2026-11-15T17:51:59-08:00",
+  "generated_at_pt": "2026-11-15 17:51 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T17:31:30-08:00",
+    "collected_at": "2026-11-15T17:52:00-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -74,21 +74,21 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 15,
-      "facebook": 100,
+      "facebook": 102,
       "instagram": 147,
       "linkedin": 1,
       "threads": 3,
-      "tiktok": 42,
-      "unknown": 10,
+      "tiktok": 45,
+      "unknown": 9,
       "youtube": 20
     },
     "verified_7d": {
       "bluesky": 198,
-      "facebook": 265,
+      "facebook": 267,
       "instagram": 320,
       "linkedin": 205,
       "threads": 143,
-      "tiktok": 119,
+      "tiktok": 122,
       "unknown": 119,
       "youtube": 126
     },
@@ -98,8 +98,8 @@
         "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2f74fpspi2c"
       },
       "facebook": {
-        "observed_at_utc": "2026-11-16T00:20:00+00:00",
-        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid02AttvicmshZPXSKXUh2RTLzSxRiwAqNsV4oXYimtNX9mjk7JYXxZg6b2NUp4JyZRMl"
+        "observed_at_utc": "2026-11-16T01:43:00+00:00",
+        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid033UiWP5yTRGbMshy2C2zJWtL7pkXXTZ6BX9AF8g9KYGSrKqM44PB9mz6ixWDexnVql"
       },
       "instagram": {
         "observed_at_utc": "2026-11-16T00:26:00+00:00",
@@ -114,8 +114,8 @@
         "url": "https://www.threads.com/@themercedsunstar/post/DfyDeoEDscI"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-16T01:25:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7708528547576515853"
+        "observed_at_utc": "2026-11-16T01:43:00+00:00",
+        "url": "https://www.tiktok.com/@sicairosdavid/video/7708576658948721933"
       },
       "unknown": {
         "observed_at_utc": "2026-11-15T13:44:00+00:00",
@@ -127,10 +127,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T17:31:30-08:00",
-    "receipts_lines": 4389,
-    "receipts_parsed": 4389,
-    "verified_rows": 3060,
+    "collected_at": "2026-11-15T17:51:59-08:00",
+    "receipts_lines": 4396,
+    "receipts_parsed": 4396,
+    "verified_rows": 3065,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 755,
     "caveats": [
@@ -235,7 +235,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T17:31:30-08:00"
+    "collected_at": "2026-11-15T17:51:59-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -309,7 +309,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T17:31:30-08:00"
+    "collected_at": "2026-11-15T17:51:59-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
