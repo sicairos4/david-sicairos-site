@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T19:53:47-08:00",
-  "generated_at_pt": "2026-11-15 19:53 PT",
+  "generated_at": "2026-11-15T20:51:40-08:00",
+  "generated_at_pt": "2026-11-15 20:51 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T19:53:47-08:00",
+    "collected_at": "2026-11-15T20:51:40-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -74,21 +74,21 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 15,
-      "facebook": 109,
-      "instagram": 168,
-      "linkedin": 3,
+      "facebook": 108,
+      "instagram": 171,
+      "linkedin": 4,
       "threads": 4,
-      "tiktok": 51,
-      "unknown": 8,
+      "tiktok": 55,
+      "unknown": 7,
       "youtube": 20
     },
     "verified_7d": {
       "bluesky": 198,
       "facebook": 274,
-      "instagram": 340,
+      "instagram": 343,
       "linkedin": 205,
       "threads": 144,
-      "tiktok": 128,
+      "tiktok": 132,
       "unknown": 120,
       "youtube": 126
     },
@@ -102,20 +102,20 @@
         "url": "https://www.facebook.com/122355740132212870/posts/122359859954212870"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-16T03:52:00+00:00",
-        "url": "https://www.instagram.com/reel/DfyVtwilAY4/"
+        "observed_at_utc": "2026-11-16T04:34:28+00:00",
+        "url": "https://www.instagram.com/reel/Dfyczi4gqGN/"
       },
       "linkedin": {
-        "observed_at_utc": "2026-11-16T03:40:00+00:00",
-        "url": null
+        "observed_at_utc": "2026-11-16T04:26:00+00:00",
+        "url": "https://www.linkedin.com/feed/update/urn:li:share:7527947764085743616/"
       },
       "threads": {
         "observed_at_utc": "2026-11-16T03:39:00+00:00",
         "url": null
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-16T03:47:00+00:00",
-        "url": "7708576658948721933"
+        "observed_at_utc": "2026-11-16T04:20:00+00:00",
+        "url": "7708610179566259470"
       },
       "unknown": {
         "observed_at_utc": "2026-11-16T03:40:00+00:00",
@@ -127,10 +127,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T19:53:47-08:00",
-    "receipts_lines": 4440,
-    "receipts_parsed": 4440,
-    "verified_rows": 3103,
+    "collected_at": "2026-11-15T20:51:40-08:00",
+    "receipts_lines": 4459,
+    "receipts_parsed": 4459,
+    "verified_rows": 3111,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 756,
     "caveats": [
@@ -140,21 +140,21 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-15 19:47 PT",
+    "generated_pt": "2026-11-15 20:41 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 81,
-      "facebook": 100,
-      "instagram_hub": 191,
-      "instagram_personal": 27,
+      "bluesky": 79,
+      "facebook": 99,
+      "instagram_hub": 199,
+      "instagram_personal": 28,
       "linkedin": 11,
-      "threads": 76,
-      "tiktok": 16,
+      "threads": 78,
+      "tiktok": 18,
       "trends": 1,
       "video": 1,
-      "youtube": 17
+      "youtube": 18
     },
-    "fact_rows_total": 16324,
+    "fact_rows_total": 16345,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -168,7 +168,7 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3468.5x median (13874 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3480.5x median (13922 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -196,7 +196,7 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 276.0x median (1104 engagement, bar 12), not yet amplified"
+        "because": "breakout at 276.5x median (1106 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -224,7 +224,7 @@
         "mode": "ADVISORY",
         "target": "threads",
         "action": "keep preferring the leading format in picks",
-        "because": "format tally leader: solo KEEPS TOTAL CROWN (12682 total / 1074 posts / avg 11.81 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.44)"
+        "because": "format tally leader: solo KEEPS TOTAL CROWN (12719 total / 1077 posts / avg 11.81 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.44)"
       },
       {
         "rule": "R-SLOT",
@@ -235,7 +235,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T19:53:47-08:00"
+    "collected_at": "2026-11-15T20:51:40-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -309,7 +309,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T19:53:47-08:00"
+    "collected_at": "2026-11-15T20:51:40-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -515,7 +515,7 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3468.5x median (13874 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3480.5x median (13922 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -543,7 +543,7 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 276.0x median (1104 engagement, bar 12), not yet amplified",
+      "because": "breakout at 276.5x median (1106 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -571,7 +571,7 @@
       "rule": "R-FORMAT",
       "target": "threads",
       "action": "keep preferring the leading format in picks",
-      "because": "format tally leader: solo KEEPS TOTAL CROWN (12682 total / 1074 posts / avg 11.81 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.44)",
+      "because": "format tally leader: solo KEEPS TOTAL CROWN (12719 total / 1077 posts / avg 11.81 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.44)",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
