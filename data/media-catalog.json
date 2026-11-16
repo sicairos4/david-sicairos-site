@@ -1,7 +1,194 @@
 {
   "version": 1,
-  "generated_at": "2026-11-16T02:22:33.154245+00:00",
+  "generated_at": "2026-11-16T10:09:07.999678+00:00",
   "items": [
+    {
+      "id": "youtube:Th9OeVCaSGg",
+      "platform": "youtube",
+      "title": "RENAMED AND REFILED.",
+      "published_at": "2026-11-16T09:09:07+00:00",
+      "url": "https://www.youtube.com/watch?v=Th9OeVCaSGg",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T09:09:07+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T09:09:07+00:00",
+        "utc_epoch": 1794820147,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:j7j0Xc9ucug",
+      "platform": "youtube",
+      "title": "SHOW UP ANYWAY.",
+      "published_at": "2026-11-16T08:00:37+00:00",
+      "url": "https://www.youtube.com/watch?v=j7j0Xc9ucug",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T08:00:37+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T08:00:37+00:00",
+        "utc_epoch": 1794816037,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:QfGgenR0EwY",
+      "platform": "youtube",
+      "title": "SEVEN DAYS. ONE LEDGER.",
+      "published_at": "2026-11-16T07:46:11+00:00",
+      "url": "https://www.youtube.com/watch?v=QfGgenR0EwY",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T07:46:11+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T07:46:11+00:00",
+        "utc_epoch": 1794815171,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:lyc7a13F99Q",
+      "platform": "youtube",
+      "title": "REBUILD SYSTEMS.",
+      "published_at": "2026-11-16T06:54:37+00:00",
+      "url": "https://www.youtube.com/watch?v=lyc7a13F99Q",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T06:54:37+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T06:54:37+00:00",
+        "utc_epoch": 1794812077,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:drWgUdtYeh8",
+      "platform": "youtube",
+      "title": "They renamed the file and filed it again.",
+      "published_at": "2026-11-16T06:23:19+00:00",
+      "url": "https://www.youtube.com/watch?v=drWgUdtYeh8",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T06:23:19+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T06:23:19+00:00",
+        "utc_epoch": 1794810199,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:qoDa51JWe1Q",
+      "platform": "youtube",
+      "title": "Merced College is a Bellwether finalist. Again.",
+      "published_at": "2026-11-16T04:39:55+00:00",
+      "url": "https://www.youtube.com/watch?v=qoDa51JWe1Q",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T04:39:55+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T04:39:55+00:00",
+        "utc_epoch": 1794803995,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:_mw34T09Wog",
+      "platform": "youtube",
+      "title": "Where to get a free turkey in Merced this Thanksgiving.",
+      "published_at": "2026-11-16T04:08:19+00:00",
+      "url": "https://www.youtube.com/watch?v=_mw34T09Wog",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T04:08:19+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T04:08:19+00:00",
+        "utc_epoch": 1794802099,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:iuup-MqOzTk",
+      "platform": "youtube",
+      "title": "Friday night in Atwater: carne asada",
+      "published_at": "2026-11-16T00:21:30+00:00",
+      "url": "https://www.youtube.com/watch?v=iuup-MqOzTk",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-16T00:21:30+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-16T00:21:30+00:00",
+        "utc_epoch": 1794788490,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:az2UreFkXwc",
+      "platform": "youtube",
+      "title": "How to verify a claim before you share it",
+      "published_at": "2026-11-15T23:43:50+00:00",
+      "url": "https://www.youtube.com/watch?v=az2UreFkXwc",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T23:43:50+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T23:43:50+00:00",
+        "utc_epoch": 1794786230,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:JwCuA73bo4Q",
+      "platform": "youtube",
+      "title": "5:30 AM on the pavement in Atwater",
+      "published_at": "2026-11-15T22:58:50+00:00",
+      "url": "https://www.youtube.com/watch?v=JwCuA73bo4Q",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T22:58:50+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T22:58:50+00:00",
+        "utc_epoch": 1794783530,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Ppbuspy6MW4",
+      "platform": "youtube",
+      "title": "Boyenga leads Lopez by 1,008 — but the count is not over",
+      "published_at": "2026-11-15T22:18:23+00:00",
+      "url": "https://www.youtube.com/watch?v=Ppbuspy6MW4",
+      "description": "",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-15T22:18:23+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-15T22:18:23+00:00",
+        "utc_epoch": 1794781103,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:HcW51GoHO_M",
       "platform": "youtube",
@@ -9,7 +196,7 @@
       "published_at": "2026-11-15T15:46:15+00:00",
       "url": "https://www.youtube.com/watch?v=HcW51GoHO_M",
       "description": "",
-      "observed_at": "2026-11-15T22:02:53.974873+00:00",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T15:46:15+00:00",
@@ -26,7 +213,7 @@
       "published_at": "2026-11-15T14:29:54+00:00",
       "url": "https://www.youtube.com/watch?v=-6AhzOYZD0k",
       "description": "",
-      "observed_at": "2026-11-15T22:02:53.974873+00:00",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T14:29:54+00:00",
@@ -43,7 +230,7 @@
       "published_at": "2026-11-15T12:02:29+00:00",
       "url": "https://www.youtube.com/watch?v=FL6MAHvnQSU",
       "description": "",
-      "observed_at": "2026-11-15T22:02:53.974873+00:00",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T12:02:29+00:00",
@@ -60,7 +247,7 @@
       "published_at": "2026-11-15T11:30:05+00:00",
       "url": "https://www.youtube.com/watch?v=rzlSdsXki8g",
       "description": "",
-      "observed_at": "2026-11-15T22:02:53.974873+00:00",
+      "observed_at": "2026-11-16T10:09:07.999678+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-15T11:30:05+00:00",
@@ -957,24 +1144,23 @@
   ],
   "sources": {
     "youtube": {
-      "status": "error",
-      "last_attempt_at": "2026-11-16T02:22:33.154245+00:00",
-      "last_success_at": "2026-11-15T22:02:53.974873+00:00",
+      "status": "ok",
+      "last_attempt_at": "2026-11-16T10:09:07.999678+00:00",
+      "last_success_at": "2026-11-16T10:09:07.999678+00:00",
       "returned_count": 15,
-      "coverage": "recent_feed_window_not_full_archive",
-      "error_type": "HTTPError"
+      "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-16T02:22:33.154245+00:00",
+      "last_attempt_at": "2026-11-16T10:09:07.999678+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-16T02:22:33.154245+00:00",
+      "last_attempt_at": "2026-11-16T10:09:07.999678+00:00",
       "error_type": "RuntimeError"
     }
   }
