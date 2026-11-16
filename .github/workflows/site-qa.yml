@@ -36,6 +36,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Run citizen auditor routing and date regression tests
+        run: node --test scripts/test-citizen-auditor-release.cjs
       - name: Run renderer provenance regression tests
         run: |
           mkdir -p qa-artifacts

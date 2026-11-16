@@ -1,0 +1,11 @@
+const test=require('node:test');const assert=require('node:assert/strict');const {planDates,routeLegacy}=require('../assets/citizen-auditor-release.js');
+const base='https://example.test/project/';
+test('calendar offsets cross year boundary',()=>assert.deepEqual(planDates('2026-12-25'),{ten:'2027-01-04',twentyFour:'2027-01-18'}));
+test('leap day handled in UTC',()=>assert.deepEqual(planDates('2028-02-20'),{ten:'2028-03-01',twentyFour:'2028-03-15'}));
+test('invalid dates fail closed',()=>{for(const value of ['2026-02-29','2026-13-01','2026-11-31','not-a-date','26-01-01','0099-01-01'])assert.throws(()=>planDates(value));});
+test('document query and campaign parameters preserved',()=>{const u=new URL(routeLegacy('public-files.html?q=Merced&utm_source=video&workstation=1',base));assert.equal(u.pathname,'/project/209-audit.html');assert.equal(u.hash,'#records');assert.equal(u.searchParams.get('q'),'Merced');assert.equal(u.searchParams.get('utm_source'),'video');assert.equal(u.searchParams.has('workstation'),false);});
+test('tracker selects records tracker mode',()=>{const u=new URL(routeLegacy('index-tracker/?q=City',base));assert.equal(u.searchParams.get('mode'),'tracker');assert.equal(u.hash,'#records');});
+test('CPRA old fragment retained',()=>{const u=new URL(routeLegacy('cpra-playbook/#builder',base));assert.equal(u.hash,'#cpra');assert.equal(u.searchParams.get('legacy_hash'),'builder');});
+test('explicit standalone escape preserved',()=>assert.equal(routeLegacy('public-files.html?standalone=1',base),null));
+test('foreign or credential-bearing URLs not routed',()=>{for(const value of ['https://evil.test/public-files.html','https://name:secret@example.test/project/public-files.html','javascript:alert(1)'])assert.equal(routeLegacy(value,base),null);});
+test('unrelated same-origin tools and parent paths not routed',()=>{for(const value of ['research.html','../public-files.html'])assert.equal(routeLegacy(value,base),null);});
