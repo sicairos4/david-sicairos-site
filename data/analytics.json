@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T06:27:01-08:00",
-  "generated_at_pt": "2026-11-16 06:27 PT",
+  "generated_at": "2026-11-16T09:21:40-08:00",
+  "generated_at_pt": "2026-11-16 09:21 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -20,9 +20,9 @@
     "watch_time_hours": null,
     "subs_gained_28d": null,
     "subscribers_last_known": "44",
-    "views_lifetime_last_known": "19306",
-    "videos_last_known": "353",
-    "last_known_as_of": "2026-10-16",
+    "views_lifetime_last_known": "21466",
+    "videos_last_known": "432",
+    "last_known_as_of": "2026-11-16",
     "stale": true,
     "note": "YouTube token dead since 2026-10-19 (HTTP 401); re-consent owed by David. Figures are the last good pull, NOT current."
   },
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T06:27:01-08:00",
+    "collected_at": "2026-11-16T09:21:41-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -73,24 +73,24 @@
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 19,
-      "facebook": 35,
+      "bluesky": 14,
+      "facebook": 36,
       "instagram": 110,
       "linkedin": 12,
       "threads": 13,
-      "tiktok": 132,
+      "tiktok": 135,
       "unknown": 6,
-      "youtube": 19
+      "youtube": 20
     },
     "verified_7d": {
       "bluesky": 202,
       "facebook": 280,
-      "instagram": 382,
-      "linkedin": 197,
+      "instagram": 388,
+      "linkedin": 192,
       "threads": 148,
-      "tiktok": 223,
+      "tiktok": 226,
       "unknown": 125,
-      "youtube": 140
+      "youtube": 141
     },
     "latest_verified": {
       "bluesky": {
@@ -98,12 +98,12 @@
         "url": null
       },
       "facebook": {
-        "observed_at_utc": "2026-11-16T10:15:00+00:00",
-        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid02t6jx4qH93yipYKFtJuNKgbB84qQgwWPteTPuTw1ZzPkxSfuR6kh5PEmmTRwcAsVTl"
+        "observed_at_utc": "2026-11-16T15:14:00+00:00",
+        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid02zpjL4ZSLFrJv5fmdNzb9VuLZME6zdz68DSJkKkxuDf4Rx1Rbgv7yCW488gyUJoDgl"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-16T11:34:02+00:00",
-        "url": "https://www.instagram.com/reel/DfzNvOynJYM/"
+        "observed_at_utc": "2026-11-16T15:29:29+00:00",
+        "url": "https://www.instagram.com/reel/Dfzn6MukR7I/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-16T08:01:00+00:00",
@@ -114,7 +114,7 @@
         "url": "https://www.threads.com/@ufwupdates/post/DfvH2FPjQA9"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-16T13:53:00+00:00",
+        "observed_at_utc": "2026-11-16T15:33:00+00:00",
         "url": null
       },
       "unknown": {
@@ -122,15 +122,15 @@
         "url": "https://www.youtube.com/watch?v=HkV80jGoJNU"
       },
       "youtube": {
-        "observed_at_utc": "2026-11-16T11:01:00+00:00",
-        "url": "https://www.youtube.com/shorts/xqriAHzd7-g"
+        "observed_at_utc": "2026-11-16T15:04:00+00:00",
+        "url": "https://www.youtube.com/shorts/4TZfY6FVDO0"
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T06:27:01-08:00",
-    "receipts_lines": 4757,
-    "receipts_parsed": 4757,
-    "verified_rows": 3304,
+    "collected_at": "2026-11-16T09:21:40-08:00",
+    "receipts_lines": 4798,
+    "receipts_parsed": 4798,
+    "verified_rows": 3317,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 761,
     "caveats": [
@@ -140,20 +140,19 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 06:07 PT",
+    "generated_pt": "2026-11-16 08:57 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 66,
-      "facebook": 56,
-      "instagram_hub": 160,
-      "instagram_personal": 18,
+      "bluesky": 54,
+      "facebook": 51,
+      "instagram_hub": 156,
+      "instagram_personal": 16,
       "linkedin": 6,
       "threads": 79,
       "tiktok": 17,
-      "video": 1,
-      "youtube": 16
+      "youtube": 18
     },
-    "fact_rows_total": 16486,
+    "fact_rows_total": 16520,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -223,7 +222,7 @@
         "mode": "ADVISORY",
         "target": "threads",
         "action": "keep preferring the leading format in picks",
-        "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34) - CARRIED, no live read this tick"
+        "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34) - CARRIED, no live read this tick "
       },
       {
         "rule": "R-SLOT",
@@ -234,81 +233,81 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T06:27:01-08:00"
+    "collected_at": "2026-11-16T09:21:40-08:00"
   },
   "top_posts_lab": {
-    "run_file": "run-2026-11-15-scored.json",
-    "checks": 195,
+    "run_file": "run-2026-11-16-scored.json",
+    "checks": 86,
     "top_unified": [
       {
-        "url": "https://www.threads.com/@209media.connect/post/DftORD0lXEA",
+        "url": "https://www.threads.com/@209media.connect/post/DfvqdBQlpIG",
         "platform": "threads",
         "cohort": "24H",
-        "published_pt": "2026-11-13 19:18 PT",
-        "views": 3553,
-        "engagement": 480,
-        "likes": 443,
-        "replies": 6,
-        "reposts": 27,
-        "unified_score": 7.92,
-        "engagement_rate": 0.1351
+        "published_pt": "2026-11-14 18:03 PT",
+        "views": 9,
+        "engagement": 5,
+        "likes": 5,
+        "replies": 0,
+        "reposts": 0,
+        "unified_score": 12.84,
+        "engagement_rate": 0.55556
       },
       {
-        "url": "https://www.threads.com/@209media.connect/post/DfsnnpGFDzv",
+        "url": "https://www.threads.com/@209media.connect/post/Dfwi6lnFhTl",
         "platform": "threads",
         "cohort": "24H",
-        "published_pt": "2026-11-13 13:40 PT",
-        "views": 2267,
-        "engagement": 310,
-        "likes": 292,
-        "replies": 5,
-        "reposts": 13,
-        "unified_score": 7.5,
-        "engagement_rate": 0.13674
-      },
-      {
-        "url": "https://www.threads.com/@209media.connect/post/DftEiWHDiMF",
-        "platform": "threads",
-        "cohort": "24H",
-        "published_pt": "2026-11-13 17:53 PT",
-        "views": 1138,
-        "engagement": 148,
-        "likes": 127,
-        "replies": 15,
-        "reposts": 5,
-        "unified_score": 6.86,
-        "engagement_rate": 0.13005
+        "published_pt": "2026-11-15 02:16 PT",
+        "views": 379,
+        "engagement": 86,
+        "likes": 81,
+        "replies": 1,
+        "reposts": 3,
+        "unified_score": 8.39,
+        "engagement_rate": 0.22691
       },
       {
         "url": "https://www.threads.com/@209media.connect/post/DffQmD2kcQw",
         "platform": "threads",
         "cohort": "7D",
         "published_pt": "2026-11-08 09:09 PT",
-        "views": 55771,
+        "views": 55776,
         "engagement": 378,
         "likes": 358,
         "replies": 4,
         "reposts": 13,
-        "unified_score": 6.77,
+        "unified_score": 6.64,
         "engagement_rate": 0.00678
       },
       {
-        "url": "https://www.threads.com/@209media.connect/post/Dfssw5jARCr",
+        "url": "https://www.threads.com/@209media.connect/post/Dfe_l-HEaaZ",
+        "platform": "threads",
+        "cohort": "7D",
+        "published_pt": "2026-11-08 06:40 PT",
+        "views": 2377,
+        "engagement": 217,
+        "likes": 198,
+        "replies": 8,
+        "reposts": 11,
+        "unified_score": 5.57,
+        "engagement_rate": 0.09129
+      },
+      {
+        "url": "https://www.threads.com/@209media.connect/post/DfwBYmZFLt9",
         "platform": "threads",
         "cohort": "24H",
-        "published_pt": "2026-11-13 14:25 PT",
-        "views": 371,
-        "engagement": 88,
-        "likes": 79,
-        "replies": 1,
-        "reposts": 8,
-        "unified_score": 6.41,
-        "engagement_rate": 0.2372
+        "published_pt": "2026-11-14 21:23 PT",
+        "views": 205,
+        "engagement": 39,
+        "likes": 39,
+        "replies": 0,
+        "reposts": 0,
+        "unified_score": 4.47,
+        "engagement_rate": 0.19024
       }
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T06:27:01-08:00"
+    "collected_at": "2026-11-16T09:21:40-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -570,7 +569,7 @@
       "rule": "R-FORMAT",
       "target": "threads",
       "action": "keep preferring the leading format in picks",
-      "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34) - CARRIED, no live read this tick",
+      "because": "format tally leader: solo KEEPS TOTAL CROWN (12800 total / 1093 posts / avg 11.71 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.34) - CARRIED, no live read this tick ",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
