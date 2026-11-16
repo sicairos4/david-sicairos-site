@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T23:43:43-08:00",
-  "generated_at_pt": "2026-11-15 23:43 PT",
+  "generated_at": "2026-11-16T00:09:42-08:00",
+  "generated_at_pt": "2026-11-16 00:09 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -29,108 +29,108 @@
   "meta": {
     "fb_reach_28d": null,
     "note": "page_impressions_unique returned EMPTY data on all 5 pages (period days_28 and period day + since/until both probed 2026-11-13); reach not measurable with current tokens",
-    "post_engagements_28d": 15656,
+    "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T23:43:44-08:00",
+    "collected_at": "2026-11-16T00:09:43-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
         "name": "209Connect California",
         "followers": 570,
         "fans": 570,
-        "post_engagements_28d": 6253
+        "post_engagements_28d": 6191
       },
       {
         "page_id": "1631703800283832",
         "name": "DBeastco Wellness",
         "followers": 869,
         "fans": 869,
-        "post_engagements_28d": 9190
+        "post_engagements_28d": 9235
       },
       {
         "page_id": "187834931085359",
         "name": "Elevated209 CBD",
         "followers": 115,
         "fans": 115,
-        "post_engagements_28d": 20
+        "post_engagements_28d": 42
       },
       {
         "page_id": "109230148785851",
         "name": "Intentionally Us",
         "followers": 0,
         "fans": 0,
-        "post_engagements_28d": 57
+        "post_engagements_28d": 81
       },
       {
         "page_id": "213298825201598",
         "name": "ProblemSolved Designs",
         "followers": 188,
         "fans": 188,
-        "post_engagements_28d": 136
+        "post_engagements_28d": 157
       }
     ]
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 22,
+      "bluesky": 27,
       "facebook": 59,
-      "instagram": 126,
-      "linkedin": 9,
-      "threads": 12,
-      "tiktok": 123,
-      "unknown": 3,
+      "instagram": 131,
+      "linkedin": 13,
+      "threads": 13,
+      "tiktok": 136,
+      "unknown": 2,
       "youtube": 29
     },
     "verified_7d": {
-      "bluesky": 205,
-      "facebook": 280,
-      "instagram": 362,
-      "linkedin": 203,
-      "threads": 152,
-      "tiktok": 201,
+      "bluesky": 210,
+      "facebook": 281,
+      "instagram": 368,
+      "linkedin": 207,
+      "threads": 153,
+      "tiktok": 215,
       "unknown": 120,
-      "youtube": 137
+      "youtube": 138
     },
     "latest_verified": {
       "bluesky": {
-        "observed_at_utc": "2026-11-16T06:56:00+00:00",
+        "observed_at_utc": "2026-11-16T08:01:00+00:00",
         "url": null
       },
       "facebook": {
-        "observed_at_utc": "2026-11-16T07:16:00+00:00",
-        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid0yWwTs8YuQCTJAVKHCGDyFpG4guxZZeXh8KwfZoV4GEaSuZAvcUrQDM48RrSFv6cGl"
+        "observed_at_utc": "2026-11-16T08:00:00+00:00",
+        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid02B2S1ZqVRbaqeq8jQopu4b8Ut7rcS3irtLqb14C4NFaCFoK5EudHijcvbwYgS1Tvnl"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-16T07:37:19+00:00",
-        "url": "https://www.instagram.com/reel/DfytyJFj-XV/"
+        "observed_at_utc": "2026-11-16T07:54:28+00:00",
+        "url": "https://www.instagram.com/reel/Dfy2LN8jWe-/"
       },
       "linkedin": {
-        "observed_at_utc": "2026-11-16T06:27:00+00:00",
-        "url": "https://www.linkedin.com/feed/update/urn:li:share:7527977125887332352/"
+        "observed_at_utc": "2026-11-16T08:01:00+00:00",
+        "url": "https://www.linkedin.com/in/sicairosdavid/recent-activity/comments/"
       },
       "threads": {
-        "observed_at_utc": "2026-11-16T06:28:00+00:00",
-        "url": null
+        "observed_at_utc": "2026-11-16T07:59:00+00:00",
+        "url": "https://www.threads.com/@ufwupdates/post/DfvH2FPjQA9"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-16T07:27:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7708664881645391134"
+        "observed_at_utc": "2026-11-16T07:59:00+00:00",
+        "url": "https://www.tiktok.com/@sicairosdavid/video/7708675712659639566"
       },
       "unknown": {
         "observed_at_utc": "2026-11-16T03:40:00+00:00",
         "url": null
       },
       "youtube": {
-        "observed_at_utc": "2026-11-16T06:24:00+00:00",
-        "url": null
+        "observed_at_utc": "2026-11-16T08:01:00+00:00",
+        "url": "https://youtube.com/shorts/j7j0Xc9ucug"
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T23:43:43-08:00",
-    "receipts_lines": 4670,
-    "receipts_parsed": 4670,
-    "verified_rows": 3239,
+    "collected_at": "2026-11-16T00:09:42-08:00",
+    "receipts_lines": 4712,
+    "receipts_parsed": 4712,
+    "verified_rows": 3271,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 756,
     "caveats": [
@@ -140,20 +140,20 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-15 23:42 PT",
+    "generated_pt": "2026-11-15 23:56 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 78,
+      "bluesky": 79,
       "facebook": 78,
-      "instagram_hub": 178,
-      "instagram_personal": 20,
-      "linkedin": 9,
-      "threads": 85,
+      "instagram_hub": 182,
+      "instagram_personal": 21,
+      "linkedin": 10,
+      "threads": 86,
       "tiktok": 22,
       "video": 1,
-      "youtube": 18
+      "youtube": 19
     },
-    "fact_rows_total": 16401,
+    "fact_rows_total": 16415,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -234,7 +234,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T23:43:43-08:00"
+    "collected_at": "2026-11-16T00:09:42-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +308,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T23:43:43-08:00"
+    "collected_at": "2026-11-16T00:09:42-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
