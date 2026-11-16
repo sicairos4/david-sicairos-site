@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T00:42:11-08:00",
-  "generated_at_pt": "2026-11-16 00:42 PT",
+  "generated_at": "2026-11-16T01:16:07-08:00",
+  "generated_at_pt": "2026-11-16 01:16 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T00:42:12-08:00",
+    "collected_at": "2026-11-16T01:16:07-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -73,24 +73,24 @@
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 27,
-      "facebook": 54,
-      "instagram": 130,
+      "bluesky": 26,
+      "facebook": 45,
+      "instagram": 132,
       "linkedin": 13,
       "threads": 13,
-      "tiktok": 135,
+      "tiktok": 134,
       "unknown": 2,
       "youtube": 29
     },
     "verified_7d": {
-      "bluesky": 210,
+      "bluesky": 209,
       "facebook": 281,
-      "instagram": 367,
+      "instagram": 370,
       "linkedin": 206,
-      "threads": 153,
+      "threads": 152,
       "tiktok": 216,
       "unknown": 120,
-      "youtube": 138
+      "youtube": 139
     },
     "latest_verified": {
       "bluesky": {
@@ -102,8 +102,8 @@
         "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid02B2S1ZqVRbaqeq8jQopu4b8Ut7rcS3irtLqb14C4NFaCFoK5EudHijcvbwYgS1Tvnl"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-16T07:54:28+00:00",
-        "url": "https://www.instagram.com/reel/Dfy2LN8jWe-/"
+        "observed_at_utc": "2026-11-16T08:42:46+00:00",
+        "url": "https://www.instagram.com/reel/Dfy4KiFFJ1H/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-16T08:01:00+00:00",
@@ -122,15 +122,15 @@
         "url": null
       },
       "youtube": {
-        "observed_at_utc": "2026-11-16T08:01:00+00:00",
-        "url": "https://youtube.com/shorts/j7j0Xc9ucug"
+        "observed_at_utc": "2026-11-16T09:09:00+00:00",
+        "url": "https://youtube.com/shorts/Th9OeVCaSGg"
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T00:42:11-08:00",
-    "receipts_lines": 4714,
-    "receipts_parsed": 4714,
-    "verified_rows": 3272,
+    "collected_at": "2026-11-16T01:16:07-08:00",
+    "receipts_lines": 4719,
+    "receipts_parsed": 4719,
+    "verified_rows": 3276,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 756,
     "caveats": [
@@ -140,20 +140,20 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 00:27 PT",
+    "generated_pt": "2026-11-16 01:01 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 76,
-      "facebook": 75,
-      "instagram_hub": 178,
+      "bluesky": 73,
+      "facebook": 67,
+      "instagram_hub": 176,
       "instagram_personal": 21,
       "linkedin": 10,
-      "threads": 87,
-      "tiktok": 22,
+      "threads": 86,
+      "tiktok": 21,
       "video": 1,
-      "youtube": 19
+      "youtube": 18
     },
-    "fact_rows_total": 16420,
+    "fact_rows_total": 16426,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -234,7 +234,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T00:42:11-08:00"
+    "collected_at": "2026-11-16T01:16:07-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +308,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T00:42:11-08:00"
+    "collected_at": "2026-11-16T01:16:07-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
