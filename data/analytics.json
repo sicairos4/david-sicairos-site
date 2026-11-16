@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-15T16:24:44-08:00",
-  "generated_at_pt": "2026-11-15 16:24 PT",
+  "generated_at": "2026-11-15T17:31:30-08:00",
+  "generated_at_pt": "2026-11-15 17:31 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15656,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-15T16:24:45-08:00",
+    "collected_at": "2026-11-15T17:31:30-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -74,22 +74,23 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 15,
-      "facebook": 111,
-      "instagram": 145,
+      "facebook": 100,
+      "instagram": 147,
       "linkedin": 1,
-      "tiktok": 39,
-      "unknown": 11,
-      "youtube": 17
+      "threads": 3,
+      "tiktok": 42,
+      "unknown": 10,
+      "youtube": 20
     },
     "verified_7d": {
       "bluesky": 198,
-      "facebook": 264,
-      "instagram": 318,
+      "facebook": 265,
+      "instagram": 320,
       "linkedin": 205,
-      "threads": 140,
-      "tiktok": 116,
+      "threads": 143,
+      "tiktok": 119,
       "unknown": 119,
-      "youtube": 123
+      "youtube": 126
     },
     "latest_verified": {
       "bluesky": {
@@ -97,39 +98,39 @@
         "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2f74fpspi2c"
       },
       "facebook": {
-        "observed_at_utc": "2026-11-15T23:39:30+00:00",
-        "url": "https://www.facebook.com/122355740132212870/posts/122359825010212870"
+        "observed_at_utc": "2026-11-16T00:20:00+00:00",
+        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid02AttvicmshZPXSKXUh2RTLzSxRiwAqNsV4oXYimtNX9mjk7JYXxZg6b2NUp4JyZRMl"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-16T00:19:14+00:00",
-        "url": "https://www.instagram.com/reel/DfyCS62HJMn/"
+        "observed_at_utc": "2026-11-16T00:26:00+00:00",
+        "url": "https://www.instagram.com/p/DfwrbZPGD8R/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-15T13:47:00+00:00",
         "url": null
       },
       "threads": {
-        "observed_at_utc": "2026-11-14T21:28:00+00:00",
-        "url": null
+        "observed_at_utc": "2026-11-16T00:26:00+00:00",
+        "url": "https://www.threads.com/@themercedsunstar/post/DfyDeoEDscI"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-15T23:40:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7708419089118579982"
+        "observed_at_utc": "2026-11-16T01:25:00+00:00",
+        "url": "https://www.tiktok.com/@sicairosdavid/video/7708528547576515853"
       },
       "unknown": {
         "observed_at_utc": "2026-11-15T13:44:00+00:00",
         "url": null
       },
       "youtube": {
-        "observed_at_utc": "2026-11-15T23:05:00+00:00",
-        "url": "https://www.youtube.com/shorts/JwCuA73bo4Q"
+        "observed_at_utc": "2026-11-16T01:29:00+00:00",
+        "url": "https://www.youtube.com/shorts/HcW51GoHO_M"
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-15T16:24:44-08:00",
-    "receipts_lines": 4375,
-    "receipts_parsed": 4375,
-    "verified_rows": 3048,
+    "collected_at": "2026-11-15T17:31:30-08:00",
+    "receipts_lines": 4389,
+    "receipts_parsed": 4389,
+    "verified_rows": 3060,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 755,
     "caveats": [
@@ -139,21 +140,21 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-15 15:51 PT",
+    "generated_pt": "2026-11-15 17:28 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 88,
-      "facebook": 95,
-      "instagram_hub": 180,
-      "instagram_personal": 22,
-      "linkedin": 15,
-      "threads": 72,
-      "tiktok": 14,
+      "bluesky": 84,
+      "facebook": 79,
+      "instagram_hub": 181,
+      "instagram_personal": 24,
+      "linkedin": 12,
+      "threads": 76,
+      "tiktok": 15,
       "trends": 1,
       "video": 1,
-      "youtube": 15
+      "youtube": 16
     },
-    "fact_rows_total": 16238,
+    "fact_rows_total": 16267,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -167,7 +168,7 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3421.0x median (13684 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3437.0x median (13748 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -223,7 +224,7 @@
         "mode": "ADVISORY",
         "target": "threads",
         "action": "keep preferring the leading format in picks",
-        "because": "format tally leader: solo KEEPS TOTAL CROWN (12292 total / 1065 posts / avg 11.54 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.17)"
+        "because": "format tally leader: solo KEEPS TOTAL CROWN (12295 total / 1068 posts / avg 11.51 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.14)"
       },
       {
         "rule": "R-SLOT",
@@ -234,7 +235,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-15T16:24:44-08:00"
+    "collected_at": "2026-11-15T17:31:30-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +309,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-15T16:24:44-08:00"
+    "collected_at": "2026-11-15T17:31:30-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -514,7 +515,7 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3421.0x median (13684 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3437.0x median (13748 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
@@ -570,7 +571,7 @@
       "rule": "R-FORMAT",
       "target": "threads",
       "action": "keep preferring the leading format in picks",
-      "because": "format tally leader: solo KEEPS TOTAL CROWN (12292 total / 1065 posts / avg 11.54 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.17)",
+      "because": "format tally leader: solo KEEPS TOTAL CROWN (12295 total / 1068 posts / avg 11.51 vs 1:1 1103 / 804 / avg 1.37) and KEEPS AVG CROWN (margin 10.14)",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
