@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T04:03:22-08:00",
-  "generated_at_pt": "2026-11-16 04:03 PT",
+  "generated_at": "2026-11-16T05:08:28-08:00",
+  "generated_at_pt": "2026-11-16 05:08 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T04:03:23-08:00",
+    "collected_at": "2026-11-16T05:08:29-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -74,22 +74,22 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 23,
-      "facebook": 40,
-      "instagram": 136,
+      "facebook": 37,
+      "instagram": 121,
       "linkedin": 13,
       "threads": 13,
-      "tiktok": 135,
-      "unknown": 3,
-      "youtube": 25
+      "tiktok": 133,
+      "unknown": 5,
+      "youtube": 21
     },
     "verified_7d": {
-      "bluesky": 206,
-      "facebook": 281,
-      "instagram": 383,
+      "bluesky": 204,
+      "facebook": 280,
+      "instagram": 382,
       "linkedin": 200,
-      "threads": 151,
-      "tiktok": 221,
-      "unknown": 121,
+      "threads": 150,
+      "tiktok": 222,
+      "unknown": 123,
       "youtube": 140
     },
     "latest_verified": {
@@ -114,12 +114,12 @@
         "url": "https://www.threads.com/@ufwupdates/post/DfvH2FPjQA9"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-16T11:08:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7708723924456066334"
+        "observed_at_utc": "2026-11-16T12:46:00+00:00",
+        "url": null
       },
       "unknown": {
-        "observed_at_utc": "2026-11-16T11:15:00+00:00",
-        "url": "https://www.facebook.com/david.sicairos.1/posts/pfbid094Jr1Gh6t9D4qu4Pw3R9AT6rhpu8BqtLXxbefcL21Xn5NDXBU8jfxx7Sns2LwEd6l"
+        "observed_at_utc": "2026-11-16T12:49:43+00:00",
+        "url": "https://www.youtube.com/shorts/nCslJmeHrpw"
       },
       "youtube": {
         "observed_at_utc": "2026-11-16T11:01:00+00:00",
@@ -127,12 +127,12 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T04:03:22-08:00",
-    "receipts_lines": 4747,
-    "receipts_parsed": 4747,
-    "verified_rows": 3298,
+    "collected_at": "2026-11-16T05:08:28-08:00",
+    "receipts_lines": 4753,
+    "receipts_parsed": 4753,
+    "verified_rows": 3301,
     "verified_no_parseable_time": 305,
-    "verified_unknown_platform": 757,
+    "verified_unknown_platform": 759,
     "caveats": [
       "Threads/Bluesky API publishes live in api_daemon.log, not the receipts file, so their verified counts here are a lower bound.",
       "305 verified rows carry no parseable timestamp (not epoch, ISO, or PT stamp) and are excluded from the 24h/7d windows (counted in verified_rows).",
@@ -140,20 +140,20 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 03:43 PT",
+    "generated_pt": "2026-11-16 04:31 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
       "bluesky": 71,
       "facebook": 64,
-      "instagram_hub": 184,
-      "instagram_personal": 21,
-      "linkedin": 10,
+      "instagram_hub": 178,
+      "instagram_personal": 20,
+      "linkedin": 9,
       "threads": 81,
-      "tiktok": 18,
+      "tiktok": 17,
       "video": 1,
-      "youtube": 16
+      "youtube": 15
     },
-    "fact_rows_total": 16468,
+    "fact_rows_total": 16475,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -167,7 +167,7 @@
         "mode": "ADVISORY",
         "target": "@209media.connect",
         "action": "stage UPDATE video + cross-platform repost within 24h",
-        "because": "breakout at 3511.75x median (14047 engagement, bar 12), not yet amplified"
+        "because": "breakout at 3517.5x median (14070 engagement, bar 12), not yet amplified"
       },
       {
         "rule": "R-CROSSPOST",
@@ -234,7 +234,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T04:03:22-08:00"
+    "collected_at": "2026-11-16T05:08:28-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +308,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T04:03:22-08:00"
+    "collected_at": "2026-11-16T05:08:28-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
@@ -514,7 +514,7 @@
       "rule": "R-CROSSPOST",
       "target": "@209media.connect",
       "action": "stage UPDATE video + cross-platform repost within 24h",
-      "because": "breakout at 3511.75x median (14047 engagement, bar 12), not yet amplified",
+      "because": "breakout at 3517.5x median (14070 engagement, bar 12), not yet amplified",
       "mode": "ADVISORY -- needs David's word before any AUTO promotion"
     },
     {
