@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T05:08:28-08:00",
-  "generated_at_pt": "2026-11-16 05:08 PT",
+  "generated_at": "2026-11-16T05:49:29-08:00",
+  "generated_at_pt": "2026-11-16 05:49 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T05:08:29-08:00",
+    "collected_at": "2026-11-16T05:49:29-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -73,21 +73,21 @@
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 23,
-      "facebook": 37,
-      "instagram": 121,
-      "linkedin": 13,
+      "bluesky": 22,
+      "facebook": 35,
+      "instagram": 114,
+      "linkedin": 12,
       "threads": 13,
-      "tiktok": 133,
-      "unknown": 5,
-      "youtube": 21
+      "tiktok": 131,
+      "unknown": 4,
+      "youtube": 19
     },
     "verified_7d": {
-      "bluesky": 204,
+      "bluesky": 202,
       "facebook": 280,
       "instagram": 382,
-      "linkedin": 200,
-      "threads": 150,
+      "linkedin": 199,
+      "threads": 148,
       "tiktok": 222,
       "unknown": 123,
       "youtube": 140
@@ -127,7 +127,7 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T05:08:28-08:00",
+    "collected_at": "2026-11-16T05:49:29-08:00",
     "receipts_lines": 4753,
     "receipts_parsed": 4753,
     "verified_rows": 3301,
@@ -140,20 +140,20 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 04:31 PT",
+    "generated_pt": "2026-11-16 05:24 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 71,
-      "facebook": 64,
-      "instagram_hub": 178,
-      "instagram_personal": 20,
-      "linkedin": 9,
-      "threads": 81,
+      "bluesky": 69,
+      "facebook": 63,
+      "instagram_hub": 172,
+      "instagram_personal": 19,
+      "linkedin": 6,
+      "threads": 79,
       "tiktok": 17,
       "video": 1,
-      "youtube": 15
+      "youtube": 16
     },
-    "fact_rows_total": 16475,
+    "fact_rows_total": 16484,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -234,7 +234,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T05:08:28-08:00"
+    "collected_at": "2026-11-16T05:49:29-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-15-scored.json",
@@ -308,7 +308,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T05:08:28-08:00"
+    "collected_at": "2026-11-16T05:49:29-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",

@@ -14,43 +14,43 @@
   "whatsWorking": [
     {
       "metric": "Bluesky \u2014 verified publishes (24h)",
-      "value": "23",
-      "trend": "7d: 204",
+      "value": "22",
+      "trend": "7d: 202",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
       "metric": "Facebook \u2014 verified publishes (24h)",
-      "value": "37",
+      "value": "35",
       "trend": "7d: 280",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
       "metric": "Instagram \u2014 verified publishes (24h)",
-      "value": "121",
+      "value": "114",
       "trend": "7d: 382",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
       "metric": "LinkedIn \u2014 verified publishes (24h)",
-      "value": "13",
-      "trend": "7d: 200",
+      "value": "12",
+      "trend": "7d: 199",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
       "metric": "Threads \u2014 verified publishes (24h)",
       "value": "13",
-      "trend": "7d: 150",
+      "trend": "7d: 148",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
       "metric": "TikTok \u2014 verified publishes (24h)",
-      "value": "133",
+      "value": "131",
       "trend": "7d: 222",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
     {
       "metric": "YouTube \u2014 verified publishes (24h)",
-      "value": "21",
+      "value": "19",
       "trend": "7d: 140",
       "action": "Verified receipts only; a submit receipt is not a publish."
     },
@@ -87,7 +87,7 @@
       "followers": 570,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-16T05:08:45-08:00"
+      "verified_on": "2026-11-16T05:49:43-08:00"
     },
     {
       "name": "Facebook \u2014 DBeastco Wellness",
@@ -96,7 +96,7 @@
       "followers": 869,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-16T05:08:45-08:00"
+      "verified_on": "2026-11-16T05:49:43-08:00"
     },
     {
       "name": "Facebook \u2014 Elevated209 CBD",
@@ -105,7 +105,7 @@
       "followers": 115,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-16T05:08:45-08:00"
+      "verified_on": "2026-11-16T05:49:43-08:00"
     },
     {
       "name": "Facebook \u2014 Intentionally Us",
@@ -114,7 +114,7 @@
       "followers": 0,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-16T05:08:45-08:00"
+      "verified_on": "2026-11-16T05:49:43-08:00"
     },
     {
       "name": "Facebook \u2014 ProblemSolved Designs",
@@ -123,7 +123,7 @@
       "followers": 188,
       "metric": "followers",
       "source": "Facebook Graph API ?fields=followers_count (page token)",
-      "verified_on": "2026-11-16T05:08:45-08:00"
+      "verified_on": "2026-11-16T05:49:43-08:00"
     }
   ],
   "unverifiedPlatforms": [
