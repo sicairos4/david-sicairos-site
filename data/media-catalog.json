@@ -1,7 +1,262 @@
 {
   "version": 1,
-  "generated_at": "2026-11-17T13:49:35.506902+00:00",
+  "generated_at": "2026-11-17T22:38:48.063096+00:00",
   "items": [
+    {
+      "id": "youtube:c7mTYVtKWZA",
+      "platform": "youtube",
+      "title": "West Sacramento's Mayor Said It Out Loud: ICE Is Not Welcome Here",
+      "published_at": "2026-11-17T22:23:41+00:00",
+      "url": "https://www.youtube.com/watch?v=c7mTYVtKWZA",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T22:23:41+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T22:23:41+00:00",
+        "utc_epoch": 1794954221,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:VxIcxylkwxM",
+      "platform": "youtube",
+      "title": "The Lead Moved by One Vote | Merced County Superintendent Race, New Count",
+      "published_at": "2026-11-17T22:08:12+00:00",
+      "url": "https://www.youtube.com/watch?v=VxIcxylkwxM",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T22:08:12+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T22:08:12+00:00",
+        "utc_epoch": 1794953292,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:H9jDOMrhGOI",
+      "platform": "youtube",
+      "title": "California, Explained: Closed Session.",
+      "published_at": "2026-11-17T21:20:36+00:00",
+      "url": "https://www.youtube.com/watch?v=H9jDOMrhGOI",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T21:20:36+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T21:20:36+00:00",
+        "utc_epoch": 1794950436,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:jYcXWgamk9g",
+      "platform": "youtube",
+      "title": "California, Explained: LCFF, the formula that pays for your schools.",
+      "published_at": "2026-11-17T20:45:01+00:00",
+      "url": "https://www.youtube.com/watch?v=jYcXWgamk9g",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T20:45:01+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T20:45:01+00:00",
+        "utc_epoch": 1794948301,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:QLRcYd6wY1I",
+      "platform": "youtube",
+      "title": "ICE Pepper-Sprayed a Pregnant U.S. Citizen Outside the Stanislaus County Jail",
+      "published_at": "2026-11-17T18:20:42+00:00",
+      "url": "https://www.youtube.com/watch?v=QLRcYd6wY1I",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T18:20:42+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T18:20:42+00:00",
+        "utc_epoch": 1794939642,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:4LNECSLKMPc",
+      "platform": "youtube",
+      "title": "Illegally Fired, episode 363: Friday Check, Week Twenty-Six.",
+      "published_at": "2026-11-17T18:08:31+00:00",
+      "url": "https://www.youtube.com/watch?v=4LNECSLKMPc",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T18:08:31+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T18:08:31+00:00",
+        "utc_epoch": 1794938911,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:jeC4t1SrIFc",
+      "platform": "youtube",
+      "title": "California, Explained: LCFF, the formula that pays for your schools.",
+      "published_at": "2026-11-17T17:29:40+00:00",
+      "url": "https://www.youtube.com/watch?v=jeC4t1SrIFc",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T17:29:40+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T17:29:40+00:00",
+        "utc_epoch": 1794936580,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:6eXPypr0_d8",
+      "platform": "youtube",
+      "title": "Who watches the county government when nobody is watching? In Merced County, the answer is nineteen",
+      "published_at": "2026-11-17T17:18:10+00:00",
+      "url": "https://www.youtube.com/watch?v=6eXPypr0_d8",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T17:18:10+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T17:18:10+00:00",
+        "utc_epoch": 1794935890,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:K_xlTSiCHl4",
+      "platform": "youtube",
+      "title": "Where's your taco spot, Atwater?",
+      "published_at": "2026-11-17T16:55:34+00:00",
+      "url": "https://www.youtube.com/watch?v=K_xlTSiCHl4",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T16:55:34+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T16:55:34+00:00",
+        "utc_epoch": 1794934534,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:XF4OjKBZ_I4",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Reading the letter out loud",
+      "published_at": "2026-11-17T16:34:23+00:00",
+      "url": "https://www.youtube.com/watch?v=XF4OjKBZ_I4",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T16:34:23+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T16:34:23+00:00",
+        "utc_epoch": 1794933263,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:1MqkNeO8RO8",
+      "platform": "youtube",
+      "title": "The pavement first, the paperwork second",
+      "published_at": "2026-11-17T16:12:03+00:00",
+      "url": "https://www.youtube.com/watch?v=1MqkNeO8RO8",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T16:12:03+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T16:12:03+00:00",
+        "utc_epoch": 1794931923,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:cYcJCh3F9Y4",
+      "platform": "youtube",
+      "title": "What is due this week",
+      "published_at": "2026-11-17T15:47:34+00:00",
+      "url": "https://www.youtube.com/watch?v=cYcJCh3F9Y4",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T15:47:34+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T15:47:34+00:00",
+        "utc_epoch": 1794930454,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:XQnjnIAmy14",
+      "platform": "youtube",
+      "title": "FEMA Emergency Alert System test today at 11:20 AM.",
+      "published_at": "2026-11-17T15:23:56+00:00",
+      "url": "https://www.youtube.com/watch?v=XQnjnIAmy14",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T15:23:56+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T15:23:56+00:00",
+        "utc_epoch": 1794929036,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:7TS7D5inGi4",
+      "platform": "youtube",
+      "title": "The Central Valley just fired the Assembly's Republican leader.\n\nAlexandra Macedo lost the 33rd Asse",
+      "published_at": "2026-11-17T15:13:28+00:00",
+      "url": "https://www.youtube.com/watch?v=7TS7D5inGi4",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T15:13:28+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T15:13:28+00:00",
+        "utc_epoch": 1794928408,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Bkslwn1sGG0",
+      "platform": "youtube",
+      "title": "The next MCOE count lands today at 5 PM.",
+      "published_at": "2026-11-17T14:36:44+00:00",
+      "url": "https://www.youtube.com/watch?v=Bkslwn1sGG0",
+      "description": "",
+      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T14:36:44+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T14:36:44+00:00",
+        "utc_epoch": 1794926204,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:tdMcs1yyE4c",
       "platform": "youtube",
@@ -1434,22 +1689,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-17T13:49:35.506902+00:00",
-      "last_success_at": "2026-11-17T13:49:35.506902+00:00",
+      "last_attempt_at": "2026-11-17T22:38:48.063096+00:00",
+      "last_success_at": "2026-11-17T22:38:48.063096+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-17T13:49:35.506902+00:00",
+      "last_attempt_at": "2026-11-17T22:38:48.063096+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-17T13:49:35.506902+00:00",
+      "last_attempt_at": "2026-11-17T22:38:48.063096+00:00",
       "error_type": "RuntimeError"
     }
   }
