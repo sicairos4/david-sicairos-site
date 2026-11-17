@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T21:28:31-08:00",
-  "generated_at_pt": "2026-11-16 21:28 PT",
+  "generated_at": "2026-11-16T21:53:15-08:00",
+  "generated_at_pt": "2026-11-16 21:53 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T21:28:31-08:00",
+    "collected_at": "2026-11-16T21:53:15-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -74,22 +74,22 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 14,
-      "facebook": 33,
-      "instagram": 66,
-      "linkedin": 10,
+      "facebook": 31,
+      "instagram": 61,
+      "linkedin": 9,
       "threads": 8,
-      "tiktok": 87,
-      "unknown": 6,
+      "tiktok": 81,
+      "unknown": 7,
       "youtube": 12
     },
     "verified_7d": {
-      "bluesky": 200,
+      "bluesky": 199,
       "facebook": 298,
-      "instagram": 391,
+      "instagram": 392,
       "linkedin": 171,
-      "threads": 147,
-      "tiktok": 237,
-      "unknown": 126,
+      "threads": 146,
+      "tiktok": 239,
+      "unknown": 127,
       "youtube": 143
     },
     "latest_verified": {
@@ -102,8 +102,8 @@
         "url": "https://www.facebook.com/1638669581618653/posts/1652456216906656"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-17T04:38:59+00:00",
-        "url": "https://www.instagram.com/reel/Df1EZ0EE2wR/"
+        "observed_at_utc": "2026-11-17T05:49:03+00:00",
+        "url": "https://www.instagram.com/reel/Df1F5BNius6/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-17T05:13:00+00:00",
@@ -114,12 +114,12 @@
         "url": "https://www.threads.com/@209media.connect/post/Df051Wqm2-8"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-17T04:49:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7708989766057954573"
+        "observed_at_utc": "2026-11-17T05:32:00+00:00",
+        "url": "https://www.tiktok.com/@sicairosdavid/video/7709007273615478030"
       },
       "unknown": {
-        "observed_at_utc": "2026-11-17T01:57:48+00:00",
-        "url": "https://www.youtube.com/shorts/_K2xtW229wM"
+        "observed_at_utc": "2026-11-17T05:48:00+00:00",
+        "url": "18034956023862343"
       },
       "youtube": {
         "observed_at_utc": "2026-11-17T04:55:00+00:00",
@@ -127,12 +127,12 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T21:28:31-08:00",
-    "receipts_lines": 4912,
-    "receipts_parsed": 4912,
-    "verified_rows": 3379,
+    "collected_at": "2026-11-16T21:53:15-08:00",
+    "receipts_lines": 4924,
+    "receipts_parsed": 4924,
+    "verified_rows": 3383,
     "verified_no_parseable_time": 307,
-    "verified_unknown_platform": 762,
+    "verified_unknown_platform": 763,
     "caveats": [
       "Threads/Bluesky API publishes live in api_daemon.log, not the receipts file, so their verified counts here are a lower bound.",
       "307 verified rows carry no parseable timestamp (not epoch, ISO, or PT stamp) and are excluded from the 24h/7d windows (counted in verified_rows).",
@@ -140,19 +140,19 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 21:27 PT",
+    "generated_pt": "2026-11-16 21:52 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
       "bluesky": 47,
       "facebook": 178,
-      "instagram_hub": 227,
-      "instagram_personal": 8,
+      "instagram_hub": 225,
+      "instagram_personal": 6,
       "linkedin": 5,
-      "threads": 81,
+      "threads": 83,
       "tiktok": 18,
       "youtube": 15
     },
-    "fact_rows_total": 16906,
+    "fact_rows_total": 16913,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -233,7 +233,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T21:28:31-08:00"
+    "collected_at": "2026-11-16T21:53:15-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-16-scored.json",
@@ -307,7 +307,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T21:28:31-08:00"
+    "collected_at": "2026-11-16T21:53:15-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
