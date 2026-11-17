@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T16:36:26-08:00",
-  "generated_at_pt": "2026-11-16 16:36 PT",
+  "generated_at": "2026-11-16T17:15:57-08:00",
+  "generated_at_pt": "2026-11-16 17:15 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T16:36:28-08:00",
+    "collected_at": "2026-11-16T17:15:58-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -74,9 +74,9 @@
   "verified_publishes": {
     "verified_24h": {
       "bluesky": 12,
-      "facebook": 29,
-      "instagram": 79,
-      "linkedin": 12,
+      "facebook": 30,
+      "instagram": 80,
+      "linkedin": 13,
       "threads": 10,
       "tiktok": 110,
       "unknown": 6,
@@ -84,9 +84,9 @@
     },
     "verified_7d": {
       "bluesky": 201,
-      "facebook": 285,
+      "facebook": 286,
       "instagram": 384,
-      "linkedin": 178,
+      "linkedin": 179,
       "threads": 147,
       "tiktok": 227,
       "unknown": 125,
@@ -98,16 +98,16 @@
         "url": null
       },
       "facebook": {
-        "observed_at_utc": "2026-11-17T00:20:47+00:00",
-        "url": "https://www.facebook.com/122274134930173549/posts/122275907468173549"
+        "observed_at_utc": "2026-11-17T00:53:46+00:00",
+        "url": "https://www.facebook.com/122324146208193779/posts/122326704944193779"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-16T23:56:12+00:00",
-        "url": "https://www.instagram.com/reel/Df0Q9HmD5ZT/"
+        "observed_at_utc": "2026-11-17T00:46:15+00:00",
+        "url": "https://www.instagram.com/reel/Df0qn18jOij/"
       },
       "linkedin": {
-        "observed_at_utc": "2026-11-16T08:01:00+00:00",
-        "url": "https://www.linkedin.com/in/sicairosdavid/recent-activity/comments/"
+        "observed_at_utc": "2026-11-17T00:47:00+00:00",
+        "url": "https://www.linkedin.com/feed/update/urn:li:share:7528257072942067712/"
       },
       "threads": {
         "observed_at_utc": "2026-11-16T07:59:00+00:00",
@@ -127,10 +127,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T16:36:26-08:00",
-    "receipts_lines": 4815,
-    "receipts_parsed": 4815,
-    "verified_rows": 3331,
+    "collected_at": "2026-11-16T17:15:57-08:00",
+    "receipts_lines": 4818,
+    "receipts_parsed": 4818,
+    "verified_rows": 3334,
     "verified_no_parseable_time": 305,
     "verified_unknown_platform": 761,
     "caveats": [
@@ -140,19 +140,19 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 14:54 PT",
+    "generated_pt": "2026-11-16 16:42 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
-      "bluesky": 43,
-      "facebook": 113,
-      "instagram_hub": 129,
-      "instagram_personal": 14,
+      "bluesky": 42,
+      "facebook": 109,
+      "instagram_hub": 116,
+      "instagram_personal": 12,
       "linkedin": 6,
-      "threads": 72,
-      "tiktok": 16,
-      "youtube": 17
+      "threads": 71,
+      "tiktok": 15,
+      "youtube": 14
     },
-    "fact_rows_total": 16611,
+    "fact_rows_total": 16623,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -233,7 +233,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T16:36:26-08:00"
+    "collected_at": "2026-11-16T17:15:57-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-16-scored.json",
@@ -307,7 +307,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T16:36:26-08:00"
+    "collected_at": "2026-11-16T17:15:57-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
