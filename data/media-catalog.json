@@ -1,7 +1,126 @@
 {
   "version": 1,
-  "generated_at": "2026-11-17T04:10:48.486960+00:00",
+  "generated_at": "2026-11-17T13:49:35.506902+00:00",
   "items": [
+    {
+      "id": "youtube:tdMcs1yyE4c",
+      "platform": "youtube",
+      "title": "The district attorney is the one county office that decides who faces criminal charges.",
+      "published_at": "2026-11-17T13:05:10+00:00",
+      "url": "https://www.youtube.com/watch?v=tdMcs1yyE4c",
+      "description": "",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T13:05:10+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T13:05:10+00:00",
+        "utc_epoch": 1794920710,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:T3gGa5OBIcs",
+      "platform": "youtube",
+      "title": "The board sets the direction, but one person runs the county day to day.",
+      "published_at": "2026-11-17T12:45:55+00:00",
+      "url": "https://www.youtube.com/watch?v=T3gGa5OBIcs",
+      "description": "",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T12:45:55+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T12:45:55+00:00",
+        "utc_epoch": 1794919555,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:tUznACWRqH0",
+      "platform": "youtube",
+      "title": "Five People Run Your County",
+      "published_at": "2026-11-17T12:20:57+00:00",
+      "url": "https://www.youtube.com/watch?v=tUznACWRqH0",
+      "description": "",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T12:20:57+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T12:20:57+00:00",
+        "utc_epoch": 1794918057,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:zxiY_coH6Lg",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Show Up Anyway",
+      "published_at": "2026-11-17T11:57:36+00:00",
+      "url": "https://www.youtube.com/watch?v=zxiY_coH6Lg",
+      "description": "",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T11:57:36+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T11:57:36+00:00",
+        "utc_epoch": 1794916656,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:-WhSOU9cyFc",
+      "platform": "youtube",
+      "title": "Who decides how Merced County spends one point one two billion dollars? Five supervisors, one vote",
+      "published_at": "2026-11-17T09:39:17+00:00",
+      "url": "https://www.youtube.com/watch?v=-WhSOU9cyFc",
+      "description": "",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T09:39:17+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T09:39:17+00:00",
+        "utc_epoch": 1794908357,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:3Pq26JSJKGU",
+      "platform": "youtube",
+      "title": "Here is the part of the Form 700 nobody tells you about.",
+      "published_at": "2026-11-17T08:15:55+00:00",
+      "url": "https://www.youtube.com/watch?v=3Pq26JSJKGU",
+      "description": "",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T08:15:55+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T08:15:55+00:00",
+        "utc_epoch": 1794903355,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Jv5juyhvyp4",
+      "platform": "youtube",
+      "title": "Form 700 Is Due April 1. Mark the Calendar.",
+      "published_at": "2026-11-17T04:42:31+00:00",
+      "url": "https://www.youtube.com/watch?v=Jv5juyhvyp4",
+      "description": "",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T04:42:31+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T04:42:31+00:00",
+        "utc_epoch": 1794890551,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:hYt1ut_6Ptg",
       "platform": "youtube",
@@ -9,7 +128,7 @@
       "published_at": "2026-11-17T03:12:45+00:00",
       "url": "https://www.youtube.com/watch?v=hYt1ut_6Ptg",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T03:12:45+00:00",
@@ -26,7 +145,7 @@
       "published_at": "2026-11-17T02:49:15+00:00",
       "url": "https://www.youtube.com/watch?v=njq87V6uj2Q",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T02:49:15+00:00",
@@ -43,7 +162,7 @@
       "published_at": "2026-11-17T01:58:06+00:00",
       "url": "https://www.youtube.com/watch?v=_K2xtW229wM",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T01:58:06+00:00",
@@ -60,7 +179,7 @@
       "published_at": "2026-11-16T15:00:26+00:00",
       "url": "https://www.youtube.com/watch?v=4TZfY6FVDO0",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-16T15:00:26+00:00",
@@ -77,7 +196,7 @@
       "published_at": "2026-11-16T14:14:02+00:00",
       "url": "https://www.youtube.com/watch?v=HkV80jGoJNU",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-16T14:14:02+00:00",
@@ -94,7 +213,7 @@
       "published_at": "2026-11-16T14:13:39+00:00",
       "url": "https://www.youtube.com/watch?v=THr-kXevomY",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-16T14:13:39+00:00",
@@ -111,7 +230,7 @@
       "published_at": "2026-11-16T12:50:28+00:00",
       "url": "https://www.youtube.com/watch?v=nCslJmeHrpw",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-16T12:50:28+00:00",
@@ -128,7 +247,7 @@
       "published_at": "2026-11-16T12:37:13+00:00",
       "url": "https://www.youtube.com/watch?v=SKkZOBQ-iKc",
       "description": "",
-      "observed_at": "2026-11-17T04:10:48.486960+00:00",
+      "observed_at": "2026-11-17T13:49:35.506902+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-16T12:37:13+00:00",
@@ -1315,22 +1434,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-17T04:10:48.486960+00:00",
-      "last_success_at": "2026-11-17T04:10:48.486960+00:00",
+      "last_attempt_at": "2026-11-17T13:49:35.506902+00:00",
+      "last_success_at": "2026-11-17T13:49:35.506902+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-17T04:10:48.486960+00:00",
+      "last_attempt_at": "2026-11-17T13:49:35.506902+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-17T04:10:48.486960+00:00",
+      "last_attempt_at": "2026-11-17T13:49:35.506902+00:00",
       "error_type": "RuntimeError"
     }
   }
