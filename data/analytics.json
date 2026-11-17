@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T17:15:57-08:00",
-  "generated_at_pt": "2026-11-16 17:15 PT",
+  "generated_at": "2026-11-16T18:03:16-08:00",
+  "generated_at_pt": "2026-11-16 18:03 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T17:15:58-08:00",
+    "collected_at": "2026-11-16T18:03:16-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -73,33 +73,33 @@
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 12,
-      "facebook": 30,
+      "bluesky": 14,
+      "facebook": 31,
       "instagram": 80,
       "linkedin": 13,
       "threads": 10,
-      "tiktok": 110,
-      "unknown": 6,
-      "youtube": 16
+      "tiktok": 106,
+      "unknown": 7,
+      "youtube": 15
     },
     "verified_7d": {
-      "bluesky": 201,
-      "facebook": 286,
+      "bluesky": 203,
+      "facebook": 289,
       "instagram": 384,
-      "linkedin": 179,
+      "linkedin": 177,
       "threads": 147,
-      "tiktok": 227,
-      "unknown": 125,
+      "tiktok": 228,
+      "unknown": 126,
       "youtube": 141
     },
     "latest_verified": {
       "bluesky": {
-        "observed_at_utc": "2026-11-16T08:01:00+00:00",
-        "url": null
+        "observed_at_utc": "2026-11-17T01:37:00+00:00",
+        "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2hvbtdwvv2l"
       },
       "facebook": {
-        "observed_at_utc": "2026-11-17T00:53:46+00:00",
-        "url": "https://www.facebook.com/122324146208193779/posts/122326704944193779"
+        "observed_at_utc": "2026-11-17T01:57:06+00:00",
+        "url": "https://www.facebook.com/122324146208193779/posts/122326712666193779"
       },
       "instagram": {
         "observed_at_utc": "2026-11-17T00:46:15+00:00",
@@ -114,12 +114,12 @@
         "url": "https://www.threads.com/@ufwupdates/post/DfvH2FPjQA9"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-16T17:26:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7708811301316742414"
+        "observed_at_utc": "2026-11-17T01:47:00+00:00",
+        "url": null
       },
       "unknown": {
-        "observed_at_utc": "2026-11-16T14:13:49+00:00",
-        "url": "https://www.youtube.com/watch?v=HkV80jGoJNU"
+        "observed_at_utc": "2026-11-17T01:57:48+00:00",
+        "url": "https://www.youtube.com/shorts/_K2xtW229wM"
       },
       "youtube": {
         "observed_at_utc": "2026-11-16T15:04:00+00:00",
@@ -127,15 +127,15 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T17:15:57-08:00",
-    "receipts_lines": 4818,
-    "receipts_parsed": 4818,
-    "verified_rows": 3334,
-    "verified_no_parseable_time": 305,
-    "verified_unknown_platform": 761,
+    "collected_at": "2026-11-16T18:03:16-08:00",
+    "receipts_lines": 4827,
+    "receipts_parsed": 4827,
+    "verified_rows": 3342,
+    "verified_no_parseable_time": 306,
+    "verified_unknown_platform": 762,
     "caveats": [
       "Threads/Bluesky API publishes live in api_daemon.log, not the receipts file, so their verified counts here are a lower bound.",
-      "305 verified rows carry no parseable timestamp (not epoch, ISO, or PT stamp) and are excluded from the 24h/7d windows (counted in verified_rows).",
+      "306 verified rows carry no parseable timestamp (not epoch, ISO, or PT stamp) and are excluded from the 24h/7d windows (counted in verified_rows).",
       "Verdict spellings are not normalized in the file (VERIFIED / VERIFIED_LIVE / verified / VERIFIED LIVE); counts merge all four. Platform tags merge facebook + facebook_page + facebook_profile into 'facebook'."
     ]
   },
@@ -233,7 +233,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T17:15:57-08:00"
+    "collected_at": "2026-11-16T18:03:16-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-16-scored.json",
@@ -307,7 +307,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T17:15:57-08:00"
+    "collected_at": "2026-11-16T18:03:16-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",
