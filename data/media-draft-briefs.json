@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-11-16T20:40:51.031870+00:00",
+  "generated_at": "2026-11-17T04:10:48.486960+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:hYt1ut_6Ptg",
+      "source_url": "https://www.youtube.com/watch?v=hYt1ut_6Ptg",
+      "title": "Illegally Fired, episode 362: Thursday Check, Week Twenty-Six",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:njq87V6uj2Q",
+      "source_url": "https://www.youtube.com/watch?v=njq87V6uj2Q",
+      "title": "California, Explained: The School Board.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:_K2xtW229wM",
+      "source_url": "https://www.youtube.com/watch?v=_K2xtW229wM",
+      "title": "ILLEGALLY FIRED: Monday Morning in Atwater",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:4TZfY6FVDO0",
       "source_url": "https://www.youtube.com/watch?v=4TZfY6FVDO0",
@@ -258,27 +279,6 @@
       "source_id": "youtube:1nFuNUWaOis",
       "source_url": "https://www.youtube.com/watch?v=1nFuNUWaOis",
       "title": "Every flight in America is grounded. The FAA halted all departures after a telecom outage #209audit",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:v88RJr0O-GE",
-      "source_url": "https://www.youtube.com/watch?v=v88RJr0O-GE",
-      "title": "Randy Villegas defeats David Valadao in CA-22 — AP tally 95,831 to 45,344",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:z4ELvqD5bsU",
-      "source_url": "https://www.youtube.com/watch?v=z4ELvqD5bsU",
-      "title": "UC Merced 1300 Campaign: 1,300 young men of color into UC and CSU by 2026",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:pi9JpXD_HlQ",
-      "source_url": "https://www.youtube.com/watch?v=pi9JpXD_HlQ",
-      "title": "California Passed the Right Reading Law. Then It Walked Away.",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
