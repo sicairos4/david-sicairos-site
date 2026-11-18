@@ -1,7 +1,143 @@
 {
   "version": 1,
-  "generated_at": "2026-11-17T22:38:48.063096+00:00",
+  "generated_at": "2026-11-18T13:24:13.830380+00:00",
   "items": [
+    {
+      "id": "youtube:qhI1qG3IBvE",
+      "platform": "youtube",
+      "title": "Merced Said Yes: $18 Million a Year",
+      "published_at": "2026-11-18T13:01:00+00:00",
+      "url": "https://www.youtube.com/watch?v=qhI1qG3IBvE",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-18T13:01:00+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-18T13:01:00+00:00",
+        "utc_epoch": 1795006860,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:rucyKlknJwM",
+      "platform": "youtube",
+      "title": "Breathing to Downshift in Ninety Seconds | Walk, Lift, Sleep, Repeat",
+      "published_at": "2026-11-18T11:27:08+00:00",
+      "url": "https://www.youtube.com/watch?v=rucyKlknJwM",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-18T11:27:08+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-18T11:27:08+00:00",
+        "utc_epoch": 1795001228,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:bKQDthHeQdo",
+      "platform": "youtube",
+      "title": "CBD, Honest Scope: What It Is and Is Not",
+      "published_at": "2026-11-18T11:07:01+00:00",
+      "url": "https://www.youtube.com/watch?v=bKQDthHeQdo",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-18T11:07:01+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-18T11:07:01+00:00",
+        "utc_epoch": 1795000021,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:nziEaI3NDhQ",
+      "platform": "youtube",
+      "title": "Form 700, Explained: Read a Real Filing in Two Minutes",
+      "published_at": "2026-11-18T10:33:27+00:00",
+      "url": "https://www.youtube.com/watch?v=nziEaI3NDhQ",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-18T10:33:27+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-18T10:33:27+00:00",
+        "utc_epoch": 1794998007,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:INtQJrBVtdQ",
+      "platform": "youtube",
+      "title": "978 Votes. The Gap Is Closing. We Deserve Richard Lopez.",
+      "published_at": "2026-11-18T10:10:09+00:00",
+      "url": "https://www.youtube.com/watch?v=INtQJrBVtdQ",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-18T10:10:09+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-18T10:10:09+00:00",
+        "utc_epoch": 1794996609,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:VFQUoFRXq0I",
+      "platform": "youtube",
+      "title": "California, Explained: Succession.",
+      "published_at": "2026-11-18T08:38:33+00:00",
+      "url": "https://www.youtube.com/watch?v=VFQUoFRXq0I",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-18T08:38:33+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-18T08:38:33+00:00",
+        "utc_epoch": 1794991113,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:0WbxyKA-qy0",
+      "platform": "youtube",
+      "title": "Before you argue the point, ask who decides it.",
+      "published_at": "2026-11-18T00:13:14+00:00",
+      "url": "https://www.youtube.com/watch?v=0WbxyKA-qy0",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-18T00:13:14+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-18T00:13:14+00:00",
+        "utc_epoch": 1794960794,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:sFIG4q_fyWk",
+      "platform": "youtube",
+      "title": "Every request needs a date, or it is not a request.",
+      "published_at": "2026-11-17T22:52:46+00:00",
+      "url": "https://www.youtube.com/watch?v=sFIG4q_fyWk",
+      "description": "",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-17T22:52:46+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-17T22:52:46+00:00",
+        "utc_epoch": 1794955966,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:c7mTYVtKWZA",
       "platform": "youtube",
@@ -9,7 +145,7 @@
       "published_at": "2026-11-17T22:23:41+00:00",
       "url": "https://www.youtube.com/watch?v=c7mTYVtKWZA",
       "description": "",
-      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T22:23:41+00:00",
@@ -26,7 +162,7 @@
       "published_at": "2026-11-17T22:08:12+00:00",
       "url": "https://www.youtube.com/watch?v=VxIcxylkwxM",
       "description": "",
-      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T22:08:12+00:00",
@@ -43,7 +179,7 @@
       "published_at": "2026-11-17T21:20:36+00:00",
       "url": "https://www.youtube.com/watch?v=H9jDOMrhGOI",
       "description": "",
-      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T21:20:36+00:00",
@@ -60,7 +196,7 @@
       "published_at": "2026-11-17T20:45:01+00:00",
       "url": "https://www.youtube.com/watch?v=jYcXWgamk9g",
       "description": "",
-      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T20:45:01+00:00",
@@ -77,7 +213,7 @@
       "published_at": "2026-11-17T18:20:42+00:00",
       "url": "https://www.youtube.com/watch?v=QLRcYd6wY1I",
       "description": "",
-      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T18:20:42+00:00",
@@ -94,7 +230,7 @@
       "published_at": "2026-11-17T18:08:31+00:00",
       "url": "https://www.youtube.com/watch?v=4LNECSLKMPc",
       "description": "",
-      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T18:08:31+00:00",
@@ -111,7 +247,7 @@
       "published_at": "2026-11-17T17:29:40+00:00",
       "url": "https://www.youtube.com/watch?v=jeC4t1SrIFc",
       "description": "",
-      "observed_at": "2026-11-17T22:38:48.063096+00:00",
+      "observed_at": "2026-11-18T13:24:13.830380+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T17:29:40+00:00",
@@ -1689,22 +1825,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-17T22:38:48.063096+00:00",
-      "last_success_at": "2026-11-17T22:38:48.063096+00:00",
+      "last_attempt_at": "2026-11-18T13:24:13.830380+00:00",
+      "last_success_at": "2026-11-18T13:24:13.830380+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-17T22:38:48.063096+00:00",
+      "last_attempt_at": "2026-11-18T13:24:13.830380+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-17T22:38:48.063096+00:00",
+      "last_attempt_at": "2026-11-18T13:24:13.830380+00:00",
       "error_type": "RuntimeError"
     }
   }

@@ -1,7 +1,63 @@
 {
-  "generated_at": "2026-11-17T22:38:48.063096+00:00",
+  "generated_at": "2026-11-18T13:24:13.830380+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:qhI1qG3IBvE",
+      "source_url": "https://www.youtube.com/watch?v=qhI1qG3IBvE",
+      "title": "Merced Said Yes: $18 Million a Year",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:rucyKlknJwM",
+      "source_url": "https://www.youtube.com/watch?v=rucyKlknJwM",
+      "title": "Breathing to Downshift in Ninety Seconds | Walk, Lift, Sleep, Repeat",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:bKQDthHeQdo",
+      "source_url": "https://www.youtube.com/watch?v=bKQDthHeQdo",
+      "title": "CBD, Honest Scope: What It Is and Is Not",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:nziEaI3NDhQ",
+      "source_url": "https://www.youtube.com/watch?v=nziEaI3NDhQ",
+      "title": "Form 700, Explained: Read a Real Filing in Two Minutes",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:INtQJrBVtdQ",
+      "source_url": "https://www.youtube.com/watch?v=INtQJrBVtdQ",
+      "title": "978 Votes. The Gap Is Closing. We Deserve Richard Lopez.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:VFQUoFRXq0I",
+      "source_url": "https://www.youtube.com/watch?v=VFQUoFRXq0I",
+      "title": "California, Explained: Succession.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:0WbxyKA-qy0",
+      "source_url": "https://www.youtube.com/watch?v=0WbxyKA-qy0",
+      "title": "Before you argue the point, ask who decides it.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:sFIG4q_fyWk",
+      "source_url": "https://www.youtube.com/watch?v=sFIG4q_fyWk",
+      "title": "Every request needs a date, or it is not a request.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:c7mTYVtKWZA",
       "source_url": "https://www.youtube.com/watch?v=c7mTYVtKWZA",
@@ -223,62 +279,6 @@
       "source_id": "youtube:xqriAHzd7-g",
       "source_url": "https://www.youtube.com/watch?v=xqriAHzd7-g",
       "title": "THE PAPER TRAIL.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:Th9OeVCaSGg",
-      "source_url": "https://www.youtube.com/watch?v=Th9OeVCaSGg",
-      "title": "RENAMED AND REFILED.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:j7j0Xc9ucug",
-      "source_url": "https://www.youtube.com/watch?v=j7j0Xc9ucug",
-      "title": "SHOW UP ANYWAY.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:QfGgenR0EwY",
-      "source_url": "https://www.youtube.com/watch?v=QfGgenR0EwY",
-      "title": "SEVEN DAYS. ONE LEDGER.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:lyc7a13F99Q",
-      "source_url": "https://www.youtube.com/watch?v=lyc7a13F99Q",
-      "title": "REBUILD SYSTEMS.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:drWgUdtYeh8",
-      "source_url": "https://www.youtube.com/watch?v=drWgUdtYeh8",
-      "title": "They renamed the file and filed it again.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:qoDa51JWe1Q",
-      "source_url": "https://www.youtube.com/watch?v=qoDa51JWe1Q",
-      "title": "Merced College is a Bellwether finalist. Again.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:_mw34T09Wog",
-      "source_url": "https://www.youtube.com/watch?v=_mw34T09Wog",
-      "title": "Where to get a free turkey in Merced this Thanksgiving.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:iuup-MqOzTk",
-      "source_url": "https://www.youtube.com/watch?v=iuup-MqOzTk",
-      "title": "Friday night in Atwater: carne asada",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
