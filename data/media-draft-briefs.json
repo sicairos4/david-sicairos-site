@@ -1,7 +1,35 @@
 {
-  "generated_at": "2026-11-19T12:09:16.376418+00:00",
+  "generated_at": "2026-11-19T20:59:51.759054+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:33aKqFZLbQM",
+      "source_url": "https://www.youtube.com/watch?v=33aKqFZLbQM",
+      "title": "Central Valley governance. Merced County spending. Administrative accountability. #facts #didyouknow",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:xPy1kvwanW0",
+      "source_url": "https://www.youtube.com/watch?v=xPy1kvwanW0",
+      "title": "Merced County education watch. I backed Richard Lopez for MCOE superintendent in the November runoff",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:LPU-VzOEXSU",
+      "source_url": "https://www.youtube.com/watch?v=LPU-VzOEXSU",
+      "title": "The public can read what the office would not say, link in bio. #209  #redditstories #history",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:saWDTBPj3AQ",
+      "source_url": "https://www.youtube.com/watch?v=saWDTBPj3AQ",
+      "title": "How a School System Turns Grant Money Into a Pipeline",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:3O4JfmiXev8",
       "source_url": "https://www.youtube.com/watch?v=3O4JfmiXev8",
@@ -251,34 +279,6 @@
       "source_id": "youtube:_K2xtW229wM",
       "source_url": "https://www.youtube.com/watch?v=_K2xtW229wM",
       "title": "ILLEGALLY FIRED: Monday Morning in Atwater",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:4TZfY6FVDO0",
-      "source_url": "https://www.youtube.com/watch?v=4TZfY6FVDO0",
-      "title": "THE MORNING AFTER",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:HkV80jGoJNU",
-      "source_url": "https://www.youtube.com/watch?v=HkV80jGoJNU",
-      "title": "ILLEGALLY FIRED — The Letter With No Reason",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:THr-kXevomY",
-      "source_url": "https://www.youtube.com/watch?v=THr-kXevomY",
-      "title": "ILLEGALLY FIRED — The Seven Days",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:nCslJmeHrpw",
-      "source_url": "https://www.youtube.com/watch?v=nCslJmeHrpw",
-      "title": "ILLEGALLY FIRED: A LETTER TO MUHSD",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
