@@ -1,41 +1,303 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'none'; connect-src 'none'; style-src 'unsafe-inline'; object-src 'none'; base-uri 'none'; form-action 'none'">
-  <title>209 Control Panel: Telemetry Safety Hold</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>209 Control Panel: Triad Self Healing Telemetry</title>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <style>
-    body { margin: 0; background: #101820; color: #edf4fb; font: 1rem/1.6 system-ui, sans-serif; }
-    main { max-width: 52rem; margin: auto; padding: 1.5rem; }
-    section { background: #192936; border-radius: .5rem; padding: 1.25rem; margin: 1.25rem 0; }
-    h1 { line-height: 1.2; }
-    a { color: #8ed8ff; }
-    .status { color: #ffd681; font-weight: 700; }
-    dt { font-weight: 700; }
-    dd { margin: 0 0 1rem; }
+    :root {
+      --bg: #0a0d12;
+      --panel: #11161f;
+      --border: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --green: #10b981;
+      --amber: #f59e0b;
+      --red: #ef4444;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      gap: 12px;
+    }
+    h1 { font-size: 1.25rem; color: var(--accent); letter-spacing: 0.04em; }
+    .config-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 24px;
+    }
+    input {
+      width: 100%;
+      background: #070a0e;
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+    button {
+      background: var(--accent);
+      color: #041019;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    button.secondary { background: #1e293b; color: var(--text); }
+    button.warn { background: var(--amber); color: #1a1002; }
+    button.heal { background: var(--green); color: #021a11; }
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .kpi {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .kpi-label { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; }
+    .kpi-val { font-size: 1.75rem; font-weight: 700; margin-top: 4px; }
+    .streams {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      max-height: 460px;
+      overflow-y: auto;
+    }
+    .card h2 {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+    }
+    .log-item {
+      border-bottom: 1px solid #182232;
+      padding: 10px 0;
+      font-size: 0.8rem;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .queued { background: rgba(56, 189, 248, 0.15); color: var(--accent); }
+    .degraded { background: rgba(239, 68, 68, 0.15); color: var(--red); }
+    .repairing { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+    .realigned, .completed { background: rgba(16, 185, 129, 0.15); color: var(--green); }
+    .actions-row { display: flex; gap: 8px; margin-top: 8px; flex-wrap: wrap; }
   </style>
 </head>
 <body>
-  <main>
-    <h1>209 Triad Telemetry</h1>
-    <p class="status" role="status">NOT CONNECTED: CREDENTIAL ENTRY DISABLED</p>
-    <section aria-labelledby="security-title">
-      <h2 id="security-title">Credential safety</h2>
-      <p>This page does not accept, store, or transmit credentials. Never paste a Supabase service key, secret key, or worker bearer token into this page.</p>
-      <p>Browser database access and worker execution controls have been removed. Scripts, network connections, and form submissions are blocked by this page policy.</p>
-    </section>
-    <section aria-labelledby="state-title">
-      <h2 id="state-title">Verification state</h2>
-      <dl>
-        <dt>Live queue and agent state</dt><dd>Not checked by this page.</dd>
-        <dt>Diagnostic and repair activity</dt><dd>Not checked by this page.</dd>
-        <dt>Publishing and deployment actions</dt><dd>Unavailable from this page.</dd>
-      </dl>
-      <p>Missing telemetry is not zero activity or proof of a failure. Live display remains paused until an authenticated server interface and its access policy are reviewed.</p>
-    </section>
-    <p><a href="dashboard.html">Return to dashboard</a></p>
-  </main>
+  <header>
+    <div>
+      <h1>209 CONTROL PANEL // TRIAD SELF HEALING TELEMETRY</h1>
+      <div style="font-size: 0.8rem; color: var(--muted);">
+        Nodes: perplexity_scout | gemini_architect | muse_dispatcher | diagnostic_sentinel | repair_surgeon
+      </div>
+    </div>
+    <div id="connStatus" class="badge degraded">DISCONNECTED</div>
+  </header>
+
+  <section class="config-bar">
+    <div>
+      <label style="font-size: 0.72rem; color: var(--muted);">Supabase URL</label>
+      <input id="sbUrl" value="https://uwidjnnhdgtrpsymuhwp.supabase.co" />
+    </div>
+    <div>
+      <label style="font-size: 0.72rem; color: var(--muted);">Supabase Key (Service / Anon)</label>
+      <input id="sbKey" type="password" placeholder="Paste Supabase key" />
+    </div>
+    <div>
+      <label style="font-size: 0.72rem; color: var(--muted);">Cloudflare Worker Router URL</label>
+      <input id="cfUrl" placeholder="https://cf-209-worker.your-subdomain.workers.dev" />
+    </div>
+    <div>
+      <label style="font-size: 0.72rem; color: var(--muted);">Worker Bearer Token</label>
+      <input id="cfToken" type="password" placeholder="Paste WORKER_BEARER_TOKEN" />
+    </div>
+    <div style="display: flex; align-items: flex-end; gap: 8px;">
+      <button onclick="connectMesh()">Connect Live Mesh</button>
+      <button class="secondary" onclick="refreshAll()">Sync Now</button>
+    </div>
+  </section>
+
+  <section class="kpi-grid">
+    <div class="kpi">
+      <div class="kpi-label">Active Queue Tasks</div>
+      <div class="kpi-val" id="kpiTasks">0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Degraded / Alerts</div>
+      <div class="kpi-val" style="color: var(--red);" id="kpiDegraded">0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Diagnostic Traces</div>
+      <div class="kpi-val" style="color: var(--amber);" id="kpiTraces">0</div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-label">Repairs & Realignments</div>
+      <div class="kpi-val" style="color: var(--green);" id="kpiRepairs">0</div>
+    </div>
+  </section>
+
+  <section class="streams">
+    <div class="card">
+      <h2><span>publishing_209.ai_tasks</span><span style="color: var(--accent);">LIVE QUEUE</span></h2>
+      <div id="tasksList"></div>
+    </div>
+    <div class="card">
+      <h2><span>diagnostic_traces</span><span style="color: var(--amber);">SENTINEL</span></h2>
+      <div id="tracesList"></div>
+    </div>
+    <div class="card">
+      <h2><span>repair_logs & realignments</span><span style="color: var(--green);">SURGEON</span></h2>
+      <div id="repairsList"></div>
+    </div>
+  </section>
+
+  <script>
+    let sb = null;
+
+    function connectMesh() {
+      const url = document.getElementById("sbUrl").value.trim();
+      const key = document.getElementById("sbKey").value.trim();
+      if (!url || !key) {
+        alert("Enter Supabase URL and Key to connect.");
+        return;
+      }
+      sb = window.supabase.createClient(url, key, {
+        db: { schema: "publishing_209" }
+      });
+
+      document.getElementById("connStatus").textContent = "LIVE MESH CONNECTED";
+      document.getElementById("connStatus").className = "badge realigned";
+
+      sb.channel("triad-telemetry")
+        .on("postgres_changes", { event: "*", schema: "publishing_209", table: "ai_tasks" }, refreshAll)
+        .on("postgres_changes", { event: "*", schema: "publishing_209", table: "diagnostic_traces" }, refreshAll)
+        .on("postgres_changes", { event: "*", schema: "publishing_209", table: "repair_logs" }, refreshAll)
+        .on("postgres_changes", { event: "*", schema: "publishing_209", table: "realignment_snapshots" }, refreshAll)
+        .subscribe();
+
+      refreshAll();
+    }
+
+    async function triggerWorkerRoute(route, task) {
+      const cfUrl = document.getElementById("cfUrl").value.trim();
+      const cfToken = document.getElementById("cfToken").value.trim();
+      if (!cfUrl || !cfToken) {
+        alert("Configure Cloudflare Worker URL and Bearer Token first.");
+        return;
+      }
+      const res = await fetch(`${cfUrl}${route}`, {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${cfToken}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(task)
+      });
+      const data = await res.json();
+      alert(`Worker ${route} response:\n` + JSON.stringify(data, null, 2));
+      refreshAll();
+    }
+
+    async function refreshAll() {
+      if (!sb) return;
+
+      const [tasksRes, tracesRes, repairsRes, realignRes] = await Promise.all([
+        sb.from("ai_tasks").select("*").order("updated_at", { ascending: false }).limit(20),
+        sb.from("diagnostic_traces").select("*").order("created_at", { ascending: false }).limit(20),
+        sb.from("repair_logs").select("*").order("created_at", { ascending: false }).limit(15),
+        sb.from("realignment_snapshots").select("*").order("created_at", { ascending: false }).limit(15)
+      ]);
+
+      const tasks = tasksRes.data || [];
+      const traces = tracesRes.data || [];
+      const repairs = repairsRes.data || [];
+      const realigns = realignRes.data || [];
+
+      document.getElementById("kpiTasks").textContent = tasks.length;
+      document.getElementById("kpiDegraded").textContent = tasks.filter(t => t.status === "degraded").length;
+      document.getElementById("kpiTraces").textContent = traces.length;
+      document.getElementById("kpiRepairs").textContent = repairs.length + realigns.length;
+
+      document.getElementById("tasksList").innerHTML = tasks.map(t => `
+        <div class="log-item">
+          <div>
+            <span class="badge ${t.status}">${t.status}</span>
+            <strong>${t.content_id}</strong> (${t.owner_agent})
+          </div>
+          <div style="color: var(--muted);">
+            Task: ${t.task_id} | Hops: ${t.hop_count}/${t.max_hops} | Vertical: ${t.vertical}
+          </div>
+          <div class="actions-row">
+            <button class="warn" onclick='triggerWorkerRoute("/mesh/diagnose", ${JSON.stringify(t)})'>Diagnose</button>
+            <button class="heal" onclick='triggerWorkerRoute("/mesh/repair", ${JSON.stringify(t)})'>Repair</button>
+            <button class="secondary" onclick='triggerWorkerRoute("/mesh/realign", ${JSON.stringify(t)})'>Realign</button>
+          </div>
+        </div>
+      `).join("") || "<div class='log-item'>No tasks in queue.</div>";
+
+      document.getElementById("tracesList").innerHTML = traces.map(tr => `
+        <div class="log-item">
+          <div><span class="badge degraded">${tr.failure_category}</span> <strong>${tr.failed_agent}</strong></div>
+          <div style="color: var(--muted);">Content: ${tr.content_id} | HTTP ${tr.http_status} | Strategy: ${tr.remediation_strategy}</div>
+        </div>
+      `).join("") || "<div class='log-item'>Zero diagnostic traces recorded.</div>";
+
+      document.getElementById("repairsList").innerHTML = [
+        ...repairs.map(r => `
+          <div class="log-item">
+            <div><span class="badge repairing">REPAIRED</span> ${r.previous_agent} -> <strong>${r.assigned_fallback_agent}</strong></div>
+            <div style="color: var(--muted);">Content: ${r.content_id} | Actions: ${JSON.stringify(r.actions_applied)}</div>
+          </div>
+        `),
+        ...realigns.map(s => `
+          <div class="log-item">
+            <div><span class="badge realigned">REALIGNED</span> Owner: <strong>${s.realigned_owner}</strong></div>
+            <div style="color: var(--muted);">Content: ${s.content_id} | SHA256: ${s.payload_checksum.slice(0, 16)}...</div>
+          </div>
+        `)
+      ].join("") || "<div class='log-item'>No repair or realignment events yet.</div>";
+    }
+  </script>
 </body>
 </html>
