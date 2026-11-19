@@ -1,7 +1,58 @@
 {
   "version": 1,
-  "generated_at": "2026-11-19T02:52:42.225404+00:00",
+  "generated_at": "2026-11-19T12:09:16.376418+00:00",
   "items": [
+    {
+      "id": "youtube:3O4JfmiXev8",
+      "platform": "youtube",
+      "title": "Ice Skating Is Back in Atwater — The Rink at Castle Opens Friday",
+      "published_at": "2026-11-19T11:28:38+00:00",
+      "url": "https://www.youtube.com/watch?v=3O4JfmiXev8",
+      "description": "",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-19T11:28:38+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-19T11:28:38+00:00",
+        "utc_epoch": 1795087718,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:M9lym14IraE",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: The Firing Did Not Create the Auditor",
+      "published_at": "2026-11-19T08:08:16+00:00",
+      "url": "https://www.youtube.com/watch?v=M9lym14IraE",
+      "description": "",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-19T08:08:16+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-19T08:08:16+00:00",
+        "utc_epoch": 1795075696,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:9h9IJDcOOUE",
+      "platform": "youtube",
+      "title": "7,000 Students Walked Out. The System Didn't Move, So They Did.",
+      "published_at": "2026-11-19T05:18:46+00:00",
+      "url": "https://www.youtube.com/watch?v=9h9IJDcOOUE",
+      "description": "",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-19T05:18:46+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-19T05:18:46+00:00",
+        "utc_epoch": 1795065526,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:qhI1qG3IBvE",
       "platform": "youtube",
@@ -9,7 +60,7 @@
       "published_at": "2026-11-18T13:01:00+00:00",
       "url": "https://www.youtube.com/watch?v=qhI1qG3IBvE",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-18T13:01:00+00:00",
@@ -26,7 +77,7 @@
       "published_at": "2026-11-18T11:27:08+00:00",
       "url": "https://www.youtube.com/watch?v=rucyKlknJwM",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-18T11:27:08+00:00",
@@ -43,7 +94,7 @@
       "published_at": "2026-11-18T11:07:01+00:00",
       "url": "https://www.youtube.com/watch?v=bKQDthHeQdo",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-18T11:07:01+00:00",
@@ -60,7 +111,7 @@
       "published_at": "2026-11-18T10:33:27+00:00",
       "url": "https://www.youtube.com/watch?v=nziEaI3NDhQ",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-18T10:33:27+00:00",
@@ -77,7 +128,7 @@
       "published_at": "2026-11-18T10:10:09+00:00",
       "url": "https://www.youtube.com/watch?v=INtQJrBVtdQ",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-18T10:10:09+00:00",
@@ -94,7 +145,7 @@
       "published_at": "2026-11-18T08:38:33+00:00",
       "url": "https://www.youtube.com/watch?v=VFQUoFRXq0I",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-18T08:38:33+00:00",
@@ -111,7 +162,7 @@
       "published_at": "2026-11-18T00:13:14+00:00",
       "url": "https://www.youtube.com/watch?v=0WbxyKA-qy0",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-18T00:13:14+00:00",
@@ -128,7 +179,7 @@
       "published_at": "2026-11-17T22:52:46+00:00",
       "url": "https://www.youtube.com/watch?v=sFIG4q_fyWk",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T22:52:46+00:00",
@@ -145,7 +196,7 @@
       "published_at": "2026-11-17T22:23:41+00:00",
       "url": "https://www.youtube.com/watch?v=c7mTYVtKWZA",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T22:23:41+00:00",
@@ -162,7 +213,7 @@
       "published_at": "2026-11-17T22:08:12+00:00",
       "url": "https://www.youtube.com/watch?v=VxIcxylkwxM",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T22:08:12+00:00",
@@ -179,7 +230,7 @@
       "published_at": "2026-11-17T21:20:36+00:00",
       "url": "https://www.youtube.com/watch?v=H9jDOMrhGOI",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T21:20:36+00:00",
@@ -196,7 +247,7 @@
       "published_at": "2026-11-17T20:45:01+00:00",
       "url": "https://www.youtube.com/watch?v=jYcXWgamk9g",
       "description": "",
-      "observed_at": "2026-11-19T02:52:42.225404+00:00",
+      "observed_at": "2026-11-19T12:09:16.376418+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-17T20:45:01+00:00",
@@ -1825,22 +1876,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-19T02:52:42.225404+00:00",
-      "last_success_at": "2026-11-19T02:52:42.225404+00:00",
+      "last_attempt_at": "2026-11-19T12:09:16.376418+00:00",
+      "last_success_at": "2026-11-19T12:09:16.376418+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-19T02:52:42.225404+00:00",
+      "last_attempt_at": "2026-11-19T12:09:16.376418+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-19T02:52:42.225404+00:00",
+      "last_attempt_at": "2026-11-19T12:09:16.376418+00:00",
       "error_type": "RuntimeError"
     }
   }

@@ -1,7 +1,28 @@
 {
-  "generated_at": "2026-11-19T02:52:42.225404+00:00",
+  "generated_at": "2026-11-19T12:09:16.376418+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:3O4JfmiXev8",
+      "source_url": "https://www.youtube.com/watch?v=3O4JfmiXev8",
+      "title": "Ice Skating Is Back in Atwater — The Rink at Castle Opens Friday",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:M9lym14IraE",
+      "source_url": "https://www.youtube.com/watch?v=M9lym14IraE",
+      "title": "ILLEGALLY FIRED: The Firing Did Not Create the Auditor",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:9h9IJDcOOUE",
+      "source_url": "https://www.youtube.com/watch?v=9h9IJDcOOUE",
+      "title": "7,000 Students Walked Out. The System Didn't Move, So They Did.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:qhI1qG3IBvE",
       "source_url": "https://www.youtube.com/watch?v=qhI1qG3IBvE",
@@ -258,27 +279,6 @@
       "source_id": "youtube:nCslJmeHrpw",
       "source_url": "https://www.youtube.com/watch?v=nCslJmeHrpw",
       "title": "ILLEGALLY FIRED: A LETTER TO MUHSD",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:SKkZOBQ-iKc",
-      "source_url": "https://www.youtube.com/watch?v=SKkZOBQ-iKc",
-      "title": "ILLEGALLY FIRED: Keep the Ledger",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:9J5y1oTwIQM",
-      "source_url": "https://www.youtube.com/watch?v=9J5y1oTwIQM",
-      "title": "CAMERAS FIRST. QUESTIONS LATER.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:xqriAHzd7-g",
-      "source_url": "https://www.youtube.com/watch?v=xqriAHzd7-g",
-      "title": "THE PAPER TRAIL.",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
