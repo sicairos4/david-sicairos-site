@@ -1,0 +1,793 @@
+{
+ "generated_at_pt": "2026-11-20 07:05 AM PT",
+ "window_days": 14,
+ "unified": {
+  "top_band": "A",
+  "top_band_label": "Audit and Records",
+  "system_share_pct": 19,
+  "direction": "audit-led",
+  "why": "Audit and Records is 19% of 2212 verified publishes across 18 profiles in 14 days. Up 4 points vs the prior 14 days."
+ },
+ "profiles": [
+  {
+   "key": "ig_personal",
+   "platform": "Instagram",
+   "account": "@sicairosdavid_",
+   "posts": 67,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 16,
+     "posts": 11
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 1,
+     "posts": 1
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 12,
+     "posts": 8
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 71,
+     "posts": 47
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "D"
+  },
+  {
+   "key": "ig_davids",
+   "platform": "Instagram",
+   "account": "@davidsicairos_",
+   "posts": 88,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 30,
+     "posts": 26
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 11,
+     "posts": 10
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 3,
+     "posts": 3
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 56,
+     "posts": 49
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "D"
+  },
+  {
+   "key": "ig_hub",
+   "platform": "Instagram",
+   "account": "@209media.connect",
+   "posts": 129,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 26,
+     "posts": 34
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 2,
+     "posts": 3
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 1,
+     "posts": 1
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 12,
+     "posts": 16
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 59,
+     "posts": 75
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "B"
+  },
+  {
+   "key": "ig_castle",
+   "platform": "Instagram",
+   "account": "@castlecaliforniacounterintel",
+   "posts": 93,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 28,
+     "posts": 26
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 1,
+     "posts": 1
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 71,
+     "posts": 66
+    }
+   ],
+   "top_band": "A",
+   "stop_band": null
+  },
+  {
+   "key": "ig_atwater",
+   "platform": "Instagram",
+   "account": "@atwatercastleintelligence",
+   "posts": 103,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 34,
+     "posts": 35
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 66,
+     "posts": 68
+    }
+   ],
+   "top_band": "A",
+   "stop_band": null
+  },
+  {
+   "key": "ig_intentionally",
+   "platform": "Instagram",
+   "account": "@intentionally.us",
+   "posts": 86,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 37,
+     "posts": 32
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 8,
+     "posts": 7
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 2,
+     "posts": 2
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 53,
+     "posts": 45
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "C"
+  },
+  {
+   "key": "ig_elevated",
+   "platform": "Instagram",
+   "account": "@elevated209cbd",
+   "posts": 84,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 36,
+     "posts": 30
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 1,
+     "posts": 1
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 63,
+     "posts": 53
+    }
+   ],
+   "top_band": "A",
+   "stop_band": null
+  },
+  {
+   "key": "fb_profile",
+   "platform": "Facebook",
+   "account": "david.sicairos.1 (personal profile)",
+   "posts": 65,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 8,
+     "posts": 5
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 2,
+     "posts": 1
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 2,
+     "posts": 1
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 25,
+     "posts": 16
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 63,
+     "posts": 42
+    }
+   ],
+   "top_band": "D",
+   "stop_band": "A"
+  },
+  {
+   "key": "fb_california",
+   "platform": "Facebook",
+   "account": "209Connect California (Page)",
+   "posts": 110,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 4,
+     "posts": 4
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 5,
+     "posts": 6
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 91,
+     "posts": 100
+    }
+   ],
+   "top_band": "D",
+   "stop_band": "A"
+  },
+  {
+   "key": "fb_dbeastco",
+   "platform": "Facebook",
+   "account": "DBeastco Wellness (Page)",
+   "posts": 75,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 1,
+     "posts": 1
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 4,
+     "posts": 3
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 95,
+     "posts": 71
+    }
+   ],
+   "top_band": "D",
+   "stop_band": null
+  },
+  {
+   "key": "fb_elevated",
+   "platform": "Facebook",
+   "account": "Elevated209 CBD (Page)",
+   "posts": 78,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 1,
+     "posts": 1
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 4,
+     "posts": 3
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 4,
+     "posts": 3
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 91,
+     "posts": 71
+    }
+   ],
+   "top_band": "C",
+   "stop_band": "D"
+  },
+  {
+   "key": "fb_intentionally",
+   "platform": "Facebook",
+   "account": "Intentionally Us (Page)",
+   "posts": 84,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 1,
+     "posts": 1
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 6,
+     "posts": 5
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 4,
+     "posts": 3
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 89,
+     "posts": 75
+    }
+   ],
+   "top_band": "C",
+   "stop_band": "D"
+  },
+  {
+   "key": "fb_problemsolved",
+   "platform": "Facebook",
+   "account": "ProblemSolved Designs (Page)",
+   "posts": 79,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 3,
+     "posts": 2
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 4,
+     "posts": 3
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 93,
+     "posts": 74
+    }
+   ],
+   "top_band": "D",
+   "stop_band": null
+  },
+  {
+   "key": "threads",
+   "platform": "Threads",
+   "account": "@209media.connect",
+   "posts": 196,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 22,
+     "posts": 44
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 3,
+     "posts": 5
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 10,
+     "posts": 19
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 65,
+     "posts": 128
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "B"
+  },
+  {
+   "key": "bluesky",
+   "platform": "Bluesky",
+   "account": "davidsicairos.bsky.social",
+   "posts": 247,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 21,
+     "posts": 52
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 5,
+     "posts": 12
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 1
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 13,
+     "posts": 31
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 61,
+     "posts": 151
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "B"
+  },
+  {
+   "key": "linkedin",
+   "platform": "LinkedIn",
+   "account": "/in/sicairosdavid/ (David Sicairos)",
+   "posts": 423,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 23,
+     "posts": 97
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 4,
+     "posts": 15
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 2,
+     "posts": 10
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 4,
+     "posts": 17
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 67,
+     "posts": 284
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "C"
+  },
+  {
+   "key": "youtube",
+   "platform": "YouTube",
+   "account": "David Sicairos | Systems' Architect",
+   "posts": 96,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 6,
+     "posts": 6
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 4,
+     "posts": 4
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 6,
+     "posts": 6
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 3,
+     "posts": 3
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 81,
+     "posts": 77
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "D"
+  },
+  {
+   "key": "tiktok",
+   "platform": "TikTok",
+   "account": "@sicairosdavid",
+   "posts": 109,
+   "thin": false,
+   "topics": [
+    {
+     "band": "A",
+     "label": "Audit and Records",
+     "pct": 6,
+     "posts": 7
+    },
+    {
+     "band": "B",
+     "label": "Education and Leadership",
+     "pct": 3,
+     "posts": 3
+    },
+    {
+     "band": "C",
+     "label": "Community and Wellness",
+     "pct": 0,
+     "posts": 0
+    },
+    {
+     "band": "D",
+     "label": "California Civic",
+     "pct": 3,
+     "posts": 3
+    },
+    {
+     "band": "untagged",
+     "label": "Untagged",
+     "pct": 88,
+     "posts": 96
+    }
+   ],
+   "top_band": "A",
+   "stop_band": "B"
+  }
+ ],
+ "balance": {
+  "oversaturated_bands": [],
+  "same_band_same_day": 612,
+  "weave_gap_median_min": 11,
+  "jitter": "tight"
+ },
+ "directives": [
+  {
+   "id": "R-VOICE",
+   "text": "write like the breakout, not the wire: first-person personal stake + verdict sentence + one concrete fact; a contradiction or reversal; number up front + what it means + do this; short root with whitespace breaks between beats, link/source "
+  },
+  {
+   "id": "R-CROSSPOST",
+   "text": "stage UPDATE video + cross-platform repost within 24h"
+  },
+  {
+   "id": "R-FORMAT",
+   "text": "keep preferring the leading format in picks"
+  },
+  {
+   "id": "R-SLOT",
+   "text": "no slot change yet \u2014 hour-cell learning needs the +1h/+24h engagement join (PENDING-DATA)"
+  },
+  {
+   "id": "R-ALG-1",
+   "text": "Predicted reply is the currency: design every post to earn a reply, a send to one specific person, or a thread \u2014 not a like. Threads replies are ~half of views; X reply 5.0 vs like 0.708; FB threaded comments outrank reactions; IG sends bea"
+  }
+ ],
+ "overrides_active": [],
+ "notes": [
+  "LinkedIn/YouTube/TikTok: no engagement signal \u2014 scores are share-based only.",
+  "Brain medians frozen since Nov 16.",
+  "Do not steer: no vote numbers; no invented April date; no election copy on wellness; AETA dead; immigrant-cost framing banned.",
+  "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
+  "Directives are advisory, no picker reads this.",
+  "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
+  "Prior window holds 449 deduped publishes vs 2212 now \u2014 trend is share-based only and weak.",
+  "19 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
+  "218 verified receipts carry no parseable timestamp and are excluded from both windows.",
+  "Most receipts carry observation time, not true publish time; window counts are verification-time counts for those rows. Re-verification sweeps can pull older posts into the window.",
+  "Weave gap is a same-band/same-day proxy, not same-story \u2014 it does not by itself prove a 90-minute same-story breach."
+ ]
+}

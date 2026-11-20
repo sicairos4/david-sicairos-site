@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>209 Intelligence — 209 Media Control Panel</title>
+<style>
+  :root{
+    --bg:#f4f6f8; --card:#ffffff; --ink:#111827; --mut:#6b7280; --line:#e5e7eb;
+    --green:#15803d; --green-bg:#dcfce7; --amber:#b45309; --amber-bg:#fef3c7;
+    --red:#b91c1c; --red-bg:#fee2e2; --blue:#1d4ed8; --blue-bg:#dbeafe;
+    --grey:#6b7280; --grey-bg:#f3f4f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);
+    font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:14px;max-width:960px;margin:0 auto}
+  h1{font-size:26px;font-weight:800;letter-spacing:-.02em}
+  .sub{color:var(--mut);font-size:14px;margin:4px 0 12px;max-width:660px}
+  .topbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  .pill{display:inline-flex;align-items:center;gap:7px;background:var(--card);
+    border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600}
+  .dot{width:10px;height:10px;border-radius:50%;flex:none}
+  .g{background:#22c55e}.a{background:#f59e0b}.r{background:#ef4444}.b{background:#3b82f6}.grey{background:#9ca3af}
+  .btn{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:8px 16px;
+    font-size:14px;font-weight:600;cursor:pointer}
+  .btn:active{transform:scale(.97)}
+  .btn:disabled{opacity:.45;cursor:not-allowed}
+  .btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+  .fresh{font-size:12.5px;color:var(--mut)}
+  .fresh.stale{color:var(--red);font-weight:700}
+  .liveclock{font-variant-numeric:tabular-nums;font-weight:700}
+
+  /* Health card: big number + bar with the 77% line marked. */
+  .health{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:14px 16px;margin-bottom:12px}
+  .health .row{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .health .n{font-size:40px;font-weight:800;line-height:1}
+  .health .n.good{color:var(--green)} .health .n.warn{color:var(--amber)} .health .n.bad{color:var(--red)}
+  .health .lbl{font-size:13px;color:var(--mut);font-weight:600}
+  .health .budget{font-size:13px;color:var(--mut)}
+  .health .budget b{color:var(--ink)}
+  .bar{position:relative;height:12px;background:#e5e7eb;border-radius:999px;margin:12px 0 4px;overflow:visible}
+  .bar .fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:#22c55e}
+  .bar .fill.warn{background:#f59e0b} .bar .fill.bad{background:#ef4444}
+  .bar .line77{position:absolute;left:77%;top:-4px;bottom:-4px;width:2px;background:var(--red)}
+  .bar .line77 span{position:absolute;top:-18px;left:-14px;font-size:11px;font-weight:800;color:var(--red);white-space:nowrap}
+  .barlabels{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut)}
+  .frozen{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;
+    padding:8px 10px;margin-top:10px;font-size:13px;color:#92400e}
+
+  .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 12px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+  .stat .n{font-size:28px;font-weight:800;line-height:1.1}
+  .stat .l{font-size:13px;color:var(--mut);font-weight:600;margin-top:2px}
+  .stat.on .n{color:var(--green)} .stat.due .n{color:var(--amber)}
+  .stat.miss .n{color:var(--red)} .stat.nodata .n{color:var(--grey)}
+
+  /* Worst lane: the one decision at the top of the screen. */
+  .worst{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--red);
+    border-radius:14px;padding:12px 14px;margin-bottom:12px}
+  .worst.ok{border-left-color:#22c55e}
+  .worst.due{border-left-color:#f59e0b}
+  .worst .t{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);font-weight:700}
+  .worst .big{font-size:18px;font-weight:800;margin-top:2px}
+  .worst .meta{font-size:13.5px;color:var(--mut);margin-top:4px}
+  .worst .meta b{color:var(--ink)}
+  .worst .actions{margin-top:10px}
+
+  h2{font-size:13px;text-transform:uppercase;letter-spacing:.08em;color:var(--mut);
+    margin:16px 0 8px}
+  .platform-group{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    margin-bottom:10px;overflow:hidden}
+  .platform-group>summary{list-style:none;cursor:pointer;display:flex;align-items:center;
+    gap:10px;padding:13px 14px;font-weight:800;font-size:16px}
+  .platform-group>summary::-webkit-details-marker{display:none}
+  .platform-group>summary::after{content:'▸';color:var(--mut);font-size:13px;margin-left:auto;flex:none}
+  .platform-group[open ]>summary::after{content:'▾'}
+  .brand{width:14px;height:14px;border-radius:4px;flex:none}
+  .brand.ig{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)}
+  .brand.threads{background:#000}
+  .brand.bluesky{background:#0085ff}
+  .brand.linkedin{background:#0a66c2}
+  .brand.facebook{background:#1877f2}
+  .brand.youtube{background:#ff0000}
+  .brand.tiktok{background:linear-gradient(135deg,#000 55%,#25f4ee)}
+  .brand.x{background:#000}
+  .brand.beehiiv{background:#eab308}
+  .brand.more{background:#9ca3af}
+  .gsummary{font-size:13px;color:var(--mut);font-weight:600}
+  .platform-group .grid{padding:0 12px 12px}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:10px}
+  details.card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:12px 14px;overflow:hidden}
+  details.card.miss{border-left:4px solid var(--red)}
+  details.card.due{border-left:4px solid var(--amber)}
+  details.card.on{border-left:4px solid #22c55e}
+  details.card.nodata{border-left:4px solid #9ca3af}
+  summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:'▸';color:var(--mut);font-size:12px;margin-left:8px;flex:none}
+  details[open ] summary::after{content:'▾'}
+  summary .acct{font-weight:500;color:var(--mut);font-size:13px;display:block}
+  .badge{font-size:11px;font-weight:800;letter-spacing:.02em;padding:3px 9px;border-radius:999px;
+    margin-left:auto;white-space:nowrap}
+  .badge.on{background:var(--green-bg);color:var(--green)}
+  .badge.due{background:var(--amber-bg);color:var(--amber)}
+  .badge.miss{background:var(--red-bg);color:var(--red)}
+  .badge.nodata{background:var(--grey-bg);color:var(--grey)}
+  .plain{font-size:14px;color:#374151;margin-top:8px}
+  .plain b{color:var(--ink)}
+  .kv{font-size:13px;color:var(--mut);margin-top:6px}
+  .kv b{color:var(--ink);font-weight:600}
+  .kv a{color:var(--blue);text-decoration:none}
+  .kv .dry{color:var(--red);font-weight:700}
+  .gapgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+  .gapbox{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center}
+  .gapbox .v{font-size:17px;font-weight:800}
+  .gapbox .k{font-size:11.5px;color:var(--mut);font-weight:600}
+  .gapbox .v.bad{color:var(--red)} .gapbox .v.warn{color:var(--amber)}
+  .diag{font-size:13px;background:#f8fafc;border:1px solid var(--line);border-radius:10px;
+    padding:8px 10px;margin-top:8px;color:#334155}
+  .diag b{color:var(--ink)}
+  .blocker{font-size:13px;background:#fffbeb;border:1px solid #fde68a;border-radius:10px;
+    padding:8px 10px;margin-top:8px;color:#92400e}
+  .actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+  .mini{background:var(--card);color:var(--ink);border:1px solid var(--line);
+    border-radius:999px;padding:6px 12px;font-size:12.5px;font-weight:700;cursor:pointer}
+  .mini:active{transform:scale(.97)}
+  .mini:disabled{opacity:.45;cursor:not-allowed}
+  .mini.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .mini.danger{border-color:#ef4444;color:var(--red)}
+  .act-result{font-size:12.5px;margin-top:8px;color:#334155}
+  .act-result.err{color:var(--red);font-weight:600}
+  .act-result.ok{color:var(--green);font-weight:600}
+
+  details.section{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    margin-bottom:10px;overflow:hidden}
+  details.section>summary{padding:12px 14px;font-weight:700;font-size:14px}
+  details.section>summary::after{margin-left:auto}
+  details.section .body{padding:0 14px 12px;font-size:14px;color:#374151}
+  details.section .body b{color:var(--ink)}
+  .latelist{list-style:none}
+  .latelist li{padding:7px 0;border-top:1px solid var(--line);font-size:14px}
+  .latelist li:first-child{border-top:0}
+  .latelist a{color:var(--blue);text-decoration:none}
+  .latelist .t{color:var(--mut);font-size:12.5px}
+  .sysrow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .syspill{font-size:12.5px;font-weight:600;background:var(--grey-bg);border-radius:999px;padding:4px 11px}
+  .syspill.ok{background:var(--green-bg);color:var(--green)}
+  .syspill.warn{background:var(--amber-bg);color:var(--amber)}
+  .syspill.bad{background:var(--red-bg);color:var(--red)}
+  .sysact{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+  .foot{color:var(--mut);font-size:12.5px;margin:26px 0 10px;text-align:center}
+  .nodata{color:var(--mut);font-size:14px;background:var(--card);border:1px dashed var(--line);
+    border-radius:12px;padding:14px;text-align:center}
+  /* 209 Intelligence brand: SICAIROS DAVID black / gold / pearl / burgundy. */
+  .brandbar{background:#111827;border-radius:16px;padding:14px 16px;margin-bottom:10px;color:#f5f0e6}
+  .brandbar .mark{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .brandbar .mark .gold{color:#d4af37}
+  .brandbar .tag{font-size:12px;color:#d4af37;font-weight:800;letter-spacing:.16em;text-transform:uppercase;margin-top:2px}
+  .brandbar .eco{font-size:13px;color:#a8a29e;margin-top:2px}
+  .nolink{color:var(--mut);font-size:13px}
+  /* Steering: complex inside, simple outside. */
+  .steer-unified{background:#f8fafc;border:1px solid var(--line);border-radius:10px;
+    padding:10px 12px;margin-bottom:8px;font-size:14px}
+  .steer-unified b{color:var(--ink)}
+  .tbar{display:flex;align-items:center;gap:8px;margin:5px 0}
+  .tbar .lbl{width:170px;flex:none;font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .tbar .track{flex:1;height:10px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+  .tbar .fill{height:100%}
+  .tbar .pct{width:44px;flex:none;text-align:right;font-size:13px;font-weight:700;font-variant-numeric:tabular-nums}
+  .bandA{background:#d4af37}.bandB{background:#1d4ed8}.bandC{background:#15803d}.bandD{background:#6b1f2a}.bandU{background:#9ca3af}
+  .steer-prof{border-top:1px solid var(--line);padding:8px 0}
+  .steer-prof:first-of-type{border-top:0}
+  .steer-ctl{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;align-items:center}
+  .steer-ctl select,.steer-ctl input{font-size:13px;padding:6px 9px;border:1px solid var(--line);
+    border-radius:999px;background:var(--card);color:var(--ink)}
+  .steer-ctl input[type=text]{min-width:200px;flex:1}
+</style>
+</head>
+<body>
+<div class="brandbar">
+  <div class="mark"><span class="gold">209</span> INTELLIGENCE</div>
+  <div class="tag">The 209 control panel</div>
+  <div class="eco">209 Media · 209connect · Sovereign University — one panel for all 28 lanes.</div>
+  <div class="tag" style="margin-top:6px">Public read-only view — steering and actions live on the local panel only</div>
+</div>
+<p class="sub">Green means posting on time. Yellow means 30+ minutes late. Red means 60+ minutes late. The worst lane is at the top; tap a platform to open it. Every "open post" link goes to the exact post.</p>
+
+<div class="topbar">
+  <span class="pill"><span class="dot grey" id="modeDot"></span><span id="modeState">connecting</span></span>
+  <span class="pill"><span class="liveclock" id="liveClock">--:--:--</span></span>
+  <span class="pill fresh" id="updatedPill">updated —</span>
+  <button class="btn ghost" id="expandAllBtn">Expand all</button>
+  <button class="btn ghost" id="collapseAllBtn">Collapse all</button>
+  <button class="btn" id="refreshBtn">Refresh</button>
+</div>
+<p class="fresh" id="liveNote">Live updates on. Refresh is a fallback only.</p>
+
+<div class="health" id="healthCard"></div>
+
+<div class="summary" id="summary"></div>
+
+<div class="worst" id="worstLane"></div>
+
+<h2>Platforms: worst first, tap to open</h2>
+<div id="platforms"></div>
+
+<details class="section" id="steeringSection">
+  <summary>Steering — what the 28 lanes are learning</summary>
+  <div class="body" id="steeringBody"><p class="nodata">Steering data not computed yet — the writer runs next cycle. Steering is advisory only: it never fires, schedules, or reorders a post.</p></div>
+</details>
+
+<details class="section">
+  <summary>System — executor, pool, reset ladder</summary>
+  <div class="body" id="sysCard"></div>
+</details>
+
+<details class="section">
+  <summary>Latest verified posts &amp; recent repairs</summary>
+  <div class="body"><ul class="latelist" id="latest"></ul></div>
+  <div class="body"><ul class="latelist" id="recentActions"></ul></div>
+</details>
+
+<details class="section">
+  <summary>Needs David</summary>
+  <div class="body"><ul class="latelist" id="actions"></ul></div>
+</details>
+
+<details class="section">
+  <summary>How to read this panel</summary>
+  <div class="body">
+    <b>Last post</b> is when the last post actually went live (verified receipts only — submits never count).
+    <b>Yellow at 30 minutes late, red at 60.</b> Health is the average across 18 lanes of cadence divided by time since the last verified post.
+    The <b>77% line</b> is the floor: below it the error budget is overdrawn, changes freeze, and the reset ladder runs before any full reset.
+    <div style="margin-top:6px"><b>Longest / last / average gap</b> are measured over the last 23 hours from verified publishes.</div>
+    <div style="margin-top:6px"><b>Buttons</b> run the reset ladder: Retry (rung 1), Fail over (rung 2), Fire fresh (rung 3), Pause (rung 4), Rebuild queue (rung 6). Publish buttons queue the request to the cadence coordinator — this panel never fires a post itself. Full reset (rung 8) is gated and needs confirmation.</div>
+    <div style="margin-top:6px"><b>Queue depth</b> is staged rows ready to post, counted live from the queue files. Below 25 is below the floor and shows in red.</div>
+    <div style="margin-top:6px"><b>Open post</b> always goes to the exact post. If the link was never captured, the card says "post link not captured" instead of opening a profile or feed. A comment or reply is never a post — growth rows never set a lane's last-post time.</div>
+    <div style="margin-top:6px"><b>Steering</b> is advisory only. It shows what topics are working per profile and system-wide, which way the system is leaning and why, and the balance across lanes. A steer you save is a suggestion the steering writer records, never an order to a publisher.</div>
+  </div>
+</details>
+
+<div class="foot" id="foot"></div>
+
+<script>
+// Rebuilt Nov 19 2026: one screen, worst first, everything collapsible.
+// Data = live-state.json (lanes, from receipts + publication_log, with live
+// queue depth) + self-healing-state.json (diagnoses, plans, gaps, health).
+// Push: SSE events `state` + `healing` from live-server.py; fallback:
+// poll both files every 5s. PT, 12-hour clock, no UTC anywhere on screen.
+// Thresholds: yellow gap > 30, red gap > 60 — flat, not per-lane cadence
+// multiples. Health floor: 77%.
+const POLL_MS = 5000;
+const STATE_URL = 'live-state.json';
+const HEALING_URL = 'self-healing-state.json';
+const STEERING_URL = 'steering-panel.json';
+const EVENTS_URL = '/events';
+const ACTION_URL = '/action';
+const STEER_URL = '/steer';
+const PUBLIC_READONLY = true; // Public GitHub Pages copy: read-only. No POST ever leaves this page.
+
+let live = null, healing = null, steering = null, mode = 'connecting', pollTimer = null, es = null;
+let lastDataAt = 0; // ms timestamp of the last successful data receipt
+
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+// Exact-post links only (Nov 20 2026 link fix): the server canonicalizes
+// every last_url, but a stale state file could still carry a profile or
+// feed URL. Never render one as "open post" — show "post link not captured".
+const POST_URL_RES = [
+  /instagram\.com\/(p|reel|tv)\/[A-Za-z0-9_-]+\/?$/,
+  /facebook\.com\/[^/?#]+\/(posts|videos)\/[A-Za-z0-9]+$/,
+  /threads\.(com|net)\/@?[^/?#]+\/post\/[A-Za-z0-9_-]+$/,
+  /bsky\.app\/profile\/[^/?#]+\/post\/[A-Za-z0-9]+$/,
+  /linkedin\.com\/feed\/update\/urn:li:(share|activity):\d+\/?$/,
+  /youtube\.com\/(watch\?v=[A-Za-z0-9_-]{11}|shorts\/[A-Za-z0-9_-]{11})$/,
+  /youtu\.be\/[A-Za-z0-9_-]{11}$/,
+  /tiktok\.com\/@[^/?#]+\/video\/\d+$/
+];
+function isPostUrl(u){ if(!u) return false; return POST_URL_RES.some(re=>re.test(String(u))); }
+function postLink(l, style){
+  if(!l.last_url || !isPostUrl(l.last_url)) return ' · <span class="nolink">post link not captured</span>';
+  const st = style ? ' style="'+style+'"' : '';
+  return ' · <a href="'+esc(l.last_url)+'" target="_blank"'+st+'>open post</a>';
+}
+function agoText(ts){
+  if(!ts) return '-';
+  const t = new Date(ts);
+  if(isNaN(t)) return esc(String(ts));
+  const m = Math.floor((Date.now()-t.getTime())/60000);
+  if(m<0) return 'in '+Math.abs(m)+'m';
+  if(m<1) return 'just now';
+  if(m<60) return m+'m ago';
+  const h=Math.floor(m/60), r=m%60;
+  if(h<48) return h+'h '+(r?r+'m':'')+' ago';
+  return Math.floor(h/24)+'d ago';
+}
+function gapText(min){
+  if(min==null) return '-';
+  min=Math.round(min);
+  if(min<60) return min+'m';
+  const h=Math.floor(min/60), r=min%60;
+  return h+'h '+(r?r+'m':'');
+}
+function dueText(l){
+  if(!l.next_due_iso) return '-';
+  const t = new Date(l.next_due_iso);
+  if(isNaN(t)) return esc(l.next_due_pt||'');
+  const m = Math.floor((t.getTime()-Date.now())/60000);
+  if(m>0) return 'due in '+m+'m';
+  if(m===0) return 'due now';
+  return 'overdue '+Math.abs(m)+'m';
+}
+// Flat 30/60 status from a gap; self-healing state is authoritative when present.
+function laneStatus(l){
+  const h = healing && healing.lanes && healing.lanes[l.key];
+  if(h && h.state) return h.state;
+  if(!l.cadence_minutes || !l.last_verified_iso) return (l.state||'NO DATA');
+  const gap = Math.floor((Date.now()-new Date(l.last_verified_iso).getTime())/60000);
+  if(gap > 60) return 'RED';
+  if(gap > 30) return 'YELLOW';
+  return 'ON CADENCE';
+}
+function stateClass(st){
+  const s=(st||'').toUpperCase();
+  if(s==='ON CADENCE') return 'on';
+  if(s==='YELLOW'||s==='DUE') return 'due';
+  if(s==='RED'||s==='MISSING') return 'miss';
+  if(s==='NO DATA') return 'nodata';
+  return 'other';
+}
+function badgeLabel(st){
+  const s=(st||'').toUpperCase();
+  if(s==='ON CADENCE') return 'ON CADENCE';
+  if(s==='YELLOW') return 'YELLOW · 30m+ LATE';
+  if(s==='RED') return 'RED · 60m+ LATE';
+  return s||'?';
+}
+function queueDepth(l, h){
+  if(l.queue_depth!=null) return {n:l.queue_depth, src:l.queue_source||'live-state'};
+  if(h && h.queue_depth!=null) return {n:h.queue_depth, src:h.queue_source||'self-healing'};
+  return null;
+}
+
+function laneCard(l){
+  const st = laneStatus(l);
+  const cls = stateClass(st);
+  const h = healing && healing.lanes ? healing.lanes[l.key] : null;
+  const gap = h && h.gap_min!=null ? h.gap_min : null;
+  const last = l.last_verified_pt
+    ? esc(l.last_verified_pt)+' · <span data-ts="'+esc(l.last_verified_iso||'')+'">'+agoText(l.last_verified_iso)+'</span>'
+    : 'no verified post on file';
+  let plain;
+  if(cls==='miss' && gap!=null) plain = 'Last post <b>'+gapText(gap)+' ago</b>. It should post every '+esc(l.cadence_label||'')+'.';
+  else if(cls==='on' && gap!=null) plain = 'Last post <b>'+gapText(gap)+' ago</b>. On time for every '+esc(l.cadence_label||'')+'.';
+  else if(cls==='due' && gap!=null) plain = 'Last post <b>'+gapText(gap)+' ago</b>. A post is due now.';
+  else plain = esc(l.cadence_label||'') || 'No schedule yet.';
+  let html = '<details class="card '+cls+'" data-lane="'+esc(l.key)+'"><summary>'
+    + '<span class="dot '+({on:'g',due:'a',miss:'r',nodata:'grey',other:'b'})[cls]+'"></span>'
+    + '<span>'+esc(l.platform)+'<span class="acct">'+esc(l.account||'')+'</span></span>'
+    + '<span class="badge '+cls+'">'+esc(badgeLabel(st))+'</span></summary>';
+  html += '<div class="plain">'+plain+'</div>';
+  html += '<div class="kv">Last verified post: <b>'+last+'</b>'
+    + postLink(l) + '</div>';
+  html += '<div class="kv">Next due: <b>'+esc(l.next_due_pt||'-')+'</b> · '+esc(dueText(l))+'</div>';
+  if(l.followers) html += '<div class="kv">Followers: <b>'+esc(l.followers)+'</b></div>';
+  const q = queueDepth(l, h);
+  html += '<div class="kv">Queue depth: <b>'+(q==null?'unknown':q.n+' staged')+'</b>'
+    +(q!=null?(q.n<25?' · <span class="dry">below floor of 25</span>':' · floor 25'):'')
+    +(q!=null?' · '+esc(q.src):'')+'</div>';
+  if(h && (h.gap_longest_23h_min!=null || h.gap_last_min!=null)){
+    const lg = h.gap_longest_23h_min, av = h.gap_avg_23h_min;
+    html += '<div class="gapgrid">'
+      + '<div class="gapbox"><div class="v'+(lg!=null&&lg>120?' bad':'')+'">'+gapText(lg)+'</div><div class="k">longest gap · 23h</div></div>'
+      + '<div class="gapbox"><div class="v'+(gap!=null&&gap>60?' bad':gap!=null&&gap>30?' warn':'')+'">'+gapText(gap)+'</div><div class="k">last gap · now</div></div>'
+      + '<div class="gapbox"><div class="v">'+gapText(av)+'</div><div class="k">average gap · 23h</div></div>'
+      + '</div>';
+    html += '<div class="kv">Verified publishes in last 23h: <b>'+esc(h.publishes_23h==null?'-':h.publishes_23h)+'</b></div>';
+  }
+  if(h && h.diagnosis){
+    const d=h.diagnosis;
+    html += '<div class="diag"><b>Diagnosis'+(d.failure_class?' · '+esc(d.failure_class):'')+(d.confidence?' · '+esc(d.confidence)+' confidence':'')+':</b> '
+      + esc((d.reasoning||[]).join(' '))
+      + (d.rot_class?'<br>Rot: <b>'+esc(d.rot_class)+'</b>':"")
+      + (d.vsm_system?'; VSM: <b>'+esc(d.vsm_system)+'</b>':"")
+      + (d.phase?'; phase: <b>'+esc(d.phase)+'</b>':"")
+      + (d.cheapest_test?'<br>Cheapest test: <b>'+esc(d.cheapest_test)+'</b>':"")
+      + '</div>';
+  }
+  if(h && h.plan){
+    html += '<div class="kv">Planned repair: <b>rung '+esc(h.plan.rung)+' · '+esc(h.plan.name)+'</b> ('+esc(h.plan.mode||'')+')</div>';
+  }
+  if(l.blocker) html += '<div class="blocker">'+esc(l.blocker)+'</div>';
+  // Action buttons — wired to /action (action.py). Publish rungs queue;
+  // they never fire from this panel.
+  html += '<div class="actions" data-actions="'+esc(l.key)+'">'
+    + '<button class="mini" data-act="retry" data-lane="'+esc(l.key)+'" title="Rung 1: one retry with full jitter backoff (queued)">Retry · R1</button>'
+    + '<button class="mini" data-act="failover" data-lane="'+esc(l.key)+'" title="Rung 2: switch to the next route (queued)">Fail over · R2</button>'
+    + '<button class="mini primary" data-act="fire_fresh" data-lane="'+esc(l.key)+'" title="Rung 3: fire one fresh distinct row from verified supply (queued)">Fire fresh · R3</button>'
+    + '<button class="mini" data-act="pause" data-lane="'+esc(l.key)+'" title="Rung 4: open the circuit breaker for this lane">Pause · R4</button>'
+    + '<button class="mini" data-act="rebuild_queue" data-lane="'+esc(l.key)+'" title="Rung 6: drain and refill this lane’s queue from receipts + evergreen (queued)">Rebuild queue · R6</button>'
+    + '</div><div class="act-result" id="act-'+esc(l.key)+'"></div>';
+  html += '</details>';
+  return html;
+}
+
+const GROUPS = [
+  {name:'Instagram', brand:'ig', keys:['ig_personal','ig_davids','ig_hub','ig_castle','ig_atwater','ig_intentionally','ig_elevated']},
+  {name:'Threads', brand:'threads', keys:['threads']},
+  {name:'Bluesky', brand:'bluesky', keys:['bluesky']},
+  {name:'LinkedIn', brand:'linkedin', keys:['linkedin','linkedin_newsletter']},
+  {name:'Facebook', brand:'facebook', keys:['fb_profile','fb_california','fb_dbeastco','fb_elevated','fb_intentionally','fb_problemsolved','fb_wellness']},
+  {name:'YouTube', brand:'youtube', keys:['youtube']},
+  {name:'TikTok', brand:'tiktok', keys:['tiktok']},
+  {name:'X', brand:'x', keys:['x']},
+  {name:'Beehiiv', brand:'beehiiv', keys:['beehiiv']},
+  {name:'More', brand:'more', keys:['spotify','whatsapp','nextdoor','truthsocial','pinterest']},
+];
+
+// Best first inside a group: ON CADENCE (0), YELLOW/DUE (1), RED/MISSING (2), NO DATA (3).
+function stateRank(l){
+  const s=(laneStatus(l)||'').toUpperCase();
+  if(s==='ON CADENCE') return 0;
+  if(s==='YELLOW'||s==='DUE') return 1;
+  if(s==='RED'||s==='MISSING') return 2;
+  if(s==='NO DATA') return 3;
+  return 4;
+}
+function laneGapMs(l){
+  return l.last_verified_iso ? (Date.now()-new Date(l.last_verified_iso).getTime()) : Infinity;
+}
+function worstLane(lanes){
+  const scored = lanes.filter(l=>l.cadence_minutes && l.last_verified_iso);
+  if(!scored.length) return null;
+  scored.sort((a,b)=>{
+    const ra=stateRank(a), rb=stateRank(b);
+    if(ra!==rb) return rb-ra;
+    return laneGapMs(b)-laneGapMs(a);
+  });
+  return scored[0];
+}
+
+function renderGroups(byKey){
+  let html='';
+  const built=[];
+  for(const g of GROUPS){
+    const lanes=g.keys.map(k=>byKey[k]).filter(Boolean);
+    if(!lanes.length) continue;
+    lanes.sort((a,b)=>{
+      const ra=stateRank(a), rb=stateRank(b);
+      if(ra!==rb) return ra-rb;
+      return laneGapMs(a)-laneGapMs(b);
+    });
+    const worst=Math.max.apply(null, lanes.map(stateRank));
+    const worstGap=Math.max.apply(null, lanes.map(laneGapMs));
+    const onCount=lanes.filter(l=>stateRank(l)===0).length;
+    built.push({g:g, lanes:lanes, worst:worst, worstGap:worstGap, onCount:onCount});
+  }
+  // Worst platform first so the open group is the one that needs action.
+  built.sort((a,b)=>{
+    if(a.worst!==b.worst) return b.worst-a.worst;
+    if(a.worstGap!==b.worstGap) return b.worstGap-a.worstGap;
+    return b.onCount-a.onCount;
+  });
+  for(let i=0;i<built.length;i++){
+    const item=built[i], g=item.g, lanes=item.lanes;
+    const counts={on:0,due:0,miss:0,other:0};
+    lanes.forEach(l=>{const c=stateClass(laneStatus(l)); if(counts[c]!=null) counts[c]++; else counts.other++;});
+    let light='grey';
+    if(counts.miss) light='r'; else if(counts.due) light='a';
+    else if(counts.on && counts.other===0) light='g'; else if(counts.on) light='b';
+    const parts=[];
+    if(counts.on)parts.push(counts.on+' on cadence');
+    if(counts.due)parts.push(counts.due+' yellow');
+    if(counts.miss)parts.push(counts.miss+' red');
+    if(counts.other)parts.push(counts.other+' not live');
+    // First render: open only the worst platform. Later renders preserve
+    // the user's own open/close choices (restoreOpen below).
+    const openAttr = (!renderGroups._done && i===0) ? ' open' : '';
+    html+='<details class="platform-group" data-group="'+esc(g.name)+'"'+openAttr+'>'
+      +'<summary><span class="brand '+g.brand+'"></span>'
+      +'<span class="dot '+light+'"></span>'
+      +'<span>'+esc(g.name)+'</span>'
+      +'<span class="gsummary">'+lanes.length+' · '+esc(parts.join(' · ')||'no lanes')+'</span></summary>'
+      +'<div class="grid">'+lanes.map(laneCard).join('')+'</div></details>';
+  }
+  document.getElementById('platforms').innerHTML=html;
+  renderGroups._done=true;
+}
+
+function openKeys(){
+  const groups=[]; const lanes=[];
+  document.querySelectorAll('.platform-group[open]').forEach(e=>groups.push(e.getAttribute('data-group')));
+  document.querySelectorAll('details.card[open]').forEach(e=>lanes.push(e.getAttribute('data-lane')));
+  return {groups: groups, lanes: lanes};
+}
+function restoreOpen(o){
+  document.querySelectorAll('.platform-group').forEach(e=>{
+    if(o.groups.indexOf(e.getAttribute('data-group'))>=0) e.setAttribute('open','');
+    else e.removeAttribute('open');
+  });
+  document.querySelectorAll('details.card').forEach(e=>{
+    if(o.lanes.indexOf(e.getAttribute('data-lane'))>=0) e.setAttribute('open','');
+  });
+}
+function tickTimes(){
+  document.querySelectorAll('[data-ts]').forEach(el=>{
+    const ts=el.getAttribute('data-ts');
+    if(ts) el.textContent=agoText(ts);
+  });
+}
+function tickClock(){
+  const now = new Date();
+  const el = document.getElementById('liveClock');
+  if(el) el.textContent = now.toLocaleTimeString('en-US',{timeZone:'America/Los_Angeles',hour:'numeric',minute:'2-digit',second:'2-digit'})+' PT';
+  const up = document.getElementById('updatedPill');
+  if(up){
+    if(!lastDataAt){ up.textContent='updated —'; up.classList.remove('stale'); return; }
+    const s = Math.floor((Date.now()-lastDataAt)/1000);
+    up.textContent = s<2 ? 'updated just now' : 'updated '+s+'s ago';
+    up.classList.toggle('stale', s>30);
+  }
+}
+function setMode(m){
+  mode=m;
+  const dot=document.getElementById('modeDot');
+  const label=document.getElementById('modeState');
+  if(m==='push'){ dot.className='dot g'; label.textContent='LIVE, push'; }
+  else if(m==='poll'){ dot.className='dot a'; label.textContent='Polling every 5s'; }
+  else if(m==='offline'){ dot.className='dot r'; label.textContent='Offline, showing last data'; }
+  else { dot.className='dot grey'; label.textContent='connecting'; }
+  document.getElementById('liveNote').textContent =
+    m==='push' ? 'Live updates on by push. A new receipt shows within seconds. Refresh is a fallback only.'
+    : m==='poll' ? 'Push is down, polling both state files every 5 seconds. Refresh is a fallback only.'
+    : 'Live server not reachable. Showing the last data loaded.';
+}
+
+// Steering section — complex inside, simple outside (David Nov 20 05:58 PT).
+// Data comes from steering-panel.json, written by the steering writer
+// (per-profile topic % over the last 14 days of VERIFIED publishes,
+// one unified score, direction + why, jitter and balance). Steering is
+// ADVISORY ONLY: it never fires, schedules, or reorders a post. The
+// controls below write David's steers (boost/hold per profile, day theme)
+// to steering-overrides.json via POST /steer; the writer reads them.
+const BAND_LABELS = {A:'Audit and Records', B:'Education and Leadership', C:'Community and Wellness', D:'California Civic', U:'Untagged'};
+function renderSteering(){
+  const el = document.getElementById('steeringBody');
+  if(!el) return;
+  const sig = JSON.stringify(steering);
+  if(renderSteering._sig === sig) return; // don't wipe David's in-progress controls
+  renderSteering._sig = sig;
+  if(!steering || !steering.profiles){
+    el.innerHTML = '<p class="nodata">Steering data not computed yet — the writer runs next cycle. Steering is advisory only: it never fires, schedules, or reorders a post.</p>';
+    return;
+  }
+  const u = steering.unified || {};
+  let html = '<div class="steer-unified"><b>System direction: '+esc(u.direction||'—')+'</b> — top topic <b>'+esc(u.top_band||'—')+' · '+esc(u.top_band_label||'')+'</b> at <b>'+esc(u.system_share_pct==null?'—':u.system_share_pct+'%')+'</b> of verified posts (14 days).<br>'+esc(u.why||'')+'</div>';
+  const b = steering.balance || {};
+  html += '<div class="kv">Balance: '+(b.oversaturated_bands&&b.oversaturated_bands.length?'oversaturated: <b>'+esc(b.oversaturated_bands.join(', '))+'</b>':'no band oversaturated')
+    +' · same topic same day: <b>'+esc(b.same_band_same_day==null?'—':b.same_band_same_day)+'</b>'
+    +' · weave gap median: <b>'+esc(b.weave_gap_median_min==null?'—':b.weave_gap_median_min+'m')+'</b>'
+    +' · jitter: <b>'+esc(b.jitter||'—')+'</b></div>';
+  (steering.profiles||[]).forEach(p=>{
+    if(p.thin){ html += '<div class="steer-prof"><b>'+esc(p.platform)+' '+esc(p.account||'')+'</b> · thin signal ('+esc(p.posts||0)+' posts) — keeping standing niche.</div>'; return; }
+    html += '<div class="steer-prof"><b>'+esc(p.platform)+' '+esc(p.account||'')+'</b> · '+esc(p.posts||0)+' posts · top: <b>'+esc(p.top_band||'—')+'</b>'+(p.stop_band?' · ease off: <b>'+esc(p.stop_band)+'</b>':'')+'<div>';
+    (p.topics||[]).forEach(t=>{
+      html += '<div class="tbar"><span class="lbl">'+esc(t.band)+' · '+esc(t.label||BAND_LABELS[t.band]||'')+'</span><span class="track"><span class="fill band'+esc(t.band)+'" style="display:block;width:'+Math.max(0,Math.min(100,t.pct||0))+'%"></span></span><span class="pct">'+esc(t.pct==null?'—':t.pct+'%')+'</span></div>';
+    });
+    html += '</div></div>';
+  });
+  if((steering.directives||[]).length){
+    html += '<div style="margin-top:8px"><b>Advisory directives (brain — no picker reads these):</b><ul class="latelist">'
+      + steering.directives.map(d=>'<li><b>'+esc(d.id||'')+'</b> · '+esc(d.text||'')+'</li>').join('') + '</ul></div>';
+  }
+  if((steering.overrides_active||[]).length){
+    html += '<div class="kv" style="margin-top:8px">Your steers active: <b>'+steering.overrides_active.map(o=>esc(o.lane)+' → '+esc(o.band)+' ('+esc(o.mode)+')').join(' · ')+'</b></div>';
+  }
+  const lanes = (live && live.lanes ? live.lanes : []).filter(l=>l.cadence_minutes);
+  html += '<div class="steer-ctl"><b>Steer:</b>'
+    + '<select id="steerLane">'+lanes.map(l=>'<option value="'+esc(l.key)+'">'+esc(l.platform)+' '+esc(l.account||'')+'</option>').join('')+'</select>'
+    + '<select id="steerBand"><option value="A">A · Audit</option><option value="B">B · Education</option><option value="C">C · Community</option><option value="D">D · California Civic</option></select>'
+    + '<select id="steerMode"><option value="boost">boost</option><option value="hold">hold</option><option value="clear">clear</option></select>'
+    + '<button class="mini primary" id="steerSaveBtn"'+(PUBLIC_READONLY?' disabled':'')+'>Save steer</button>'
+    + '<input type="text" id="steerTheme" placeholder="Day theme (e.g. recall countdown)" maxlength="200">'
+    + '<button class="mini" id="steerThemeBtn"'+(PUBLIC_READONLY?' disabled':'')+'>Save theme</button>'
+    + '</div><div class="act-result" id="steerResult"></div>'
+    + (PUBLIC_READONLY?'<div class="kv">Public read-only view — steering controls are disabled here; they live on the local panel.</div>':'')
+    + '<div class="kv" style="margin-top:6px">Steering is advisory: a steer is a suggestion the writer records, not an order to a publisher. '+(steering.notes||[]).map(esc).join(' ')+'</div>';
+  el.innerHTML = html;
+  const sb = document.getElementById('steerSaveBtn');
+  if(sb) sb.addEventListener('click', saveSteer);
+  const tb = document.getElementById('steerThemeBtn');
+  if(tb) tb.addEventListener('click', saveTheme);
+}
+async function postSteer(body){
+  const out = document.getElementById('steerResult');
+  if(PUBLIC_READONLY){ if(out){ out.textContent='Public view is read-only — steering lives on the local panel.'; out.className='act-result err'; } return; }
+  try{
+    if(out){ out.textContent='Saving…'; out.className='act-result'; }
+    const r = await fetch(STEER_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
+    const res = await r.json();
+    if(out){ out.textContent = res.detail||res.status||'saved'; out.className='act-result '+(res.ok?'ok':'err'); }
+    if(res.ok) fetchSteering();
+  }catch(e){ if(out){ out.textContent='Save failed: '+e.message; out.className='act-result err'; } }
+}
+function saveSteer(){
+  const lane = document.getElementById('steerLane').value;
+  const band = document.getElementById('steerBand').value;
+  const mode = document.getElementById('steerMode').value;
+  postSteer({lane: lane, band: band, mode: mode});
+}
+function saveTheme(){
+  const theme = document.getElementById('steerTheme').value.trim();
+  if(!theme) return;
+  postSteer({day_theme: theme});
+}
+async function fetchSteering(){
+  try{ steering = await fetchJSON(STEERING_URL); }catch(e){ steering = null; }
+  renderSteering();
+}
+
+function render(){
+  if(!live) return;
+  const lanes=live.lanes||[];
+  const byKey={}; lanes.forEach(l=>byKey[l.key]=l);
+
+  // Health: prefer the self-healing cycle's numbers (same method, fresh).
+  const sys = healing && healing.system ? healing.system : null;
+  const hpct = sys ? sys.health_pct : (live.system_health||{}).pct;
+  const hcls = hpct==null?'':(hpct>=77?'good':(hpct>=50?'warn':'bad'));
+  const budget = sys ? sys.budget_remaining_pts : null;
+  const burn = sys ? sys.burn_rate_per_h : null;
+  const frozen = sys ? sys.changes_frozen : false;
+  document.getElementById('healthCard').innerHTML =
+    '<div class="row"><div class="n '+hcls+'">'+(hpct==null?'-':hpct+'%')+'</div>'
+    +'<div class="lbl">system health<br>18 lanes scored</div>'
+    +'<div class="budget">Error budget: <b>'+(budget==null?'-':(budget>=0?'+':'')+budget+' pts')+'</b> vs the 77% floor'
+    +(burn!=null?'<br>Burn rate: <b>'+burn+'×</b> (1× = on pace; 14.4× exhausts a 30-day budget in ~2 days)':'')
+    +'<br>Computed '+esc(sys?('self-healing cycle'):(live.system_health||{}).computed_at_pt||'-')+' from live receipts only.</div></div>'
+    +'<div class="bar"><div class="fill '+hcls+'" style="width:'+Math.max(0,Math.min(100,hpct||0))+'%"></div>'
+    +'<div class="line77"><span>77% floor</span></div></div>'
+    +'<div class="barlabels"><span>0%</span><span>77% — forced-reset line (rung 8, only after the ladder is tried)</span><span>100%</span></div>'
+    +(frozen?'<div class="frozen"><b>Budget overdrawn — changes frozen.</b> No canary rollouts, no new behaviour; reliability work only, until health is back above 77%.</div>':'')
+    +((live.system_health||{}).top_drags||[]).length?'<div class="budget" style="margin-top:8px">Biggest drags: <b>'+(live.system_health.top_drags||[]).map(x=>esc(x.lane)+' '+x.score).join(' · ')+'</b></div>':'';
+
+  const s=live.summary||{};
+  const on = sys?sys.on_cadence:(s.on_cadence||0), yel = sys?sys.yellow:(s.due||0), red = sys?sys.red:(s.missing||0);
+  document.getElementById('summary').innerHTML =
+    '<div class="stat on"><div class="n">'+on+'</div><div class="l">on cadence</div></div>'
+    +'<div class="stat due"><div class="n">'+yel+'</div><div class="l">yellow · 30m+ late</div></div>'
+    +'<div class="stat miss"><div class="n">'+red+'</div><div class="l">red · 60m+ late</div></div>'
+    +'<div class="stat nodata"><div class="n">'+(s.total_lanes||lanes.length)+'</div><div class="l">lanes tracked</div></div>';
+
+  // Worst lane strip: the one decision at the top.
+  const w = worstLane(lanes);
+  const wEl = document.getElementById('worstLane');
+  if(!w){
+    wEl.className='worst ok';
+    wEl.innerHTML='<div class="t">Worst lane</div><div class="big">No scored lane has a verified post yet.</div>';
+  } else {
+    const wst = laneStatus(w), wcls = stateClass(wst);
+    const wh = healing && healing.lanes ? healing.lanes[w.key] : null;
+    const wgap = wh && wh.gap_min!=null ? wh.gap_min : null;
+    const wq = queueDepth(w, wh);
+    wEl.className='worst '+wcls;
+    wEl.innerHTML='<div class="t">Worst lane — fix this first</div>'
+      +'<div class="big">'+esc(w.platform)+' '+esc(w.account||'')+' · '+esc(badgeLabel(wst))+'</div>'
+      +'<div class="meta">Last post <b>'+(wgap!=null?gapText(wgap)+' ago':'—')+'</b> ('+esc(w.last_verified_pt||'never')+')'
+      +' · Next due <b>'+esc(w.next_due_pt||'-')+'</b> ('+esc(dueText(w))+')'
+      +(wq!=null?' · Queue <b>'+wq.n+' staged</b>'+(wq.n<25?' <span class="dry">below floor</span>':''):' · Queue unknown')
+      +(w.blocker?' · '+esc(w.blocker):'')
+      +postLink(w, 'color:#1d4ed8;text-decoration:none')
+      +'</div>'
+      +'<div class="actions"><button class="mini primary" data-act="fire_fresh" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+' title="Rung 3: fire one fresh distinct row from verified supply (queued)">Fire fresh · R3</button>'
+      +'<button class="mini" data-act="retry" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+'">Retry · R1</button>'
+      +'<button class="mini" data-act="failover" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+'">Fail over · R2</button>'
+      +'<button class="mini" data-act="rebuild_queue" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+'">Rebuild queue · R6</button></div>'
+      +'<div class="act-result" id="act-'+esc(w.key)+'"></div>';
+  }
+
+  // System card: executor / pool / reset ladder (collapsed section).
+  const ex = healing ? healing.executor : null;
+  const gov = healing ? healing.governance : null;
+  const pool = gov ? gov.pool : 'unknown';
+  const resetGate = sys && hpct!=null && hpct<77;
+  document.getElementById('sysCard').innerHTML =
+    '<div class="sysrow">'
+    +'<span class="syspill '+(ex?(ex.status==='HEALTHY'?'ok':ex.status==='DEGRADED'?'warn':'bad'):'')+'">Executor: '+(ex?esc(ex.status)+' · pid '+esc(ex.pid||'-')+' · heartbeat '+esc(ex.heartbeat_age_s==null?'-':ex.heartbeat_age_s+'s')+' · egress '+(ex.egress_github_200?'ok':'FAILED'):'unknown')+'</span>'
+    +'<span class="syspill '+(pool==='ok'?'ok':pool==='unknown'?'':'warn')+'">Scheduler pool: '+esc(pool)+(pool==='unknown'?' — no DB read path; never spawn into a sick pool':'')+'</span>'
+    +'<span class="syspill">Watchdog: control-center-watchdog every 2m (restarts server + updater)</span>'
+    +'<span class="syspill">Supabase realtime: not wired — no key on file</span>'
+    +'</div>'
+    +'<div class="sysact">'
+    +'<button class="mini" data-sysact="restart_executor"'+(PUBLIC_READONLY?' disabled':'')+' title="Rung 5: restart only the executor, with proxy env + egress probe verified. Refused while it is healthy.">Restart executor · R5</button>'
+    +'<button class="mini danger" data-sysact="full_reset" '+((resetGate && !PUBLIC_READONLY)?'':'disabled')+' title="Rung 8: full system reset. Gated: needs health below 77% after the ladder was tried, plus confirmation.">Full reset · R8'+(resetGate?'':' (gated — health above 77%)')+'</button>'
+    +'</div><div class="act-result" id="act-system"></div>'
+    +(resetGate?'<div class="kv" style="margin-top:8px">Full reset is available: health '+hpct+'% is below the 77% floor and ladder repairs have been tried. It rebuilds state from receipts and is <b>not complete</b> until every scored lane posts a verified receipt afterwards.</div>':'<div class="kv" style="margin-top:8px">Full reset stays gated until health is below 77% after the ladder has been tried. The cheapest repair that fits the diagnosis always runs first.</div>');
+
+  const sig = lanes.map(l=>l.key+'='+(l.last_verified_iso||'')+'|q'+(l.queue_depth==null?'':l.queue_depth)).join(';')
+    + '|' + JSON.stringify(healing?healing.system:null);
+  if(render._sig !== sig){
+    const open=openKeys();
+    renderGroups(byKey);
+    // On the very first render there are no saved open keys, so the
+    // worst platform opens by default (renderGroups handles that).
+    // On later renders, restore the user's own choices, but never leave
+    // every group closed if the worst group was open before.
+    if(render._sig !== undefined) restoreOpen(open);
+    render._sig=sig;
+  } else {
+    tickTimes();
+  }
+
+  const latest=lanes.filter(l=>l.last_verified_iso)
+    .sort((a,b)=>new Date(b.last_verified_iso)-new Date(a.last_verified_iso)).slice(0,6);
+  document.getElementById('latest').innerHTML = latest.length ? latest.map(l=>
+    '<li><b>'+esc(l.platform)+' '+esc(l.account||'')+'</b> '
+    +'<span data-ts="'+esc(l.last_verified_iso)+'">'+agoText(l.last_verified_iso)+'</span>'
+    +postLink(l)
+    +'<div class="t">'+esc(l.last_verified_pt||'')+(l.last_item_ref?' · '+esc(l.last_item_ref):'')+'</div></li>'
+  ).join('') : '<li>No verified posts on file yet.</li>';
+
+  const acts = healing ? (healing.recent_actions||[]) : [];
+  document.getElementById('recentActions').innerHTML =
+    '<li style="font-weight:700">Recent repairs &amp; button presses (live from the action log)</li>'
+    + (acts.length ? acts.map(a=>'<li>'+esc(a.ts_pt||'')+' · <b>'+esc(a.lane||'')+'</b> · rung '+esc(a.rung==null?'-':a.rung)+' · '+esc(a.action||'')+' — '+esc(a.status||'')+'</li>').join('')
+      : '<li>No actions recorded yet this cycle.</li>')
+    + ((healing&&healing.recent_incidents||[]).map(i=>'<li>'+esc(i.ts_pt||'')+' · <b>'+esc(i.lane||'')+'</b> · '+esc(i.failure_class||'')+' · '+esc(i.summary||'')+' — repair rung '+esc(i.repair_rung==null?'-':i.repair_rung)+' ('+esc(i.verified||'pending')+')</li>').join(''));
+
+  // Needs David — derived from live lane data, never hardcoded.
+  const need=[];
+  lanes.forEach(l=>{
+    if(l.blocker) need.push('<li><b>'+esc(l.platform)+' '+esc(l.account||'')+'</b>: '+esc(l.blocker)+'</li>');
+  });
+  if(!need.length) need.push('<li>Nothing needs David’s tap right now — blockers are listed on the lane cards when they appear.</li>');
+  document.getElementById('actions').innerHTML = need.join('');
+
+  document.getElementById('foot').textContent =
+    '209 Intelligence · v4.1 · renamed + exact-post links + steering, Nov 20 · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
+    +' · newest receipt '+esc(live.newest_receipt_pt||'-')
+    +' · Supabase realtime: not wired, no key · '+(s.total_lanes||lanes.length)+' lanes · Public read-only copy — steering + actions disabled.';
+  renderSteering();
+}
+
+async function fetchJSON(url){
+  const r=await fetch(url, {cache:'no-store'});
+  if(!r.ok) throw new Error(url+' '+r.status);
+  return await r.json();
+}
+async function pollOnce(){
+  try{
+    live=await fetchJSON(STATE_URL);
+    try{ healing=await fetchJSON(HEALING_URL); }catch(e){ healing=null; }
+    lastDataAt=Date.now();
+    render();
+    if(mode!=='push') setMode('poll');
+  }catch(e){ setMode('offline'); }
+}
+function startPolling(){
+  if(pollTimer) return;
+  pollTimer=setInterval(pollOnce, POLL_MS);
+}
+function connectSSE(){
+  if(!('EventSource' in window)) { startPolling(); return; }
+  if(location.protocol!=='http:' && location.protocol!=='https:') { startPolling(); return; }
+  try{ es=new EventSource(EVENTS_URL); }catch(e){ startPolling(); return; }
+  es.addEventListener('state', (ev)=>{
+    try{ live=JSON.parse(ev.data); lastDataAt=Date.now(); render(); setMode('push'); }catch(e){}
+  });
+  es.addEventListener('healing', (ev)=>{
+    try{ healing=JSON.parse(ev.data); lastDataAt=Date.now(); render(); setMode('push'); }catch(e){}
+  });
+  es.onerror=()=>{ setMode('poll'); startPolling(); };
+  es.onopen=()=>{ setMode('push'); };
+}
+
+async function doAction(action, lane, btn){
+  const out = document.getElementById('act-'+(lane||'system'));
+  if(PUBLIC_READONLY){ if(out){ out.textContent='Public view is read-only — actions live on the local panel.'; out.className='act-result err'; } return; }
+  const doPost = async (confirm)=>{
+    const r = await fetch(ACTION_URL, {method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({action: action, lane: lane||'', reason: 'dashboard button', confirm: !!confirm})});
+    return await r.json();
+  };
+  try{
+    if(btn) btn.disabled=true;
+    if(out){ out.textContent='Working…'; out.className='act-result'; }
+    let res;
+    if(action==='full_reset'){
+      if(!window.confirm('Full system reset (rung 8, the LAST rung). It rebuilds state from receipts and is NOT complete until every scored lane posts a verified receipt afterwards. Continue?')){ if(out){out.textContent='Full reset cancelled.';} if(btn) btn.disabled=false; return; }
+      res = await doPost(true);
+    } else {
+      res = await doPost(false);
+    }
+    if(out){
+      out.textContent = (res.detail||res.status||'done');
+      out.className = 'act-result '+(res.ok?'ok':'err');
+    }
+    pollOnce();
+  }catch(e){
+    if(out){ out.textContent='Action failed: '+e.message; out.className='act-result err'; }
+  }finally{
+    if(btn) btn.disabled=false;
+  }
+}
+document.addEventListener('click', (ev)=>{
+  const t=ev.target.closest('[data-act]');
+  if(t){ doAction(t.getAttribute('data-act'), t.getAttribute('data-lane'), t); return; }
+  const s=ev.target.closest('[data-sysact]');
+  if(s){ doAction(s.getAttribute('data-sysact'), '', s); return; }
+  if(ev.target.closest('#refreshBtn')){ pollOnce(); return; }
+  if(ev.target.closest('#expandAllBtn')){
+    document.querySelectorAll('.platform-group').forEach(e=>e.setAttribute('open',''));
+    return;
+  }
+  if(ev.target.closest('#collapseAllBtn')){
+    document.querySelectorAll('.platform-group').forEach(e=>e.removeAttribute('open'));
+    return;
+  }
+});
+
+connectSSE();
+pollOnce();
+fetchSteering();
+setInterval(fetchSteering, 60000);
+setInterval(tickTimes, 30000);
+setInterval(tickClock, 1000);
+tickClock();
+</script>
+</body>
+</html>
