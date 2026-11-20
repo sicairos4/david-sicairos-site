@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-16T21:53:15-08:00",
-  "generated_at_pt": "2026-11-16 21:53 PT",
+  "generated_at": "2026-11-16T22:20:14-08:00",
+  "generated_at_pt": "2026-11-16 22:20 PT",
   "generated_by": "scripts/analytics_regenerate.py (realtime feed)",
   "refresh_cadence_minutes": 15,
   "stale_after_minutes": 60,
@@ -32,7 +32,7 @@
     "post_engagements_28d": 15706,
     "followers_total_5_pages": 1742,
     "source": "Facebook Graph API v21.0: ?fields=followers_count + /insights page_post_engagements (days_28)",
-    "collected_at": "2026-11-16T21:53:15-08:00",
+    "collected_at": "2026-11-16T22:20:14-08:00",
     "pages": [
       {
         "page_id": "173296022544687",
@@ -73,22 +73,22 @@
   },
   "verified_publishes": {
     "verified_24h": {
-      "bluesky": 14,
-      "facebook": 31,
-      "instagram": 61,
-      "linkedin": 9,
-      "threads": 8,
-      "tiktok": 81,
+      "bluesky": 13,
+      "facebook": 28,
+      "instagram": 62,
+      "linkedin": 7,
+      "threads": 6,
+      "tiktok": 65,
       "unknown": 7,
-      "youtube": 12
+      "youtube": 7
     },
     "verified_7d": {
       "bluesky": 199,
       "facebook": 298,
-      "instagram": 392,
-      "linkedin": 171,
+      "instagram": 395,
+      "linkedin": 170,
       "threads": 146,
-      "tiktok": 239,
+      "tiktok": 240,
       "unknown": 127,
       "youtube": 143
     },
@@ -102,8 +102,8 @@
         "url": "https://www.facebook.com/1638669581618653/posts/1652456216906656"
       },
       "instagram": {
-        "observed_at_utc": "2026-11-17T05:49:03+00:00",
-        "url": "https://www.instagram.com/reel/Df1F5BNius6/"
+        "observed_at_utc": "2026-11-17T06:17:21+00:00",
+        "url": "https://www.instagram.com/reel/Df1KfjdjxtO/"
       },
       "linkedin": {
         "observed_at_utc": "2026-11-17T05:13:00+00:00",
@@ -114,8 +114,8 @@
         "url": "https://www.threads.com/@209media.connect/post/Df051Wqm2-8"
       },
       "tiktok": {
-        "observed_at_utc": "2026-11-17T05:32:00+00:00",
-        "url": "https://www.tiktok.com/@sicairosdavid/video/7709007273615478030"
+        "observed_at_utc": "2026-11-17T06:14:00+00:00",
+        "url": "https://www.tiktok.com/@sicairosdavid/video/7709019737975442702"
       },
       "unknown": {
         "observed_at_utc": "2026-11-17T05:48:00+00:00",
@@ -127,10 +127,10 @@
       }
     },
     "source": "verification-receipts.jsonl (VERIFIED* verdicts only; a submit receipt is not a publish)",
-    "collected_at": "2026-11-16T21:53:15-08:00",
-    "receipts_lines": 4924,
-    "receipts_parsed": 4924,
-    "verified_rows": 3383,
+    "collected_at": "2026-11-16T22:20:14-08:00",
+    "receipts_lines": 4930,
+    "receipts_parsed": 4930,
+    "verified_rows": 3388,
     "verified_no_parseable_time": 307,
     "verified_unknown_platform": 763,
     "caveats": [
@@ -140,19 +140,19 @@
     ]
   },
   "steering": {
-    "generated_pt": "2026-11-16 21:52 PT",
+    "generated_pt": "2026-11-16 22:12 PT",
     "mode": "ADVISORY",
     "posts_last_24h_by_lane": {
       "bluesky": 47,
-      "facebook": 178,
+      "facebook": 191,
       "instagram_hub": 225,
       "instagram_personal": 6,
       "linkedin": 5,
-      "threads": 83,
+      "threads": 81,
       "tiktok": 18,
-      "youtube": 15
+      "youtube": 14
     },
-    "fact_rows_total": 16913,
+    "fact_rows_total": 16928,
     "directives_advisory": [
       {
         "rule": "R-VOICE",
@@ -233,7 +233,7 @@
       }
     ],
     "source": "steering-ingest 15m fact table (analytics.db) + steering.json",
-    "collected_at": "2026-11-16T21:53:15-08:00"
+    "collected_at": "2026-11-16T22:20:14-08:00"
   },
   "top_posts_lab": {
     "run_file": "run-2026-11-16-scored.json",
@@ -307,7 +307,7 @@
     ],
     "note": "medians_current in run file (EARLY/24H/7D x core/nonf); topic/hook/format attribution unavailable -- fact-table fields null (see steering-notes.md)",
     "source": "analytics-lab scored run (Unified Score)",
-    "collected_at": "2026-11-16T21:53:15-08:00"
+    "collected_at": "2026-11-16T22:20:14-08:00"
   },
   "platform_90d": {
     "dataset": "ninety-day-dataset-20261115.json",

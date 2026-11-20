@@ -1,9 +1,15 @@
-import json,os,tempfile
+import json,os,re,tempfile
 from pathlib import Path
 from urllib.request import Request,urlopen
 from urllib.parse import urlencode,urlsplit
 from xml.etree import ElementTree as ET
 from datetime import datetime,timezone
+# Standing order (David, Nov 18, 2026): the showcase never mirrors a
+# vote-count / margin post. EXCLUDED_BSKY_KEYS is the explicit blocklist
+# (Bluesky post keys); COUNT_RE catches the recurring count-update wording
+# so a reworded count post is not mirrored either.
+EXCLUDED_BSKY_KEYS={'3n2qxlhte3w2j'}
+COUNT_RE=re.compile(r'ballots?\s+left|votes?\s+flipped|count\s+moved',re.I)
 HANDLE='davidsicairos.bsky.social'
 CHANNEL='UCDMa9oEWj4i6KFOkjF79qLg'
 PATH=Path('data/social-showcase.json')
@@ -28,6 +34,7 @@ def bluesky():
   if not key or not all(c.isalnum() or c in '._~-' for c in key):continue
   text=str(record.get('text') or '').strip()
   if not text:continue
+  if key in EXCLUDED_BSKY_KEYS or COUNT_RE.search(text):continue
   embed=p.get('embed') or {};images=embed.get('images') or [];thumbnail=None;kind='conversation'
   if images and isinstance(images[0],dict):thumbnail=https(images[0].get('thumb'));kind='photo'
   external=embed.get('external') or {}
@@ -44,8 +51,10 @@ def youtube():
  for entry in root.findall('a:entry',ns):
   ident=entry.findtext('yt:videoId','',ns)
   if len(ident)!=11 or not all(c.isalnum() or c in '_-' for c in ident):continue
+  title=entry.findtext('a:title','YouTube video',ns)
+  if COUNT_RE.search(title):continue
   thumbnail=entry.find('m:group/m:thumbnail',ns)
-  rows.append({'id':'youtube-'+ident,'platform':'youtube','kind':'video','title':entry.findtext('a:title','YouTube video',ns),'caption':entry.findtext('m:group/m:description','',ns)[:10000],'account':'David Sicairos · YouTube','brand':'David Sicairos','published_at':entry.findtext('a:published',None,ns),'url':'https://www.youtube.com/watch?v='+ident,'thumbnail':https(thumbnail.get('url')) if thumbnail is not None else None,'origin':'public_youtube'})
+  rows.append({'id':'youtube-'+ident,'platform':'youtube','kind':'video','title':title,'caption':entry.findtext('m:group/m:description','',ns)[:10000],'account':'David Sicairos · YouTube','brand':'David Sicairos','published_at':entry.findtext('a:published',None,ns),'url':'https://www.youtube.com/watch?v='+ident,'thumbnail':https(thumbnail.get('url')) if thumbnail is not None else None,'origin':'public_youtube'})
  return rows
 if not PATH.exists():raise SystemExit('Showcase configuration missing; no file overwritten')
 config=json.loads(PATH.read_text(encoding='utf-8'))
