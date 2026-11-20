@@ -1,19 +1,19 @@
 {
   "version": 1,
   "source": "verification-receipts.jsonl (live receipts only)",
-  "generated_at_pt": "2026-11-20 11:45 AM PT",
-  "generated_at_iso": "2026-11-20T11:45:55.613166-08:00",
-  "receipts_lines_seen": 6642,
-  "receipts_bytes_seen": 4745424,
+  "generated_at_pt": "2026-11-20 11:49 AM PT",
+  "generated_at_iso": "2026-11-20T11:49:06.072443-08:00",
+  "receipts_lines_seen": 6644,
+  "receipts_bytes_seen": 4747409,
   "receipts_scan": "incremental",
   "lanes_changed_this_run": [],
-  "newest_receipt_pt": "2026-11-20 11:44 AM PT",
-  "newest_receipt_iso": "2026-11-20T11:44:03-08:00",
+  "newest_receipt_pt": "2026-11-20 11:47 AM PT",
+  "newest_receipt_iso": "2026-11-20T11:47:39-08:00",
   "newest_receipt": {
-    "lane": "ig_davids",
+    "lane": "ig_atwater",
     "job_id": "ig-fast-verify",
-    "item_ref": "ig-gapfill-davids-ed-dept-five-districts-2335",
-    "permalink": "https://www.instagram.com/reel/Df-bmPQCMMH/"
+    "item_ref": "ig-gapfill-atwater-if-ep298-1023",
+    "permalink": "https://www.instagram.com/reel/Df-cA1cF-zS/"
   },
   "unparsed_verified_receipts": 5,
   "publog_supplement_failed": false,
@@ -26,116 +26,116 @@
     "missing": 5
   },
   "system_health": {
-    "pct": 72.3,
+    "pct": 73.5,
     "method": "Per lane: cadence / max(cadence, minutes since last VERIFIED publish). System = mean of lane scores x 100. Sources: verification-receipts.jsonl only (VERIFIED_PUBLISH verdicts with a post link). Submit receipts never count, only verified publishes. Same method as system_health.py, but receipts only: no newsroom.db supplement for Threads/Bluesky.",
-    "computed_at_pt": "2026-11-20 11:45 AM PT",
+    "computed_at_pt": "2026-11-20 11:49 AM PT",
     "lanes_scored": 18,
     "lanes": {
       "ig_personal": {
         "last_verified_pt": "2026-11-20 10:33 AM PT",
-        "gap_min": 72.1,
+        "gap_min": 75.3,
         "cadence_min": 30,
-        "score": 0.42
+        "score": 0.4
       },
       "ig_hub": {
         "last_verified_pt": "2026-11-20 11:22 AM PT",
-        "gap_min": 23.4,
+        "gap_min": 26.6,
         "cadence_min": 30,
         "score": 1.0
       },
       "ig_davids": {
         "last_verified_pt": "2026-11-20 11:44 AM PT",
-        "gap_min": 1.9,
+        "gap_min": 5.1,
         "cadence_min": 30,
         "score": 1.0
       },
       "ig_atwater": {
-        "last_verified_pt": "2026-11-20 11:00 AM PT",
-        "gap_min": 45.1,
+        "last_verified_pt": "2026-11-20 11:47 AM PT",
+        "gap_min": 1.5,
         "cadence_min": 30,
-        "score": 0.67
+        "score": 1.0
       },
       "ig_castle": {
         "last_verified_pt": "2026-11-20 11:04 AM PT",
-        "gap_min": 40.9,
+        "gap_min": 44.1,
         "cadence_min": 30,
-        "score": 0.73
+        "score": 0.68
       },
       "ig_intentionally": {
         "last_verified_pt": "2026-11-20 11:22 AM PT",
-        "gap_min": 23.5,
+        "gap_min": 26.6,
         "cadence_min": 30,
         "score": 1.0
       },
       "ig_elevated": {
         "last_verified_pt": "2026-11-20 11:03 AM PT",
-        "gap_min": 42.1,
+        "gap_min": 45.3,
         "cadence_min": 30,
-        "score": 0.71
+        "score": 0.66
       },
       "fb_profile": {
         "last_verified_pt": "2026-11-20 10:04 AM PT",
-        "gap_min": 101.8,
+        "gap_min": 105.0,
         "cadence_min": 30,
         "score": 0.29
       },
       "fb_california": {
         "last_verified_pt": "2026-11-20 10:25 AM PT",
-        "gap_min": 80.7,
+        "gap_min": 83.9,
         "cadence_min": 30,
-        "score": 0.37
+        "score": 0.36
       },
       "fb_dbeastco": {
-        "last_verified_pt": "2026-11-20 11:01 AM PT",
-        "gap_min": 44.3,
-        "cadence_min": 30,
-        "score": 0.68
-      },
-      "fb_elevated": {
-        "last_verified_pt": "2026-11-20 10:17 AM PT",
-        "gap_min": 88.3,
-        "cadence_min": 30,
-        "score": 0.34
-      },
-      "fb_intentionally": {
-        "last_verified_pt": "2026-11-20 10:25 AM PT",
-        "gap_min": 80.5,
-        "cadence_min": 30,
-        "score": 0.37
-      },
-      "fb_problemsolved": {
-        "last_verified_pt": "2026-11-20 11:16 AM PT",
-        "gap_min": 29.4,
+        "last_verified_pt": "2026-11-20 11:31 AM PT",
+        "gap_min": 18.0,
         "cadence_min": 30,
         "score": 1.0
       },
+      "fb_elevated": {
+        "last_verified_pt": "2026-11-20 10:17 AM PT",
+        "gap_min": 91.5,
+        "cadence_min": 30,
+        "score": 0.33
+      },
+      "fb_intentionally": {
+        "last_verified_pt": "2026-11-20 10:25 AM PT",
+        "gap_min": 83.7,
+        "cadence_min": 30,
+        "score": 0.36
+      },
+      "fb_problemsolved": {
+        "last_verified_pt": "2026-11-20 11:16 AM PT",
+        "gap_min": 32.5,
+        "cadence_min": 30,
+        "score": 0.92
+      },
       "linkedin": {
         "last_verified_pt": "2026-11-20 11:31 AM PT",
-        "gap_min": 14.9,
+        "gap_min": 18.1,
         "cadence_min": 25,
         "score": 1.0
       },
       "youtube": {
         "last_verified_pt": "2026-11-20 10:57 AM PT",
-        "gap_min": 48.9,
+        "gap_min": 52.1,
         "cadence_min": 30,
-        "score": 0.61
+        "score": 0.58
       },
       "tiktok": {
         "last_verified_pt": "2026-11-20 11:09 AM PT",
-        "gap_min": 36.3,
+        "gap_min": 39.5,
         "cadence_min": 30,
-        "score": 0.83
+        "score": 0.76
       },
       "threads": {
         "last_verified_pt": "2026-11-20 11:21 AM PT",
-        "gap_min": 24.4,
+        "gap_min": 27.6,
         "cadence_min": 25,
-        "score": 1.0
+        "score": 0.91
       },
       "bluesky": {
         "last_verified_pt": "2026-11-20 11:41 AM PT",
-        "gap_min": 4.9,
+        "gap_min": 8.0,
         "cadence_min": 20,
         "score": 1.0
       }
@@ -147,15 +147,15 @@
       },
       {
         "lane": "fb_elevated",
-        "score": 0.34
+        "score": 0.33
       },
       {
         "lane": "fb_california",
-        "score": 0.37
+        "score": 0.36
       },
       {
         "lane": "fb_intentionally",
-        "score": 0.37
+        "score": 0.36
       }
     ]
   },
@@ -169,7 +169,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "MISSING",
-      "gap_minutes": 72,
+      "gap_minutes": 75,
       "last_verified_pt": "2026-11-20 10:33 AM PT",
       "last_verified_iso": "2026-11-20T10:33:47-08:00",
       "last_url": "https://www.instagram.com/p/Df-TxAaje5s/",
@@ -177,7 +177,7 @@
       "last_item_ref": "ig-personal-own-the-list-20261120",
       "next_due_pt": "2026-11-20 11:03 AM PT",
       "next_due_iso": "2026-11-20T11:03:47-08:00",
-      "next_action": "Post now, overdue by about 72 min.",
+      "next_action": "Post now, overdue by about 75 min.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
@@ -195,7 +195,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "ON CADENCE",
-      "gap_minutes": 2,
+      "gap_minutes": 5,
       "last_verified_pt": "2026-11-20 11:44 AM PT",
       "last_verified_iso": "2026-11-20T11:44:03-08:00",
       "last_url": "https://www.instagram.com/reel/Df-bmPQCMMH/",
@@ -221,7 +221,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "ON CADENCE",
-      "gap_minutes": 23,
+      "gap_minutes": 27,
       "last_verified_pt": "2026-11-20 11:22 AM PT",
       "last_verified_iso": "2026-11-20T11:22:29-08:00",
       "last_url": "https://www.instagram.com/reel/Df-ZIKWEY7f/",
@@ -247,7 +247,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "DUE",
-      "gap_minutes": 41,
+      "gap_minutes": 44,
       "last_verified_pt": "2026-11-20 11:04 AM PT",
       "last_verified_iso": "2026-11-20T11:04:59-08:00",
       "last_url": "https://www.instagram.com/reel/Df-XGIQFGRj/",
@@ -261,7 +261,7 @@
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 22,
+      "queue_depth": 21,
       "queue_source": "IG_READY staged"
     },
     {
@@ -272,16 +272,16 @@
       "cadence_label": "every 30m",
       "method": "Graph API",
       "miss_minutes": 60,
-      "state": "DUE",
-      "gap_minutes": 45,
-      "last_verified_pt": "2026-11-20 11:00 AM PT",
-      "last_verified_iso": "2026-11-20T11:00:52-08:00",
-      "last_url": "https://www.instagram.com/reel/Df-WpvtjQis/",
+      "state": "ON CADENCE",
+      "gap_minutes": 1,
+      "last_verified_pt": "2026-11-20 11:47 AM PT",
+      "last_verified_iso": "2026-11-20T11:47:39-08:00",
+      "last_url": "https://www.instagram.com/reel/Df-cA1cF-zS/",
       "last_job_id": "ig-fast-verify",
-      "last_item_ref": "q-ig-1795108529-52",
-      "next_due_pt": "2026-11-20 11:30 AM PT",
-      "next_due_iso": "2026-11-20T11:30:52-08:00",
-      "next_action": "Post due now.",
+      "last_item_ref": "ig-gapfill-atwater-if-ep298-1023",
+      "next_due_pt": "2026-11-20 12:17 PM PT",
+      "next_due_iso": "2026-11-20T12:17:39-08:00",
+      "next_action": "Next due 2026-11-20 12:17 PM PT.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
@@ -299,7 +299,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "ON CADENCE",
-      "gap_minutes": 23,
+      "gap_minutes": 27,
       "last_verified_pt": "2026-11-20 11:22 AM PT",
       "last_verified_iso": "2026-11-20T11:22:28-08:00",
       "last_url": "https://www.instagram.com/reel/Df-ZHziBU72/",
@@ -325,7 +325,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "DUE",
-      "gap_minutes": 42,
+      "gap_minutes": 45,
       "last_verified_pt": "2026-11-20 11:03 AM PT",
       "last_verified_iso": "2026-11-20T11:03:48-08:00",
       "last_url": "https://www.instagram.com/reel/Df-W_I0Du7-/",
@@ -351,7 +351,7 @@
       "method": "browser for reels/growth + CLI for text (re-approved Nov 19 08:32)",
       "miss_minutes": 60,
       "state": "MISSING",
-      "gap_minutes": 102,
+      "gap_minutes": 105,
       "last_verified_pt": "2026-11-20 10:04 AM PT",
       "last_verified_iso": "2026-11-20T10:04:09-08:00",
       "last_url": "https://www.facebook.com/100002421465287/posts/pfbid0UHnM9VkeSpmCc4kDcsCTxL4f8R1Q69iQRwB3Cm1iigmLXhvScGv6fwNeEtgAo7Cwl",
@@ -359,13 +359,13 @@
       "last_item_ref": "q-fb-noidfix-1795172400-3",
       "next_due_pt": "2026-11-20 10:34 AM PT",
       "next_due_iso": "2026-11-20T10:34:09-08:00",
-      "next_action": "Post now, overdue by about 102 min.",
+      "next_action": "Post now, overdue by about 105 min.",
       "followers": "8.7K",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 78,
+      "queue_depth": 80,
       "queue_source": "FB_READY staged"
     },
     {
@@ -377,7 +377,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "MISSING",
-      "gap_minutes": 81,
+      "gap_minutes": 84,
       "last_verified_pt": "2026-11-20 10:25 AM PT",
       "last_verified_iso": "2026-11-20T10:25:13-08:00",
       "last_url": "https://www.facebook.com/122355740132212870/posts/122360660846212870",
@@ -385,7 +385,7 @@
       "last_item_ref": "q-fb-evr-20261120-ca-01",
       "next_due_pt": "2026-11-20 10:55 AM PT",
       "next_due_iso": "2026-11-20T10:55:13-08:00",
-      "next_action": "Post now, overdue by about 81 min.",
+      "next_action": "Post now, overdue by about 84 min.",
       "followers": "566 (+115)",
       "blocker": "",
       "source": "receipt",
@@ -402,16 +402,16 @@
       "cadence_label": "every 30m",
       "method": "Graph API",
       "miss_minutes": 60,
-      "state": "DUE",
-      "gap_minutes": 44,
-      "last_verified_pt": "2026-11-20 11:01 AM PT",
-      "last_verified_iso": "2026-11-20T11:01:39-08:00",
-      "last_url": "https://www.facebook.com/1638669581618653/posts/1656368543182090",
-      "last_job_id": "fb-graph-verify",
-      "last_item_ref": "q-fb-1795108857-40",
-      "next_due_pt": "2026-11-20 11:31 AM PT",
-      "next_due_iso": "2026-11-20T11:31:39-08:00",
-      "next_action": "Post due now.",
+      "state": "ON CADENCE",
+      "gap_minutes": 18,
+      "last_verified_pt": "2026-11-20 11:31 AM PT",
+      "last_verified_iso": "2026-11-20T11:31:05-08:00",
+      "last_url": null,
+      "last_job_id": "pub-fb-dbeastco",
+      "last_item_ref": null,
+      "next_due_pt": "2026-11-20 12:01 PM PT",
+      "next_due_iso": "2026-11-20T12:01:05-08:00",
+      "next_action": "Next due 2026-11-20 12:01 PM PT.",
       "followers": "869",
       "blocker": "",
       "source": "receipt",
@@ -429,7 +429,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "MISSING",
-      "gap_minutes": 88,
+      "gap_minutes": 92,
       "last_verified_pt": "2026-11-20 10:17 AM PT",
       "last_verified_iso": "2026-11-20T10:17:35-08:00",
       "last_url": "https://www.facebook.com/122274134930173549/posts/122276375816173549",
@@ -437,7 +437,7 @@
       "last_item_ref": "q-fb-evr-20261120-el-01",
       "next_due_pt": "2026-11-20 10:47 AM PT",
       "next_due_iso": "2026-11-20T10:47:35-08:00",
-      "next_action": "Post now, overdue by about 88 min.",
+      "next_action": "Post now, overdue by about 92 min.",
       "followers": "114 (+1)",
       "blocker": "",
       "source": "receipt",
@@ -455,7 +455,7 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "state": "MISSING",
-      "gap_minutes": 81,
+      "gap_minutes": 84,
       "last_verified_pt": "2026-11-20 10:25 AM PT",
       "last_verified_iso": "2026-11-20T10:25:25-08:00",
       "last_url": "https://www.facebook.com/1087967954219609/posts/1105896115760126",
@@ -463,7 +463,7 @@
       "last_item_ref": "q-fb-evr-20261120-in-01",
       "next_due_pt": "2026-11-20 10:55 AM PT",
       "next_due_iso": "2026-11-20T10:55:25-08:00",
-      "next_action": "Post now, overdue by about 81 min.",
+      "next_action": "Post now, overdue by about 84 min.",
       "followers": "0 (rendering quirk)",
       "blocker": "",
       "source": "receipt",
@@ -480,8 +480,8 @@
       "cadence_label": "every 30m",
       "method": "Graph API",
       "miss_minutes": 60,
-      "state": "ON CADENCE",
-      "gap_minutes": 29,
+      "state": "DUE",
+      "gap_minutes": 33,
       "last_verified_pt": "2026-11-20 11:16 AM PT",
       "last_verified_iso": "2026-11-20T11:16:34-08:00",
       "last_url": "https://www.facebook.com/122324146208193779/posts/122327293796193779",
@@ -489,7 +489,7 @@
       "last_item_ref": "q-fb-evr-20261120-ps-23",
       "next_due_pt": "2026-11-20 11:46 AM PT",
       "next_due_iso": "2026-11-20T11:46:34-08:00",
-      "next_action": "Next due 2026-11-20 11:46 AM PT.",
+      "next_action": "Post due now.",
       "followers": "187 (+11)",
       "blocker": "",
       "source": "receipt",
@@ -506,8 +506,8 @@
       "cadence_label": "every 25m",
       "method": "API",
       "miss_minutes": 35,
-      "state": "ON CADENCE",
-      "gap_minutes": 24,
+      "state": "DUE",
+      "gap_minutes": 28,
       "last_verified_pt": "2026-11-20 11:21 AM PT",
       "last_verified_iso": "2026-11-20T11:21:31-08:00",
       "last_url": "https://www.threads.com/@209media.connect/post/Df-ZPBtlC4n",
@@ -515,7 +515,7 @@
       "last_item_ref": null,
       "next_due_pt": "2026-11-20 11:46 AM PT",
       "next_due_iso": "2026-11-20T11:46:31-08:00",
-      "next_action": "Next due 2026-11-20 11:46 AM PT.",
+      "next_action": "Post due now.",
       "followers": "7,567 (Nov 16)",
       "blocker": "7 extra Threads accounts unwired (need per-account OAuth).",
       "source": "receipt",
@@ -533,7 +533,7 @@
       "method": "API",
       "miss_minutes": 40,
       "state": "ON CADENCE",
-      "gap_minutes": 5,
+      "gap_minutes": 8,
       "last_verified_pt": "2026-11-20 11:41 AM PT",
       "last_verified_iso": "2026-11-20T11:41:04-08:00",
       "last_url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2rdqezhdd26",
@@ -559,7 +559,7 @@
       "method": "API",
       "miss_minutes": 50,
       "state": "ON CADENCE",
-      "gap_minutes": 15,
+      "gap_minutes": 18,
       "last_verified_pt": "2026-11-20 11:31 AM PT",
       "last_verified_iso": "2026-11-20T11:31:00-08:00",
       "last_url": "https://www.linkedin.com/feed/update/urn:li:share:7529626503379058688/",
@@ -585,7 +585,7 @@
       "method": "API + browser wave",
       "miss_minutes": 60,
       "state": "DUE",
-      "gap_minutes": 49,
+      "gap_minutes": 52,
       "last_verified_pt": "2026-11-20 10:57 AM PT",
       "last_verified_iso": "2026-11-20T10:57:00-08:00",
       "last_url": "https://www.youtube.com/shorts/3ob7LWrmkm8",
@@ -611,7 +611,7 @@
       "method": "TikTok Studio (browser)",
       "miss_minutes": 60,
       "state": "DUE",
-      "gap_minutes": 36,
+      "gap_minutes": 39,
       "last_verified_pt": "2026-11-20 11:09 AM PT",
       "last_verified_iso": "2026-11-20T11:09:39-08:00",
       "last_url": "https://www.tiktok.com/@sicairosdavid/video/7710328345426218253",
