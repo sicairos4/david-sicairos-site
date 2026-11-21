@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-21 09:04 PT",
- "generated_epoch": 1795280695,
+ "generated_pt": "2026-11-21 09:09 PT",
+ "generated_epoch": 1795280976,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -185,8 +185,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 60,
-   "fireable": 55,
+   "staged": 62,
+   "fireable": 57,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
