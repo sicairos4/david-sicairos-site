@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-21 14:55 PT",
- "generated_epoch": 1795301723,
+ "generated_pt": "2026-11-21 15:02 PT",
+ "generated_epoch": 1795302130,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -155,9 +155,9 @@
    "cli_reel_reserve": null
   },
   "tiktok": {
-   "staged": 9,
-   "fireable": 8,
-   "deficit": 17,
+   "staged": 8,
+   "fireable": 7,
+   "deficit": 18,
    "badge": "CRITICAL",
    "exclusions": {
     "missing_file": 1
@@ -167,8 +167,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 447,
-   "fireable": 447,
+   "staged": 446,
+   "fireable": 446,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -177,8 +177,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 124,
-   "fireable": 118,
+   "staged": 123,
+   "fireable": 117,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
@@ -190,8 +190,8 @@
    "cli_reel_reserve": null
   },
   "linkedin": {
-   "staged": 25,
-   "fireable": 25,
+   "staged": 26,
+   "fireable": 26,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
