@@ -1,0 +1,207 @@
+# 209 content engine — public dashboard staleness monitor
+#
+# Repo: sicairos4/david-sicairos-site
+# Path in repo: .github/workflows/pages-staleness-monitor.yml
+# Built: 2026-11-20, realtime-dashboard build (Worker C)
+#
+# WHAT THIS IS
+#   A GitHub-hosted watch on the PUBLIC dashboard file only. Every 5 min it
+#   fetches https://209connect.com/209-intelligence/live-state.json, reads
+#   generated_at_iso (fallback generated_at_pt), and opens or updates one
+#   GitHub Issue labeled dashboard-stale when the public file is more than
+#   15 minutes old. When the file is fresh again it closes that issue.
+#   It runs on GitHub runners, so it still runs when the VM is down.
+#
+# HOW IT DIFFERS FROM engine-health-check.yml (do NOT merge them)
+#   - engine-health-check.yml scores the 18 LANES (health percent, RED
+#     lanes) every 15 min and files engine-red issues. It reads lane state.
+#   - THIS workflow scores nothing about lanes. It checks only the age of
+#     the public file itself: generated_at vs now. A board can be 100%
+#     healthy and still be stale (push chain dead), or fresh and red
+#     (lanes down, push chain alive). Those are different failures and
+#     they get different issues and different labels.
+#   - No lane scoring, no health math, no fire-request, no publish, no
+#     webhook, no checkout, no repo helper script. Only GITHUB_TOKEN.
+#
+# WHAT IT DOES NOT DO
+#   - No publishing, no API calls to any platform, no credential use.
+#   - It never fires a post and never touches the push watcher. A stale
+#     file means the push chain (watcher, Pages build) needs a look, not
+#     a publish.
+#
+# FAILURE MODES IT CATCHES
+#   - Fetch fails (site down, Pages build broken) -> treated as stale.
+#   - generated_at missing or unparseable -> treated as stale.
+#   - generated_at older than 15 min -> stale. The normal receipt to
+#     public lag is about 10.5 min (watcher push plus Pages build), so
+#     15 min leaves headroom and still fires well before a lane goes red.
+#
+# VERIFY AFTER COMMIT (needs `gh auth login` — NOT done here):
+#   gh run list --repo sicairos4/david-sicairos-site --workflow pages-staleness-monitor.yml
+#   gh run view <run-id> --repo sicairos4/david-sicairos-site --log
+
+name: pages-staleness-monitor
+
+on:
+  schedule:
+    # Every 5 minutes. GitHub cron is approximate (plus or minus minutes),
+    # never a hard guarantee. 5 min matches the n8n poll cadence.
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  staleness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Fetch public live-state.json
+        id: fetch
+        run: |
+          if curl -fsS --max-time 20 \
+            "https://209connect.com/209-intelligence/live-state.json" \
+            -o live-state.json; then
+            echo "fetch_ok=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "fetch_ok=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::Could not fetch live-state.json; treating as stale."
+          fi
+
+      - name: Compute file age
+        id: age
+        run: |
+          python3 - <<'PYEOF'
+          import json
+          import os
+          from datetime import datetime, timezone
+
+          fetch_ok = os.environ.get("FETCH_OK", "false") == "true"
+          generated_raw = ""
+          age_minutes = None
+          reason = ""
+
+          if fetch_ok:
+              try:
+                  with open("live-state.json", encoding="utf-8") as f:
+                      state = json.load(f)
+              except Exception as exc:
+                  state = {}
+                  reason = "live-state.json is not valid JSON: %s" % exc
+              if not reason:
+                  iso = (state.get("generated_at_iso") or "").strip()
+                  pt = (state.get("generated_at_pt") or "").strip()
+                  generated_raw = iso or pt
+                  generated = None
+                  if iso:
+                      try:
+                          generated = datetime.fromisoformat(
+                              iso.replace("Z", "+00:00"))
+                      except ValueError:
+                          generated = None
+                  if generated is None and pt:
+                      try:
+                          from zoneinfo import ZoneInfo
+                          naive = datetime.strptime(
+                              pt, "%Y-%m-%d %I:%M %p PT")
+                          generated = naive.replace(
+                              tzinfo=ZoneInfo("America/Los_Angeles")
+                          ).astimezone(timezone.utc)
+                      except ValueError:
+                          generated = None
+                  if generated is None:
+                      reason = "generated_at missing or unparseable"
+                  else:
+                      if generated.tzinfo is None:
+                          generated = generated.replace(tzinfo=timezone.utc)
+                      now = datetime.now(timezone.utc)
+                      age_minutes = (now - generated).total_seconds() / 60.0
+          else:
+              reason = "fetch of live-state.json failed"
+
+          stale = (age_minutes is None) or (age_minutes > 15)
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as out:
+              out.write("stale=%s\n" % ("true" if stale else "false"))
+              out.write("age_minutes=%s\n" % (
+                  "" if age_minutes is None else round(age_minutes, 1)))
+              out.write("generated_at=%s\n" % generated_raw)
+              out.write("reason=%s\n" % reason)
+          print("stale=%s age_minutes=%s generated_at=%s reason=%s" % (
+              stale, age_minutes, generated_raw, reason))
+          PYEOF
+        env:
+          FETCH_OK: ${{ steps.fetch.outputs.fetch_ok }}
+
+      - name: Open or update dashboard-stale issue
+        if: steps.age.outputs.stale == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const age = `${{ steps.age.outputs.age_minutes }}`;
+            const generated = `${{ steps.age.outputs.generated_at }}` || 'unknown';
+            const reason = `${{ steps.age.outputs.reason }}` || 'older than 15 minutes';
+            const title = 'DASHBOARD STALE: public live-state.json is ' +
+              (age ? age + ' min old' : 'unreadable');
+            const body = [
+              'The public dashboard file is stale.',
+              '',
+              '- URL: https://209connect.com/209-intelligence/live-state.json',
+              '- generated_at: `' + generated + '`',
+              '- Age: ' + (age ? age + ' minutes' : 'unknown') + ' (threshold: 15 minutes)',
+              '- Reason: ' + reason,
+              '- Run: ' + context.serverUrl + '/' + context.repo.owner + '/' +
+                context.repo.repo + '/actions/runs/' + context.runId,
+              '',
+              'This is a freshness failure, not a lane-health failure.',
+              'Check the push watcher on the VM and the GitHub Pages build,',
+              'not the lanes. This workflow never publishes anything.',
+              'It closes automatically when the file is fresh again.',
+            ].join('\n');
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'dashboard-stale', per_page: 5,
+            });
+            if (issues.data.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issues.data[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['dashboard-stale'],
+              });
+            }
+
+      - name: Close dashboard-stale issue when fresh
+        if: steps.age.outputs.stale == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const age = `${{ steps.age.outputs.age_minutes }}`;
+            const generated = `${{ steps.age.outputs.generated_at }}`;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'dashboard-stale', per_page: 5,
+            });
+            for (const issue of issues.data) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number,
+                body: 'Public live-state.json is fresh again ' +
+                  '(generated_at `' + generated + '`, age ' + age +
+                  ' min). Closing.',
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issue.number, state: 'closed',
+              });
+            }
+
+      - name: Fail the run when stale
+        if: steps.age.outputs.stale == 'true'
+        run: |
+          echo "::error::Public live-state.json is stale (age ${{ steps.age.outputs.age_minutes }} min, generated_at ${{ steps.age.outputs.generated_at }})."
+          exit 1

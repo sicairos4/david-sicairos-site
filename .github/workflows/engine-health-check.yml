@@ -1,0 +1,168 @@
+# 209 content engine — health check (second scheduler)
+#
+# Repo: sicairos4/david-sicairos-site
+# Path in repo: .github/workflows/engine-health-check.yml
+# Built: 2026-11-20, wiring-capabilities check (David's "get to 100% at all costs" order)
+#
+# WHAT THIS IS
+#   A SECOND scheduler that watches the engine from OUTSIDE the VM. If the VM,
+#   the dispatcher, or the scheduler pool dies, this workflow still runs on
+#   GitHub's runners and can raise the alarm. It NEVER publishes anything by
+#   itself.
+#
+# WHAT IT DOES
+#   - Every 15 min (cron): fetches the public live-state.json from
+#     209connect.com, scores the 18 lanes, and uploads a health report.
+#   - If health < 80% or any lane is RED (gap >= 2x cadence), it opens (or
+#     updates) a GitHub Issue titled "ENGINE RED: ..." so the failure is
+#     visible even when the VM is down. Uses only GITHUB_TOKEN — no secrets.
+#   - Manual dispatch (workflow_dispatch) with a lane name: files a
+#     `fire-request` issue for that lane. That is a REQUEST, not a publish —
+#     the VM-side consumer (or David) still has to fire it through the
+#     route ladder. No publish ever happens from this workflow.
+#
+# WHAT IT DOES NOT DO
+#   - No publishing, no API calls to any platform, no credential use.
+#   - The optional fire-webhook step is DISABLED by default and only runs
+#     when the repo variable FIRE_WEBHOOK_ENABLED == 'true' AND the secrets
+#     ENGINE_FIRE_WEBHOOK_URL + ENGINE_FIRE_TOKEN exist. Until then the
+#     workflow files the issue and stops.
+#
+# SECRETS (GitHub repo Settings > Secrets and variables > Actions; NEVER in
+# the repo, NEVER in chat — values live in the vault / David's hands only):
+#   - None required for the scheduled health check.
+#   - ENGINE_FIRE_WEBHOOK_URL (optional): VM-side endpoint that accepts a
+#     fire-request POST. Not created yet — the VM has no such endpoint today.
+#   - ENGINE_FIRE_TOKEN (optional): bearer token for that endpoint.
+#
+# VERIFY AFTER COMMIT (needs `gh auth login` — NOT done here, no credentials):
+#   gh run list --repo sicairos4/david-sicairos-site --workflow engine-health-check.yml
+#   gh run view <run-id> --repo sicairos4/david-sicairos-site --log
+
+name: engine-health-check
+
+on:
+  schedule:
+    # Every 15 minutes — matches the Threads/Bluesky 15m cadence; cheap,
+    # and GitHub cron is approximate (± minutes), never a hard guarantee.
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      lane:
+        description: "Lane to file a fire-request for (e.g. threads, fb-profile). Leave empty for a check-only run."
+        required: false
+        type: string
+      reason:
+        description: "Why this fire is requested"
+        required: false
+        type: string
+        default: "manual fire-request"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run read-only health check
+        id: health
+        run: |
+          python3 .github/scripts/engine_health_check.py \
+            --live-state-url "https://209connect.com/209-intelligence/live-state.json" \
+            --report health-report.md
+          echo "exit=$?"
+        continue-on-error: true
+
+      - name: Upload health report
+        uses: actions/upload-artifact@v4
+        with:
+          name: health-report-${{ github.run_id }}
+          path: health-report.md
+          retention-days: 7
+
+      - name: Open/update RED issue when unhealthy
+        if: steps.health.outcome == 'failure'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.existsSync('health-report.md')
+              ? fs.readFileSync('health-report.md', 'utf8')
+              : 'Health check failed; no report file was produced.';
+            const title = `ENGINE RED: health check failed (${new Date().toISOString()})`;
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'engine-red', per_page: 5,
+            });
+            if (issues.data.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: issues.data[0].number, body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['engine-red'],
+              });
+            }
+
+      - name: Fail the run when unhealthy
+        if: steps.health.outcome == 'failure'
+        run: |
+          echo "::error::Engine health check FAILED — see health-report.md artifact and the engine-red issue."
+          exit 1
+
+  fire-request:
+    # MANUAL TRIGGER ONLY. Files a request issue; never publishes.
+    if: github.event_name == 'workflow_dispatch' && inputs.lane != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: File fire-request issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const lane = `${{ inputs.lane }}`;
+            const reason = `${{ inputs.reason }}`;
+            await github.rest.issues.create({
+              owner: context.repo.owner, repo: context.repo.repo,
+              title: `FIRE-REQUEST: ${lane} — ${reason}`,
+              body: [
+                `Lane: \`${lane}\``,
+                `Reason: ${reason}`,
+                `Requested by: @${context.actor} via workflow_dispatch`,
+                `Run: ${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`,
+                ``,
+                `This is a REQUEST, not a publish. Fire it through the route`,
+                `ladder (API -> CLI -> browser), one fresh post, live duplicate`,
+                `check first, never re-fire an uncertain item. Close this issue`,
+                `with the verified permalink when the lane is green.`,
+              ].join('\n'),
+              labels: ['fire-request', lane],
+            });
+
+      - name: Optional fire webhook (DISABLED unless repo variable + secrets exist)
+        if: vars.FIRE_WEBHOOK_ENABLED == 'true'
+        env:
+          FIRE_URL: ${{ secrets.ENGINE_FIRE_WEBHOOK_URL }}
+          FIRE_TOKEN: ${{ secrets.ENGINE_FIRE_TOKEN }}
+        run: |
+          if [ -z "$FIRE_URL" ] || [ -z "$FIRE_TOKEN" ]; then
+            echo "::warning::FIRE_WEBHOOK_ENABLED is true but ENGINE_FIRE_WEBHOOK_URL/ENGINE_FIRE_TOKEN secret is missing — issue filed, no webhook sent."
+            exit 0
+          fi
+          curl -sS -X POST "$FIRE_URL" \
+            -H "Authorization: Bearer $FIRE_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"lane\": \"${{ inputs.lane }}\", \"reason\": \"${{ inputs.reason }}\", \"source\": \"github-actions\", \"run_id\": \"${{ github.run_id }}\"}"
