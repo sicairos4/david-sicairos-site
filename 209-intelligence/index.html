@@ -254,9 +254,16 @@
 // Thresholds: yellow gap > 30, red gap > 60 — flat, not per-lane cadence
 // multiples. Health floor: 77%.
 const POLL_MS = 5000;
-const STATE_URL = 'live-state.json';
-const HEALING_URL = 'self-healing-state.json';
-const STEERING_URL = 'steering-panel.json';
+// Live feed (Nov 20 2026): on the public host the panel reads state
+// from the GitHub API (current repo content on every request, no Pages
+// build), not the static Pages file (rebuilt every ~5-7 min). Local
+// panel keeps the relative file + SSE push. ETag conditional requests
+// (304s) keep the unauthenticated 60/hr API limit from tripping.
+const IS_PUBLIC = !(location.hostname === '127.0.0.1' || location.hostname === 'localhost' || location.hostname === '');
+const _GH = 'https://api.github.com/repos/sicairos4/david-sicairos-site/contents/209-intelligence/';
+const STATE_URL = IS_PUBLIC ? _GH+'live-state.json' : 'live-state.json';
+const HEALING_URL = IS_PUBLIC ? _GH+'self-healing-state.json' : 'self-healing-state.json';
+const STEERING_URL = IS_PUBLIC ? _GH+'steering-panel.json' : 'steering-panel.json';
 const EVENTS_URL = '/events';
 const ACTION_URL = '/action';
 const STEER_URL = '/steer';
@@ -738,16 +745,46 @@ function render(){
   document.getElementById('actions').innerHTML = need.join('');
 
   document.getElementById('foot').textContent =
-    '209 Intelligence · v4.1 · renamed + exact-post links + steering, Nov 20 · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
+    '209 Intelligence · v4.1 · renamed + exact-post links + steering, Nov 20 · sources: live-state.json (receipts + queue depth, live via GitHub API) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
     +' · newest receipt '+esc(live.newest_receipt_pt||'-')
     +' · Supabase realtime: not wired, no key · '+(s.total_lanes||lanes.length)+' lanes · Public read-only copy — steering + actions disabled.';
   renderSteering();
 }
 
+const _apiCache = {}; // GitHub API url -> {etag, data} for 304 reuse
 async function fetchJSON(url){
-  const r=await fetch(url, {cache:'no-store'});
-  if(!r.ok) throw new Error(url+' '+r.status);
-  return await r.json();
+  const isAPI = url.indexOf('api.github.com') !== -1;
+  const headers = {};
+  if(isAPI){
+    // Raw file content (not the base64 contents envelope).
+    headers['Accept'] = 'application/vnd.github.raw';
+    const cached = _apiCache[url];
+    if(cached && cached.etag) headers['If-None-Match'] = cached.etag;
+  }
+  let r;
+  try{
+    r = await fetch(url, {cache:'no-store', headers});
+  }catch(e){
+    // API unreachable: fail-safe to the static Pages file.
+    if(isAPI) return fetchJSON(url.split('/').pop());
+    throw e;
+  }
+  if(r.status === 304){
+    const cached = _apiCache[url];
+    if(cached) return cached.data;
+    throw new Error(url+' 304 with no cache');
+  }
+  if(!r.ok){
+    // API rate-limited/blocked: fail-safe to the static Pages file.
+    if(isAPI) return fetchJSON(url.split('/').pop());
+    throw new Error(url+' '+r.status);
+  }
+  const data = await r.json();
+  if(isAPI){
+    const etag = r.headers.get('ETag');
+    if(etag) _apiCache[url] = {etag, data};
+  }
+  return data;
 }
 async function pollOnce(){
   try{
