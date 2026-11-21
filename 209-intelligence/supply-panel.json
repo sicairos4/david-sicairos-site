@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-21 08:18 PT",
- "generated_epoch": 1795277925,
+ "generated_pt": "2026-11-21 08:23 PT",
+ "generated_epoch": 1795278212,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -173,8 +173,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 271,
-   "fireable": 258,
+   "staged": 270,
+   "fireable": 257,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
@@ -185,12 +185,12 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 55,
+   "staged": 54,
    "fireable": 48,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
-    "stale_source_date": 6,
+    "stale_source_date": 5,
     "sun_star_guard": 1
    },
    "fresh_fireable": null,
