@@ -1,7 +1,126 @@
 {
   "version": 1,
-  "generated_at": "2026-11-21T16:55:54.307690+00:00",
+  "generated_at": "2026-11-21T22:19:37.124552+00:00",
   "items": [
+    {
+      "id": "youtube:sCBOjnM1pSQ",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: The Paper Trail Keeps Growing",
+      "published_at": "2026-11-21T22:11:35+00:00",
+      "url": "https://www.youtube.com/watch?v=sCBOjnM1pSQ",
+      "description": "",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T22:11:35+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T22:11:35+00:00",
+        "utc_epoch": 1795299095,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:RKgJjm1ioVw",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: A Checked Answer Points at What's Missing",
+      "published_at": "2026-11-21T21:46:22+00:00",
+      "url": "https://www.youtube.com/watch?v=RKgJjm1ioVw",
+      "description": "",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T21:46:22+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T21:46:22+00:00",
+        "utc_epoch": 1795297582,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:A2rSW7CDrPk",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: The Phone Log Lists Every Call",
+      "published_at": "2026-11-21T21:15:44+00:00",
+      "url": "https://www.youtube.com/watch?v=A2rSW7CDrPk",
+      "description": "",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T21:15:44+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T21:15:44+00:00",
+        "utc_epoch": 1795295744,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:skQzWAOb7UU",
+      "platform": "youtube",
+      "title": "Train Through It",
+      "published_at": "2026-11-21T20:15:17+00:00",
+      "url": "https://www.youtube.com/watch?v=skQzWAOb7UU",
+      "description": "",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T20:15:17+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T20:15:17+00:00",
+        "utc_epoch": 1795292117,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:22sBn3WyUdE",
+      "platform": "youtube",
+      "title": "Show Up Anyway",
+      "published_at": "2026-11-21T19:16:54+00:00",
+      "url": "https://www.youtube.com/watch?v=22sBn3WyUdE",
+      "description": "",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T19:16:54+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T19:16:54+00:00",
+        "utc_epoch": 1795288614,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:7BnZNEAP270",
+      "platform": "youtube",
+      "title": "Renamed Refiled Ask Twice",
+      "published_at": "2026-11-21T18:29:15+00:00",
+      "url": "https://www.youtube.com/watch?v=7BnZNEAP270",
+      "description": "",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T18:29:15+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T18:29:15+00:00",
+        "utc_epoch": 1795285755,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:BqImfK5aPNA",
+      "platform": "youtube",
+      "title": "The Morning After a Firing",
+      "published_at": "2026-11-21T17:25:47+00:00",
+      "url": "https://www.youtube.com/watch?v=BqImfK5aPNA",
+      "description": "",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T17:25:47+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T17:25:47+00:00",
+        "utc_epoch": 1795281947,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:XVMZsnVqt1U",
       "platform": "youtube",
@@ -9,7 +128,7 @@
       "published_at": "2026-11-21T16:33:35+00:00",
       "url": "https://www.youtube.com/watch?v=XVMZsnVqt1U",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T16:33:35+00:00",
@@ -26,7 +145,7 @@
       "published_at": "2026-11-21T16:04:25+00:00",
       "url": "https://www.youtube.com/watch?v=TwWULXiQB_A",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T16:04:25+00:00",
@@ -43,7 +162,7 @@
       "published_at": "2026-11-21T15:38:22+00:00",
       "url": "https://www.youtube.com/watch?v=6MtG06xSMAs",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T15:38:22+00:00",
@@ -60,7 +179,7 @@
       "published_at": "2026-11-21T15:12:22+00:00",
       "url": "https://www.youtube.com/watch?v=xkzr3_9SZvQ",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T15:12:22+00:00",
@@ -77,7 +196,7 @@
       "published_at": "2026-11-21T14:46:18+00:00",
       "url": "https://www.youtube.com/watch?v=javenR1bctA",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T14:46:18+00:00",
@@ -94,7 +213,7 @@
       "published_at": "2026-11-21T14:12:07+00:00",
       "url": "https://www.youtube.com/watch?v=rTMTUHT2PnY",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T14:12:07+00:00",
@@ -111,7 +230,7 @@
       "published_at": "2026-11-21T12:10:32+00:00",
       "url": "https://www.youtube.com/watch?v=BZH-cJwPRIo",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T12:10:32+00:00",
@@ -128,7 +247,7 @@
       "published_at": "2026-11-21T11:36:54+00:00",
       "url": "https://www.youtube.com/watch?v=4GjrislkOCk",
       "description": "",
-      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "observed_at": "2026-11-21T22:19:37.124552+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T11:36:54+00:00",
@@ -2369,22 +2488,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-21T16:55:54.307690+00:00",
-      "last_success_at": "2026-11-21T16:55:54.307690+00:00",
+      "last_attempt_at": "2026-11-21T22:19:37.124552+00:00",
+      "last_success_at": "2026-11-21T22:19:37.124552+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-21T16:55:54.307690+00:00",
+      "last_attempt_at": "2026-11-21T22:19:37.124552+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-21T16:55:54.307690+00:00",
+      "last_attempt_at": "2026-11-21T22:19:37.124552+00:00",
       "error_type": "RuntimeError"
     }
   }

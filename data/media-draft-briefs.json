@@ -1,7 +1,56 @@
 {
-  "generated_at": "2026-11-21T16:55:54.307690+00:00",
+  "generated_at": "2026-11-21T22:19:37.124552+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:sCBOjnM1pSQ",
+      "source_url": "https://www.youtube.com/watch?v=sCBOjnM1pSQ",
+      "title": "Fired for Speaking Up: The Paper Trail Keeps Growing",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:RKgJjm1ioVw",
+      "source_url": "https://www.youtube.com/watch?v=RKgJjm1ioVw",
+      "title": "Fired for Speaking Up: A Checked Answer Points at What's Missing",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:A2rSW7CDrPk",
+      "source_url": "https://www.youtube.com/watch?v=A2rSW7CDrPk",
+      "title": "Fired for Speaking Up: The Phone Log Lists Every Call",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:skQzWAOb7UU",
+      "source_url": "https://www.youtube.com/watch?v=skQzWAOb7UU",
+      "title": "Train Through It",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:22sBn3WyUdE",
+      "source_url": "https://www.youtube.com/watch?v=22sBn3WyUdE",
+      "title": "Show Up Anyway",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:7BnZNEAP270",
+      "source_url": "https://www.youtube.com/watch?v=7BnZNEAP270",
+      "title": "Renamed Refiled Ask Twice",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:BqImfK5aPNA",
+      "source_url": "https://www.youtube.com/watch?v=BqImfK5aPNA",
+      "title": "The Morning After a Firing",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:XVMZsnVqt1U",
       "source_url": "https://www.youtube.com/watch?v=XVMZsnVqt1U",
@@ -230,55 +279,6 @@
       "source_id": "youtube:qhI1qG3IBvE",
       "source_url": "https://www.youtube.com/watch?v=qhI1qG3IBvE",
       "title": "Merced Said Yes: $18 Million a Year",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:rucyKlknJwM",
-      "source_url": "https://www.youtube.com/watch?v=rucyKlknJwM",
-      "title": "Breathing to Downshift in Ninety Seconds | Walk, Lift, Sleep, Repeat",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:bKQDthHeQdo",
-      "source_url": "https://www.youtube.com/watch?v=bKQDthHeQdo",
-      "title": "CBD, Honest Scope: What It Is and Is Not",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:nziEaI3NDhQ",
-      "source_url": "https://www.youtube.com/watch?v=nziEaI3NDhQ",
-      "title": "Form 700, Explained: Read a Real Filing in Two Minutes",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:INtQJrBVtdQ",
-      "source_url": "https://www.youtube.com/watch?v=INtQJrBVtdQ",
-      "title": "978 Votes. The Gap Is Closing. We Deserve Richard Lopez.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:VFQUoFRXq0I",
-      "source_url": "https://www.youtube.com/watch?v=VFQUoFRXq0I",
-      "title": "California, Explained: Succession.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:0WbxyKA-qy0",
-      "source_url": "https://www.youtube.com/watch?v=0WbxyKA-qy0",
-      "title": "Before you argue the point, ask who decides it.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:sFIG4q_fyWk",
-      "source_url": "https://www.youtube.com/watch?v=sFIG4q_fyWk",
-      "title": "Every request needs a date, or it is not a request.",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
