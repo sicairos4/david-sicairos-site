@@ -1,0 +1,473 @@
+{
+ "generated_at_pt": "2026-11-21 11:19 AM PT",
+ "source": "engine-settings v1 + live-state.json scored flags (read-only render)",
+ "store": {
+  "format": "engine-settings-v1",
+  "version": 1,
+  "updated_pt": "2026-11-21 11:10 PT",
+  "updated_by": "phase4-fix-worker"
+ },
+ "escalation": {
+  "diagnoser_before_red_minutes": 5,
+  "notes": "Rung offsets are parameters; the rungs themselves are rules and cannot be disabled or reordered from settings. The validator rejects any attempt to turn a rung off.",
+  "override_after_minutes": 10,
+  "prefire_rule": "L-10",
+  "red_at": "2L",
+  "yellow_at": "L"
+ },
+ "lanes": [
+  {
+   "key": "bluesky",
+   "store_key": "bluesky",
+   "display": "Bluesky @davidsicairos.bsky.social",
+   "platform": "bluesky",
+   "account": "davidsicairos.bsky.social",
+   "cadence_minutes": 20,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "API only (AT Protocol). Lease-based, not wave grid."
+  },
+  {
+   "key": "fb_209connect",
+   "store_key": "fb-209connect",
+   "display": "FB page 209Connect",
+   "platform": "facebook",
+   "account": "199896533205316",
+   "cadence_minutes": null,
+   "prefire_offset_minutes": null,
+   "supply_floor": null,
+   "enabled": false,
+   "scored": false,
+   "jobs": {
+    "growth": false,
+    "publish": false,
+    "supply": false,
+    "verify": false
+   },
+   "notes": "MANUAL-SHARE ONLY by David's standing order. No cadence, no auto route."
+  },
+  {
+   "key": "fb_california",
+   "store_key": "fb-california",
+   "display": "FB page 209Connect California",
+   "platform": "facebook",
+   "account": "173296022544687",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Page. Graph text primary, CLI reels fallback."
+  },
+  {
+   "key": "fb_dbeastco",
+   "store_key": "fb-dbeastco",
+   "display": "FB page DBeastco Wellness",
+   "platform": "facebook",
+   "account": "1631703800283832",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Page. Token re-authorized Nov 20 06:08 PT; watch for Graph 190."
+  },
+  {
+   "key": "fb_elevated",
+   "store_key": "fb-elevated",
+   "display": "FB page Elevated209 CBD",
+   "platform": "facebook",
+   "account": "187834931085359",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Page. No election copy."
+  },
+  {
+   "key": "fb_intentionally",
+   "store_key": "fb-intentionally",
+   "display": "FB page Intentionally Us",
+   "platform": "facebook",
+   "account": "109230148785851",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Page. No election copy."
+  },
+  {
+   "key": "fb_problemsolved",
+   "store_key": "fb-problemsolved",
+   "display": "FB page ProblemSolved Designs",
+   "platform": "facebook",
+   "account": "213298825201598",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Page."
+  },
+  {
+   "key": "fb_profile",
+   "store_key": "fb-profile",
+   "display": "FB profile david.sicairos.1",
+   "platform": "facebook",
+   "account": "david.sicairos.1",
+   "cadence_minutes": 25,
+   "prefire_offset_minutes": 15,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "L=25 carve-out (David Nov 20 22:01 PT). Pre-fire at 15 (L-10). Graph text primary, CLI fallback, NEVER browser."
+  },
+  {
+   "key": "ig_atwater",
+   "store_key": "ig-atwater",
+   "display": "IG @atwatercastleintelligence",
+   "platform": "instagram",
+   "account": "atwatercastleintelligence",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Hyperlocal Atwater/Castle."
+  },
+  {
+   "key": "ig_castle",
+   "store_key": "ig-castle",
+   "display": "IG @castlecaliforniacounterintel",
+   "platform": "instagram",
+   "account": "castlecaliforniacounterintel",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "California counterintel."
+  },
+  {
+   "key": "ig_davids",
+   "store_key": "ig-davids",
+   "display": "IG @davidsicairos_",
+   "platform": "instagram",
+   "account": "davidsicairos_",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Wellness lab. No election copy."
+  },
+  {
+   "key": "ig_elevated",
+   "store_key": "ig-elevated",
+   "display": "IG @elevated209cbd",
+   "platform": "instagram",
+   "account": "elevated209cbd",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "CBD/wellness. No election copy."
+  },
+  {
+   "key": "ig_hub",
+   "store_key": "ig-hub",
+   "display": "IG @209media.connect",
+   "platform": "instagram",
+   "account": "209media.connect",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Hub. Graph reels+carousels primary."
+  },
+  {
+   "key": "ig_intentionally",
+   "store_key": "ig-intentionally",
+   "display": "IG @intentionally.us",
+   "platform": "instagram",
+   "account": "intentionally.us",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Personal growth. No election copy."
+  },
+  {
+   "key": "ig_personal",
+   "store_key": "ig-personal",
+   "display": "IG @sicairosdavid_",
+   "platform": "instagram",
+   "account": "sicairosdavid_",
+   "cadence_minutes": 30,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Personal. Graph carousel primary, CLI reel fallback (hard-coded)."
+  },
+  {
+   "key": "linkedin",
+   "store_key": "linkedin",
+   "display": "LinkedIn /in/sicairosdavid/",
+   "platform": "linkedin",
+   "account": "sicairosdavid",
+   "cadence_minutes": 20,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "API only, browser account CLOSED. Token expires ~Dec 13 2026."
+  },
+  {
+   "key": "threads",
+   "store_key": "threads",
+   "display": "Threads @209media.connect",
+   "platform": "threads",
+   "account": "209media.connect",
+   "cadence_minutes": 20,
+   "prefire_offset_minutes": 10,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "API only. Lease-based (publish_worker), not wave grid. Token expires Dec 11 2026."
+  },
+  {
+   "key": "tiktok",
+   "store_key": "tiktok",
+   "display": "TikTok @sicairosdavid",
+   "platform": "tiktok",
+   "account": "sicairosdavid",
+   "cadence_minutes": 35,
+   "prefire_offset_minutes": 25,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "Studio only (browser-native). OAuth HELD. L=35 (David Nov 20 23:45 PT latest word \u2014 reconciles the 30-vs-35 conflict; Crew 3 fixed the trigger 06:41 PT Nov 21; AGENTS.md PRE-YELLOW section still says 30 \u2014 Main to update)."
+  },
+  {
+   "key": "x_209connect",
+   "store_key": "x-209connect",
+   "display": "X @209connect",
+   "platform": "x",
+   "account": "209connect",
+   "cadence_minutes": null,
+   "prefire_offset_minutes": null,
+   "supply_floor": null,
+   "enabled": false,
+   "scored": false,
+   "jobs": {
+    "growth": false,
+    "publish": false,
+    "supply": false,
+    "verify": false
+   },
+   "notes": "NOT LIVE. Logged out; sign-in is David-only (2FA). 0 verified posts."
+  },
+  {
+   "key": "x_dbeastco",
+   "store_key": "x-dbeastco",
+   "display": "X @dbeastcoglobal",
+   "platform": "x",
+   "account": "dbeastcoglobal",
+   "cadence_minutes": null,
+   "prefire_offset_minutes": null,
+   "supply_floor": null,
+   "enabled": false,
+   "scored": false,
+   "jobs": {
+    "growth": false,
+    "publish": false,
+    "supply": false,
+    "verify": false
+   },
+   "notes": "NOT LIVE. Same logged-out block as x-209connect."
+  },
+  {
+   "key": "youtube",
+   "store_key": "youtube",
+   "display": "YouTube @sicairosdavid",
+   "platform": "youtube",
+   "account": "UCDMa9oEWj4i6KFOkjF79qLg",
+   "cadence_minutes": 35,
+   "prefire_offset_minutes": 25,
+   "supply_floor": 25,
+   "enabled": true,
+   "scored": true,
+   "jobs": {
+    "growth": true,
+    "publish": true,
+    "supply": true,
+    "verify": true
+   },
+   "notes": "L=35 (David's word). Pre-fire at 25 (L-10). Grid fires on 30m slots; health limit is 35. Was 30 in cadence_yellow_trigger.py \u2014 the mismatch this store fixes."
+  }
+ ],
+ "scored_lanes": [
+  "ig_personal",
+  "ig_davids",
+  "ig_hub",
+  "ig_castle",
+  "ig_atwater",
+  "ig_intentionally",
+  "ig_elevated",
+  "fb_profile",
+  "fb_california",
+  "fb_dbeastco",
+  "fb_elevated",
+  "fb_intentionally",
+  "fb_problemsolved",
+  "threads",
+  "bluesky",
+  "linkedin",
+  "youtube",
+  "tiktok"
+ ],
+ "scored_count": 18,
+ "pool": {
+  "browser_gap_wave_interval_minutes": 14,
+  "browser_watchdog_interval_minutes": 2,
+  "browser_windows_target_per_10_20m": 10,
+  "dispatcher_publish_workers": 4,
+  "executor_max_parallel_per_shard": 3,
+  "executor_max_parallel_total": 9,
+  "executor_per_lane_max_in_flight": 1,
+  "executor_shards": 3,
+  "network_watchdog_interval_minutes": 10,
+  "notes": "executor_max_parallel_total is DERIVED (shards x per-shard); set the two inputs, not the total. Per-lane max 1 is load-bearing (one submitter per lane) \u2014 the validator refuses >1. Browser windows have no fixed cap; the target is a throughput goal, not a limit."
+ },
+ "wave": {
+  "jitter_range_secs": 600,
+  "notes": "Wave grid (wave_grid.py). Changing slot_secs changes slot numbering; the due rule (last != slot) treats stale-future state as due, so a finer grid never parks a lane. A coarser grid change still needs a migration note in the change log.",
+  "origin_epoch": 1792738800,
+  "phase_secs_by_family": {
+   "facebook": 1200,
+   "facebook-pages": 1200,
+   "instagram": 1200,
+   "linkedin": 720
+  },
+  "slot_secs_by_family": {
+   "facebook": 1500,
+   "facebook-pages": 1800,
+   "instagram": 1800,
+   "linkedin": 1200
+  },
+  "slot_secs_default": 1800
+ },
+ "timeouts_note": "Documented from executor.py; NOT wired yet (next wiring pass). Changing these changes request rejection behavior \u2014 wire only with a checker wave.",
+ "no_caps_rule": "No setting in this file may cap posts per day, throttle a lane, or pace publishing. The validator rejects any key containing cap/limit/throttle/max_posts/posts_per_day/daily_limit/rate_limit. David 2026-11-20: 'We don't add caps.'",
+ "edit_path": "display-only in this pass. Edits go through engine_settings.apply_change (validated, backed up, audit-logged in settings-changes.jsonl), then re-run settings-panel.py. No POST /settings endpoint yet."
+}

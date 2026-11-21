@@ -1,0 +1,80 @@
+{
+ "generated_at_pt": "2026-11-21 11:10 AM PT",
+ "source": "IG Graph followers_count via FB_USER_TOKEN_LL (direct exec, Phase 0 proven route)",
+ "accounts": {
+  "ig_personal": {
+   "handle": "@sicairosdavid_",
+   "ig_user_id": "17841408846891432",
+   "followers": 5045,
+   "media_count": 3100,
+   "username": "sicairosdavid_",
+   "as_of_pt": "2026-11-21 11:10 AM PT",
+   "live": true,
+   "error": null
+  },
+  "ig_davids": {
+   "handle": "@davidsicairos_",
+   "ig_user_id": "17841405483501237",
+   "followers": 10960,
+   "media_count": 1843,
+   "username": "davidsicairos_",
+   "as_of_pt": "2026-11-21 11:10 AM PT",
+   "live": true,
+   "error": null
+  },
+  "ig_hub": {
+   "handle": "@209media.connect",
+   "ig_user_id": "17841463637215201",
+   "followers": 2151,
+   "media_count": 1916,
+   "username": "209media.connect",
+   "as_of_pt": "2026-11-21 11:10 AM PT",
+   "live": true,
+   "error": null
+  },
+  "ig_castle": {
+   "handle": "@castlecaliforniacounterintel",
+   "ig_user_id": "17841464458196201",
+   "followers": 537,
+   "media_count": 1116,
+   "username": "castlecaliforniacounterintel",
+   "as_of_pt": "2026-11-21 11:10 AM PT",
+   "live": true,
+   "error": null
+  },
+  "ig_atwater": {
+   "handle": "@atwatercastleintelligence",
+   "ig_user_id": "17841408091975033",
+   "followers": 2711,
+   "media_count": 1721,
+   "username": "atwatercastleintelligence",
+   "as_of_pt": "2026-11-21 11:10 AM PT",
+   "live": true,
+   "error": null
+  },
+  "ig_intentionally": {
+   "handle": "@intentionally.us",
+   "ig_user_id": "17841476490687079",
+   "followers": 1096,
+   "media_count": 1111,
+   "username": "intentionally.us",
+   "as_of_pt": "2026-11-21 11:10 AM PT",
+   "live": true,
+   "error": null
+  },
+  "ig_elevated": {
+   "handle": "@elevated209cbd",
+   "ig_user_id": "17841464082555709",
+   "followers": 349,
+   "media_count": 587,
+   "username": "elevated209cbd",
+   "as_of_pt": "2026-11-21 11:10 AM PT",
+   "live": true,
+   "error": null
+  }
+ },
+ "live_total": 22849,
+ "live_accounts": 7,
+ "total_accounts": 7,
+ "note": "live_total is set only when ALL 7 accounts fetched live. A per-account followers value with live=false is the last good count labelled with its own as_of_pt \u2014 never present it as live."
+}
