@@ -2,7 +2,7 @@
   "version": 1,
   "source": "verification-receipts.jsonl (live receipts only)",
   "generated_at_pt": "2026-11-21 01:24 AM PT",
-  "generated_at_iso": "2026-11-21T01:24:10.466738-08:00",
+  "generated_at_iso": "2026-11-21T01:24:22.070947-08:00",
   "receipts_lines_seen": 7051,
   "receipts_bytes_seen": 5221128,
   "receipts_scan": "incremental",
@@ -41,109 +41,109 @@
     "lanes": {
       "ig_personal": {
         "last_verified_pt": "2026-11-20 11:08 PM PT",
-        "gap_min": 135.9,
+        "gap_min": 136.1,
         "cadence_min": 30,
         "score": 0.22
       },
       "ig_hub": {
         "last_verified_pt": "2026-11-20 11:04 PM PT",
-        "gap_min": 139.6,
+        "gap_min": 139.8,
         "cadence_min": 30,
         "score": 0.21
       },
       "ig_davids": {
         "last_verified_pt": "2026-11-20 11:23 PM PT",
-        "gap_min": 120.8,
+        "gap_min": 121.0,
         "cadence_min": 30,
         "score": 0.25
       },
       "ig_atwater": {
         "last_verified_pt": "2026-11-20 11:11 PM PT",
-        "gap_min": 133.1,
+        "gap_min": 133.3,
         "cadence_min": 30,
         "score": 0.23
       },
       "ig_castle": {
         "last_verified_pt": "2026-11-20 11:08 PM PT",
-        "gap_min": 135.9,
+        "gap_min": 136.1,
         "cadence_min": 30,
         "score": 0.22
       },
       "ig_intentionally": {
         "last_verified_pt": "2026-11-20 11:13 PM PT",
-        "gap_min": 130.9,
+        "gap_min": 131.1,
         "cadence_min": 30,
         "score": 0.23
       },
       "ig_elevated": {
         "last_verified_pt": "2026-11-20 11:21 PM PT",
-        "gap_min": 122.9,
+        "gap_min": 123.1,
         "cadence_min": 30,
         "score": 0.24
       },
       "fb_profile": {
         "last_verified_pt": "2026-11-20 10:29 PM PT",
-        "gap_min": 174.8,
+        "gap_min": 175.0,
         "cadence_min": 30,
         "score": 0.17
       },
       "fb_california": {
         "last_verified_pt": "2026-11-20 10:29 PM PT",
-        "gap_min": 174.8,
+        "gap_min": 175.0,
         "cadence_min": 30,
         "score": 0.17
       },
       "fb_dbeastco": {
         "last_verified_pt": "2026-11-20 11:20 PM PT",
-        "gap_min": 123.2,
+        "gap_min": 123.4,
         "cadence_min": 30,
         "score": 0.24
       },
       "fb_elevated": {
         "last_verified_pt": "2026-11-20 11:20 PM PT",
-        "gap_min": 123.2,
+        "gap_min": 123.4,
         "cadence_min": 30,
         "score": 0.24
       },
       "fb_intentionally": {
         "last_verified_pt": "2026-11-20 11:37 PM PT",
-        "gap_min": 106.8,
+        "gap_min": 107.0,
         "cadence_min": 30,
         "score": 0.28
       },
       "fb_problemsolved": {
         "last_verified_pt": "2026-11-20 10:29 PM PT",
-        "gap_min": 174.8,
+        "gap_min": 175.0,
         "cadence_min": 30,
         "score": 0.17
       },
       "linkedin": {
         "last_verified_pt": "2026-11-20 11:32 PM PT",
-        "gap_min": 111.6,
+        "gap_min": 111.8,
         "cadence_min": 20,
         "score": 0.18
       },
       "youtube": {
         "last_verified_pt": "2026-11-20 10:29 PM PT",
-        "gap_min": 174.8,
+        "gap_min": 175.0,
         "cadence_min": 35,
         "score": 0.2
       },
       "tiktok": {
         "last_verified_pt": "2026-11-20 04:15 PM PT",
-        "gap_min": 548.6,
+        "gap_min": 548.8,
         "cadence_min": 30,
         "score": 0.05
       },
       "threads": {
         "last_verified_pt": "2026-11-20 10:29 PM PT",
-        "gap_min": 174.8,
+        "gap_min": 175.0,
         "cadence_min": 20,
         "score": 0.11
       },
       "bluesky": {
         "last_verified_pt": "2026-11-21 01:11 AM PT",
-        "gap_min": 13.0,
+        "gap_min": 13.2,
         "cadence_min": 20,
         "score": 1.0
       }
@@ -237,7 +237,7 @@
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 49,
+      "queue_depth": 48,
       "queue_source": "IG_READY staged"
     },
     {
