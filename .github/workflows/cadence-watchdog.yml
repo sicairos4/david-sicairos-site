@@ -36,8 +36,9 @@
 # the push is the activation step (see files/all-28-on-cadence-
 # guarantee-20261120.md, activation checklist).
 #
-# Cadences (UPDATED, David Nov 20 15:49 PT): Threads 20m, Bluesky 20m,
-# LinkedIn 25m, IG 7 x30m, FB 6 x30m, YouTube 35m, TikTok 35m.
+# Cadences (UPDATED, David Nov 20 15:49 PT; LinkedIn 20m per his 5:11 PM word,
+# TikTok 30m per standing AGENTS.md): Threads 20m, Bluesky 20m,
+# LinkedIn 20m, IG 7 x30m, FB 6 x30m, YouTube 35m, TikTok 30m.
 name: All-28 cadence watchdog
 
 on:
@@ -81,12 +82,12 @@ jobs:
           fi
           # Updated cadences, minutes.
           declare -A CADENCE=(
-            [threads]=20 [bluesky]=20 [linkedin]=25
+            [threads]=20 [bluesky]=20 [linkedin]=20
             [ig_personal]=30 [ig_hub]=30 [ig_davids]=30 [ig_atwater]=30
             [ig_castle]=30 [ig_intentionally]=30 [ig_elevated]=30
             [fb_profile]=30 [fb_california]=30 [fb_dbeastco]=30
             [fb_elevated]=30 [fb_intentionally]=30 [fb_problemsolved]=30
-            [youtube]=35 [tiktok]=35
+            [youtube]=35 [tiktok]=30
           )
           : > overdue.txt
           : > nodata.txt
