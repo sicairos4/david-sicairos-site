@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-11-20T18:46:41.053694+00:00",
+  "generated_at": "2026-11-21T00:56:25.920560+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:ytAibTlnsdY",
+      "source_url": "https://www.youtube.com/watch?v=ytAibTlnsdY",
+      "title": "what-a-school-waiver-is",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:3ob7LWrmkm8",
+      "source_url": "https://www.youtube.com/watch?v=3ob7LWrmkm8",
+      "title": "how-to-track-a-public-dollar",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:snwmZq8twf4",
       "source_url": "https://www.youtube.com/watch?v=snwmZq8twf4",
@@ -265,20 +279,6 @@
       "source_id": "youtube:Bkslwn1sGG0",
       "source_url": "https://www.youtube.com/watch?v=Bkslwn1sGG0",
       "title": "The next MCOE count lands today at 5 PM.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:tdMcs1yyE4c",
-      "source_url": "https://www.youtube.com/watch?v=tdMcs1yyE4c",
-      "title": "The district attorney is the one county office that decides who faces criminal charges.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:T3gGa5OBIcs",
-      "source_url": "https://www.youtube.com/watch?v=T3gGa5OBIcs",
-      "title": "The board sets the direction, but one person runs the county day to day.",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
