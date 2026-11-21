@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-label="Set Up Your First Session — Sovereign University">
+<rect width="1280" height="720" fill="#0B0B0B"/>
+<rect width="1280" height="720" fill="#14171B" opacity="0.35"/>
+<rect width="1280" height="6" fill="#C9A227"/>
+<rect x="24" y="24" width="1232" height="672" fill="none" stroke="#C9A227" stroke-opacity="0.35" stroke-width="2"/>
+<text x="90" y="82" font-family="Arial,Helvetica,sans-serif" font-size="30" font-weight="700" letter-spacing="6" fill="#C9A227">SOVEREIGN UNIVERSITY</text>
+<rect x="90" y="112" width="176" height="44" rx="22" fill="#6B1F2A"/>
+<text x="110" y="142" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" letter-spacing="3" fill="#F5F0E6">MOVEMENT</text>
+<text x="90" y="355" font-family="Arial,Helvetica,sans-serif" font-size="60" font-weight="700" fill="#F5F0E6">Set Up Your First Session</text>
+<rect x="90" y="399" width="120" height="4" fill="#C9A227"/>
+<text x="90" y="662" font-family="Arial,Helvetica,sans-serif" font-size="28" font-weight="700" letter-spacing="4" fill="#C9A227">SICAIROS DAVID</text>
+<text x="1190" y="662" text-anchor="end" font-family="Arial,Helvetica,sans-serif" font-size="26" fill="#9A938A">SU-MOV-05</text>
+</svg>
