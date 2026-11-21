@@ -1,19 +1,19 @@
 {
- "generated_at_pt": "2026-11-21 02:51 PM PT",
+ "generated_at_pt": "2026-11-21 03:21 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 22,
   "direction": "audit-led",
-  "why": "Audit and Records is 22% of 2629 verified publishes across 18 profiles in 14 days. Up 8 points vs the prior 14 days."
+  "why": "Audit and Records is 22% of 2652 verified publishes across 18 profiles in 14 days. Up 8 points vs the prior 14 days."
  },
  "profiles": [
   {
    "key": "ig_personal",
    "platform": "Instagram",
    "account": "@sicairosdavid_",
-   "posts": 91,
+   "posts": 92,
    "thin": false,
    "topics": [
     {
@@ -44,7 +44,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 67,
-     "posts": 61
+     "posts": 62
     }
    ],
    "top_band": "A",
@@ -54,14 +54,14 @@
    "key": "ig_davids",
    "platform": "Instagram",
    "account": "@davidsicairos_",
-   "posts": 107,
+   "posts": 109,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 41,
-     "posts": 44
+     "posts": 45
     },
     {
      "band": "B",
@@ -85,7 +85,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 49,
-     "posts": 52
+     "posts": 53
     }
    ],
    "top_band": "A",
@@ -95,14 +95,14 @@
    "key": "ig_hub",
    "platform": "Instagram",
    "account": "@209media.connect",
-   "posts": 164,
+   "posts": 165,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 31,
-     "posts": 51
+     "pct": 32,
+     "posts": 52
     },
     {
      "band": "B",
@@ -125,7 +125,7 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 56,
+     "pct": 55,
      "posts": 93
     }
    ],
@@ -136,13 +136,13 @@
    "key": "ig_castle",
    "platform": "Instagram",
    "account": "@castlecaliforniacounterintel",
-   "posts": 116,
+   "posts": 117,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 40,
+     "pct": 39,
      "posts": 46
     },
     {
@@ -166,8 +166,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 59,
-     "posts": 69
+     "pct": 60,
+     "posts": 70
     }
    ],
    "top_band": "A",
@@ -177,14 +177,14 @@
    "key": "ig_atwater",
    "platform": "Instagram",
    "account": "@atwatercastleintelligence",
-   "posts": 129,
+   "posts": 131,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 45,
-     "posts": 58
+     "posts": 59
     },
     {
      "band": "B",
@@ -208,7 +208,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 55,
-     "posts": 71
+     "posts": 72
     }
    ],
    "top_band": "A",
@@ -242,14 +242,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 2,
-     "posts": 2
+     "pct": 1,
+     "posts": 1
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 45,
-     "posts": 49
+     "pct": 46,
+     "posts": 50
     }
    ],
    "top_band": "A",
@@ -259,14 +259,14 @@
    "key": "ig_elevated",
    "platform": "Instagram",
    "account": "@elevated209cbd",
-   "posts": 107,
+   "posts": 109,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 45,
-     "posts": 48
+     "posts": 49
     },
     {
      "band": "B",
@@ -290,7 +290,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 54,
-     "posts": 58
+     "posts": 59
     }
    ],
    "top_band": "A",
@@ -341,7 +341,7 @@
    "key": "fb_california",
    "platform": "Facebook",
    "account": "209Connect California (Page)",
-   "posts": 133,
+   "posts": 134,
    "thin": false,
    "topics": [
     {
@@ -365,14 +365,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 5,
+     "pct": 4,
      "posts": 6
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 91,
-     "posts": 122
+     "pct": 92,
+     "posts": 123
     }
    ],
    "top_band": "D",
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 107,
+   "posts": 109,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 81,
-     "posts": 87
+     "posts": 89
     }
    ],
    "top_band": "C",
@@ -423,7 +423,7 @@
    "key": "fb_elevated",
    "platform": "Facebook",
    "account": "Elevated209 CBD (Page)",
-   "posts": 101,
+   "posts": 104,
    "thin": false,
    "topics": [
     {
@@ -441,7 +441,7 @@
     {
      "band": "C",
      "label": "Community and Wellness",
-     "pct": 13,
+     "pct": 12,
      "posts": 13
     },
     {
@@ -453,8 +453,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 79,
-     "posts": 80
+     "pct": 80,
+     "posts": 83
     }
    ],
    "top_band": "C",
@@ -464,7 +464,7 @@
    "key": "fb_intentionally",
    "platform": "Facebook",
    "account": "Intentionally Us (Page)",
-   "posts": 111,
+   "posts": 113,
    "thin": false,
    "topics": [
     {
@@ -495,7 +495,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 82,
-     "posts": 92
+     "posts": 94
     }
    ],
    "top_band": "C",
@@ -505,7 +505,7 @@
    "key": "fb_problemsolved",
    "platform": "Facebook",
    "account": "ProblemSolved Designs (Page)",
-   "posts": 101,
+   "posts": 104,
    "thin": false,
    "topics": [
     {
@@ -536,7 +536,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 92,
-     "posts": 93
+     "posts": 96
     }
    ],
    "top_band": "A",
@@ -546,7 +546,7 @@
    "key": "threads",
    "platform": "Threads",
    "account": "@209media.connect",
-   "posts": 212,
+   "posts": 213,
    "thin": false,
    "topics": [
     {
@@ -577,7 +577,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 67,
-     "posts": 142
+     "posts": 143
     }
    ],
    "top_band": "A",
@@ -669,7 +669,7 @@
    "key": "youtube",
    "platform": "YouTube",
    "account": "David Sicairos | Systems' Architect",
-   "posts": 140,
+   "posts": 141,
    "thin": false,
    "topics": [
     {
@@ -700,7 +700,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 83,
-     "posts": 116
+     "posts": 117
     }
    ],
    "top_band": "A",
@@ -710,7 +710,7 @@
    "key": "tiktok",
    "platform": "TikTok",
    "account": "@sicairosdavid",
-   "posts": 119,
+   "posts": 120,
    "thin": false,
    "topics": [
     {
@@ -722,7 +722,7 @@
     {
      "band": "B",
      "label": "Education and Leadership",
-     "pct": 3,
+     "pct": 2,
      "posts": 3
     },
     {
@@ -734,14 +734,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 3,
+     "pct": 2,
      "posts": 3
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 86,
-     "posts": 104
+     "pct": 88,
+     "posts": 105
     }
    ],
    "top_band": "A",
@@ -750,7 +750,7 @@
  ],
  "balance": {
   "oversaturated_bands": [],
-  "same_band_same_day": 788,
+  "same_band_same_day": 792,
   "weave_gap_median_min": 8,
   "jitter": "tight"
  },
@@ -784,9 +784,9 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 591 deduped publishes vs 2629 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 594 deduped publishes vs 2652 now \u2014 trend is share-based only and weak.",
   "29 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
-  "230 verified receipts carry no parseable timestamp and are excluded from both windows.",
+  "231 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Most receipts carry observation time, not true publish time; window counts are verification-time counts for those rows. Re-verification sweeps can pull older posts into the window.",
   "Weave gap is a same-band/same-day proxy, not same-story \u2014 it does not by itself prove a 90-minute same-story breach."
  ]
