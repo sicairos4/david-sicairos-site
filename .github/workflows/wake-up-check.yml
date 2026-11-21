@@ -1,0 +1,57 @@
+name: External Wake-Up Check
+
+# External waker (David's order 2026-11-20 16:04 PT): runs OUTSIDE the VM so
+# a VM replacement (which wipes /etc and kills the dispatcher unit, the
+# mesh unit and Kuma) cannot kill the monitor. It reads the PUBLIC
+# live-state.json on GitHub Pages — which survives VM death — and leaves
+# wake commands in 209-intelligence/wake.json for the VM-side watchdog.
+# Runtime writes use the built-in GITHUB_TOKEN only: no credential move,
+# no approval per run. Pushing with GITHUB_TOKEN does not re-trigger this
+# workflow, so there is no self-trigger loop.
+#
+# Decision logic lives in .github/scripts/wake_decision.py (stdlib only,
+# same file the shadow dry-run tests locally). Wake conditions: board
+# stale > 15 min (or unreachable), any lane past 2x cadence, health < 50%.
+# Wake writes land every run while the condition holds; healthy runs only
+# commit on a wake->healthy flip, a missing file, or the hourly heartbeat,
+# so steady-state healthy does not queue a Pages build every 5 minutes.
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: wake-up-check
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Decide wake from public board
+        id: decide
+        run: |
+          python3 .github/scripts/wake_decision.py \
+            --out 209-intelligence/wake.json
+
+      - name: Commit wake.json if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add 209-intelligence/wake.json
+          if git diff --cached --quiet; then
+            echo "wake.json unchanged — nothing to commit"
+            exit 0
+          fi
+          DECISION=$(python3 -c "import json; d=json.load(open('209-intelligence/wake.json')); print('WAKE: ' + ', '.join(w['service'] for w in d['wake'])) if d['wake'] else 'healthy')" 2>/dev/null || DECISION="wake.json updated"
+          git commit -m "wake-up-check: ${DECISION} ($(date -u +%Y-%m-%dT%H:%MZ))"
+          git push
+          echo "committed wake.json"
