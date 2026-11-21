@@ -1,155 +1,88 @@
-# cadence-watchdog.yml — All-28 cadence watchdog, GitHub Actions leg.
-#
-# Second scheduler, independent of Muse's pool, the VM, and the lane
-# dispatcher. Reads the PUBLIC board (209connect.com/209-intelligence/
-# live-state.json) every 5 minutes and opens/updates a GitHub Issue when
-# a lane is overdue past its UPDATED cadence. This is an ALERTER, not a
-# firer: it never publishes, never touches the engine. Its job is to make
-# a silent lane VISIBLE even when Muse's scheduler is starved, the VM is
-# replaced, or the dispatcher is dead — the three failures that silenced
-# lanes on Oct 30 and Nov 20.
-#
-# ACCURACY DEPENDENCY: this workflow reads live-state.json, so its
-# overdue list is only as good as the board. The board was broken on
-# Nov 20 15:33 PT (IG/FB gaps days stale, fb_profile/youtube/tiktok
-# None) and was repaired the same afternoon (the control-panel repair
-# coordinator; by 16:23 PT the board's per-lane gaps matched receipts
-# truth to within ~1 min). Two guards keep a stale board from crying
-# wolf:
-#   1. STALENESS GUARD: if live-state.json is >10 min old, the workflow
-#      logs "board stale, skipping" and opens NO issue. A stale board is
-#      blindness, not a failure — same rule as the 95% trigger.
-#   2. BOARD-LAG NOTE: the board reads receipts on a ~5 min cycle, so a
-#      lane that fired 3 min ago still shows its old gap. An overdue
-#      alert can lag one board cycle behind reality. The issue body
-#      carries the board's generated_at so a reader can see the lag.
-#   3. YOUTUBE NO-DATA: the board carries NO YouTube data (gap None).
-#      The workflow reports YouTube as "no data — check receipts", NOT
-#      as overdue. (Receipts truth: YouTube last VERIFIED_LIVE Nov 15
-#      01:00 PT; the lane is genuinely overdue, but the board cannot
-#      prove it — the watchdog cron is the YouTube authority.)
-#
-# ACTIVATION: copy this file to .github/workflows/cadence-watchdog.yml
-# in the site repo (sicairos4/david-sicairos-site, branch main) and push.
-# The workflow needs no secrets: it uses the built-in GITHUB_TOKEN to
-# manage issues in its own repo. It is STAGED here, not yet pushed —
-# the push is the activation step (see files/all-28-on-cadence-
-# guarantee-20261120.md, activation checklist).
-#
-# Cadences (UPDATED, David Nov 20 15:49 PT; LinkedIn 20m per his 5:11 PM word,
-# TikTok 30m per standing AGENTS.md): Threads 20m, Bluesky 20m,
-# LinkedIn 20m, IG 7 x30m, FB 6 x30m, YouTube 35m, TikTok 30m.
 name: All-28 cadence watchdog
-
 on:
   schedule:
-    - cron: "*/5 * * * *"   # every 5 minutes, UTC (matches the Muse cron)
-  workflow_dispatch:        # manual run from the Actions tab
-
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
 permissions:
-  issues: write
   contents: read
-
+  issues: write
+concurrency:
+  group: cadence-watchdog
+  cancel-in-progress: false
 jobs:
   check-cadence:
     runs-on: ubuntu-latest
+    timeout-minutes: 4
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
     steps:
-      - name: Fetch the public board
+      - name: Evaluate public board without publication authority
+        id: evaluate
+        shell: bash
         run: |
-          curl -fsSL --max-time 30 \
-            https://209connect.com/209-intelligence/live-state.json \
-            -o live-state.json
-          echo "board_bytes=$(wc -c < live-state.json)"
-
-      - name: Compute overdue lanes
-        id: overdue
-        run: |
-          # Staleness guard: board >10 min old = blindness, skip.
-          generated=$(jq -r '.generated_at_iso // empty' live-state.json)
-          if [ -z "$generated" ]; then
-            echo "board has no generated_at_iso; skipping" >> "$GITHUB_STEP_SUMMARY"
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          gen_epoch=$(date -d "$generated" +%s)
-          now_epoch=$(date -u +%s)
-          age_min=$(( (now_epoch - gen_epoch) / 60 ))
-          echo "board_age_min=$age_min generated=$generated" >> "$GITHUB_STEP_SUMMARY"
-          if [ "$age_min" -gt 10 ]; then
-            echo "board stale (${age_min}m old); skipping — blindness, not failure" >> "$GITHUB_STEP_SUMMARY"
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          # Updated cadences, minutes.
-          declare -A CADENCE=(
-            [threads]=20 [bluesky]=20 [linkedin]=20
-            [ig_personal]=30 [ig_hub]=30 [ig_davids]=30 [ig_atwater]=30
-            [ig_castle]=30 [ig_intentionally]=30 [ig_elevated]=30
-            [fb_profile]=30 [fb_california]=30 [fb_dbeastco]=30
-            [fb_elevated]=30 [fb_intentionally]=30 [fb_problemsolved]=30
-            [youtube]=35 [tiktok]=30
-          )
-          : > overdue.txt
-          : > nodata.txt
-          for lane in "${!CADENCE[@]}"; do
-            gap=$(jq -r --arg l "$lane" \
-              '.system_health.lanes[$l].gap_min // empty' live-state.json)
-            if [ -z "$gap" ] || [ "$gap" = "null" ]; then
-              echo "$lane" >> nodata.txt
-              continue
-            fi
-            cad=${CADENCE[$lane]}
-            # gap > cadence (1x) = overdue. jq -n for the float compare.
-            over=$(jq -n --argjson g "$gap" --argjson c "$cad" '$g > $c')
-            if [ "$over" = "true" ]; then
-              printf '%s gap=%.1fm cad=%dm\n' "$lane" "$gap" "$cad" >> overdue.txt
-            fi
-          done
-          sort -o overdue.txt overdue.txt
-          sort -o nodata.txt nodata.txt
-          echo "overdue_count=$(wc -l < overdue.txt)" >> "$GITHUB_OUTPUT"
-          echo "nodata_count=$(wc -l < nodata.txt)" >> "$GITHUB_OUTPUT"
-          {
-            echo "### Overdue lanes (gap > updated cadence)"
-            if [ -s overdue.txt ]; then cat overdue.txt; else echo "none — all 18 on cadence"; fi
-            echo ""
-            echo "### No data on the board (check receipts, not a verdict)"
-            if [ -s nodata.txt ]; then cat nodata.txt; else echo "none"; fi
-            echo ""
-            echo "board generated: $generated (${age_min}m ago)"
-          } >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Open or update the overdue issue
-        if: steps.overdue.outputs.skip != 'true' && steps.overdue.outputs.overdue_count != '0'
+          python3 - <<'PY'
+          import datetime as dt
+          import json, math, os, urllib.request
+          from pathlib import Path
+          cadence = dict(threads=20, bluesky=20, linkedin=20, youtube=35, tiktok=30)
+          cadence.update({name: 30 for name in ('ig_personal','ig_hub','ig_davids','ig_atwater','ig_castle','ig_intentionally','ig_elevated','fb_profile','fb_california','fb_dbeastco','fb_elevated','fb_intentionally','fb_problemsolved')})
+          now = dt.datetime.now(dt.timezone.utc)
+          lines = ['## Cadence observation', 'Observed: ' + now.isoformat()]
+          problems = []
+          try:
+              request = urllib.request.Request('https://209connect.com/209-intelligence/live-state.json', headers={'Cache-Control': 'no-cache'})
+              with urllib.request.urlopen(request, timeout=25) as response:
+                  raw = response.read(2097153)
+              if len(raw) > 2097152:
+                  raise ValueError('board_size_limit')
+              board = json.loads(raw)
+              stamp = board.get('generated_at_iso')
+              generated = dt.datetime.fromisoformat(stamp.replace('Z', '+00:00'))
+              if generated.tzinfo is None:
+                  raise ValueError('timezone_required')
+              age = (now - generated).total_seconds()
+              lines.append('Board age seconds: %.1f' % age)
+              if age < -60 or age > 600:
+                  problems.append('Board stale or future-dated; lane state is UNKNOWN, not green.')
+              else:
+                  lanes = board['system_health']['lanes']
+                  for lane, limit in sorted(cadence.items()):
+                      item = lanes.get(lane)
+                      gap = item.get('gap_min') if isinstance(item, dict) else None
+                      if isinstance(gap, bool) or not isinstance(gap, (int, float)) or not math.isfinite(gap) or gap < 0:
+                          problems.append(lane + ': missing or invalid gap; UNKNOWN.')
+                      elif gap > limit:
+                          problems.append('%s: overdue in board snapshot, gap %.1fm, cadence %dm.' % (lane, gap, limit))
+          except Exception:
+              problems.append('Public board fetch or validation failed; observation unavailable.')
+          lines.extend(problems or ['All 18 configured lanes report valid on-cadence gaps in this fresh board snapshot.'])
+          lines.append('This is a board observation, not independent platform proof. This workflow never publishes or retries content.')
+          body = '\n\n'.join(lines) + '\n'
+          Path('watchdog-body.md').write_text(body)
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as handle:
+              handle.write(body)
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as handle:
+              handle.write('alert=' + ('true' if problems else 'false') + '\n')
+          PY
+      - name: Reconcile one watchdog issue
         env:
-          GH_TOKEN: ${{ github.token }}
+          ALERT: ${{ steps.evaluate.outputs.alert }}
+        shell: bash
         run: |
-          body="## Lane overdue (all-28 cadence watchdog)
-          $(cat overdue.txt)
-          ### No data on the board (check receipts)
-          $(cat nodata.txt || echo none)
-          Board generated: $(jq -r '.generated_at_iso' live-state.json)
-          This issue is the GitHub Actions leg of the all-28 watchdog. It alerts; it never fires. The Muse watchdog cron (all-28-cadence-watchdog, 5m) and the escalation ladder are the fire paths. If a lane stays overdue here for 3+ checks, the lane is stuck, not just lagging one board cycle."
-          # Find an open issue with the watchdog label; comment on it, or create one.
+          set -euo pipefail
+          gh label create cadence-watchdog --color D93F0B --description 'Cadence or observation outage' --force
           issue=$(gh issue list --label cadence-watchdog --state open --limit 1 --json number --jq '.[0].number // empty')
-          if [ -n "$issue" ]; then
-            gh issue comment "$issue" --body "$body"
-            echo "commented on issue #$issue"
-          else
-            gh issue create --title "LANE OVERDUE: $(head -1 overdue.txt | cut -d' ' -f1) and $(($(wc -l < overdue.txt) - 1)) more" \
-              --label cadence-watchdog \
-              --body "$body"
-          fi
-
-      - name: Close the overdue issue when all green
-        if: steps.overdue.outputs.skip != 'true' && steps.overdue.outputs.overdue_count == '0'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          issue=$(gh issue list --label cadence-watchdog --state open --limit 1 --json number --jq '.[0].number // empty')
-          if [ -n "$issue" ]; then
-            gh issue close "$issue" --comment "All 18 auto lanes on cadence at $(date -u +%Y-%m-%dT%H:%M:%SZ). Board generated: $(jq -r '.generated_at_iso' live-state.json)."
-            echo "closed issue #$issue"
-          else
-            echo "all green, no open issue"
+          if [ "$ALERT" = true ]; then
+            if [ -n "$issue" ]; then
+              gh issue edit "$issue" --title '209 cadence: overdue or unknown lanes' --body-file watchdog-body.md
+            else
+              gh issue create --title '209 cadence: overdue or unknown lanes' --label cadence-watchdog --body-file watchdog-body.md
+            fi
+          elif [ "$ALERT" = false ] && [ -n "$issue" ]; then
+            gh issue edit "$issue" --body-file watchdog-body.md
+            gh issue close "$issue" --comment 'Fresh board reports valid on-cadence gaps for all 18 configured lanes. This is not independent platform verification.'
+          elif [ "$ALERT" != false ]; then
+            echo 'Evaluation did not produce a valid outcome' >&2
+            exit 1
           fi
