@@ -1,7 +1,262 @@
 {
   "version": 1,
-  "generated_at": "2026-11-21T00:56:25.920560+00:00",
+  "generated_at": "2026-11-21T16:55:54.307690+00:00",
   "items": [
+    {
+      "id": "youtube:XVMZsnVqt1U",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: Name It. Quote It. Date It",
+      "published_at": "2026-11-21T16:33:35+00:00",
+      "url": "https://www.youtube.com/watch?v=XVMZsnVqt1U",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T16:33:35+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T16:33:35+00:00",
+        "utc_epoch": 1795278815,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:TwWULXiQB_A",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: Leadership After",
+      "published_at": "2026-11-21T16:04:25+00:00",
+      "url": "https://www.youtube.com/watch?v=TwWULXiQB_A",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T16:04:25+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T16:04:25+00:00",
+        "utc_epoch": 1795277065,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:6MtG06xSMAs",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: Count the Days After the Ask",
+      "published_at": "2026-11-21T15:38:22+00:00",
+      "url": "https://www.youtube.com/watch?v=6MtG06xSMAs",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T15:38:22+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T15:38:22+00:00",
+        "utc_epoch": 1795275502,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:xkzr3_9SZvQ",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Atwater Angle",
+      "published_at": "2026-11-21T15:12:22+00:00",
+      "url": "https://www.youtube.com/watch?v=xkzr3_9SZvQ",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T15:12:22+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T15:12:22+00:00",
+        "utc_epoch": 1795273942,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:javenR1bctA",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Ask in Writing. Again.",
+      "published_at": "2026-11-21T14:46:18+00:00",
+      "url": "https://www.youtube.com/watch?v=javenR1bctA",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T14:46:18+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T14:46:18+00:00",
+        "utc_epoch": 1795272378,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:rTMTUHT2PnY",
+      "platform": "youtube",
+      "title": "the-letter-gives-no-reason",
+      "published_at": "2026-11-21T14:12:07+00:00",
+      "url": "https://www.youtube.com/watch?v=rTMTUHT2PnY",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T14:12:07+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T14:12:07+00:00",
+        "utc_epoch": 1795270327,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:BZH-cJwPRIo",
+      "platform": "youtube",
+      "title": "Illegally Fired, episode 369: Thursday Check, Week Twenty-Seven.",
+      "published_at": "2026-11-21T12:10:32+00:00",
+      "url": "https://www.youtube.com/watch?v=BZH-cJwPRIo",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T12:10:32+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T12:10:32+00:00",
+        "utc_epoch": 1795263032,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:4GjrislkOCk",
+      "platform": "youtube",
+      "title": "When a school district's budget goes sideways, the county office is the first line of oversight.",
+      "published_at": "2026-11-21T11:36:54+00:00",
+      "url": "https://www.youtube.com/watch?v=4GjrislkOCk",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T11:36:54+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T11:36:54+00:00",
+        "utc_epoch": 1795261014,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:YuVbN-Q_rsI",
+      "platform": "youtube",
+      "title": "One office holds more of your life on paper than any other in the county.",
+      "published_at": "2026-11-21T11:36:10+00:00",
+      "url": "https://www.youtube.com/watch?v=YuVbN-Q_rsI",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T11:36:10+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T11:36:10+00:00",
+        "utc_epoch": 1795260970,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:vk3S2PESJZc",
+      "platform": "youtube",
+      "title": "Your water does not run itself.",
+      "published_at": "2026-11-21T10:53:45+00:00",
+      "url": "https://www.youtube.com/watch?v=vk3S2PESJZc",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T10:53:45+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T10:53:45+00:00",
+        "utc_epoch": 1795258425,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:oBmKqw9eW3Y",
+      "platform": "youtube",
+      "title": "leadership-after-the-test",
+      "published_at": "2026-11-21T09:32:22+00:00",
+      "url": "https://www.youtube.com/watch?v=oBmKqw9eW3Y",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T09:32:22+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T09:32:22+00:00",
+        "utc_epoch": 1795253542,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:1-VWy4FOUgA",
+      "platform": "youtube",
+      "title": "illegally-fired-ep272-twenty-days-after-the-firing-nov16",
+      "published_at": "2026-11-21T08:51:01+00:00",
+      "url": "https://www.youtube.com/watch?v=1-VWy4FOUgA",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T08:51:01+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T08:51:01+00:00",
+        "utc_epoch": 1795251061,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:ZW71fsV3Mq0",
+      "platform": "youtube",
+      "title": "Systems, Not Willpower — Full Series",
+      "published_at": "2026-11-21T07:35:11+00:00",
+      "url": "https://www.youtube.com/watch?v=ZW71fsV3Mq0",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T07:35:11+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T07:35:11+00:00",
+        "utc_epoch": 1795246511,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Ez9bIW3kagI",
+      "platform": "youtube",
+      "title": "Start With the Meter You Avoid | Systems, Not Willpower #Shorts",
+      "published_at": "2026-11-21T07:34:46+00:00",
+      "url": "https://www.youtube.com/watch?v=Ez9bIW3kagI",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T07:34:46+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T07:34:46+00:00",
+        "utc_epoch": 1795246486,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:YrHL1j8W_Mw",
+      "platform": "youtube",
+      "title": "The Attention Meter | Systems, Not Willpower #Shorts",
+      "published_at": "2026-11-21T07:34:36+00:00",
+      "url": "https://www.youtube.com/watch?v=YrHL1j8W_Mw",
+      "description": "",
+      "observed_at": "2026-11-21T16:55:54.307690+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T07:34:36+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T07:34:36+00:00",
+        "utc_epoch": 1795246476,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:ytAibTlnsdY",
       "platform": "youtube",
@@ -2114,22 +2369,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-21T00:56:25.920560+00:00",
-      "last_success_at": "2026-11-21T00:56:25.920560+00:00",
+      "last_attempt_at": "2026-11-21T16:55:54.307690+00:00",
+      "last_success_at": "2026-11-21T16:55:54.307690+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-21T00:56:25.920560+00:00",
+      "last_attempt_at": "2026-11-21T16:55:54.307690+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-21T00:56:25.920560+00:00",
+      "last_attempt_at": "2026-11-21T16:55:54.307690+00:00",
       "error_type": "RuntimeError"
     }
   }

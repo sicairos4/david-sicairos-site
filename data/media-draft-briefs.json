@@ -1,7 +1,112 @@
 {
-  "generated_at": "2026-11-21T00:56:25.920560+00:00",
+  "generated_at": "2026-11-21T16:55:54.307690+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:XVMZsnVqt1U",
+      "source_url": "https://www.youtube.com/watch?v=XVMZsnVqt1U",
+      "title": "Fired for Speaking Up: Name It. Quote It. Date It",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:TwWULXiQB_A",
+      "source_url": "https://www.youtube.com/watch?v=TwWULXiQB_A",
+      "title": "Fired for Speaking Up: Leadership After",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:6MtG06xSMAs",
+      "source_url": "https://www.youtube.com/watch?v=6MtG06xSMAs",
+      "title": "Fired for Speaking Up: Count the Days After the Ask",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:xkzr3_9SZvQ",
+      "source_url": "https://www.youtube.com/watch?v=xkzr3_9SZvQ",
+      "title": "ILLEGALLY FIRED: Atwater Angle",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:javenR1bctA",
+      "source_url": "https://www.youtube.com/watch?v=javenR1bctA",
+      "title": "ILLEGALLY FIRED: Ask in Writing. Again.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:rTMTUHT2PnY",
+      "source_url": "https://www.youtube.com/watch?v=rTMTUHT2PnY",
+      "title": "the-letter-gives-no-reason",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:BZH-cJwPRIo",
+      "source_url": "https://www.youtube.com/watch?v=BZH-cJwPRIo",
+      "title": "Illegally Fired, episode 369: Thursday Check, Week Twenty-Seven.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:4GjrislkOCk",
+      "source_url": "https://www.youtube.com/watch?v=4GjrislkOCk",
+      "title": "When a school district's budget goes sideways, the county office is the first line of oversight.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:YuVbN-Q_rsI",
+      "source_url": "https://www.youtube.com/watch?v=YuVbN-Q_rsI",
+      "title": "One office holds more of your life on paper than any other in the county.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:vk3S2PESJZc",
+      "source_url": "https://www.youtube.com/watch?v=vk3S2PESJZc",
+      "title": "Your water does not run itself.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:oBmKqw9eW3Y",
+      "source_url": "https://www.youtube.com/watch?v=oBmKqw9eW3Y",
+      "title": "leadership-after-the-test",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:1-VWy4FOUgA",
+      "source_url": "https://www.youtube.com/watch?v=1-VWy4FOUgA",
+      "title": "illegally-fired-ep272-twenty-days-after-the-firing-nov16",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:ZW71fsV3Mq0",
+      "source_url": "https://www.youtube.com/watch?v=ZW71fsV3Mq0",
+      "title": "Systems, Not Willpower — Full Series",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:Ez9bIW3kagI",
+      "source_url": "https://www.youtube.com/watch?v=Ez9bIW3kagI",
+      "title": "Start With the Meter You Avoid | Systems, Not Willpower #Shorts",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:YrHL1j8W_Mw",
+      "source_url": "https://www.youtube.com/watch?v=YrHL1j8W_Mw",
+      "title": "The Attention Meter | Systems, Not Willpower #Shorts",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:ytAibTlnsdY",
       "source_url": "https://www.youtube.com/watch?v=ytAibTlnsdY",
@@ -174,111 +279,6 @@
       "source_id": "youtube:sFIG4q_fyWk",
       "source_url": "https://www.youtube.com/watch?v=sFIG4q_fyWk",
       "title": "Every request needs a date, or it is not a request.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:c7mTYVtKWZA",
-      "source_url": "https://www.youtube.com/watch?v=c7mTYVtKWZA",
-      "title": "West Sacramento's Mayor Said It Out Loud: ICE Is Not Welcome Here",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:VxIcxylkwxM",
-      "source_url": "https://www.youtube.com/watch?v=VxIcxylkwxM",
-      "title": "The Lead Moved by One Vote | Merced County Superintendent Race, New Count",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:H9jDOMrhGOI",
-      "source_url": "https://www.youtube.com/watch?v=H9jDOMrhGOI",
-      "title": "California, Explained: Closed Session.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:jYcXWgamk9g",
-      "source_url": "https://www.youtube.com/watch?v=jYcXWgamk9g",
-      "title": "California, Explained: LCFF, the formula that pays for your schools.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:QLRcYd6wY1I",
-      "source_url": "https://www.youtube.com/watch?v=QLRcYd6wY1I",
-      "title": "ICE Pepper-Sprayed a Pregnant U.S. Citizen Outside the Stanislaus County Jail",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:4LNECSLKMPc",
-      "source_url": "https://www.youtube.com/watch?v=4LNECSLKMPc",
-      "title": "Illegally Fired, episode 363: Friday Check, Week Twenty-Six.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:jeC4t1SrIFc",
-      "source_url": "https://www.youtube.com/watch?v=jeC4t1SrIFc",
-      "title": "California, Explained: LCFF, the formula that pays for your schools.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:6eXPypr0_d8",
-      "source_url": "https://www.youtube.com/watch?v=6eXPypr0_d8",
-      "title": "Who watches the county government when nobody is watching? In Merced County, the answer is nineteen",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:K_xlTSiCHl4",
-      "source_url": "https://www.youtube.com/watch?v=K_xlTSiCHl4",
-      "title": "Where's your taco spot, Atwater?",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:XF4OjKBZ_I4",
-      "source_url": "https://www.youtube.com/watch?v=XF4OjKBZ_I4",
-      "title": "ILLEGALLY FIRED: Reading the letter out loud",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:1MqkNeO8RO8",
-      "source_url": "https://www.youtube.com/watch?v=1MqkNeO8RO8",
-      "title": "The pavement first, the paperwork second",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:cYcJCh3F9Y4",
-      "source_url": "https://www.youtube.com/watch?v=cYcJCh3F9Y4",
-      "title": "What is due this week",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:XQnjnIAmy14",
-      "source_url": "https://www.youtube.com/watch?v=XQnjnIAmy14",
-      "title": "FEMA Emergency Alert System test today at 11:20 AM.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:7TS7D5inGi4",
-      "source_url": "https://www.youtube.com/watch?v=7TS7D5inGi4",
-      "title": "The Central Valley just fired the Assembly's Republican leader.\n\nAlexandra Macedo lost the 33rd Asse",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:Bkslwn1sGG0",
-      "source_url": "https://www.youtube.com/watch?v=Bkslwn1sGG0",
-      "title": "The next MCOE count lands today at 5 PM.",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
