@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-21 15:54 PT",
- "generated_epoch": 1795305256,
+ "generated_pt": "2026-11-21 15:49 PT",
+ "generated_epoch": 1795304966,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -53,13 +53,13 @@
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 31,
-   "fireable": 31,
+   "staged": 32,
+   "fireable": 32,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 29,
+   "keeper_strict_fireable": 30,
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
@@ -167,8 +167,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 439,
-   "fireable": 439,
+   "staged": 445,
+   "fireable": 445,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -190,8 +190,8 @@
    "cli_reel_reserve": null
   },
   "linkedin": {
-   "staged": 25,
-   "fireable": 25,
+   "staged": 26,
+   "fireable": 26,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
