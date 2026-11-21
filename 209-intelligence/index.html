@@ -2030,6 +2030,12 @@ function render(){
   // the cards came from lane states, and live.summary counted all 27
   // lanes (buckets summed to 19). Now: scored lanes only (18), on +
   // due + red == total, always, by construction.
+  // Dashboard fix Nov 21 09:2x PT (David: "5 on, 0 slipping, 0 missing,
+  // out of 18 — where are the other 13"): the loop above dropped any
+  // lane whose stateClass was 'nodata' (NO DATA / STALE) or 'other'
+  // from ALL THREE counts, so the numbers could sum below 18 while
+  // the red lanes sat invisible in the grid. A scored lane with no
+  // data or a stale state is never green — it counts as red/miss.
   const s=live.summary||{};
   const scoredLanes = lanes.filter(l=>l.scored);
   let on=0, yel=0, red=0, dueSoonN=0;
@@ -2038,7 +2044,7 @@ function render(){
     const ds=displayStatus(l);
     if(ds==='DUE SOON'){ dueSoonN++; dueSoonNames.push(l.platform+' '+(l.account||'')); }
     const c=stateClass(ds);
-    if(c==='on') on++; else if(c==='due') yel++; else if(c==='miss') red++;
+    if(c==='on') on++; else if(c==='due') yel++; else red++;
   });
   // STALE banner: a state file older than STALE_MIN never shows a lane green.
   const sb = document.getElementById('staleBanner');
