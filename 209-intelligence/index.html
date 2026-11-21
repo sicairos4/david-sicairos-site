@@ -29,6 +29,12 @@
   .btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
   .fresh{font-size:12.5px;color:var(--mut)}
   .fresh.stale{color:var(--red);font-weight:700}
+  /* Controls table (Crew 4, Nov 21 2026): one row per scored lane. */
+  .ctable{width:100%;border-collapse:collapse;font-size:13px}
+  .ctable th,.ctable td{padding:6px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle}
+  .ctable th{color:var(--mut);font-weight:600}
+  .ctable td .mini{margin:1px 2px 1px 0}
+  .stale-banner{background:#fee2e2;border:1px solid #ef4444;color:#b91c1c;border-radius:12px;padding:10px 12px;font-weight:700;margin-bottom:10px}
   .liveclock{font-variant-numeric:tabular-nums;font-weight:700}
 
   /* Health card: big number + bar with the 77% line marked. */
@@ -97,6 +103,7 @@
   details.card.due{border-left:4px solid var(--amber)}
   details.card.on{border-left:4px solid #22c55e}
   details.card.nodata{border-left:4px solid #9ca3af}
+  details.card.other{border-left:4px solid var(--blue)}
   summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-weight:700;font-size:15px}
   summary::-webkit-details-marker{display:none}
   summary::after{content:'▸';color:var(--mut);font-size:12px;margin-left:8px;flex:none}
@@ -107,6 +114,7 @@
   .badge.on{background:var(--green-bg);color:var(--green)}
   .badge.due{background:var(--amber-bg);color:var(--amber)}
   .badge.miss{background:var(--red-bg);color:var(--red)}
+  .badge.other{background:var(--blue-bg);color:var(--blue)}
   .badge.nodata{background:var(--grey-bg);color:var(--grey)}
   .plain{font-size:14px;color:#374151;margin-top:8px}
   .plain b{color:var(--ink)}
@@ -178,6 +186,21 @@
   .steer-ctl select,.steer-ctl input{font-size:13px;padding:6px 9px;border:1px solid var(--line);
     border-radius:999px;background:var(--card);color:var(--ink)}
   .steer-ctl input[type=text]{min-width:200px;flex:1}
+  /* Dashboard chat: talk to the dashboard instead of the chat app. */
+  .chatlog{max-height:260px;overflow-y:auto;background:#f8fafc;border:1px solid var(--line);
+    border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:14px}
+  .chat-msg{margin-bottom:8px;line-height:1.45;white-space:pre-wrap;word-wrap:break-word}
+  .chat-msg .who{font-weight:800}
+  .chat-msg.user .who{color:var(--blue)}
+  .chat-msg.sys .who{color:var(--green)}
+  .chat-msg.err .who{color:var(--red)}
+  .chat-row{display:flex;gap:8px;align-items:center}
+  .chat-row input[type=text]{flex:1;font-size:14px;padding:9px 12px;border:1px solid var(--line);
+    border-radius:999px;background:var(--card);color:var(--ink)}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+  .chip{background:var(--card);color:var(--ink);border:1px solid var(--line);
+    border-radius:999px;padding:5px 11px;font-size:12.5px;font-weight:700;cursor:pointer}
+  .chip:active{transform:scale(.97)}
 </style>
 </head>
 <body>
@@ -185,9 +208,8 @@
   <div class="mark"><span class="gold">209</span> INTELLIGENCE</div>
   <div class="tag">The 209 control panel</div>
   <div class="eco">209 Media · 209connect · Sovereign University — one panel for all 28 lanes.</div>
-  <div class="tag" style="margin-top:6px">Public read-only view — steering and actions live on the local panel only</div>
 </div>
-<p class="sub">Green means posting on time. Yellow means 30+ minutes late. Red means 60+ minutes late. The worst lane is at the top; tap a platform to open it. Every "open post" link goes to the exact post.</p>
+<p class="sub">Green means posting on time. <b>Due soon</b> means the lane is inside its pre-fire window — it fires 10 minutes <i>before</i> cadence (L−10), so due soon is the moment to act, not yellow. Yellow means past its cadence — 20m for Threads / Bluesky / LinkedIn, 25m for the FB profile, 30m for IG / FB pages / TikTok, 35m for YouTube. Red means past twice its cadence. The worst lane is at the top; tap a platform to open it. Every "open post" link goes to the exact post.</p>
 
 <div class="topbar">
   <span class="pill"><span class="dot grey" id="modeDot"></span><span id="modeState">connecting</span></span>
@@ -202,15 +224,42 @@
 <div class="health" id="healthCard"></div>
 
 <div class="summary" id="summary"></div>
+<div class="stale-banner" id="staleBanner" style="display:none"></div>
+<div class="kv" id="dueSoonLine" style="margin:-4px 0 12px"></div>
 
 <div class="worst" id="worstLane"></div>
 
 <h2>Platforms: worst first, tap to open</h2>
 <div id="platforms"></div>
 
+<details class="section" id="controlsSection" open>
+  <summary>Controls — pause, fire, fix supply, per lane</summary>
+  <div class="body">
+    <p class="nodata">One row per scored lane. Pause and resume act now (circuit breaker in the self-healing store). Fire fresh queues one fresh post to the cadence coordinator — claim/lease and live duplicate check apply, it never fires from this panel. Fix supply expires stale rows and refills the lane to 25. Every press is logged under Recent repairs.</p>
+    <div id="controlsBody"><p class="nodata">Loading lanes…</p></div>
+  </div>
+</details>
+
 <details class="section" id="steeringSection">
   <summary>Steering — what the 28 lanes are learning</summary>
   <div class="body" id="steeringBody"><p class="nodata">Steering data not computed yet — the writer runs next cycle. Steering is advisory only: it never fires, schedules, or reorders a post.</p></div>
+</details>
+
+<details class="section" id="chatSection" open>
+  <summary>Chat — change the dashboard from here</summary>
+  <div class="body">
+    <div class="chatlog" id="chatLog"><p class="nodata">No messages yet. Type below — try “status”, “fire threads”, or “help”.</p></div>
+    <div class="chat-row">
+      <input type="text" id="chatInput" placeholder="Type a change — e.g. fire threads, status, steer threads A boost" maxlength="500" autocomplete="off">
+      <button class="btn" id="chatSendBtn">Send</button>
+    </div>
+    <div class="chips" id="chatChips">
+      <button class="chip" data-chat="status">status</button>
+      <button class="chip" data-chat="fire worst">fire worst</button>
+      <button class="chip" data-chat="help">help</button>
+    </div>
+    <div class="kv" style="margin-top:8px">The chat box runs the same guarded actions as the buttons (fire / retry / pause / resume / rebuild / failover / steer / theme). It never fires a post itself — fire is queued to the cadence coordinator with claim/lease and live duplicate checks. Full reset and executor restart stay on the buttons. Every message is logged.</div>
+  </div>
 </details>
 
 <details class="section">
@@ -233,10 +282,11 @@
   <summary>How to read this panel</summary>
   <div class="body">
     <b>Last post</b> is when the last post actually went live (verified receipts only — submits never count).
-    <b>Yellow at 30 minutes late, red at 60.</b> Health is the average across 18 lanes of cadence divided by time since the last verified post.
+    <b>Yellow at the lane's cadence (L), red at twice it (2L)</b> — Threads / Bluesky / LinkedIn L=20m, FB profile L=25m, IG / FB pages / TikTok L=30m, YouTube L=35m. Override at L+10 and diagnoser at 2L−5 are both still due (yellow). <b>Due soon</b> is the pre-fire window: a lane shows DUE SOON from L−10 (fire at 10m for L=20, 15m for the FB profile, 20m for L=30, 25m for YouTube) until it turns yellow — yellow means the pre-fire was missed. <b>STALE</b> means the state file is more than 10 minutes old: a stale snapshot never shows a lane green. Health is the mean across the 18 scored lanes of cadence divided by time since the last verified post, receipts only.
     The <b>77% line</b> is the floor: below it the error budget is overdrawn, changes freeze, and the reset ladder runs before any full reset.
     <div style="margin-top:6px"><b>Longest / last / average gap</b> are measured over the last 23 hours from verified publishes.</div>
-    <div style="margin-top:6px"><b>Buttons</b> run the reset ladder: Retry (rung 1), Fail over (rung 2), Fire fresh (rung 3), Pause (rung 4), Rebuild queue (rung 6). Publish buttons queue the request to the cadence coordinator — this panel never fires a post itself. Full reset (rung 8) is gated and needs confirmation.</div>
+    <div style="margin-top:6px"><b>Buttons</b> run the reset ladder: Retry (rung 1), Fail over (rung 2), Fire fresh (rung 3), Pause (rung 4), Resume (rung 4, closes the breaker), Rebuild queue (rung 6). Publish buttons queue the request to the cadence coordinator — this panel never fires a post itself. Full reset (rung 8) is gated and needs confirmation.</div>
+    <div style="margin-top:6px"><b>Lane controls</b> (above the platforms) is the same ladder in one table, with cadence (L) and fire-at (L−10) per lane. Cadence is displayed, not edited: it lives in the engine (live-state-updater.py + the yellow detector) and this table reads it from live-state.json.</div>
     <div style="margin-top:6px"><b>Queue depth</b> is staged rows ready to post, counted live from the queue files. Below 25 is below the floor and shows in red.</div>
     <div style="margin-top:6px"><b>Open post</b> always goes to the exact post. If the link was never captured, the card says "post link not captured" instead of opening a profile or feed. A comment or reply is never a post — growth rows never set a lane's last-post time.</div>
     <div style="margin-top:6px"><b>Steering</b> is advisory only. It shows what topics are working per profile and system-wide, which way the system is leaning and why, and the balance across lanes. A steer you save is a suggestion the steering writer records, never an order to a publisher.</div>
@@ -249,151 +299,152 @@
 {
   "version": 1,
   "source": "verification-receipts.jsonl (live receipts only)",
-  "generated_at_pt": "2026-11-21 02:42 AM PT",
-  "generated_at_iso": "2026-11-21T02:42:38.590999-08:00",
-  "receipts_lines_seen": 7091,
-  "receipts_bytes_seen": 5268009,
+  "generated_at_pt": "2026-11-21 06:50 AM PT",
+  "generated_at_iso": "2026-11-21T06:50:10.596353-08:00",
+  "receipts_lines_seen": 7384,
+  "receipts_bytes_seen": 5646183,
   "receipts_scan": "incremental",
   "lanes_changed_this_run": [
     "fb_profile"
   ],
-  "newest_receipt_pt": "2026-11-21 02:41 AM PT",
-  "newest_receipt_iso": "2026-11-21T02:41:23-08:00",
+  "newest_receipt_pt": "2026-11-21 06:39 AM PT",
+  "newest_receipt_iso": "2026-11-21T06:39:30-08:00",
   "newest_receipt": {
-    "lane": "threads",
-    "job_id": "verify-api-18064487693572136",
+    "lane": "ig_castle",
+    "job_id": "verify-bg-20261121-0600-ig-castle",
     "item_ref": null,
-    "permalink": "https://www.threads.com/@209media.connect/post/Dfwd9nim6eb"
+    "permalink": "https://www.instagram.com/reel/DgAcjF0jJLn/"
   },
-  "unparsed_verified_receipts": 8,
+  "unparsed_verified_receipts": 10,
   "publog_supplement_failed": false,
   "regressions_held": [],
-  "unmapped_verified_receipts": 91,
-  "provisional_rows": 13456,
+  "unmapped_verified_receipts": 75,
+  "publish_time_corrected": 133,
+  "provisional_rows": 5211,
   "summary": {
     "total_lanes": 18,
     "scored_lanes": 18,
     "tracked_lanes": 27,
     "not_scored": 9,
-    "on_cadence": 2,
-    "due": 13,
-    "missing": 3,
-    "yellow": 0,
-    "override": 13,
+    "on_cadence": 10,
+    "due": 1,
+    "missing": 7,
+    "yellow": 1,
+    "override": 0,
     "diagnoser": 0,
-    "red": 3
+    "red": 7
   },
   "system_health": {
-    "pct": 56.3,
+    "pct": 68.8,
     "method": "Per lane: cadence / max(cadence, minutes since last VERIFIED publish). System = mean of lane scores x 100. Sources: verification-receipts.jsonl only (VERIFIED_PUBLISH verdicts with a post link). Submit receipts never count, only verified publishes. Same method as system_health.py, but receipts only: no newsroom.db supplement for Threads/Bluesky.",
-    "computed_at_pt": "2026-11-21 02:42 AM PT",
+    "computed_at_pt": "2026-11-21 06:50 AM PT",
     "lanes_scored": 18,
     "lanes": {
       "ig_personal": {
-        "last_verified_pt": "2026-11-21 01:51 AM PT",
-        "gap_min": 51.0,
+        "last_verified_pt": "2026-11-21 05:22 AM PT",
+        "gap_min": 88.2,
         "cadence_min": 30,
-        "score": 0.59
+        "score": 0.34
       },
       "ig_hub": {
-        "last_verified_pt": "2026-11-21 01:51 AM PT",
-        "gap_min": 51.0,
+        "last_verified_pt": "2026-11-21 06:30 AM PT",
+        "gap_min": 19.8,
         "cadence_min": 30,
-        "score": 0.59
+        "score": 1.0
       },
       "ig_davids": {
-        "last_verified_pt": "2026-11-20 11:23 PM PT",
-        "gap_min": 199.3,
+        "last_verified_pt": "2026-11-21 04:05 AM PT",
+        "gap_min": 164.7,
         "cadence_min": 30,
-        "score": 0.15
+        "score": 0.18
       },
       "ig_atwater": {
-        "last_verified_pt": "2026-11-21 01:51 AM PT",
-        "gap_min": 51.0,
+        "last_verified_pt": "2026-11-21 06:36 AM PT",
+        "gap_min": 13.4,
         "cadence_min": 30,
-        "score": 0.59
+        "score": 1.0
       },
       "ig_castle": {
-        "last_verified_pt": "2026-11-21 01:51 AM PT",
-        "gap_min": 51.0,
+        "last_verified_pt": "2026-11-21 06:39 AM PT",
+        "gap_min": 10.7,
         "cadence_min": 30,
-        "score": 0.59
+        "score": 1.0
       },
       "ig_intentionally": {
-        "last_verified_pt": "2026-11-21 01:51 AM PT",
-        "gap_min": 51.0,
+        "last_verified_pt": "2026-11-21 06:33 AM PT",
+        "gap_min": 16.3,
         "cadence_min": 30,
-        "score": 0.59
+        "score": 1.0
       },
       "ig_elevated": {
-        "last_verified_pt": "2026-11-21 01:51 AM PT",
-        "gap_min": 51.0,
+        "last_verified_pt": "2026-11-21 04:15 AM PT",
+        "gap_min": 154.7,
         "cadence_min": 30,
-        "score": 0.59
+        "score": 0.19
       },
       "fb_profile": {
         "last_verified_pt": "2026-11-21 01:54 AM PT",
-        "gap_min": 47.9,
-        "cadence_min": 30,
-        "score": 0.63
+        "gap_min": 295.4,
+        "cadence_min": 25,
+        "score": 0.08
       },
       "fb_california": {
-        "last_verified_pt": "2026-11-21 01:48 AM PT",
-        "gap_min": 54.3,
+        "last_verified_pt": "2026-11-21 06:22 AM PT",
+        "gap_min": 27.6,
         "cadence_min": 30,
-        "score": 0.55
+        "score": 1.0
       },
       "fb_dbeastco": {
-        "last_verified_pt": "2026-11-21 01:48 AM PT",
-        "gap_min": 54.3,
+        "last_verified_pt": "2026-11-21 06:22 AM PT",
+        "gap_min": 27.4,
         "cadence_min": 30,
-        "score": 0.55
+        "score": 1.0
       },
       "fb_elevated": {
-        "last_verified_pt": "2026-11-21 01:48 AM PT",
-        "gap_min": 54.3,
+        "last_verified_pt": "2026-11-21 06:21 AM PT",
+        "gap_min": 28.9,
         "cadence_min": 30,
-        "score": 0.55
+        "score": 1.0
       },
       "fb_intentionally": {
-        "last_verified_pt": "2026-11-21 01:48 AM PT",
-        "gap_min": 54.3,
+        "last_verified_pt": "2026-11-21 06:20 AM PT",
+        "gap_min": 30.1,
         "cadence_min": 30,
-        "score": 0.55
+        "score": 1.0
       },
       "fb_problemsolved": {
-        "last_verified_pt": "2026-11-21 01:48 AM PT",
-        "gap_min": 54.3,
+        "last_verified_pt": "2026-11-21 04:21 AM PT",
+        "gap_min": 149.1,
         "cadence_min": 30,
-        "score": 0.55
+        "score": 0.2
       },
       "linkedin": {
-        "last_verified_pt": "2026-11-21 01:45 AM PT",
-        "gap_min": 56.7,
+        "last_verified_pt": "2026-11-21 05:53 AM PT",
+        "gap_min": 57.1,
         "cadence_min": 20,
         "score": 0.35
       },
       "youtube": {
-        "last_verified_pt": "2026-11-21 01:50 AM PT",
-        "gap_min": 52.3,
+        "last_verified_pt": "2026-11-21 06:16 AM PT",
+        "gap_min": 33.8,
         "cadence_min": 35,
-        "score": 0.67
+        "score": 1.0
       },
       "tiktok": {
         "last_verified_pt": "2026-11-20 04:15 PM PT",
-        "gap_min": 627.0,
+        "gap_min": 874.6,
         "cadence_min": 30,
-        "score": 0.05
+        "score": 0.03
       },
       "threads": {
-        "last_verified_pt": "2026-11-21 02:41 AM PT",
-        "gap_min": 1.3,
+        "last_verified_pt": "2026-11-21 06:45 AM PT",
+        "gap_min": 4.3,
         "cadence_min": 20,
         "score": 1.0
       },
       "bluesky": {
-        "last_verified_pt": "2026-11-21 02:40 AM PT",
-        "gap_min": 2.5,
+        "last_verified_pt": "2026-11-21 06:45 AM PT",
+        "gap_min": 4.7,
         "cadence_min": 20,
         "score": 1.0
       }
@@ -401,15 +452,19 @@
     "top_drags": [
       {
         "lane": "tiktok",
-        "score": 0.05
+        "score": 0.03
+      },
+      {
+        "lane": "fb_profile",
+        "score": 0.08
       },
       {
         "lane": "ig_davids",
-        "score": 0.15
+        "score": 0.18
       },
       {
-        "lane": "linkedin",
-        "score": 0.35
+        "lane": "ig_elevated",
+        "score": 0.19
       }
     ]
   },
@@ -423,14 +478,14 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 51,
-      "rung": "override",
+      "state": "RED",
+      "gap_minutes": 88,
+      "rung": "red",
       "yellow": true,
-      "last_verified_pt": "2026-11-21 01:51 AM PT",
-      "last_verified_iso": "2026-11-21T01:51:36-08:00",
-      "last_url": "https://www.instagram.com/p/Df_4xKdDrbT/",
-      "last_job_id": "redlane-verify-ig-20261121",
+      "last_verified_pt": "2026-11-21 05:22 AM PT",
+      "last_verified_iso": "2026-11-21T05:22:00-08:00",
+      "last_url": "https://www.instagram.com/p/DgAT_TUlAkm/",
+      "last_job_id": "verify-ig-personal-20261121-0518",
       "last_item_ref": null,
       "provisional": false,
       "provisional_reason": null,
@@ -439,15 +494,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:21 AM PT",
-      "next_due_iso": "2026-11-21T02:21:36-08:00",
-      "next_action": "Post now, overdue by about 51 min (rung override).",
+      "next_due_pt": "2026-11-21 05:52 AM PT",
+      "next_due_iso": "2026-11-21T05:52:00-08:00",
+      "next_action": "RED \u2014 post now, overdue by about 88 min.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 41,
+      "queue_depth": 39,
       "queue_source": "IG_READY staged"
     },
     {
@@ -460,13 +515,13 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 199,
+      "gap_minutes": 165,
       "rung": "red",
       "yellow": true,
-      "last_verified_pt": "2026-11-20 11:23 PM PT",
-      "last_verified_iso": "2026-11-20T23:23:23-08:00",
-      "last_url": "https://www.instagram.com/reel/Df_rQUIjeEH/",
-      "last_job_id": "checkerA-redwave-20261120",
+      "last_verified_pt": "2026-11-21 04:05 AM PT",
+      "last_verified_iso": "2026-11-21T04:05:28-08:00",
+      "last_url": "https://www.instagram.com/reel/DgAI8JjGhGB/",
+      "last_job_id": "verify-bg-20261121-0400-ig-davids",
       "last_item_ref": null,
       "provisional": false,
       "provisional_reason": null,
@@ -475,15 +530,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-20 11:53 PM PT",
-      "next_due_iso": "2026-11-20T23:53:23-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 199 min.",
+      "next_due_pt": "2026-11-21 04:35 AM PT",
+      "next_due_iso": "2026-11-21T04:35:28-08:00",
+      "next_action": "RED \u2014 post now, overdue by about 165 min.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 49,
+      "queue_depth": 46,
       "queue_source": "IG_READY staged"
     },
     {
@@ -495,31 +550,31 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 51,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:51 AM PT",
-      "last_verified_iso": "2026-11-21T01:51:36-08:00",
-      "last_url": "https://www.instagram.com/reel/Df_5XUHE1Xx/",
-      "last_job_id": "redlane-verify-ig-20261121",
-      "last_item_ref": null,
-      "provisional": true,
-      "provisional_reason": "RECORD_VERIFIED from ig-fast-verify: record exists, visibility unproven; poller promotion required",
-      "provisional_last_pt": "2026-11-21 02:35 AM PT",
-      "provisional_last_iso": "2026-11-21T02:35:47-08:00",
-      "provisional_url": "https://www.instagram.com/reel/DgABpdyk_s3/",
-      "provisional_job_id": "ig-fast-verify",
-      "provisional_verdict": "RECORD_VERIFIED",
-      "next_due_pt": "2026-11-21 02:21 AM PT",
-      "next_due_iso": "2026-11-21T02:21:36-08:00",
-      "next_action": "Post now, overdue by about 51 min (rung override).",
+      "state": "ON CADENCE",
+      "gap_minutes": 20,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:30 AM PT",
+      "last_verified_iso": "2026-11-21T06:30:21-08:00",
+      "last_url": "https://www.instagram.com/reel/DgAb47cgGya/",
+      "last_job_id": "verify-bg-20261121-0600-ig-hub",
+      "last_item_ref": "ig-gapfill-hub-santacruz-0604",
+      "provisional": false,
+      "provisional_reason": null,
+      "provisional_last_pt": null,
+      "provisional_last_iso": null,
+      "provisional_url": null,
+      "provisional_job_id": null,
+      "provisional_verdict": null,
+      "next_due_pt": "2026-11-21 07:00 AM PT",
+      "next_due_iso": "2026-11-21T07:00:21-08:00",
+      "next_action": "Next due 2026-11-21 07:00 AM PT.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "Browser session logged out (wave lane). Graph publishing still works.",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 57,
+      "queue_depth": 41,
       "queue_source": "IG_READY staged"
     },
     {
@@ -531,31 +586,31 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 51,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:51 AM PT",
-      "last_verified_iso": "2026-11-21T01:51:36-08:00",
-      "last_url": "https://www.instagram.com/reel/Df_7KtageVL/",
-      "last_job_id": "redlane-verify-ig-20261121",
+      "state": "ON CADENCE",
+      "gap_minutes": 11,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:39 AM PT",
+      "last_verified_iso": "2026-11-21T06:39:30-08:00",
+      "last_url": "https://www.instagram.com/reel/DgAcjF0jJLn/",
+      "last_job_id": "verify-bg-20261121-0600-ig-castle",
       "last_item_ref": null,
-      "provisional": true,
-      "provisional_reason": "RECORD_VERIFIED from ig-fast-verify: record exists, visibility unproven; poller promotion required",
-      "provisional_last_pt": "2026-11-21 02:02 AM PT",
-      "provisional_last_iso": "2026-11-21T02:02:56-08:00",
-      "provisional_url": "https://www.instagram.com/reel/Df_9u8AktIQ/",
-      "provisional_job_id": "ig-fast-verify",
-      "provisional_verdict": "RECORD_VERIFIED",
-      "next_due_pt": "2026-11-21 02:21 AM PT",
-      "next_due_iso": "2026-11-21T02:21:36-08:00",
-      "next_action": "Post now, overdue by about 51 min (rung override).",
+      "provisional": false,
+      "provisional_reason": null,
+      "provisional_last_pt": null,
+      "provisional_last_iso": null,
+      "provisional_url": null,
+      "provisional_job_id": null,
+      "provisional_verdict": null,
+      "next_due_pt": "2026-11-21 07:09 AM PT",
+      "next_due_iso": "2026-11-21T07:09:30-08:00",
+      "next_action": "Next due 2026-11-21 07:09 AM PT.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 46,
+      "queue_depth": 42,
       "queue_source": "IG_READY staged"
     },
     {
@@ -567,31 +622,31 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 51,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:51 AM PT",
-      "last_verified_iso": "2026-11-21T01:51:36-08:00",
-      "last_url": "https://www.instagram.com/reel/Df_4373jf8m/",
-      "last_job_id": "redlane-verify-ig-20261121",
+      "state": "ON CADENCE",
+      "gap_minutes": 13,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:36 AM PT",
+      "last_verified_iso": "2026-11-21T06:36:45-08:00",
+      "last_url": "https://www.instagram.com/reel/DgAcyFRDwY_/",
+      "last_job_id": "verify-bg-20261121-0600-ig-atwater",
       "last_item_ref": null,
       "provisional": true,
       "provisional_reason": "RECORD_VERIFIED from ig-fast-verify: record exists, visibility unproven; poller promotion required",
-      "provisional_last_pt": "2026-11-21 02:02 AM PT",
-      "provisional_last_iso": "2026-11-21T02:02:56-08:00",
-      "provisional_url": "https://www.instagram.com/reel/Df_9nvpDWsz/",
+      "provisional_last_pt": "2026-11-21 06:48 AM PT",
+      "provisional_last_iso": "2026-11-21T06:48:11-08:00",
+      "provisional_url": "https://www.instagram.com/reel/DgAeiNRiY_e/",
       "provisional_job_id": "ig-fast-verify",
       "provisional_verdict": "RECORD_VERIFIED",
-      "next_due_pt": "2026-11-21 02:21 AM PT",
-      "next_due_iso": "2026-11-21T02:21:36-08:00",
-      "next_action": "Post now, overdue by about 51 min (rung override).",
+      "next_due_pt": "2026-11-21 07:06 AM PT",
+      "next_due_iso": "2026-11-21T07:06:45-08:00",
+      "next_action": "Next due 2026-11-21 07:06 AM PT.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 40,
+      "queue_depth": 38,
       "queue_source": "IG_READY staged"
     },
     {
@@ -603,15 +658,15 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 51,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:51 AM PT",
-      "last_verified_iso": "2026-11-21T01:51:36-08:00",
-      "last_url": "https://www.instagram.com/reel/Df_uT0vu_6z/",
-      "last_job_id": "redlane-verify-ig-20261121",
-      "last_item_ref": null,
+      "state": "ON CADENCE",
+      "gap_minutes": 16,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:33 AM PT",
+      "last_verified_iso": "2026-11-21T06:33:50-08:00",
+      "last_url": "https://www.instagram.com/reel/DgAcHMigUMU/",
+      "last_job_id": "verify-bg-20261121-0600-ig-intentionally",
+      "last_item_ref": "ig-gapfill-growth-boring-ep113-0527",
       "provisional": false,
       "provisional_reason": null,
       "provisional_last_pt": null,
@@ -619,15 +674,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:21 AM PT",
-      "next_due_iso": "2026-11-21T02:21:36-08:00",
-      "next_action": "Post now, overdue by about 51 min (rung override).",
+      "next_due_pt": "2026-11-21 07:03 AM PT",
+      "next_due_iso": "2026-11-21T07:03:50-08:00",
+      "next_action": "Next due 2026-11-21 07:03 AM PT.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 43,
+      "queue_depth": 42,
       "queue_source": "IG_READY staged"
     },
     {
@@ -639,25 +694,25 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 51,
-      "rung": "override",
+      "state": "RED",
+      "gap_minutes": 155,
+      "rung": "red",
       "yellow": true,
-      "last_verified_pt": "2026-11-21 01:51 AM PT",
-      "last_verified_iso": "2026-11-21T01:51:36-08:00",
-      "last_url": "https://www.instagram.com/reel/Df_7g5kj-AA/",
-      "last_job_id": "redlane-verify-ig-20261121",
+      "last_verified_pt": "2026-11-21 04:15 AM PT",
+      "last_verified_iso": "2026-11-21T04:15:29-08:00",
+      "last_url": "https://www.instagram.com/reel/DgAMgPkgY1-/",
+      "last_job_id": "verify-bg-20261121-0400-ig-elevated",
       "last_item_ref": null,
       "provisional": true,
       "provisional_reason": "RECORD_VERIFIED from ig-fast-verify: record exists, visibility unproven; poller promotion required",
-      "provisional_last_pt": "2026-11-21 02:02 AM PT",
-      "provisional_last_iso": "2026-11-21T02:02:56-08:00",
-      "provisional_url": "https://www.instagram.com/reel/Df_9onEk84c/",
+      "provisional_last_pt": "2026-11-21 06:00 AM PT",
+      "provisional_last_iso": "2026-11-21T06:00:20-08:00",
+      "provisional_url": "https://www.instagram.com/reel/DgAZDb7DIjG/",
       "provisional_job_id": "ig-fast-verify",
       "provisional_verdict": "RECORD_VERIFIED",
-      "next_due_pt": "2026-11-21 02:21 AM PT",
-      "next_due_iso": "2026-11-21T02:21:36-08:00",
-      "next_action": "Post now, overdue by about 51 min (rung override).",
+      "next_due_pt": "2026-11-21 04:45 AM PT",
+      "next_due_iso": "2026-11-21T04:45:29-08:00",
+      "next_action": "RED \u2014 post now, overdue by about 155 min.",
       "followers": "part of 22,611 IG aggregate (Nov 14)",
       "blocker": "",
       "source": "receipt",
@@ -670,14 +725,14 @@
       "key": "fb_profile",
       "platform": "Facebook",
       "account": "david.sicairos.1 (personal profile)",
-      "cadence_minutes": 30,
-      "cadence_label": "every 30m",
+      "cadence_minutes": 25,
+      "cadence_label": "every 25m",
       "method": "browser for reels/growth + CLI for text (re-approved Nov 19 08:32)",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 48,
-      "rung": "override",
+      "state": "RED",
+      "gap_minutes": 295,
+      "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-21 01:54 AM PT",
       "last_verified_iso": "2026-11-21T01:54:47-08:00",
@@ -691,15 +746,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:24 AM PT",
-      "next_due_iso": "2026-11-21T02:24:47-08:00",
-      "next_action": "Post now, overdue by about 48 min (rung override).",
+      "next_due_pt": "2026-11-21 02:19 AM PT",
+      "next_due_iso": "2026-11-21T02:19:47-08:00",
+      "next_action": "RED \u2014 post now, overdue by about 295 min.",
       "followers": "8.7K",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 69,
+      "queue_depth": 72,
       "queue_source": "FB_READY staged"
     },
     {
@@ -711,31 +766,31 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 54,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:48 AM PT",
-      "last_verified_iso": "2026-11-21T01:48:18-08:00",
-      "last_url": "https://www.facebook.com/122355740132212870/posts/122360753300212870",
-      "last_job_id": "redlane-verify-fb-20261121",
+      "state": "ON CADENCE",
+      "gap_minutes": 28,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:22 AM PT",
+      "last_verified_iso": "2026-11-21T06:22:33-08:00",
+      "last_url": null,
+      "last_job_id": "verify-bg-20261121-0600-fb-california",
       "last_item_ref": null,
-      "provisional": false,
-      "provisional_reason": null,
-      "provisional_last_pt": null,
-      "provisional_last_iso": null,
+      "provisional": true,
+      "provisional_reason": "VERIFIED_LIVE from non-verifier job pub-fb-california: publisher/wave/manual receipt with no independent evidence, never green; verifier or evidence-backed promotion required",
+      "provisional_last_pt": "2026-11-21 06:31 AM PT",
+      "provisional_last_iso": "2026-11-21T06:31:40-08:00",
       "provisional_url": null,
-      "provisional_job_id": null,
-      "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:18 AM PT",
-      "next_due_iso": "2026-11-21T02:18:18-08:00",
-      "next_action": "Post now, overdue by about 54 min (rung override).",
+      "provisional_job_id": "pub-fb-california",
+      "provisional_verdict": "VERIFIED_LIVE",
+      "next_due_pt": "2026-11-21 06:52 AM PT",
+      "next_due_iso": "2026-11-21T06:52:33-08:00",
+      "next_action": "Next due 2026-11-21 06:52 AM PT.",
       "followers": "566 (+115)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 36,
+      "queue_depth": 39,
       "queue_source": "FB_READY staged"
     },
     {
@@ -747,15 +802,15 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 54,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:48 AM PT",
-      "last_verified_iso": "2026-11-21T01:48:18-08:00",
-      "last_url": "https://www.facebook.com/1638669581618653/posts/1657031426449135",
-      "last_job_id": "redlane-verify-fb-20261121",
-      "last_item_ref": null,
+      "state": "ON CADENCE",
+      "gap_minutes": 27,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:22 AM PT",
+      "last_verified_iso": "2026-11-21T06:22:49-08:00",
+      "last_url": "https://www.facebook.com/1638669581618653/posts/1657292449756366",
+      "last_job_id": "verify-bg-20261121-0600-fb-dbeastco",
+      "last_item_ref": "q-fb-refill-20261120-db-07",
       "provisional": false,
       "provisional_reason": null,
       "provisional_last_pt": null,
@@ -763,15 +818,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:18 AM PT",
-      "next_due_iso": "2026-11-21T02:18:18-08:00",
-      "next_action": "Post now, overdue by about 54 min (rung override).",
+      "next_due_pt": "2026-11-21 06:52 AM PT",
+      "next_due_iso": "2026-11-21T06:52:49-08:00",
+      "next_action": "Next due 2026-11-21 06:52 AM PT.",
       "followers": "869",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 36,
+      "queue_depth": 38,
       "queue_source": "FB_READY staged"
     },
     {
@@ -783,15 +838,15 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 54,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:48 AM PT",
-      "last_verified_iso": "2026-11-21T01:48:18-08:00",
-      "last_url": "https://www.facebook.com/122274134930173549/posts/122276457848173549",
-      "last_job_id": "redlane-verify-fb-20261121",
-      "last_item_ref": null,
+      "state": "ON CADENCE",
+      "gap_minutes": 29,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:21 AM PT",
+      "last_verified_iso": "2026-11-21T06:21:18-08:00",
+      "last_url": "https://www.facebook.com/122274134930173549/posts/122276490416173549",
+      "last_job_id": "verify-bg-20261121-0600-fb-elevated",
+      "last_item_ref": "q-fb-supply-20261120-rest-is-part-of-recovery-20261120",
       "provisional": false,
       "provisional_reason": null,
       "provisional_last_pt": null,
@@ -799,15 +854,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:18 AM PT",
-      "next_due_iso": "2026-11-21T02:18:18-08:00",
-      "next_action": "Post now, overdue by about 54 min (rung override).",
+      "next_due_pt": "2026-11-21 06:51 AM PT",
+      "next_due_iso": "2026-11-21T06:51:18-08:00",
+      "next_action": "Next due 2026-11-21 06:51 AM PT.",
       "followers": "114 (+1)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 35,
+      "queue_depth": 38,
       "queue_source": "FB_READY staged"
     },
     {
@@ -819,15 +874,15 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 54,
-      "rung": "override",
+      "state": "YELLOW",
+      "gap_minutes": 30,
+      "rung": "yellow",
       "yellow": true,
-      "last_verified_pt": "2026-11-21 01:48 AM PT",
-      "last_verified_iso": "2026-11-21T01:48:18-08:00",
-      "last_url": null,
-      "last_job_id": "redlane-verify-fb-20261121",
-      "last_item_ref": null,
+      "last_verified_pt": "2026-11-21 06:20 AM PT",
+      "last_verified_iso": "2026-11-21T06:20:03-08:00",
+      "last_url": "https://www.facebook.com/1087967954219609/posts/1106728495676888",
+      "last_job_id": "verify-bg-20261121-0600-fb-intentionally",
+      "last_item_ref": "q-fb-refill-20261120-in-06",
       "provisional": false,
       "provisional_reason": null,
       "provisional_last_pt": null,
@@ -835,15 +890,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:18 AM PT",
-      "next_due_iso": "2026-11-21T02:18:18-08:00",
-      "next_action": "Post now, overdue by about 54 min (rung override).",
+      "next_due_pt": "2026-11-21 06:50 AM PT",
+      "next_due_iso": "2026-11-21T06:50:03-08:00",
+      "next_action": "Post now, overdue by about 30 min (rung yellow).",
       "followers": "0 (rendering quirk)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 51,
+      "queue_depth": 53,
       "queue_source": "FB_READY staged"
     },
     {
@@ -855,14 +910,14 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 54,
-      "rung": "override",
+      "state": "RED",
+      "gap_minutes": 149,
+      "rung": "red",
       "yellow": true,
-      "last_verified_pt": "2026-11-21 01:48 AM PT",
-      "last_verified_iso": "2026-11-21T01:48:18-08:00",
-      "last_url": "https://www.facebook.com/122324146208193779/posts/122327388698193779",
-      "last_job_id": "redlane-verify-fb-20261121",
+      "last_verified_pt": "2026-11-21 04:21 AM PT",
+      "last_verified_iso": "2026-11-21T04:21:04-08:00",
+      "last_url": "https://www.facebook.com/122324146208193779/posts/122327410106193779",
+      "last_job_id": "fbgr-api-b-20261121",
       "last_item_ref": null,
       "provisional": false,
       "provisional_reason": null,
@@ -871,15 +926,15 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:18 AM PT",
-      "next_due_iso": "2026-11-21T02:18:18-08:00",
-      "next_action": "Post now, overdue by about 54 min (rung override).",
+      "next_due_pt": "2026-11-21 04:51 AM PT",
+      "next_due_iso": "2026-11-21T04:51:04-08:00",
+      "next_action": "RED \u2014 post now, overdue by about 149 min.",
       "followers": "187 (+11)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 50,
+      "queue_depth": 53,
       "queue_source": "FB_READY staged"
     },
     {
@@ -892,13 +947,13 @@
       "miss_minutes": 40,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 1,
+      "gap_minutes": 4,
       "rung": "green",
       "yellow": false,
-      "last_verified_pt": "2026-11-21 02:41 AM PT",
-      "last_verified_iso": "2026-11-21T02:41:23-08:00",
-      "last_url": "https://www.threads.com/@209media.connect/post/Dfwd9nim6eb",
-      "last_job_id": "verify-api-18064487693572136",
+      "last_verified_pt": "2026-11-21 06:45 AM PT",
+      "last_verified_iso": "2026-11-21T06:45:50-08:00",
+      "last_url": "https://www.threads.com/@209media.connect/post/DgAefH1G3UE",
+      "last_job_id": "verify-api-18117227465150209",
       "last_item_ref": null,
       "provisional": false,
       "provisional_reason": null,
@@ -907,9 +962,9 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 03:01 AM PT",
-      "next_due_iso": "2026-11-21T03:01:23-08:00",
-      "next_action": "Next due 2026-11-21 03:01 AM PT.",
+      "next_due_pt": "2026-11-21 07:05 AM PT",
+      "next_due_iso": "2026-11-21T07:05:50-08:00",
+      "next_action": "Next due 2026-11-21 07:05 AM PT.",
       "followers": "7,567 (Nov 16)",
       "blocker": "7 extra Threads accounts unwired (need per-account OAuth).",
       "source": "receipt",
@@ -928,13 +983,13 @@
       "miss_minutes": 40,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 2,
+      "gap_minutes": 5,
       "rung": "green",
       "yellow": false,
-      "last_verified_pt": "2026-11-21 02:40 AM PT",
-      "last_verified_iso": "2026-11-21T02:40:11-08:00",
-      "last_url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2doonnvh627",
-      "last_job_id": "verify-api-https://bsky.app/profile/davidsicairos.bsky.social/post/3n2doonnvh627",
+      "last_verified_pt": "2026-11-21 06:45 AM PT",
+      "last_verified_iso": "2026-11-21T06:45:27-08:00",
+      "last_url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n2tdopgomr22",
+      "last_job_id": "verify-api-noid",
       "last_item_ref": null,
       "provisional": false,
       "provisional_reason": null,
@@ -943,9 +998,9 @@
       "provisional_url": null,
       "provisional_job_id": null,
       "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 03:00 AM PT",
-      "next_due_iso": "2026-11-21T03:00:11-08:00",
-      "next_action": "Next due 2026-11-21 03:00 AM PT.",
+      "next_due_pt": "2026-11-21 07:05 AM PT",
+      "next_due_iso": "2026-11-21T07:05:27-08:00",
+      "next_action": "Next due 2026-11-21 07:05 AM PT.",
       "followers": "not on file",
       "blocker": "",
       "source": "receipt",
@@ -967,20 +1022,20 @@
       "gap_minutes": 57,
       "rung": "red",
       "yellow": true,
-      "last_verified_pt": "2026-11-21 01:45 AM PT",
-      "last_verified_iso": "2026-11-21T01:45:55-08:00",
-      "last_url": "https://www.linkedin.com/feed/update/urn:li:share:7529839600358313984/",
+      "last_verified_pt": "2026-11-21 05:53 AM PT",
+      "last_verified_iso": "2026-11-21T05:53:04-08:00",
+      "last_url": "https://www.linkedin.com/feed/update/urn:li:share:7529903656318722048/",
       "last_job_id": "linkedin-publisher-30m",
       "last_item_ref": null,
-      "provisional": true,
-      "provisional_reason": "VERIFIED_LIVE from non-verifier job redlane-verify-linkedin-20261121: publisher/wave/manual receipt with no independent evidence, never green; verifier or evidence-backed promotion required",
-      "provisional_last_pt": "2026-11-21 01:49 AM PT",
-      "provisional_last_iso": "2026-11-21T01:49:22-08:00",
-      "provisional_url": "https://www.linkedin.com/feed/update/urn:li:share:7529834936237969408/",
-      "provisional_job_id": "redlane-verify-linkedin-20261121",
-      "provisional_verdict": "VERIFIED_LIVE",
-      "next_due_pt": "2026-11-21 02:05 AM PT",
-      "next_due_iso": "2026-11-21T02:05:55-08:00",
+      "provisional": false,
+      "provisional_reason": null,
+      "provisional_last_pt": null,
+      "provisional_last_iso": null,
+      "provisional_url": null,
+      "provisional_job_id": null,
+      "provisional_verdict": null,
+      "next_due_pt": "2026-11-21 06:13 AM PT",
+      "next_due_iso": "2026-11-21T06:13:04-08:00",
       "next_action": "RED \u2014 post now, overdue by about 57 min.",
       "followers": "6,186 (Nov 16 browser check)",
       "blocker": "LinkedIn browser signed out since Nov 16. Only David can sign it back in (Google phone verification).",
@@ -999,25 +1054,25 @@
       "method": "API + browser wave",
       "miss_minutes": 70,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 52,
-      "rung": "override",
-      "yellow": true,
-      "last_verified_pt": "2026-11-21 01:50 AM PT",
-      "last_verified_iso": "2026-11-21T01:50:20-08:00",
-      "last_url": "https://www.youtube.com/shorts/1-VWy4FOUgA",
-      "last_job_id": "redlane-verify-youtube-20261121",
-      "last_item_ref": null,
-      "provisional": false,
-      "provisional_reason": null,
-      "provisional_last_pt": null,
-      "provisional_last_iso": null,
-      "provisional_url": null,
-      "provisional_job_id": null,
-      "provisional_verdict": null,
-      "next_due_pt": "2026-11-21 02:25 AM PT",
-      "next_due_iso": "2026-11-21T02:25:20-08:00",
-      "next_action": "Post now, overdue by about 52 min (rung override).",
+      "state": "ON CADENCE",
+      "gap_minutes": 34,
+      "rung": "green",
+      "yellow": false,
+      "last_verified_pt": "2026-11-21 06:16 AM PT",
+      "last_verified_iso": "2026-11-21T06:16:23-08:00",
+      "last_url": "https://www.youtube.com/shorts/rTMTUHT2PnY",
+      "last_job_id": "verify-bg-20261121-0600-youtube",
+      "last_item_ref": "q-video-youtube-1795109743-18",
+      "provisional": true,
+      "provisional_reason": "VERIFIED from non-verifier job youtube-api-upload-yt-fanout-track3-20261121-illegally-fired-ask-in-writing-again-nov16-instagram-reels-refill-20261119: publisher/wave/manual receipt with no independent evidence, never green; verifier or evidence-backed promotion required",
+      "provisional_last_pt": "2026-11-21 06:45 AM PT",
+      "provisional_last_iso": "2026-11-21T06:45:43-08:00",
+      "provisional_url": "https://www.youtube.com/shorts/javenR1bctA",
+      "provisional_job_id": "youtube-api-upload-yt-fanout-track3-20261121-illegally-fired-ask-in-writing-again-nov16-instagram-reels-refill-20261119",
+      "provisional_verdict": "VERIFIED",
+      "next_due_pt": "2026-11-21 06:51 AM PT",
+      "next_due_iso": "2026-11-21T06:51:23-08:00",
+      "next_action": "Next due 2026-11-21 06:51 AM PT.",
       "followers": "44 subscribers (Nov 16)",
       "blocker": "",
       "source": "receipt",
@@ -1036,7 +1091,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 627,
+      "gap_minutes": 875,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-20 04:15 PM PT",
@@ -1053,7 +1108,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-20 04:45 PM PT",
       "next_due_iso": "2026-11-20T16:45:36-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 627 min.",
+      "next_action": "RED \u2014 post now, overdue by about 875 min.",
       "followers": "~1.9K (Nov 17)",
       "blocker": "",
       "source": "receipt",
@@ -1390,18 +1445,33 @@
 
 <script>
 // Rebuilt Nov 19 2026: one screen, worst first, everything collapsible.
-// Data = live-state.json (lanes, from receipts + publication_log, with live
-// queue depth) + self-healing-state.json (diagnoses, plans, gaps, health).
+// SINGLE SOURCE OF TRUTH (dashboard fix Nov 20 22:5x PT): health,
+// summary counts and every lane card come from live-state.json only.
+// self-healing-state.json is advisory-only (diagnoses, plans, 23h gaps,
+// error budget) — it went stale at 7:08 PM PT Nov 20 while the board
+// kept preferring it, so the panel showed 70.9% / 9 on / 4 yellow / 5
+// red against live receipts at 43.3% / 1 on / 5 due / 12 red, with IG
+// cards green while 3h+ stale. Never prefer healing for a status again.
 // Push: SSE events `state` + `healing` from live-server.py; fallback:
 // poll both files every 5s. PT, 12-hour clock, no UTC anywhere on screen.
-// Thresholds: yellow gap > 30, red gap > 60 — flat, not per-lane cadence
-// multiples. Health floor: 77%.
+// Ladder thresholds come from live-state.json per lane (yellow at L,
+// override L+10, diagnoser 2L-5, red 2L) — never recomputed flat here.
+// Health floor: 77%.
+// v4.3 (Nov 21 2026, dashboard-yellow-controls): this file is now the ONE
+// panel for both hosts. It merges the v4.2 cache-on-load + public GitHub
+// API read (the public copy had regressed to the flat 30/60 rule and the
+// stale-healing preference — see dashboard-yellow-controls-20261121.md)
+// with the v4.1 redesign fixes (per-lane ladder, supply panel) and the
+// sibling v4.2 controls table. Plus: DUE SOON pre-fire display (gap >=
+// L-10), STALE past 10 min (never green from a stale snapshot), Resume on
+// every lane card, GET /breakers wired. All display-only: the file state
+// in live-state.json is never rewritten here.
 const POLL_MS = 5000;
-// Live feed (Nov 20 2026): on the public host the panel reads state
-// from the GitHub API (current repo content on every request, no Pages
-// build), not the static Pages file (rebuilt every ~5-7 min). Local
-// panel keeps the relative file + SSE push. ETag conditional requests
-// (304s) keep the unauthenticated 60/hr API limit from tripping.
+// One file, two hosts (v4.3 unification): on the public host the panel
+// reads state from the GitHub API (current repo content on every request,
+// no Pages build), not the static Pages file. Local panel keeps the
+// relative file + SSE push. ETag conditional requests (304s) keep the
+// unauthenticated 60/hr API limit from tripping.
 const IS_PUBLIC = !(location.hostname === '127.0.0.1' || location.hostname === 'localhost' || location.hostname === '');
 const _GH = 'https://api.github.com/repos/sicairos4/david-sicairos-site/contents/209-intelligence/';
 const STATE_URL = IS_PUBLIC ? _GH+'live-state.json' : 'live-state.json';
@@ -1410,10 +1480,20 @@ const STEERING_URL = IS_PUBLIC ? _GH+'steering-panel.json' : 'steering-panel.jso
 const EVENTS_URL = '/events';
 const ACTION_URL = '/action';
 const STEER_URL = '/steer';
-const PUBLIC_READONLY = true; // Public GitHub Pages copy: read-only. No POST ever leaves this page.
+const SUPPLY_URL = IS_PUBLIC ? _GH+'supply-panel.json' : 'supply-panel.json';
+const BREAKERS_URL = '/breakers';
+const PUBLIC_READONLY = IS_PUBLIC; // Public GitHub Pages copy: read-only. No POST ever leaves this page.
+const PRE_FIRE_MIN = 10; // fire at L-10: the pre-fire window is [L-10, L)
+const STALE_MIN = 10; // a state file older than this never shows a lane green
+// True-supply panel (Worker 3, Fix Supply, Nov 20 2026): per-lane TRUE
+// fireable / deficit / LOW-CRITICAL badge. Written by fix_supply.py
+// --panel; rendered as its own line, never mixed into the staged
+// "Queue depth" counts (those stay live-state.json, Worker 1's).
+const SUPPLY_LANES = new Set(['ig_personal','ig_davids','ig_hub','ig_castle','ig_atwater','ig_intentionally','ig_elevated','fb_profile','fb_california','fb_dbeastco','fb_elevated','fb_intentionally','fb_problemsolved','threads','bluesky','linkedin','youtube','tiktok']);
 
-let live = null, healing = null, steering = null, mode = 'connecting', pollTimer = null, es = null;
+let live = null, healing = null, steering = null, supply = null, breakers = null, mode = 'connecting', pollTimer = null, es = null;
 let lastDataAt = 0; // ms timestamp of the last successful data receipt
+let staleState = false, stateAgeMin = null; // set in render() from live.generated_at_iso
 
 // CACHE-ON-LOAD (dashboard rebuild, Nov 21 2026 — David's order: never blank
 // on first load, show the last cached version, then update live). Render
@@ -1463,7 +1543,7 @@ function renderCachedFirst(){
     const ageMin = Math.max(0, Math.floor((Date.now()-stateTime(best))/60000));
     note.textContent = 'Showing ' + src + ' · generated ' + (best.generated_at_pt||'unknown')
       + ' (' + (ageMin<1?'just now':ageMin+'m ago') + ')'
-      + (ageMin>10 ? ' · STALE — updating live now' : ' · updating live now')
+      + (ageMin>STALE_MIN ? ' · STALE — updating live now' : ' · updating live now')
       + '. It stays up if the live fetch fails.';
   }
   return true;
@@ -1517,29 +1597,77 @@ function dueText(l){
   if(m===0) return 'due now';
   return 'overdue '+Math.abs(m)+'m';
 }
-// Flat 30/60 status from a gap; self-healing state is authoritative when present.
+// Lane status is the ladder state live-state.json already computed from
+// the lane's own L (yellow at L, override L+10, diagnoser 2L-5, red 2L).
+// Dashboard fix Nov 20 22:5x PT: NEVER recompute it here. The old code
+// preferred the (stale) self-healing file, then fell back to a flat
+// 30/60 rule — so Threads at gap 30m (L=20, true OVERRIDE) rendered
+// ON CADENCE, and FB/YouTube at gap 30m (true YELLOW) rendered green.
+// Yellow is a signal, never suppressed: override/diagnoser stay visible.
 function laneStatus(l){
-  const h = healing && healing.lanes && healing.lanes[l.key];
-  if(h && h.state) return h.state;
-  if(!l.cadence_minutes || !l.last_verified_iso) return (l.state||'NO DATA');
-  const gap = Math.floor((Date.now()-new Date(l.last_verified_iso).getTime())/60000);
-  if(gap > 60) return 'RED';
-  if(gap > 30) return 'YELLOW';
-  return 'ON CADENCE';
+  if(!l) return 'NO DATA';
+  // Crew 4 fix Nov 21 2026 (Beehiiv green card): a lane that is NOT
+  // scored never renders green. Beehiiv is a weekly newsletter lane with
+  // no cadence and no verified-post time; live-state marks it ON CADENCE
+  // and scored=false, so the old code showed a permanent green card and
+  // inflated the Facebook-group "on cadence" count. Non-scored lanes
+  // render NOT LIVE (blue/other) and keep their real state label only
+  // when it is already a non-live state (RETIRED / NOT LIVE YET /
+  // BUILDING / PAUSED).
+  if(l.scored===false){
+    const s=(l.state||'').toUpperCase();
+    if(s==='RETIRED'||s==='NOT LIVE YET'||s==='BUILDING'||s==='PAUSED') return s;
+    return 'NOT LIVE';
+  }
+  const s=(l.state||'').toUpperCase();
+  return s || 'NO DATA';
+}
+function laneGapMin(l){
+  return l.last_verified_iso ? Math.floor((Date.now()-new Date(l.last_verified_iso).getTime())/60000) : null;
+}
+// Display status — the file state plus the two things the file cannot say:
+// DUE SOON while the lane sits in its pre-fire window [L-10, L) — the fire
+// is due NOW, yellow at L means the pre-fire was missed — and STALE when
+// the state file itself is older than STALE_MIN (a stale snapshot never
+// shows a lane green). Display-only: live-state.json is untouched.
+function displayStatus(l){
+  const s = laneStatus(l);
+  if(s==='ON CADENCE' && staleState) return 'STALE';
+  if(s==='ON CADENCE'){
+    const L = l.cadence_minutes || null, gap = laneGapMin(l);
+    if(L && gap!=null && gap >= L - PRE_FIRE_MIN) return 'DUE SOON';
+  }
+  return s;
+}
+function preFireInMin(l){
+  const L = l.cadence_minutes || null, gap = laneGapMin(l);
+  if(!L || gap==null) return null;
+  return (L - PRE_FIRE_MIN) - gap; // <=0: fire now
 }
 function stateClass(st){
   const s=(st||'').toUpperCase();
   if(s==='ON CADENCE') return 'on';
-  if(s==='YELLOW'||s==='DUE') return 'due';
+  // Every past-L, not-yet-red rung is due (amber): yellow, override,
+  // diagnoser. Before, OVERRIDE/DIAGNOSER fell through to 'other' (blue).
+  // DUE SOON is amber too — it is the moment to act, before yellow.
+  if(s==='YELLOW'||s==='DUE'||s==='OVERRIDE'||s==='DIAGNOSER'||s==='DUE SOON') return 'due';
   if(s==='RED'||s==='MISSING') return 'miss';
-  if(s==='NO DATA') return 'nodata';
+  if(s==='NO DATA'||s==='STALE') return 'nodata';
   return 'other';
 }
-function badgeLabel(st){
+function badgeLabel(st, l){
   const s=(st||'').toUpperCase();
+  const L = (l && l.cadence_minutes) || null;
   if(s==='ON CADENCE') return 'ON CADENCE';
-  if(s==='YELLOW') return 'YELLOW · 30m+ LATE';
-  if(s==='RED') return 'RED · 60m+ LATE';
+  if(s==='DUE SOON'){
+    const pf = preFireInMin(l);
+    return 'DUE SOON · FIRE '+(pf!=null&&pf>0?'IN '+pf+'m':'NOW')+' (AT '+(L?L-PRE_FIRE_MIN+'m':'L−10')+')';
+  }
+  if(s==='STALE') return 'STALE · STATE '+(stateAgeMin!=null?stateAgeMin+'m':'?')+' OLD';
+  if(s==='YELLOW') return 'YELLOW · PAST '+(L?L+'m':'CADENCE');
+  if(s==='OVERRIDE') return 'OVERRIDE · PAST '+(L?L+10+'m':'CADENCE+10m');
+  if(s==='DIAGNOSER') return 'DIAGNOSER · NEAR '+(L?2*L+'m':'2× CADENCE');
+  if(s==='RED') return 'RED · PAST '+(L?2*L+'m':'2× CADENCE');
   return s||'?';
 }
 function queueDepth(l, h){
@@ -1549,22 +1677,26 @@ function queueDepth(l, h){
 }
 
 function laneCard(l){
-  const st = laneStatus(l);
+  const st = displayStatus(l);
   const cls = stateClass(st);
   const h = healing && healing.lanes ? healing.lanes[l.key] : null;
-  const gap = h && h.gap_min!=null ? h.gap_min : null;
+  // Gap is computed live from the receipt time in live-state.json, never
+  // from the self-healing file (stale since 7:08 PM PT Nov 20: it said
+  // IG gap 23.7m while live receipts said 191m). Healing is used only
+  // for 23h stats, diagnosis and plan below.
+  const gap = l.last_verified_iso ? Math.floor((Date.now()-new Date(l.last_verified_iso).getTime())/60000) : null;
   const last = l.last_verified_pt
     ? esc(l.last_verified_pt)+' · <span data-ts="'+esc(l.last_verified_iso||'')+'">'+agoText(l.last_verified_iso)+'</span>'
     : 'no verified post on file';
   let plain;
   if(cls==='miss' && gap!=null) plain = 'Last post <b>'+gapText(gap)+' ago</b>. It should post every '+esc(l.cadence_label||'')+'.';
   else if(cls==='on' && gap!=null) plain = 'Last post <b>'+gapText(gap)+' ago</b>. On time for every '+esc(l.cadence_label||'')+'.';
-  else if(cls==='due' && gap!=null) plain = 'Last post <b>'+gapText(gap)+' ago</b>. A post is due now.';
+  else if(cls==='due' && gap!=null) plain = st==='DUE SOON' ? 'Last post <b>'+gapText(gap)+' ago</b>. Pre-fire window — fire at '+(l.cadence_minutes?l.cadence_minutes-PRE_FIRE_MIN+'m':'L−10')+', before it turns yellow.' : 'Last post <b>'+gapText(gap)+' ago</b>. A post is due now.';
   else plain = esc(l.cadence_label||'') || 'No schedule yet.';
   let html = '<details class="card '+cls+'" data-lane="'+esc(l.key)+'"><summary>'
     + '<span class="dot '+({on:'g',due:'a',miss:'r',nodata:'grey',other:'b'})[cls]+'"></span>'
     + '<span>'+esc(l.platform)+'<span class="acct">'+esc(l.account||'')+'</span></span>'
-    + '<span class="badge '+cls+'">'+esc(badgeLabel(st))+'</span></summary>';
+    + '<span class="badge '+cls+'">'+esc(badgeLabel(st, l))+'</span></summary>';
   html += '<div class="plain">'+plain+'</div>';
   html += '<div class="kv">Last verified post: <b>'+last+'</b>'
     + postLink(l) + '</div>';
@@ -1574,11 +1706,27 @@ function laneCard(l){
   html += '<div class="kv">Queue depth: <b>'+(q==null?'unknown':q.n+' staged')+'</b>'
     +(q!=null?(q.n<25?' · <span class="dry">below floor of 25</span>':' · floor 25'):'')
     +(q!=null?' · '+esc(q.src):'')+'</div>';
+  // True supply (Worker 3, Fix Supply): TRUE fireable, not staged — staged
+  // counts alone do not mean fireable. From /supply-panel.json only.
+  const s = supply && supply.lanes ? supply.lanes[l.key] : null;
+  if(s && s.fireable!=null){
+    // Crew 4 fix Nov 21 2026: supply-panel.json was 6h46m stale on the
+    // morning of Nov 21 (generated 23:43 PT, no refresh job) while the
+    // panel printed its numbers with no age. Show the age and flag STALE
+    // past 15m; the 5m refresh cron (supply-panel-refresh) keeps it fresh.
+    const supAgeMin = supply.generated_epoch ? Math.max(0, Math.floor((Date.now()/1000 - supply.generated_epoch)/60)) : null;
+    const supStale = supAgeMin!=null && supAgeMin>15;
+    html += '<div class="kv">True supply: <b>'+esc(s.fireable)+' fireable</b> · deficit <b>'+esc(s.deficit)+'</b>'
+      + (s.badge==='CRITICAL'?' · <span class="dry">CRITICAL &lt;10</span>':s.badge==='LOW'?' · <span class="dry">LOW &lt;25</span>':' · floor 25')
+      + ' · as of '+esc(supply.generated_pt||'?')
+      + (supStale?' · <span class="dry">STALE '+supAgeMin+'m old</span>':'')
+      +'</div>';
+  }
   if(h && (h.gap_longest_23h_min!=null || h.gap_last_min!=null)){
     const lg = h.gap_longest_23h_min, av = h.gap_avg_23h_min;
     html += '<div class="gapgrid">'
       + '<div class="gapbox"><div class="v'+(lg!=null&&lg>120?' bad':'')+'">'+gapText(lg)+'</div><div class="k">longest gap · 23h</div></div>'
-      + '<div class="gapbox"><div class="v'+(gap!=null&&gap>60?' bad':gap!=null&&gap>30?' warn':'')+'">'+gapText(gap)+'</div><div class="k">last gap · now</div></div>'
+      + '<div class="gapbox"><div class="v'+(gap!=null&&l.cadence_minutes&&gap>=l.cadence_minutes?' bad':gap!=null&&l.cadence_minutes&&gap>=l.cadence_minutes-PRE_FIRE_MIN?' warn':'')+'">'+gapText(gap)+'</div><div class="k">last gap · now</div></div>'
       + '<div class="gapbox"><div class="v">'+gapText(av)+'</div><div class="k">average gap · 23h</div></div>'
       + '</div>';
     html += '<div class="kv">Verified publishes in last 23h: <b>'+esc(h.publishes_23h==null?'-':h.publishes_23h)+'</b></div>';
@@ -1604,7 +1752,9 @@ function laneCard(l){
     + '<button class="mini" data-act="failover" data-lane="'+esc(l.key)+'" title="Rung 2: switch to the next route (queued)">Fail over · R2</button>'
     + '<button class="mini primary" data-act="fire_fresh" data-lane="'+esc(l.key)+'" title="Rung 3: fire one fresh distinct row from verified supply (queued)">Fire fresh · R3</button>'
     + '<button class="mini" data-act="pause" data-lane="'+esc(l.key)+'" title="Rung 4: open the circuit breaker for this lane">Pause · R4</button>'
+    + '<button class="mini" data-act="resume" data-lane="'+esc(l.key)+'" title="Rung 4: close the circuit breaker — lane resumes on next tick (no-op if it was not paused)">Resume · R4</button>'
     + '<button class="mini" data-act="rebuild_queue" data-lane="'+esc(l.key)+'" title="Rung 6: drain and refill this lane’s queue from receipts + evergreen (queued)">Rebuild queue · R6</button>'
+    + (SUPPLY_LANES.has(l.key)?'<button class="mini" data-act="fix_supply" data-lane="'+esc(l.key)+'" title="Fix Supply: expire stale rows in this lane (expire-only, never deleted), then request exactly the deficit to refill to 25 via the lane producer. Supply only — never fires a post.">Fix supply</button>':'')
     + '</div><div class="act-result" id="act-'+esc(l.key)+'"></div>';
   html += '</details>';
   return html;
@@ -1623,20 +1773,20 @@ const GROUPS = [
   {name:'More', brand:'more', keys:['spotify','whatsapp','nextdoor','truthsocial','pinterest']},
 ];
 
-// Best first inside a group: ON CADENCE (0), YELLOW/DUE (1), RED/MISSING (2), NO DATA (3).
+// Best first inside a group: ON CADENCE (0), YELLOW/DUE/OVERRIDE/DIAGNOSER (1), RED/MISSING (2), NO DATA (3).
 function stateRank(l){
-  const s=(laneStatus(l)||'').toUpperCase();
+  const s=(displayStatus(l)||'').toUpperCase();
   if(s==='ON CADENCE') return 0;
-  if(s==='YELLOW'||s==='DUE') return 1;
+  if(s==='YELLOW'||s==='DUE'||s==='OVERRIDE'||s==='DIAGNOSER'||s==='DUE SOON') return 1;
   if(s==='RED'||s==='MISSING') return 2;
-  if(s==='NO DATA') return 3;
+  if(s==='NO DATA'||s==='STALE') return 3;
   return 4;
 }
 function laneGapMs(l){
   return l.last_verified_iso ? (Date.now()-new Date(l.last_verified_iso).getTime()) : Infinity;
 }
 function worstLane(lanes){
-  const scored = lanes.filter(l=>l.cadence_minutes && l.last_verified_iso);
+  const scored = lanes.filter(l=>l.scored && l.last_verified_iso);
   if(!scored.length) return null;
   scored.sort((a,b)=>{
     const ra=stateRank(a), rb=stateRank(b);
@@ -1671,8 +1821,8 @@ function renderGroups(byKey){
   for(let i=0;i<built.length;i++){
     const item=built[i], g=item.g, lanes=item.lanes;
     const counts={on:0,due:0,miss:0,other:0};
-    lanes.forEach(l=>{const c=stateClass(laneStatus(l)); if(counts[c]!=null) counts[c]++; else counts.other++;});
-    let light='grey';
+    lanes.forEach(l=>{const c=stateClass(displayStatus(l)); if(counts[c]!=null) counts[c]++; else counts.other++;});
+    let light='b'; // a group whose lanes all have a state is never grey
     if(counts.miss) light='r'; else if(counts.due) light='a';
     else if(counts.on && counts.other===0) light='g'; else if(counts.on) light='b';
     const parts=[];
@@ -1788,11 +1938,10 @@ function renderSteering(){
     + '<select id="steerLane">'+lanes.map(l=>'<option value="'+esc(l.key)+'">'+esc(l.platform)+' '+esc(l.account||'')+'</option>').join('')+'</select>'
     + '<select id="steerBand"><option value="A">A · Audit</option><option value="B">B · Education</option><option value="C">C · Community</option><option value="D">D · California Civic</option></select>'
     + '<select id="steerMode"><option value="boost">boost</option><option value="hold">hold</option><option value="clear">clear</option></select>'
-    + '<button class="mini primary" id="steerSaveBtn"'+(PUBLIC_READONLY?' disabled':'')+'>Save steer</button>'
+    + '<button class="mini primary" id="steerSaveBtn">Save steer</button>'
     + '<input type="text" id="steerTheme" placeholder="Day theme (e.g. recall countdown)" maxlength="200">'
-    + '<button class="mini" id="steerThemeBtn"'+(PUBLIC_READONLY?' disabled':'')+'>Save theme</button>'
+    + '<button class="mini" id="steerThemeBtn">Save theme</button>'
     + '</div><div class="act-result" id="steerResult"></div>'
-    + (PUBLIC_READONLY?'<div class="kv">Public read-only view — steering controls are disabled here; they live on the local panel.</div>':'')
     + '<div class="kv" style="margin-top:6px">Steering is advisory: a steer is a suggestion the writer records, not an order to a publisher. '+(steering.notes||[]).map(esc).join(' ')+'</div>';
   el.innerHTML = html;
   const sb = document.getElementById('steerSaveBtn');
@@ -1802,7 +1951,6 @@ function renderSteering(){
 }
 async function postSteer(body){
   const out = document.getElementById('steerResult');
-  if(PUBLIC_READONLY){ if(out){ out.textContent='Public view is read-only — steering lives on the local panel.'; out.className='act-result err'; } return; }
   try{
     if(out){ out.textContent='Saving…'; out.className='act-result'; }
     const r = await fetch(STEER_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body)});
@@ -1831,33 +1979,77 @@ function render(){
   if(!live) return;
   const lanes=live.lanes||[];
   const byKey={}; lanes.forEach(l=>byKey[l.key]=l);
+  // State age drives STALE display: computed once per render, before any
+  // card or count is drawn, so a stale snapshot can never render green.
+  stateAgeMin = live.generated_at_iso ? Math.floor((Date.now()-new Date(live.generated_at_iso).getTime())/60000) : null;
+  staleState = stateAgeMin!=null && stateAgeMin>STALE_MIN;
 
-  // Health: prefer the self-healing cycle's numbers (same method, fresh).
+  // Health: live-state.json ONLY (receipts-only mean of lane scores).
+  // Dashboard fix Nov 20 22:5x PT: the old code preferred the
+  // self-healing cycle's health_pct — 70.9% from a 7:08 PM PT cycle
+  // against 43.3% live. Healing now supplies only the error budget /
+  // burn / freeze line, labelled with its own cycle time and a STALE
+  // flag when older than 10 minutes.
   const sys = healing && healing.system ? healing.system : null;
-  const hpct = sys ? sys.health_pct : (live.system_health||{}).pct;
+  const healStale = !(healing && healing.generated_epoch) ? true
+    : ((Date.now()/1000 - healing.generated_epoch) > 600);
+  const healCycle = healing && healing.generated_pt ? healing.generated_pt : 'unknown cycle';
+  const hpct = (live.system_health||{}).pct;
+  const scoredN = (live.system_health||{}).lanes_scored || 0;
   const hcls = hpct==null?'':(hpct>=77?'good':(hpct>=50?'warn':'bad'));
   const budget = sys ? sys.budget_remaining_pts : null;
   const burn = sys ? sys.burn_rate_per_h : null;
   const frozen = sys ? sys.changes_frozen : false;
   document.getElementById('healthCard').innerHTML =
     '<div class="row"><div class="n '+hcls+'">'+(hpct==null?'-':hpct+'%')+'</div>'
-    +'<div class="lbl">system health<br>18 lanes scored</div>'
+    +'<div class="lbl">system health<br>'+scoredN+' lanes scored</div>'
     +'<div class="budget">Error budget: <b>'+(budget==null?'-':(budget>=0?'+':'')+budget+' pts')+'</b> vs the 77% floor'
     +(burn!=null?'<br>Burn rate: <b>'+burn+'×</b> (1× = on pace; 14.4× exhausts a 30-day budget in ~2 days)':'')
-    +'<br>Computed '+esc(sys?('self-healing cycle'):(live.system_health||{}).computed_at_pt||'-')+' from live receipts only.</div></div>'
+    +'<br>Method: receipts only — mean of lane scores (cadence ÷ time since last VERIFIED post). Submits never count. Computed '+esc((live.system_health||{}).computed_at_pt||'-')+'.'
+    +'<br>Self-healing budget from '+esc(healCycle)+(healStale?' — <b style="color:var(--red)">STALE, cycle writer down</b>':'')+'.</div></div>'
     +'<div class="bar"><div class="fill '+hcls+'" style="width:'+Math.max(0,Math.min(100,hpct||0))+'%"></div>'
     +'<div class="line77"><span>77% floor</span></div></div>'
     +'<div class="barlabels"><span>0%</span><span>77% — forced-reset line (rung 8, only after the ladder is tried)</span><span>100%</span></div>'
     +(frozen?'<div class="frozen"><b>Budget overdrawn — changes frozen.</b> No canary rollouts, no new behaviour; reliability work only, until health is back above 77%.</div>':'')
     +(((live.system_health||{}).top_drags||[]).length?'<div class="budget" style="margin-top:8px">Biggest drags: <b>'+(live.system_health.top_drags||[]).map(x=>esc(x.lane)+' '+x.score).join(' · ')+'</b></div>':'');
 
+  // Summary: derived HERE, in this same pass, from the same lane-state
+  // array the cards render — never from healing.system, never from a
+  // second count. Dashboard fix Nov 20 22:5x PT: the old code took
+  // on/yellow/red from healing.system (stale 7:08 PM PT: 9/4/5) while
+  // the cards came from lane states, and live.summary counted all 27
+  // lanes (buckets summed to 19). Now: scored lanes only (18), on +
+  // due + red == total, always, by construction.
   const s=live.summary||{};
-  const on = sys?sys.on_cadence:(s.on_cadence||0), yel = sys?sys.yellow:(s.due||0), red = sys?sys.red:(s.missing||0);
+  const scoredLanes = lanes.filter(l=>l.scored);
+  let on=0, yel=0, red=0, dueSoonN=0;
+  const dueSoonNames=[];
+  scoredLanes.forEach(l=>{
+    const ds=displayStatus(l);
+    if(ds==='DUE SOON'){ dueSoonN++; dueSoonNames.push(l.platform+' '+(l.account||'')); }
+    const c=stateClass(ds);
+    if(c==='on') on++; else if(c==='due') yel++; else if(c==='miss') red++;
+  });
+  // STALE banner: a state file older than STALE_MIN never shows a lane green.
+  const sb = document.getElementById('staleBanner');
+  if(sb){
+    if(staleState){
+      sb.style.display='';
+      sb.textContent = 'STALE — state file is '+(stateAgeMin!=null?stateAgeMin+'m':'?')+' old (generated '+(live.generated_at_pt||'unknown')+'). Showing last known states; green is not trusted until the updater writes a fresh file.';
+    } else { sb.style.display='none'; sb.textContent=''; }
+  }
+  const dsl = document.getElementById('dueSoonLine');
+  if(dsl){
+    dsl.textContent = dueSoonN
+      ? 'Due soon — pre-fire window (fire at L−10, before yellow): '+dueSoonN+' lane'+(dueSoonN>1?'s':'')+' — '+dueSoonNames.join(' · ')
+      : 'Due soon — pre-fire window: no lane inside its fire-at window right now. Fire-at is L−10 (10m for L=20, 15m for the FB profile, 20m for L=30, 25m for YouTube).';
+  }
+  const trackedN = s.tracked_lanes || lanes.length;
   document.getElementById('summary').innerHTML =
     '<div class="stat on"><div class="n">'+on+'</div><div class="l">on cadence</div></div>'
-    +'<div class="stat due"><div class="n">'+yel+'</div><div class="l">yellow · 30m+ late</div></div>'
-    +'<div class="stat miss"><div class="n">'+red+'</div><div class="l">red · 60m+ late</div></div>'
-    +'<div class="stat nodata"><div class="n">'+(s.total_lanes||lanes.length)+'</div><div class="l">lanes tracked</div></div>';
+    +'<div class="stat due"><div class="n">'+yel+'</div><div class="l">yellow · past cadence</div></div>'
+    +'<div class="stat miss"><div class="n">'+red+'</div><div class="l">red · past 2× cadence</div></div>'
+    +'<div class="stat nodata"><div class="n">'+scoredLanes.length+'</div><div class="l">lanes scored · '+trackedN+' tracked</div></div>';
 
   // Worst lane strip: the one decision at the top.
   const w = worstLane(lanes);
@@ -1866,23 +2058,23 @@ function render(){
     wEl.className='worst ok';
     wEl.innerHTML='<div class="t">Worst lane</div><div class="big">No scored lane has a verified post yet.</div>';
   } else {
-    const wst = laneStatus(w), wcls = stateClass(wst);
+    const wst = displayStatus(w), wcls = stateClass(wst);
     const wh = healing && healing.lanes ? healing.lanes[w.key] : null;
-    const wgap = wh && wh.gap_min!=null ? wh.gap_min : null;
+    const wgap = w.last_verified_iso ? Math.floor((Date.now()-new Date(w.last_verified_iso).getTime())/60000) : null;
     const wq = queueDepth(w, wh);
     wEl.className='worst '+wcls;
     wEl.innerHTML='<div class="t">Worst lane — fix this first</div>'
-      +'<div class="big">'+esc(w.platform)+' '+esc(w.account||'')+' · '+esc(badgeLabel(wst))+'</div>'
+      +'<div class="big">'+esc(w.platform)+' '+esc(w.account||'')+' · '+esc(badgeLabel(wst, w))+'</div>'
       +'<div class="meta">Last post <b>'+(wgap!=null?gapText(wgap)+' ago':'—')+'</b> ('+esc(w.last_verified_pt||'never')+')'
       +' · Next due <b>'+esc(w.next_due_pt||'-')+'</b> ('+esc(dueText(w))+')'
       +(wq!=null?' · Queue <b>'+wq.n+' staged</b>'+(wq.n<25?' <span class="dry">below floor</span>':''):' · Queue unknown')
       +(w.blocker?' · '+esc(w.blocker):'')
       +postLink(w, 'color:#1d4ed8;text-decoration:none')
       +'</div>'
-      +'<div class="actions"><button class="mini primary" data-act="fire_fresh" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+' title="Rung 3: fire one fresh distinct row from verified supply (queued)">Fire fresh · R3</button>'
-      +'<button class="mini" data-act="retry" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+'">Retry · R1</button>'
-      +'<button class="mini" data-act="failover" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+'">Fail over · R2</button>'
-      +'<button class="mini" data-act="rebuild_queue" data-lane="'+esc(w.key)+'"'+(PUBLIC_READONLY?' disabled':'')+'">Rebuild queue · R6</button></div>'
+      +'<div class="actions"><button class="mini primary" data-act="fire_fresh" data-lane="'+esc(w.key)+'" title="Rung 3: fire one fresh distinct row from verified supply (queued)">Fire fresh · R3</button>'
+      +'<button class="mini" data-act="retry" data-lane="'+esc(w.key)+'">Retry · R1</button>'
+      +'<button class="mini" data-act="failover" data-lane="'+esc(w.key)+'">Fail over · R2</button>'
+      +'<button class="mini" data-act="rebuild_queue" data-lane="'+esc(w.key)+'">Rebuild queue · R6</button></div>'
       +'<div class="act-result" id="act-'+esc(w.key)+'"></div>';
   }
 
@@ -1890,7 +2082,7 @@ function render(){
   const ex = healing ? healing.executor : null;
   const gov = healing ? healing.governance : null;
   const pool = gov ? gov.pool : 'unknown';
-  const resetGate = sys && hpct!=null && hpct<77;
+  const resetGate = hpct!=null && hpct<77;
   document.getElementById('sysCard').innerHTML =
     '<div class="sysrow">'
     +'<span class="syspill '+(ex?(ex.status==='HEALTHY'?'ok':ex.status==='DEGRADED'?'warn':'bad'):'')+'">Executor: '+(ex?esc(ex.status)+' · pid '+esc(ex.pid||'-')+' · heartbeat '+esc(ex.heartbeat_age_s==null?'-':ex.heartbeat_age_s+'s')+' · egress '+(ex.egress_github_200?'ok':'FAILED'):'unknown')+'</span>'
@@ -1899,13 +2091,13 @@ function render(){
     +'<span class="syspill">Supabase realtime: not wired — no key on file</span>'
     +'</div>'
     +'<div class="sysact">'
-    +'<button class="mini" data-sysact="restart_executor"'+(PUBLIC_READONLY?' disabled':'')+' title="Rung 5: restart only the executor, with proxy env + egress probe verified. Refused while it is healthy.">Restart executor · R5</button>'
-    +'<button class="mini danger" data-sysact="full_reset" '+((resetGate && !PUBLIC_READONLY)?'':'disabled')+' title="Rung 8: full system reset. Gated: needs health below 77% after the ladder was tried, plus confirmation.">Full reset · R8'+(resetGate?'':' (gated — health above 77%)')+'</button>'
+    +'<button class="mini" data-sysact="restart_executor" title="Rung 5: restart only the executor, with proxy env + egress probe verified. Refused while it is healthy.">Restart executor · R5</button>'
+    +'<button class="mini danger" data-sysact="full_reset" '+(resetGate?'':'disabled')+' title="Rung 8: full system reset. Gated: needs health below 77% after the ladder was tried, plus confirmation.">Full reset · R8'+(resetGate?'':' (gated — health above 77%)')+'</button>'
     +'</div><div class="act-result" id="act-system"></div>'
     +(resetGate?'<div class="kv" style="margin-top:8px">Full reset is available: health '+hpct+'% is below the 77% floor and ladder repairs have been tried. It rebuilds state from receipts and is <b>not complete</b> until every scored lane posts a verified receipt afterwards.</div>':'<div class="kv" style="margin-top:8px">Full reset stays gated until health is below 77% after the ladder has been tried. The cheapest repair that fits the diagnosis always runs first.</div>');
 
-  const sig = lanes.map(l=>l.key+'='+(l.last_verified_iso||'')+'|q'+(l.queue_depth==null?'':l.queue_depth)).join(';')
-    + '|' + JSON.stringify(healing?healing.system:null);
+  const sig = lanes.map(l=>l.key+'='+(l.last_verified_iso||'')+'|q'+(l.queue_depth==null?'':l.queue_depth)+'|'+displayStatus(l)).join(';')
+    + '|' + JSON.stringify(healing?healing.system:null) + '|' + (staleState?'stale':'fresh');
   if(render._sig !== sig){
     const open=openKeys();
     renderGroups(byKey);
@@ -1918,6 +2110,8 @@ function render(){
   } else {
     tickTimes();
   }
+
+  renderControls();
 
   const latest=lanes.filter(l=>l.last_verified_iso)
     .sort((a,b)=>new Date(b.last_verified_iso)-new Date(a.last_verified_iso)).slice(0,6);
@@ -1944,10 +2138,49 @@ function render(){
   document.getElementById('actions').innerHTML = need.join('');
 
   document.getElementById('foot').textContent =
-    '209 Intelligence · v4.2 · cache-on-load, Nov 21 · sources: live-state.json (receipts + queue depth, live via GitHub API) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
+    '209 Intelligence · v4.3 · yellow + controls + cache-on-load, Nov 21 · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
     +' · newest receipt '+esc(live.newest_receipt_pt||'-')
-    +' · Supabase realtime: not wired, no key · '+(s.total_lanes||lanes.length)+' lanes · Public read-only copy — steering + actions disabled.';
+    +' · Supabase realtime: not wired, no key · '+(s.tracked_lanes||lanes.length)+' lanes tracked, '+(s.total_lanes||scoredLanes.length)+' scored.';
   renderSteering();
+}
+
+// Controls table (Crew 4, Nov 21 2026): one row per scored lane — state,
+// gap, L, queue, true supply — with Pause/Resume, Fire fresh, Fix supply
+// buttons wired to the same doAction as the lane cards. Pause state comes
+// from GET /breakers (circuit-breaker flags in the self-healing store).
+// Publish rungs queue to the cadence coordinator, never fire from here.
+function renderControls(){
+  const el = document.getElementById('controlsBody');
+  if(!el || !live) return;
+  const lanes=(live.lanes||[]).filter(l=>l.scored);
+  if(!lanes.length){ el.innerHTML='<p class="nodata">No scored lanes in live-state.json yet.</p>'; return; }
+  const csig = lanes.map(l=>l.key+'|'+displayStatus(l)+'|'+Math.floor((l.last_verified_iso?Math.floor((Date.now()-new Date(l.last_verified_iso).getTime())/60000):0))+'|'+(breakers&&breakers[l.key]===true?'p':'')).join(';');
+  if(renderControls._sig === csig) return;
+  renderControls._sig = csig;
+  const dis = PUBLIC_READONLY ? ' disabled title="Public view is read-only — actions live on the local panel."' : '';
+  let html='<table class="ctable"><tr><th>Lane</th><th>State</th><th>Gap</th><th>L</th><th>Fire at</th><th>Queue</th><th>True supply</th><th>Controls</th></tr>';
+  for(const l of lanes){
+    const st=displayStatus(l), cls=stateClass(st);
+    const gap=l.last_verified_iso?Math.floor((Date.now()-new Date(l.last_verified_iso).getTime())/60000):null;
+    const q=l.queue_depth!=null?l.queue_depth:'?';
+    const s=supply&&supply.lanes?supply.lanes[l.key]:null;
+    const sup=s&&s.fireable!=null?(s.fireable+' · deficit '+s.deficit):'-';
+    const paused=breakers&&breakers[l.key]===true;
+    html+='<tr><td><b>'+esc(l.platform)+'</b> '+esc(l.account||'')+'</td>'
+      +'<td><span class="badge '+cls+'">'+esc(badgeLabel(st,l))+'</span>'+(paused?' <span class="badge other">PAUSED</span>':'')+'</td>'
+      +'<td>'+(gap==null?'-':gapText(gap))+'</td>'
+      +'<td>'+(l.cadence_minutes||'-')+'m</td>'
+      +'<td>'+(l.cadence_minutes?((l.cadence_minutes-PRE_FIRE_MIN)+'m'+(preFireInMin(l)!=null?(preFireInMin(l)>0?' · in '+preFireInMin(l)+'m':' · NOW'):'')):'—')+'</td>'
+      +'<td>'+esc(String(q))+(typeof q==='number'&&q<25?' <span class="dry">low</span>':'')+'</td>'
+      +'<td>'+esc(sup)+'</td>'
+      +'<td><button class="mini" data-act="'+(paused?'resume':'pause')+'" data-lane="'+esc(l.key)+'"'+dis+'>'+(paused?'Resume':'Pause')+'</button> '
+      +'<button class="mini primary" data-act="fire_fresh" data-lane="'+esc(l.key)+'"'+dis+'>Fire fresh</button> '
+      +(SUPPLY_LANES.has(l.key)?'<button class="mini" data-act="fix_supply" data-lane="'+esc(l.key)+'"'+dis+'>Fix supply</button>':'')
+      +'<div class="act-result" id="ctl-act-'+esc(l.key)+'"></div></td></tr>';
+  }
+  html+='</table><p class="fresh" style="margin-top:6px">Pause opens the circuit breaker (publishers stop; the diagnoser keeps working). Fire / retry / fail over queue to the cadence coordinator — they never fire from this panel. Fix supply expires stale rows and refills to 25. Every press is logged.</p>'
+    +(PUBLIC_READONLY?'<p class="fresh">Public view is read-only — controls live on the local panel only.</p>':'');
+  el.innerHTML=html;
 }
 
 const _apiCache = {}; // GitHub API url -> {etag, data} for 304 reuse
@@ -1989,6 +2222,8 @@ async function pollOnce(){
   try{
     live=await fetchJSON(STATE_URL);
     try{ healing=await fetchJSON(HEALING_URL); }catch(e){ healing=null; }
+    try{ supply=await fetchJSON(SUPPLY_URL); }catch(e){ supply=null; }
+    try{ breakers=await fetchJSON(BREAKERS_URL); }catch(e){ breakers=null; }
     lastDataAt=Date.now();
     saveState(live); // cache-on-load: keep the freshest copy for the next visit
     render();
@@ -2015,7 +2250,11 @@ function connectSSE(){
 
 async function doAction(action, lane, btn){
   const out = document.getElementById('act-'+(lane||'system'));
-  if(PUBLIC_READONLY){ if(out){ out.textContent='Public view is read-only — actions live on the local panel.'; out.className='act-result err'; } return; }
+  // Crew 4: the Controls table has its own result line per lane; show the
+  // outcome there too, so a press in the table answers in the table.
+  const out2 = document.getElementById('ctl-act-'+(lane||'system'));
+  const setOut = (t,c)=>{ if(out){out.textContent=t; out.className=c;} if(out2){out2.textContent=t; out2.className=c;} };
+  if(PUBLIC_READONLY){ setOut('Public view is read-only — actions live on the local panel.', 'act-result err'); return; }
   const doPost = async (confirm)=>{
     const r = await fetch(ACTION_URL, {method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({action: action, lane: lane||'', reason: 'dashboard button', confirm: !!confirm})});
@@ -2023,21 +2262,21 @@ async function doAction(action, lane, btn){
   };
   try{
     if(btn) btn.disabled=true;
-    if(out){ out.textContent='Working…'; out.className='act-result'; }
+    setOut('Working…','act-result');
     let res;
     if(action==='full_reset'){
       if(!window.confirm('Full system reset (rung 8, the LAST rung). It rebuilds state from receipts and is NOT complete until every scored lane posts a verified receipt afterwards. Continue?')){ if(out){out.textContent='Full reset cancelled.';} if(btn) btn.disabled=false; return; }
       res = await doPost(true);
+    } else if(action==='fix_supply'){
+      if(!window.confirm('Fix Supply for '+lane+': expire stale rows in this lane (expire-only, never deleted), then request exactly the deficit to refill the queue to 25 via the lane producer. Supply only — nothing will be posted. Continue?')){ if(out){out.textContent='Fix Supply cancelled.';} if(btn) btn.disabled=false; return; }
+      res = await doPost(true);
     } else {
       res = await doPost(false);
     }
-    if(out){
-      out.textContent = (res.detail||res.status||'done');
-      out.className = 'act-result '+(res.ok?'ok':'err');
-    }
+    setOut((res.detail||res.status||'done'), 'act-result '+(res.ok?'ok':'err'));
     pollOnce();
   }catch(e){
-    if(out){ out.textContent='Action failed: '+e.message; out.className='act-result err'; }
+    setOut('Action failed: '+e.message, 'act-result err');
   }finally{
     if(btn) btn.disabled=false;
   }
@@ -2058,10 +2297,70 @@ document.addEventListener('click', (ev)=>{
   }
 });
 
+// Dashboard chat — change the dashboard from here (Nov 20 2026).
+// Sends to POST /chat; the server parses it into the same guarded
+// backend calls the buttons use. Loads the log from GET /chat-log.
+const CHAT_URL = '/chat';
+const CHAT_LOG_URL = '/chat-log';
+function renderChatLog(entries){
+  const log = document.getElementById('chatLog');
+  if(!log) return;
+  if(!entries || !entries.length){
+    log.innerHTML = '<p class="nodata">No messages yet. Type below — try “status”, “fire threads”, or “help”.</p>';
+    return;
+  }
+  log.innerHTML = entries.map(e=>{
+    const cls = e.role==='user' ? 'user' : 'sys';
+    const who = e.role==='user' ? 'You' : 'Dashboard';
+    return '<div class="chat-msg '+cls+'"><span class="who">'+who+':</span> '+esc(e.text||'')+' <span style="color:var(--mut);font-size:12px">'+esc(e.ts_pt||'')+'</span></div>';
+  }).join('');
+  log.scrollTop = log.scrollHeight;
+}
+async function loadChatLog(){
+  try{
+    const r = await fetch(CHAT_LOG_URL, {cache:'no-store'});
+    if(!r.ok) return;
+    const entries = await r.json();
+    renderChatLog(entries);
+  }catch(e){}
+}
+async function sendChat(text){
+  const input = document.getElementById('chatInput');
+  const btn = document.getElementById('chatSendBtn');
+  text = (text||'').trim();
+  if(!text) return;
+  if(btn) btn.disabled = true;
+  if(input) input.value = '';
+  try{
+    const r = await fetch(CHAT_URL, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({text: text})});
+    await r.json();
+    await loadChatLog();
+    pollOnce();
+  }catch(e){
+    const log = document.getElementById('chatLog');
+    if(log){
+      log.innerHTML += '<div class="chat-msg err"><span class="who">Dashboard:</span> Send failed: '+esc(e.message)+'</div>';
+      log.scrollTop = log.scrollHeight;
+    }
+  }finally{
+    if(btn) btn.disabled = false;
+    if(input) input.focus();
+  }
+}
+document.addEventListener('click', (ev)=>{
+  const c = ev.target.closest('[data-chat]');
+  if(c){ sendChat(c.getAttribute('data-chat')); return; }
+  if(ev.target.closest('#chatSendBtn')){ sendChat(document.getElementById('chatInput').value); return; }
+});
+document.addEventListener('keydown', (ev)=>{
+  if(ev.target && ev.target.id==='chatInput' && ev.key==='Enter'){ sendChat(ev.target.value); }
+});
+
 renderCachedFirst(); // paint the last cached snapshot before any fetch resolves
 connectSSE();
 pollOnce();
 fetchSteering();
+loadChatLog();
 setInterval(fetchSteering, 60000);
 setInterval(tickTimes, 30000);
 setInterval(tickClock, 1000);
