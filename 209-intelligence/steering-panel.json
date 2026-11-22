@@ -1,12 +1,12 @@
 {
- "generated_at_pt": "2026-11-21 11:06 PM PT",
+ "generated_at_pt": "2026-11-21 11:26 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 22,
   "direction": "audit-led",
-  "why": "Audit and Records is 22% of 2864 verified publishes across 18 profiles in 14 days. Up 8 points vs the prior 14 days."
+  "why": "Audit and Records is 22% of 2872 verified publishes across 18 profiles in 14 days. Up 8 points vs the prior 14 days."
  },
  "profiles": [
   {
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 114,
+   "posts": 115,
    "thin": false,
    "topics": [
     {
@@ -400,7 +400,7 @@
     {
      "band": "C",
      "label": "Community and Wellness",
-     "pct": 11,
+     "pct": 10,
      "posts": 12
     },
     {
@@ -412,8 +412,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 81,
-     "posts": 93
+     "pct": 82,
+     "posts": 94
     }
    ],
    "top_band": "C",
@@ -423,7 +423,7 @@
    "key": "fb_elevated",
    "platform": "Facebook",
    "account": "Elevated209 CBD (Page)",
-   "posts": 110,
+   "posts": 111,
    "thin": false,
    "topics": [
     {
@@ -454,7 +454,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 80,
-     "posts": 88
+     "posts": 89
     }
    ],
    "top_band": "C",
@@ -464,7 +464,7 @@
    "key": "fb_intentionally",
    "platform": "Facebook",
    "account": "Intentionally Us (Page)",
-   "posts": 119,
+   "posts": 120,
    "thin": false,
    "topics": [
     {
@@ -488,14 +488,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 3,
+     "pct": 2,
      "posts": 3
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 83,
-     "posts": 99
+     "pct": 84,
+     "posts": 100
     }
    ],
    "top_band": "C",
@@ -505,7 +505,7 @@
    "key": "fb_problemsolved",
    "platform": "Facebook",
    "account": "ProblemSolved Designs (Page)",
-   "posts": 110,
+   "posts": 111,
    "thin": false,
    "topics": [
     {
@@ -536,7 +536,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 92,
-     "posts": 101
+     "posts": 102
     }
    ],
    "top_band": "A",
@@ -546,7 +546,7 @@
    "key": "threads",
    "platform": "Threads",
    "account": "@209media.connect",
-   "posts": 281,
+   "posts": 283,
    "thin": false,
    "topics": [
     {
@@ -577,7 +577,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 76,
-     "posts": 211
+     "posts": 213
     }
    ],
    "top_band": "A",
@@ -587,7 +587,7 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 288,
+   "posts": 289,
    "thin": false,
    "topics": [
     {
@@ -618,7 +618,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 72,
-     "posts": 207
+     "posts": 208
     }
    ],
    "top_band": "A",
@@ -628,7 +628,7 @@
    "key": "linkedin",
    "platform": "LinkedIn",
    "account": "/in/sicairosdavid/ (David Sicairos)",
-   "posts": 440,
+   "posts": 441,
    "thin": false,
    "topics": [
     {
@@ -641,7 +641,7 @@
      "band": "B",
      "label": "Education and Leadership",
      "pct": 4,
-     "posts": 16
+     "posts": 17
     },
     {
      "band": "C",
@@ -750,7 +750,7 @@
  ],
  "balance": {
   "oversaturated_bands": [],
-  "same_band_same_day": 859,
+  "same_band_same_day": 860,
   "weave_gap_median_min": 8,
   "jitter": "tight"
  },
@@ -784,7 +784,7 @@
    "silo_run_id": "collect-v1-1795298850",
    "silo_run_pt": "2026-11-21 14:07 PT",
    "scores_run_id": "collect-v1-1795298850",
-   "dashboard_built_pt": "2026-11-21 23:02 PT"
+   "dashboard_built_pt": "2026-11-21 23:23 PT"
   },
   "ranked_posts": 5,
   "top_posts": [
@@ -1000,7 +1000,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 604 deduped publishes vs 2864 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 602 deduped publishes vs 2872 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "233 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",

@@ -1,30 +1,30 @@
 {
- "generated_pt": "2026-11-21 23:04 PT",
- "generated_epoch": 1795331069,
+ "generated_pt": "2026-11-21 23:24 PT",
+ "generated_epoch": 1795332255,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
   "ig_personal": {
-   "staged": 21,
+   "staged": 20,
    "fireable": 0,
    "deficit": 25,
    "badge": "CRITICAL",
    "exclusions": {
-    "personal_non_carousel": 17,
+    "personal_non_carousel": 16,
     "frame_hold": 2,
     "no_media_brief_only": 2
    },
    "fresh_fireable": null,
    "keeper_strict_fireable": 0,
-   "cli_reel_reserve": 17
+   "cli_reel_reserve": 16
   },
   "ig_hub": {
-   "staged": 31,
+   "staged": 32,
    "fireable": 24,
    "deficit": 1,
    "badge": "LOW",
    "exclusions": {
-    "no_media_brief_only": 7
+    "no_media_brief_only": 8
    },
    "fresh_fireable": null,
    "keeper_strict_fireable": 21,
@@ -95,14 +95,14 @@
    "cli_reel_reserve": null
   },
   "fb_california": {
-   "staged": 32,
-   "fireable": 32,
+   "staged": 31,
+   "fireable": 31,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
     "stale_date_gt48h": 4
    },
-   "fresh_fireable": 28,
+   "fresh_fireable": 27,
    "keeper_strict_fireable": null,
    "cli_reel_reserve": null
   },
@@ -137,12 +137,12 @@
    "cli_reel_reserve": null
   },
   "fb_problemsolved": {
-   "staged": 44,
-   "fireable": 44,
+   "staged": 43,
+   "fireable": 43,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
-   "fresh_fireable": 44,
+   "fresh_fireable": 43,
    "keeper_strict_fireable": null,
    "cli_reel_reserve": null
   },
@@ -169,8 +169,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 275,
-   "fireable": 275,
+   "staged": 260,
+   "fireable": 260,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -179,8 +179,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 118,
-   "fireable": 114,
+   "staged": 116,
+   "fireable": 112,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
@@ -191,9 +191,9 @@
    "cli_reel_reserve": null
   },
   "linkedin": {
-   "staged": 20,
-   "fireable": 20,
-   "deficit": 5,
+   "staged": 19,
+   "fireable": 19,
+   "deficit": 6,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
