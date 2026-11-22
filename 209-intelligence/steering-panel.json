@@ -1,19 +1,19 @@
 {
- "generated_at_pt": "2026-11-21 04:21 PM PT",
+ "generated_at_pt": "2026-11-21 06:56 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 22,
   "direction": "audit-led",
-  "why": "Audit and Records is 22% of 2673 verified publishes across 18 profiles in 14 days. Up 8 points vs the prior 14 days."
+  "why": "Audit and Records is 22% of 2738 verified publishes across 18 profiles in 14 days. Up 8 points vs the prior 14 days."
  },
  "profiles": [
   {
    "key": "ig_personal",
    "platform": "Instagram",
    "account": "@sicairosdavid_",
-   "posts": 92,
+   "posts": 93,
    "thin": false,
    "topics": [
     {
@@ -44,7 +44,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 67,
-     "posts": 62
+     "posts": 63
     }
    ],
    "top_band": "A",
@@ -54,14 +54,14 @@
    "key": "ig_davids",
    "platform": "Instagram",
    "account": "@davidsicairos_",
-   "posts": 109,
+   "posts": 113,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 42,
-     "posts": 46
+     "pct": 43,
+     "posts": 49
     },
     {
      "band": "B",
@@ -84,8 +84,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 48,
-     "posts": 52
+     "pct": 47,
+     "posts": 53
     }
    ],
    "top_band": "A",
@@ -95,14 +95,14 @@
    "key": "ig_hub",
    "platform": "Instagram",
    "account": "@209media.connect",
-   "posts": 167,
+   "posts": 173,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 32,
-     "posts": 54
+     "pct": 33,
+     "posts": 57
     },
     {
      "band": "B",
@@ -119,14 +119,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 10,
+     "pct": 9,
      "posts": 16
     },
     {
      "band": "untagged",
      "label": "Untagged",
      "pct": 55,
-     "posts": 93
+     "posts": 96
     }
    ],
    "top_band": "A",
@@ -136,14 +136,14 @@
    "key": "ig_castle",
    "platform": "Instagram",
    "account": "@castlecaliforniacounterintel",
-   "posts": 119,
+   "posts": 123,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 40,
-     "posts": 48
+     "pct": 41,
+     "posts": 51
     },
     {
      "band": "B",
@@ -166,8 +166,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 59,
-     "posts": 70
+     "pct": 58,
+     "posts": 71
     }
    ],
    "top_band": "A",
@@ -177,14 +177,14 @@
    "key": "ig_atwater",
    "platform": "Instagram",
    "account": "@atwatercastleintelligence",
-   "posts": 133,
+   "posts": 135,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 46,
-     "posts": 61
+     "posts": 62
     },
     {
      "band": "B",
@@ -208,7 +208,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 54,
-     "posts": 72
+     "posts": 73
     }
    ],
    "top_band": "A",
@@ -218,14 +218,14 @@
    "key": "ig_intentionally",
    "platform": "Instagram",
    "account": "@intentionally.us",
-   "posts": 110,
+   "posts": 113,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 49,
-     "posts": 53
+     "posts": 55
     },
     {
      "band": "B",
@@ -236,8 +236,8 @@
     {
      "band": "C",
      "label": "Community and Wellness",
-     "pct": 5,
-     "posts": 6
+     "pct": 6,
+     "posts": 7
     },
     {
      "band": "D",
@@ -248,7 +248,7 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 45,
+     "pct": 44,
      "posts": 50
     }
    ],
@@ -259,14 +259,14 @@
    "key": "ig_elevated",
    "platform": "Instagram",
    "account": "@elevated209cbd",
-   "posts": 111,
+   "posts": 114,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 46,
-     "posts": 51
+     "pct": 47,
+     "posts": 54
     },
     {
      "band": "B",
@@ -289,7 +289,7 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 53,
+     "pct": 52,
      "posts": 59
     }
    ],
@@ -300,14 +300,14 @@
    "key": "fb_profile",
    "platform": "Facebook",
    "account": "david.sicairos.1 (personal profile)",
-   "posts": 87,
+   "posts": 89,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 16,
-     "posts": 14
+     "pct": 17,
+     "posts": 15
     },
     {
      "band": "B",
@@ -330,8 +330,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 64,
-     "posts": 55
+     "pct": 63,
+     "posts": 56
     }
    ],
    "top_band": "D",
@@ -341,14 +341,14 @@
    "key": "fb_california",
    "platform": "Facebook",
    "account": "209Connect California (Page)",
-   "posts": 136,
+   "posts": 138,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 4,
-     "posts": 5
+     "posts": 6
     },
     {
      "band": "B",
@@ -372,24 +372,24 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 92,
-     "posts": 125
+     "posts": 126
     }
    ],
-   "top_band": "D",
-   "stop_band": "A"
+   "top_band": "A",
+   "stop_band": "D"
   },
   {
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 109,
+   "posts": 111,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 5,
-     "posts": 5
+     "posts": 6
     },
     {
      "band": "B",
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 81,
-     "posts": 89
+     "posts": 90
     }
    ],
    "top_band": "C",
@@ -423,14 +423,14 @@
    "key": "fb_elevated",
    "platform": "Facebook",
    "account": "Elevated209 CBD (Page)",
-   "posts": 104,
+   "posts": 106,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 5,
-     "posts": 5
+     "pct": 6,
+     "posts": 6
     },
     {
      "band": "B",
@@ -453,8 +453,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 80,
-     "posts": 83
+     "pct": 79,
+     "posts": 84
     }
    ],
    "top_band": "C",
@@ -464,14 +464,14 @@
    "key": "fb_intentionally",
    "platform": "Facebook",
    "account": "Intentionally Us (Page)",
-   "posts": 113,
+   "posts": 114,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 3,
-     "posts": 3
+     "pct": 4,
+     "posts": 4
     },
     {
      "band": "B",
@@ -494,25 +494,25 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 82,
+     "pct": 81,
      "posts": 94
     }
    ],
    "top_band": "C",
-   "stop_band": "A"
+   "stop_band": "D"
   },
   {
    "key": "fb_problemsolved",
    "platform": "Facebook",
    "account": "ProblemSolved Designs (Page)",
-   "posts": 104,
+   "posts": 106,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 5,
-     "posts": 5
+     "pct": 6,
+     "posts": 6
     },
     {
      "band": "B",
@@ -535,8 +535,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 92,
-     "posts": 96
+     "pct": 91,
+     "posts": 97
     }
    ],
    "top_band": "A",
@@ -546,13 +546,13 @@
    "key": "threads",
    "platform": "Threads",
    "account": "@209media.connect",
-   "posts": 216,
+   "posts": 234,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 24,
+     "pct": 22,
      "posts": 51
     },
     {
@@ -570,14 +570,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 7,
+     "pct": 6,
      "posts": 15
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 67,
-     "posts": 146
+     "pct": 70,
+     "posts": 164
     }
    ],
    "top_band": "A",
@@ -587,13 +587,13 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 271,
+   "posts": 275,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 17,
+     "pct": 16,
      "posts": 45
     },
     {
@@ -611,14 +611,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 10,
+     "pct": 9,
      "posts": 26
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 70,
-     "posts": 190
+     "pct": 72,
+     "posts": 194
     }
    ],
    "top_band": "A",
@@ -628,14 +628,14 @@
    "key": "linkedin",
    "platform": "LinkedIn",
    "account": "/in/sicairosdavid/ (David Sicairos)",
-   "posts": 429,
+   "posts": 433,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 24,
-     "posts": 102
+     "posts": 103
     },
     {
      "band": "B",
@@ -659,7 +659,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 66,
-     "posts": 286
+     "posts": 289
     }
    ],
    "top_band": "A",
@@ -669,7 +669,7 @@
    "key": "youtube",
    "platform": "YouTube",
    "account": "David Sicairos | Systems' Architect",
-   "posts": 143,
+   "posts": 146,
    "thin": false,
    "topics": [
     {
@@ -700,7 +700,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 83,
-     "posts": 118
+     "posts": 121
     }
    ],
    "top_band": "A",
@@ -710,13 +710,13 @@
    "key": "tiktok",
    "platform": "TikTok",
    "account": "@sicairosdavid",
-   "posts": 120,
+   "posts": 122,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 8,
+     "pct": 7,
      "posts": 9
     },
     {
@@ -740,8 +740,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 88,
-     "posts": 105
+     "pct": 89,
+     "posts": 107
     }
    ],
    "top_band": "A",
@@ -750,7 +750,7 @@
  ],
  "balance": {
   "oversaturated_bands": [],
-  "same_band_same_day": 804,
+  "same_band_same_day": 827,
   "weave_gap_median_min": 8,
   "jitter": "tight"
  },
@@ -777,6 +777,222 @@
   }
  ],
  "overrides_active": [],
+ "leaderboard": {
+  "available": true,
+  "rule": "Ranked by measured engagement only, never by date or publish volume. An older post stays ranked while its engagement beats newer posts; newer never auto-displaces older. Posts with no measured signal do not rank.",
+  "source": {
+   "silo_run_id": "collect-v1-1795298850",
+   "silo_run_pt": "2026-11-21 14:07 PT",
+   "scores_run_id": "collect-v1-1795298850",
+   "dashboard_built_pt": "2026-11-21 18:52 PT"
+  },
+  "ranked_posts": 5,
+  "top_posts": [
+   {
+    "rank": 1,
+    "id": "threads:DfukpfLG8Kl",
+    "platform": "threads",
+    "account": "209media.connect",
+    "caption": "Maga called my school district because I didn't like Charlie Kirk. My school district fired me and now I'm suing them.",
+    "published_at": "2026-11-14T07:53:13-08:00",
+    "band": "B",
+    "reach": 88072,
+    "engagement": 17591.0,
+    "velocity": 100.94,
+    "likes": 14530,
+    "reposts": 2788,
+    "replies": 167
+   },
+   {
+    "rank": 2,
+    "id": "threads:Df8VmR0o4Ea",
+    "platform": "threads",
+    "account": "209media.connect",
+    "caption": "Sept 11: two men post my name and promise to make me unemployed and unemployable. Sept 18: my school district fires me.",
+    "published_at": "2026-11-19T16:11:11-08:00",
+    "band": "B",
+    "reach": 57470,
+    "engagement": 6583.0,
+    "velocity": 143.18,
+    "likes": 6267,
+    "reposts": 163,
+    "replies": 150
+   },
+   {
+    "rank": 3,
+    "id": "threads:Df9zknLEThe",
+    "platform": "threads",
+    "account": "209media.connect",
+    "caption": "Republicans who lost reelection aren't showing up to vote, and party leaders are fuming",
+    "published_at": "2026-11-20T05:52:17-08:00",
+    "band": "D",
+    "reach": 51355,
+    "engagement": 4148.0,
+    "velocity": 128.45,
+    "likes": 3783,
+    "reposts": 114,
+    "replies": 242
+   },
+   {
+    "rank": 4,
+    "id": "threads:DfyMtPfkVPn",
+    "platform": "threads",
+    "account": "209media.connect",
+    "caption": "California GOP nearly extinct after midterms: down to 4 of 52 House seats Republicans are projected to hold only 4 seat",
+    "published_at": "2026-11-15T17:41:02-08:00",
+    "band": "untagged",
+    "reach": 43978,
+    "engagement": 3684.0,
+    "velocity": 26.22,
+    "likes": 3353,
+    "reposts": 137,
+    "replies": 182
+   },
+   {
+    "rank": 5,
+    "id": "threads:Df0gRqtj6fk",
+    "platform": "threads",
+    "account": "209media.connect",
+    "caption": "Xavier Becerra has a different vibe than Gavin Newsom.",
+    "published_at": "2026-11-16T15:10:27-08:00",
+    "band": "D",
+    "reach": 33040,
+    "engagement": 683.0,
+    "velocity": 5.74,
+    "likes": 635,
+    "reposts": 5,
+    "replies": 43
+   }
+  ],
+  "per_platform": {
+   "instagram": {
+    "entries": [],
+    "status": "no measured per-post engagement in the latest collection",
+    "coverage_pct": 92.3
+   },
+   "facebook": {
+    "entries": [],
+    "status": "no measured per-post engagement in the latest collection",
+    "coverage_pct": 93.8
+   },
+   "threads": {
+    "entries": [
+     {
+      "rank": 1,
+      "id": "threads:DfukpfLG8Kl",
+      "platform": "threads",
+      "account": "209media.connect",
+      "caption": "Maga called my school district because I didn't like Charlie Kirk. My school district fired me and now I'm suing them.",
+      "published_at": "2026-11-14T07:53:13-08:00",
+      "band": "B",
+      "reach": 88072,
+      "engagement": 17591.0,
+      "velocity": 100.94,
+      "likes": 14530,
+      "reposts": 2788,
+      "replies": 167
+     },
+     {
+      "rank": 2,
+      "id": "threads:Df8VmR0o4Ea",
+      "platform": "threads",
+      "account": "209media.connect",
+      "caption": "Sept 11: two men post my name and promise to make me unemployed and unemployable. Sept 18: my school district fires me.",
+      "published_at": "2026-11-19T16:11:11-08:00",
+      "band": "B",
+      "reach": 57470,
+      "engagement": 6583.0,
+      "velocity": 143.18,
+      "likes": 6267,
+      "reposts": 163,
+      "replies": 150
+     },
+     {
+      "rank": 3,
+      "id": "threads:Df9zknLEThe",
+      "platform": "threads",
+      "account": "209media.connect",
+      "caption": "Republicans who lost reelection aren't showing up to vote, and party leaders are fuming",
+      "published_at": "2026-11-20T05:52:17-08:00",
+      "band": "D",
+      "reach": 51355,
+      "engagement": 4148.0,
+      "velocity": 128.45,
+      "likes": 3783,
+      "reposts": 114,
+      "replies": 242
+     },
+     {
+      "rank": 4,
+      "id": "threads:DfyMtPfkVPn",
+      "platform": "threads",
+      "account": "209media.connect",
+      "caption": "California GOP nearly extinct after midterms: down to 4 of 52 House seats Republicans are projected to hold only 4 seat",
+      "published_at": "2026-11-15T17:41:02-08:00",
+      "band": "untagged",
+      "reach": 43978,
+      "engagement": 3684.0,
+      "velocity": 26.22,
+      "likes": 3353,
+      "reposts": 137,
+      "replies": 182
+     },
+     {
+      "rank": 5,
+      "id": "threads:Df0gRqtj6fk",
+      "platform": "threads",
+      "account": "209media.connect",
+      "caption": "Xavier Becerra has a different vibe than Gavin Newsom.",
+      "published_at": "2026-11-16T15:10:27-08:00",
+      "band": "D",
+      "reach": 33040,
+      "engagement": 683.0,
+      "velocity": 5.74,
+      "likes": 635,
+      "reposts": 5,
+      "replies": 43
+     }
+    ]
+   },
+   "bluesky": {
+    "entries": [],
+    "status": "no measured per-post engagement in the latest collection",
+    "coverage_pct": 100.0
+   },
+   "linkedin": {
+    "entries": [],
+    "status": "no measured per-post engagement in the latest collection",
+    "coverage_pct": 0.0
+   },
+   "youtube": {
+    "entries": [],
+    "status": "no measured per-post engagement in the latest collection",
+    "coverage_pct": 100.0
+   },
+   "tiktok": {
+    "entries": [],
+    "status": "no measured per-post engagement in the latest collection",
+    "coverage_pct": 100.0
+   }
+  },
+  "topics_by_engagement": [
+   {
+    "band": "B",
+    "label": "Education and Leadership",
+    "engagement": 24174
+   },
+   {
+    "band": "D",
+    "label": "California Civic",
+    "engagement": 4831
+   },
+   {
+    "band": "untagged",
+    "label": "Untagged",
+    "engagement": 3684
+   }
+  ]
+ },
  "notes": [
   "LinkedIn/YouTube/TikTok: no engagement signal \u2014 scores are share-based only.",
   "Brain medians frozen since Nov 16.",
@@ -784,9 +1000,10 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 596 deduped publishes vs 2673 now \u2014 trend is share-based only and weak.",
-  "29 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
-  "231 verified receipts carry no parseable timestamp and are excluded from both windows.",
+  "Prior window holds 603 deduped publishes vs 2738 now \u2014 trend is share-based only and weak.",
+  "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
+  "233 verified receipts carry no parseable timestamp and are excluded from both windows.",
+  "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
   "Most receipts carry observation time, not true publish time; window counts are verification-time counts for those rows. Re-verification sweeps can pull older posts into the window.",
   "Weave gap is a same-band/same-day proxy, not same-story \u2014 it does not by itself prove a 90-minute same-story breach."
  ]
