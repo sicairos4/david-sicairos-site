@@ -1,7 +1,49 @@
 {
-  "generated_at": "2026-11-21T22:19:37.124552+00:00",
+  "generated_at": "2026-11-22T02:36:52.005335+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:h1mje8q4Xp8",
+      "source_url": "https://www.youtube.com/watch?v=h1mje8q4Xp8",
+      "title": "Fired for Speaking Up: A Late Answer Still Counts",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:LBGpjmWYF7g",
+      "source_url": "https://www.youtube.com/watch?v=LBGpjmWYF7g",
+      "title": "Fired for Speaking Up: The Exemption Is a Claim, Not a Verdict",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:nUL0oWxXPd8",
+      "source_url": "https://www.youtube.com/watch?v=nUL0oWxXPd8",
+      "title": "State Audit: Dental Law Failing, Merced City Named",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:blpJ9nY6hlc",
+      "source_url": "https://www.youtube.com/watch?v=blpJ9nY6hlc",
+      "title": "Fired for Speaking Up: The Date Does the Waiting",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:vlN5UBi0SAk",
+      "source_url": "https://www.youtube.com/watch?v=vlN5UBi0SAk",
+      "title": "Fired for Speaking Up: The Answer Is In. Verify It First",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:4d1vdRju8XE",
+      "source_url": "https://www.youtube.com/watch?v=4d1vdRju8XE",
+      "title": "Reel Vault If Part16 Facebook Long",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:sCBOjnM1pSQ",
       "source_url": "https://www.youtube.com/watch?v=sCBOjnM1pSQ",
@@ -237,48 +279,6 @@
       "source_id": "youtube:xPy1kvwanW0",
       "source_url": "https://www.youtube.com/watch?v=xPy1kvwanW0",
       "title": "Merced County education watch. I backed Richard Lopez for MCOE superintendent in the November runoff",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:LPU-VzOEXSU",
-      "source_url": "https://www.youtube.com/watch?v=LPU-VzOEXSU",
-      "title": "The public can read what the office would not say, link in bio. #209  #redditstories #history",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:saWDTBPj3AQ",
-      "source_url": "https://www.youtube.com/watch?v=saWDTBPj3AQ",
-      "title": "How a School System Turns Grant Money Into a Pipeline",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:3O4JfmiXev8",
-      "source_url": "https://www.youtube.com/watch?v=3O4JfmiXev8",
-      "title": "Ice Skating Is Back in Atwater — The Rink at Castle Opens Friday",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:M9lym14IraE",
-      "source_url": "https://www.youtube.com/watch?v=M9lym14IraE",
-      "title": "ILLEGALLY FIRED: The Firing Did Not Create the Auditor",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:9h9IJDcOOUE",
-      "source_url": "https://www.youtube.com/watch?v=9h9IJDcOOUE",
-      "title": "7,000 Students Walked Out. The System Didn't Move, So They Did.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:qhI1qG3IBvE",
-      "source_url": "https://www.youtube.com/watch?v=qhI1qG3IBvE",
-      "title": "Merced Said Yes: $18 Million a Year",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }

@@ -1,7 +1,109 @@
 {
   "version": 1,
-  "generated_at": "2026-11-21T22:19:37.124552+00:00",
+  "generated_at": "2026-11-22T02:36:52.005335+00:00",
   "items": [
+    {
+      "id": "youtube:h1mje8q4Xp8",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: A Late Answer Still Counts",
+      "published_at": "2026-11-22T02:21:39+00:00",
+      "url": "https://www.youtube.com/watch?v=h1mje8q4Xp8",
+      "description": "",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T02:21:39+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T02:21:39+00:00",
+        "utc_epoch": 1795314099,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:LBGpjmWYF7g",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: The Exemption Is a Claim, Not a Verdict",
+      "published_at": "2026-11-22T00:29:56+00:00",
+      "url": "https://www.youtube.com/watch?v=LBGpjmWYF7g",
+      "description": "",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T00:29:56+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T00:29:56+00:00",
+        "utc_epoch": 1795307396,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:nUL0oWxXPd8",
+      "platform": "youtube",
+      "title": "State Audit: Dental Law Failing, Merced City Named",
+      "published_at": "2026-11-22T00:04:04+00:00",
+      "url": "https://www.youtube.com/watch?v=nUL0oWxXPd8",
+      "description": "",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T00:04:04+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T00:04:04+00:00",
+        "utc_epoch": 1795305844,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:blpJ9nY6hlc",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: The Date Does the Waiting",
+      "published_at": "2026-11-21T23:37:45+00:00",
+      "url": "https://www.youtube.com/watch?v=blpJ9nY6hlc",
+      "description": "",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T23:37:45+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T23:37:45+00:00",
+        "utc_epoch": 1795304265,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:vlN5UBi0SAk",
+      "platform": "youtube",
+      "title": "Fired for Speaking Up: The Answer Is In. Verify It First",
+      "published_at": "2026-11-21T23:12:09+00:00",
+      "url": "https://www.youtube.com/watch?v=vlN5UBi0SAk",
+      "description": "",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T23:12:09+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T23:12:09+00:00",
+        "utc_epoch": 1795302729,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:4d1vdRju8XE",
+      "platform": "youtube",
+      "title": "Reel Vault If Part16 Facebook Long",
+      "published_at": "2026-11-21T22:47:10+00:00",
+      "url": "https://www.youtube.com/watch?v=4d1vdRju8XE",
+      "description": "",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-21T22:47:10+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-21T22:47:10+00:00",
+        "utc_epoch": 1795301230,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:sCBOjnM1pSQ",
       "platform": "youtube",
@@ -9,7 +111,7 @@
       "published_at": "2026-11-21T22:11:35+00:00",
       "url": "https://www.youtube.com/watch?v=sCBOjnM1pSQ",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T22:11:35+00:00",
@@ -26,7 +128,7 @@
       "published_at": "2026-11-21T21:46:22+00:00",
       "url": "https://www.youtube.com/watch?v=RKgJjm1ioVw",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T21:46:22+00:00",
@@ -43,7 +145,7 @@
       "published_at": "2026-11-21T21:15:44+00:00",
       "url": "https://www.youtube.com/watch?v=A2rSW7CDrPk",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T21:15:44+00:00",
@@ -60,7 +162,7 @@
       "published_at": "2026-11-21T20:15:17+00:00",
       "url": "https://www.youtube.com/watch?v=skQzWAOb7UU",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T20:15:17+00:00",
@@ -77,7 +179,7 @@
       "published_at": "2026-11-21T19:16:54+00:00",
       "url": "https://www.youtube.com/watch?v=22sBn3WyUdE",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T19:16:54+00:00",
@@ -94,7 +196,7 @@
       "published_at": "2026-11-21T18:29:15+00:00",
       "url": "https://www.youtube.com/watch?v=7BnZNEAP270",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T18:29:15+00:00",
@@ -111,7 +213,7 @@
       "published_at": "2026-11-21T17:25:47+00:00",
       "url": "https://www.youtube.com/watch?v=BqImfK5aPNA",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T17:25:47+00:00",
@@ -128,7 +230,7 @@
       "published_at": "2026-11-21T16:33:35+00:00",
       "url": "https://www.youtube.com/watch?v=XVMZsnVqt1U",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T16:33:35+00:00",
@@ -145,7 +247,7 @@
       "published_at": "2026-11-21T16:04:25+00:00",
       "url": "https://www.youtube.com/watch?v=TwWULXiQB_A",
       "description": "",
-      "observed_at": "2026-11-21T22:19:37.124552+00:00",
+      "observed_at": "2026-11-22T02:36:52.005335+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T16:04:25+00:00",
@@ -2488,22 +2590,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-21T22:19:37.124552+00:00",
-      "last_success_at": "2026-11-21T22:19:37.124552+00:00",
+      "last_attempt_at": "2026-11-22T02:36:52.005335+00:00",
+      "last_success_at": "2026-11-22T02:36:52.005335+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-21T22:19:37.124552+00:00",
+      "last_attempt_at": "2026-11-22T02:36:52.005335+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-21T22:19:37.124552+00:00",
+      "last_attempt_at": "2026-11-22T02:36:52.005335+00:00",
       "error_type": "RuntimeError"
     }
   }
