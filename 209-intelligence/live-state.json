@@ -1,10 +1,10 @@
 {
   "version": 1,
   "source": "verification-receipts.jsonl (live receipts only)",
-  "generated_at_pt": "2026-11-22 12:51 PM PT",
-  "generated_at_iso": "2026-11-22T12:51:37.123197-08:00",
-  "receipts_lines_seen": 10028,
-  "receipts_bytes_seen": 9088765,
+  "generated_at_pt": "2026-11-22 01:01 PM PT",
+  "generated_at_iso": "2026-11-22T13:01:55.985497-08:00",
+  "receipts_lines_seen": 10048,
+  "receipts_bytes_seen": 9113747,
   "receipts_scan": "incremental",
   "lanes_changed_this_run": [
     "fb_profile"
@@ -24,133 +24,133 @@
   "publish_time_corrected": 3,
   "false_receipts_skipped": 2,
   "link_fallback_rows": 150,
-  "provisional_rows": 9753,
+  "provisional_rows": 9822,
   "summary": {
     "total_lanes": 18,
     "scored_lanes": 18,
     "tracked_lanes": 27,
     "not_scored": 9,
-    "on_cadence": 3,
-    "due": 8,
-    "missing": 7,
-    "yellow": 3,
-    "override": 5,
+    "on_cadence": 1,
+    "due": 9,
+    "missing": 8,
+    "yellow": 2,
+    "override": 7,
     "diagnoser": 0,
-    "red": 7
+    "red": 8
   },
   "system_health": {
-    "pct": 61.7,
+    "pct": 50.8,
     "method": "Per lane: cadence / max(cadence, minutes since last VERIFIED publish). System = mean of lane scores x 100. Sources: verification-receipts.jsonl only (VERIFIED_PUBLISH verdicts with a post link). Submit receipts never count, only verified publishes. Same method as system_health.py, but receipts only: no newsroom.db supplement for Threads/Bluesky.",
-    "computed_at_pt": "2026-11-22 12:51 PM PT",
+    "computed_at_pt": "2026-11-22 01:01 PM PT",
     "lanes_scored": 18,
     "lanes": {
       "bluesky": {
         "last_verified_pt": "2026-11-22 12:43 PM PT",
-        "gap_min": 8.5,
+        "gap_min": 18.8,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_california": {
         "last_verified_pt": "2026-11-22 12:10 PM PT",
-        "gap_min": 40.8,
+        "gap_min": 51.1,
         "cadence_min": 25,
-        "score": 0.61
+        "score": 0.49
       },
       "fb_dbeastco": {
         "last_verified_pt": "2026-11-22 11:45 AM PT",
-        "gap_min": 65.8,
+        "gap_min": 76.1,
         "cadence_min": 25,
-        "score": 0.38
+        "score": 0.33
       },
       "fb_elevated": {
         "last_verified_pt": "2026-11-22 11:46 AM PT",
-        "gap_min": 65.0,
+        "gap_min": 75.3,
         "cadence_min": 25,
-        "score": 0.38
+        "score": 0.33
       },
       "fb_intentionally": {
         "last_verified_pt": "2026-11-22 12:11 PM PT",
-        "gap_min": 40.5,
+        "gap_min": 50.8,
         "cadence_min": 25,
-        "score": 0.62
+        "score": 0.49
       },
       "fb_problemsolved": {
         "last_verified_pt": "2026-11-22 11:46 AM PT",
-        "gap_min": 64.7,
+        "gap_min": 75.0,
         "cadence_min": 25,
-        "score": 0.39
+        "score": 0.33
       },
       "fb_profile": {
         "last_verified_pt": "2026-11-22 11:15 AM PT",
-        "gap_min": 96.3,
+        "gap_min": 106.6,
         "cadence_min": 25,
-        "score": 0.26
+        "score": 0.23
       },
       "ig_atwater": {
         "last_verified_pt": "2026-11-22 12:14 PM PT",
-        "gap_min": 37.1,
+        "gap_min": 47.4,
         "cadence_min": 30,
-        "score": 0.81
+        "score": 0.63
       },
       "ig_castle": {
         "last_verified_pt": "2026-11-22 12:07 PM PT",
-        "gap_min": 44.6,
+        "gap_min": 54.9,
         "cadence_min": 30,
-        "score": 0.67
+        "score": 0.55
       },
       "ig_davids": {
         "last_verified_pt": "2026-11-22 12:13 PM PT",
-        "gap_min": 37.7,
+        "gap_min": 48.0,
         "cadence_min": 30,
-        "score": 0.8
+        "score": 0.62
       },
       "ig_elevated": {
         "last_verified_pt": "2026-11-22 12:14 PM PT",
-        "gap_min": 37.1,
+        "gap_min": 47.4,
         "cadence_min": 30,
-        "score": 0.81
+        "score": 0.63
       },
       "ig_hub": {
         "last_verified_pt": "2026-11-22 12:09 PM PT",
-        "gap_min": 41.8,
+        "gap_min": 52.1,
         "cadence_min": 30,
-        "score": 0.72
+        "score": 0.58
       },
       "ig_intentionally": {
         "last_verified_pt": "2026-11-22 12:22 PM PT",
-        "gap_min": 28.9,
+        "gap_min": 39.2,
         "cadence_min": 30,
-        "score": 1.0
+        "score": 0.76
       },
       "ig_personal": {
         "last_verified_pt": "2026-11-22 10:59 AM PT",
-        "gap_min": 112.3,
+        "gap_min": 122.6,
         "cadence_min": 30,
-        "score": 0.27
+        "score": 0.24
       },
       "linkedin": {
         "last_verified_pt": "2026-11-22 12:20 PM PT",
-        "gap_min": 30.7,
+        "gap_min": 41.0,
         "cadence_min": 30,
-        "score": 0.98
+        "score": 0.73
       },
       "threads": {
         "last_verified_pt": "2026-11-22 09:03 AM PT",
-        "gap_min": 227.8,
+        "gap_min": 238.1,
         "cadence_min": 30,
         "score": 0.13
       },
       "tiktok": {
         "last_verified_pt": "2026-11-22 12:24 PM PT",
-        "gap_min": 27.6,
+        "gap_min": 37.9,
         "cadence_min": 30,
-        "score": 1.0
+        "score": 0.79
       },
       "youtube": {
         "last_verified_pt": "2026-11-22 11:06 AM PT",
-        "gap_min": 105.6,
+        "gap_min": 115.9,
         "cadence_min": 30,
-        "score": 0.28
+        "score": 0.26
       }
     },
     "top_drags": [
@@ -160,15 +160,15 @@
       },
       {
         "lane": "fb_profile",
-        "score": 0.26
+        "score": 0.23
       },
       {
         "lane": "ig_personal",
-        "score": 0.27
+        "score": 0.24
       },
       {
         "lane": "youtube",
-        "score": 0.28
+        "score": 0.26
       }
     ]
   },
@@ -183,7 +183,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 112,
+      "gap_minutes": 123,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 10:59 AM PT",
@@ -201,13 +201,13 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 11:29 AM PT",
       "next_due_iso": "2026-11-22T11:29:18-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 112 min.",
+      "next_action": "RED \u2014 post now, overdue by about 123 min.",
       "followers": "5,048 (live, 2026-11-22 07:11 AM PT)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 10,
+      "queue_depth": 9,
       "queue_source": "IG_READY staged"
     },
     {
@@ -219,9 +219,9 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "YELLOW",
-      "gap_minutes": 38,
-      "rung": "yellow",
+      "state": "OVERRIDE",
+      "gap_minutes": 48,
+      "rung": "override",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:13 PM PT",
       "last_verified_iso": "2026-11-22T12:13:54-08:00",
@@ -238,13 +238,13 @@
       "provisional_verdict": "RECORD_VERIFIED",
       "next_due_pt": "2026-11-22 12:43 PM PT",
       "next_due_iso": "2026-11-22T12:43:54-08:00",
-      "next_action": "Post now, overdue by about 38 min (rung yellow).",
+      "next_action": "Post now, overdue by about 48 min (rung override).",
       "followers": "10,960 (live, 2026-11-22 07:11 AM PT)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 24,
+      "queue_depth": 23,
       "queue_source": "IG_READY staged"
     },
     {
@@ -257,7 +257,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "OVERRIDE",
-      "gap_minutes": 42,
+      "gap_minutes": 52,
       "rung": "override",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:09 PM PT",
@@ -275,7 +275,7 @@
       "provisional_verdict": "RECORD_VERIFIED",
       "next_due_pt": "2026-11-22 12:39 PM PT",
       "next_due_iso": "2026-11-22T12:39:51-08:00",
-      "next_action": "Post now, overdue by about 42 min (rung override).",
+      "next_action": "Post now, overdue by about 52 min (rung override).",
       "followers": "2,157 (live, 2026-11-22 07:11 AM PT)",
       "blocker": "Browser session logged out (wave lane). Graph publishing still works.",
       "source": "receipt",
@@ -294,7 +294,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "OVERRIDE",
-      "gap_minutes": 45,
+      "gap_minutes": 55,
       "rung": "override",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:07 PM PT",
@@ -312,7 +312,7 @@
       "provisional_verdict": "RECORD_VERIFIED",
       "next_due_pt": "2026-11-22 12:37 PM PT",
       "next_due_iso": "2026-11-22T12:37:01-08:00",
-      "next_action": "Post now, overdue by about 45 min (rung override).",
+      "next_action": "Post now, overdue by about 55 min (rung override).",
       "followers": "537 (live, 2026-11-22 07:11 AM PT)",
       "blocker": "",
       "source": "receipt",
@@ -330,9 +330,9 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "YELLOW",
-      "gap_minutes": 37,
-      "rung": "yellow",
+      "state": "OVERRIDE",
+      "gap_minutes": 47,
+      "rung": "override",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:14 PM PT",
       "last_verified_iso": "2026-11-22T12:14:30-08:00",
@@ -349,13 +349,13 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:44 PM PT",
       "next_due_iso": "2026-11-22T12:44:30-08:00",
-      "next_action": "Post now, overdue by about 37 min (rung yellow).",
+      "next_action": "Post now, overdue by about 47 min (rung override).",
       "followers": "2,725 (live, 2026-11-22 07:11 AM PT)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 15,
+      "queue_depth": 17,
       "queue_source": "IG_READY staged"
     },
     {
@@ -367,10 +367,10 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "ON CADENCE",
-      "gap_minutes": 29,
-      "rung": "green",
-      "yellow": false,
+      "state": "YELLOW",
+      "gap_minutes": 39,
+      "rung": "yellow",
+      "yellow": true,
       "last_verified_pt": "2026-11-22 12:22 PM PT",
       "last_verified_iso": "2026-11-22T12:22:42-08:00",
       "last_time_source": "publish_time",
@@ -386,13 +386,13 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:52 PM PT",
       "next_due_iso": "2026-11-22T12:52:42-08:00",
-      "next_action": "Next due 2026-11-22 12:52 PM PT.",
+      "next_action": "Post now, overdue by about 39 min (rung yellow).",
       "followers": "1,101 (live, 2026-11-22 07:11 AM PT)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 9,
+      "queue_depth": 8,
       "queue_source": "IG_READY staged"
     },
     {
@@ -404,9 +404,9 @@
       "method": "Graph API",
       "miss_minutes": 60,
       "scored": true,
-      "state": "YELLOW",
-      "gap_minutes": 37,
-      "rung": "yellow",
+      "state": "OVERRIDE",
+      "gap_minutes": 47,
+      "rung": "override",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:14 PM PT",
       "last_verified_iso": "2026-11-22T12:14:30-08:00",
@@ -423,13 +423,13 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:44 PM PT",
       "next_due_iso": "2026-11-22T12:44:30-08:00",
-      "next_action": "Post now, overdue by about 37 min (rung yellow).",
+      "next_action": "Post now, overdue by about 47 min (rung override).",
       "followers": "350 (live, 2026-11-22 07:11 AM PT)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 14,
+      "queue_depth": 15,
       "queue_source": "IG_READY staged"
     },
     {
@@ -442,7 +442,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 96,
+      "gap_minutes": 107,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 11:15 AM PT",
@@ -460,13 +460,13 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 11:40 AM PT",
       "next_due_iso": "2026-11-22T11:40:20-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 96 min.",
+      "next_action": "RED \u2014 post now, overdue by about 107 min.",
       "followers": "8.7K",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 15,
+      "queue_depth": 14,
       "queue_source": "FB_READY staged"
     },
     {
@@ -479,7 +479,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "OVERRIDE",
-      "gap_minutes": 41,
+      "gap_minutes": 51,
       "rung": "override",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:10 PM PT",
@@ -497,7 +497,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:40 PM PT",
       "next_due_iso": "2026-11-22T12:40:50-08:00",
-      "next_action": "Post now, overdue by about 41 min (rung override).",
+      "next_action": "Post now, overdue by about 51 min (rung override).",
       "followers": "566 (+115)",
       "blocker": "",
       "source": "receipt",
@@ -516,7 +516,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 66,
+      "gap_minutes": 76,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 11:45 AM PT",
@@ -534,7 +534,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:15 PM PT",
       "next_due_iso": "2026-11-22T12:15:49-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 66 min.",
+      "next_action": "RED \u2014 post now, overdue by about 76 min.",
       "followers": "869",
       "blocker": "",
       "source": "receipt",
@@ -553,7 +553,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 65,
+      "gap_minutes": 75,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 11:46 AM PT",
@@ -571,13 +571,13 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:16 PM PT",
       "next_due_iso": "2026-11-22T12:16:40-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 65 min.",
+      "next_action": "RED \u2014 post now, overdue by about 75 min.",
       "followers": "114 (+1)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 6,
+      "queue_depth": 5,
       "queue_source": "FB_READY staged"
     },
     {
@@ -590,7 +590,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "OVERRIDE",
-      "gap_minutes": 40,
+      "gap_minutes": 51,
       "rung": "override",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:11 PM PT",
@@ -608,7 +608,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:41 PM PT",
       "next_due_iso": "2026-11-22T12:41:09-08:00",
-      "next_action": "Post now, overdue by about 40 min (rung override).",
+      "next_action": "Post now, overdue by about 51 min (rung override).",
       "followers": "0 (rendering quirk)",
       "blocker": "",
       "source": "receipt",
@@ -627,7 +627,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 65,
+      "gap_minutes": 75,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 11:46 AM PT",
@@ -645,7 +645,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:16 PM PT",
       "next_due_iso": "2026-11-22T12:16:54-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 65 min.",
+      "next_action": "RED \u2014 post now, overdue by about 75 min.",
       "followers": "187 (+11)",
       "blocker": "",
       "source": "receipt",
@@ -664,7 +664,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 228,
+      "gap_minutes": 238,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 09:03 AM PT",
@@ -682,7 +682,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 09:33 AM PT",
       "next_due_iso": "2026-11-22T09:33:49-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 228 min.",
+      "next_action": "RED \u2014 post now, overdue by about 238 min.",
       "followers": "7,567 (Nov 16)",
       "blocker": "7 extra Threads accounts unwired (need per-account OAuth).",
       "source": "receipt",
@@ -701,7 +701,7 @@
       "miss_minutes": 40,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 9,
+      "gap_minutes": 19,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-22 12:43 PM PT",
@@ -737,9 +737,9 @@
       "method": "API",
       "miss_minutes": 40,
       "scored": true,
-      "state": "OVERRIDE",
-      "gap_minutes": 31,
-      "rung": "override",
+      "state": "RED",
+      "gap_minutes": 41,
+      "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 12:20 PM PT",
       "last_verified_iso": "2026-11-22T12:20:58-08:00",
@@ -756,7 +756,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:40 PM PT",
       "next_due_iso": "2026-11-22T12:40:58-08:00",
-      "next_action": "Post now, overdue by about 31 min (rung override).",
+      "next_action": "RED \u2014 post now, overdue by about 41 min.",
       "followers": "6,186 (Nov 16 browser check)",
       "blocker": "LinkedIn browser signed out since Nov 16. Only David can sign it back in (Google phone verification).",
       "source": "receipt",
@@ -775,7 +775,7 @@
       "miss_minutes": 70,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 106,
+      "gap_minutes": 116,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-22 11:06 AM PT",
@@ -785,15 +785,15 @@
       "last_job_id": "verify-api-_ZQLmoUV-Ug",
       "last_item_ref": null,
       "provisional": true,
-      "provisional_reason": "VERIFIED from non-verifier job youtube-api-upload-q-video-youtube-1795222155-1: publisher/wave/manual receipt with no independent evidence, never green; verifier or evidence-backed promotion required",
-      "provisional_last_pt": "2026-11-22 12:11 PM PT",
-      "provisional_last_iso": "2026-11-22T12:11:02-08:00",
-      "provisional_url": "https://www.youtube.com/shorts/CMCRn5J-0KI",
-      "provisional_job_id": "youtube-api-upload-q-video-youtube-1795222155-1",
+      "provisional_reason": "VERIFIED from non-verifier job youtube-api-upload-q-video-youtube-1795222155-2: publisher/wave/manual receipt with no independent evidence, never green; verifier or evidence-backed promotion required",
+      "provisional_last_pt": "2026-11-22 01:01 PM PT",
+      "provisional_last_iso": "2026-11-22T13:01:13-08:00",
+      "provisional_url": "https://www.youtube.com/shorts/6nn99Yta9NI",
+      "provisional_job_id": "youtube-api-upload-q-video-youtube-1795222155-2",
       "provisional_verdict": "VERIFIED",
       "next_due_pt": "2026-11-22 11:41 AM PT",
       "next_due_iso": "2026-11-22T11:41:00-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 106 min.",
+      "next_action": "RED \u2014 post now, overdue by about 116 min.",
       "followers": "44 subscribers (Nov 16)",
       "blocker": "",
       "source": "receipt",
@@ -811,10 +811,10 @@
       "method": "TikTok Studio (browser)",
       "miss_minutes": 70,
       "scored": true,
-      "state": "ON CADENCE",
-      "gap_minutes": 28,
-      "rung": "green",
-      "yellow": false,
+      "state": "YELLOW",
+      "gap_minutes": 38,
+      "rung": "yellow",
+      "yellow": true,
       "last_verified_pt": "2026-11-22 12:24 PM PT",
       "last_verified_iso": "2026-11-22T12:24:00-08:00",
       "last_time_source": "publish_time",
@@ -830,7 +830,7 @@
       "provisional_verdict": null,
       "next_due_pt": "2026-11-22 12:59 PM PT",
       "next_due_iso": "2026-11-22T12:59:00-08:00",
-      "next_action": "Next due 2026-11-22 12:59 PM PT.",
+      "next_action": "Post now, overdue by about 38 min (rung yellow).",
       "followers": "~1.9K (Nov 17)",
       "blocker": "",
       "source": "receipt",
