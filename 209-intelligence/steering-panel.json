@@ -1,5 +1,5 @@
 {
- "generated_at_pt": "2026-11-21 09:14 PM PT",
+ "generated_at_pt": "2026-11-21 09:25 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
@@ -784,7 +784,7 @@
    "silo_run_id": "collect-v1-1795298850",
    "silo_run_pt": "2026-11-21 14:07 PT",
    "scores_run_id": "collect-v1-1795298850",
-   "dashboard_built_pt": "2026-11-21 21:13 PT"
+   "dashboard_built_pt": "2026-11-21 21:22 PT"
   },
   "ranked_posts": 5,
   "top_posts": [
