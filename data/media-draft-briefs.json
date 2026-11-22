@@ -1,7 +1,42 @@
 {
-  "generated_at": "2026-11-22T18:00:28.399873+00:00",
+  "generated_at": "2026-11-22T23:47:04.663448+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:HmdDdxixhQI",
+      "source_url": "https://www.youtube.com/watch?v=HmdDdxixhQI",
+      "title": "Fresno",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:hxW2yFxbmnI",
+      "source_url": "https://www.youtube.com/watch?v=hxW2yFxbmnI",
+      "title": "Dole Instagram Reels",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:6nn99Yta9NI",
+      "source_url": "https://www.youtube.com/watch?v=6nn99Yta9NI",
+      "title": "Dmvice",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:CMCRn5J-0KI",
+      "source_url": "https://www.youtube.com/watch?v=CMCRn5J-0KI",
+      "title": "460",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:_ZQLmoUV-Ug",
+      "source_url": "https://www.youtube.com/watch?v=_ZQLmoUV-Ug",
+      "title": "A Pedestrian Was Killed by a Train in Merced. Two Intersections Blocked.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:rtc-8nrKHzI",
       "source_url": "https://www.youtube.com/watch?v=rtc-8nrKHzI",
@@ -244,41 +279,6 @@
       "source_id": "youtube:YrHL1j8W_Mw",
       "source_url": "https://www.youtube.com/watch?v=YrHL1j8W_Mw",
       "title": "The Attention Meter | Systems, Not Willpower #Shorts",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:ytAibTlnsdY",
-      "source_url": "https://www.youtube.com/watch?v=ytAibTlnsdY",
-      "title": "what-a-school-waiver-is",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:3ob7LWrmkm8",
-      "source_url": "https://www.youtube.com/watch?v=3ob7LWrmkm8",
-      "title": "how-to-track-a-public-dollar",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:snwmZq8twf4",
-      "source_url": "https://www.youtube.com/watch?v=snwmZq8twf4",
-      "title": "ILLEGALLY FIRED: A Checked Answer Points at What's Missing",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:agRktkNE7Ko",
-      "source_url": "https://www.youtube.com/watch?v=agRktkNE7Ko",
-      "title": "Illegally Fired: Thursday Hunts What Is Missing.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:tLSUdeMp8us",
-      "source_url": "https://www.youtube.com/watch?v=tLSUdeMp8us",
-      "title": "what-proposition-42-protects",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
