@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-21 20:03 PT",
- "generated_epoch": 1795320201,
+ "generated_pt": "2026-11-21 20:14 PT",
+ "generated_epoch": 1795320882,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -53,13 +53,13 @@
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 28,
-   "fireable": 28,
+   "staged": 27,
+   "fireable": 27,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 27,
+   "keeper_strict_fireable": 26,
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
@@ -167,8 +167,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 305,
-   "fireable": 305,
+   "staged": 311,
+   "fireable": 311,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
