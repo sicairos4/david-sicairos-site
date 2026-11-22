@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-11-22T10:15:33.156507+00:00",
+  "generated_at": "2026-11-22T18:00:28.399873+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:rtc-8nrKHzI",
+      "source_url": "https://www.youtube.com/watch?v=rtc-8nrKHzI",
+      "title": "The Record Is What Matters",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:vXwFVr7T80A",
       "source_url": "https://www.youtube.com/watch?v=vXwFVr7T80A",
@@ -272,13 +279,6 @@
       "source_id": "youtube:tLSUdeMp8us",
       "source_url": "https://www.youtube.com/watch?v=tLSUdeMp8us",
       "title": "what-proposition-42-protects",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:Hq9OOVj8blE",
-      "source_url": "https://www.youtube.com/watch?v=Hq9OOVj8blE",
-      "title": "how-to-read-a-form-700",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
