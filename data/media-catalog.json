@@ -1,7 +1,109 @@
 {
   "version": 1,
-  "generated_at": "2026-11-22T02:36:52.005335+00:00",
+  "generated_at": "2026-11-22T10:15:33.156507+00:00",
   "items": [
+    {
+      "id": "youtube:vXwFVr7T80A",
+      "platform": "youtube",
+      "title": "Illegally Fired: Atwater Ifep299",
+      "published_at": "2026-11-22T06:29:59+00:00",
+      "url": "https://www.youtube.com/watch?v=vXwFVr7T80A",
+      "description": "",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T06:29:59+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T06:29:59+00:00",
+        "utc_epoch": 1795328999,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:5MqtWU3tGts",
+      "platform": "youtube",
+      "title": "Illegally Fired: Atwater Ifep298",
+      "published_at": "2026-11-22T05:20:59+00:00",
+      "url": "https://www.youtube.com/watch?v=5MqtWU3tGts",
+      "description": "",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T05:20:59+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T05:20:59+00:00",
+        "utc_epoch": 1795324859,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:V4kEfyEDMa0",
+      "platform": "youtube",
+      "title": "Illegally Fired: Atwater Ifep289",
+      "published_at": "2026-11-22T04:30:03+00:00",
+      "url": "https://www.youtube.com/watch?v=V4kEfyEDMa0",
+      "description": "",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T04:30:03+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T04:30:03+00:00",
+        "utc_epoch": 1795321803,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:epusC6u8bu8",
+      "platform": "youtube",
+      "title": "Stronger the Simple Way: The Glute Bridge",
+      "published_at": "2026-11-22T03:38:52+00:00",
+      "url": "https://www.youtube.com/watch?v=epusC6u8bu8",
+      "description": "",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T03:38:52+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T03:38:52+00:00",
+        "utc_epoch": 1795318732,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:_heHoelR5w0",
+      "platform": "youtube",
+      "title": "Stronger the Simple Way: The Farmer Carry",
+      "published_at": "2026-11-22T03:13:26+00:00",
+      "url": "https://www.youtube.com/watch?v=_heHoelR5w0",
+      "description": "",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T03:13:26+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T03:13:26+00:00",
+        "utc_epoch": 1795317206,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:zmL2go95yfI",
+      "platform": "youtube",
+      "title": "Reel Vault If Part17 Facebook Long",
+      "published_at": "2026-11-22T02:46:52+00:00",
+      "url": "https://www.youtube.com/watch?v=zmL2go95yfI",
+      "description": "",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T02:46:52+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T02:46:52+00:00",
+        "utc_epoch": 1795315612,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:h1mje8q4Xp8",
       "platform": "youtube",
@@ -9,7 +111,7 @@
       "published_at": "2026-11-22T02:21:39+00:00",
       "url": "https://www.youtube.com/watch?v=h1mje8q4Xp8",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T02:21:39+00:00",
@@ -26,7 +128,7 @@
       "published_at": "2026-11-22T00:29:56+00:00",
       "url": "https://www.youtube.com/watch?v=LBGpjmWYF7g",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T00:29:56+00:00",
@@ -43,7 +145,7 @@
       "published_at": "2026-11-22T00:04:04+00:00",
       "url": "https://www.youtube.com/watch?v=nUL0oWxXPd8",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T00:04:04+00:00",
@@ -60,7 +162,7 @@
       "published_at": "2026-11-21T23:37:45+00:00",
       "url": "https://www.youtube.com/watch?v=blpJ9nY6hlc",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T23:37:45+00:00",
@@ -77,7 +179,7 @@
       "published_at": "2026-11-21T23:12:09+00:00",
       "url": "https://www.youtube.com/watch?v=vlN5UBi0SAk",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T23:12:09+00:00",
@@ -94,7 +196,7 @@
       "published_at": "2026-11-21T22:47:10+00:00",
       "url": "https://www.youtube.com/watch?v=4d1vdRju8XE",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T22:47:10+00:00",
@@ -111,7 +213,7 @@
       "published_at": "2026-11-21T22:11:35+00:00",
       "url": "https://www.youtube.com/watch?v=sCBOjnM1pSQ",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T22:11:35+00:00",
@@ -128,7 +230,7 @@
       "published_at": "2026-11-21T21:46:22+00:00",
       "url": "https://www.youtube.com/watch?v=RKgJjm1ioVw",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T21:46:22+00:00",
@@ -145,7 +247,7 @@
       "published_at": "2026-11-21T21:15:44+00:00",
       "url": "https://www.youtube.com/watch?v=A2rSW7CDrPk",
       "description": "",
-      "observed_at": "2026-11-22T02:36:52.005335+00:00",
+      "observed_at": "2026-11-22T10:15:33.156507+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-21T21:15:44+00:00",
@@ -2590,22 +2692,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-22T02:36:52.005335+00:00",
-      "last_success_at": "2026-11-22T02:36:52.005335+00:00",
+      "last_attempt_at": "2026-11-22T10:15:33.156507+00:00",
+      "last_success_at": "2026-11-22T10:15:33.156507+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-22T02:36:52.005335+00:00",
+      "last_attempt_at": "2026-11-22T10:15:33.156507+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-22T02:36:52.005335+00:00",
+      "last_attempt_at": "2026-11-22T10:15:33.156507+00:00",
       "error_type": "RuntimeError"
     }
   }
