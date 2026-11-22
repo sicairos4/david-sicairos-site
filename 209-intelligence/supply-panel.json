@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-22 00:31 PT",
- "generated_epoch": 1795336291,
+ "generated_pt": "2026-11-22 00:36 PT",
+ "generated_epoch": 1795336563,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -53,15 +53,15 @@
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 18,
-   "fireable": 17,
-   "deficit": 8,
+   "staged": 17,
+   "fireable": 16,
+   "deficit": 9,
    "badge": "LOW",
    "exclusions": {
     "frame_hold": 1
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 16,
+   "keeper_strict_fireable": 15,
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
@@ -75,9 +75,9 @@
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
-   "staged": 15,
-   "fireable": 15,
-   "deficit": 10,
+   "staged": 16,
+   "fireable": 16,
+   "deficit": 9,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,

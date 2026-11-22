@@ -1,84 +1,36 @@
 {
  "version": "self-healing-v1",
- "generated_pt": "2026-11-22 12:22 AM PT",
- "generated_epoch": 1795335732.4456177,
- "cycle_s": 26.72,
+ "generated_pt": "2026-11-22 12:43 AM PT",
+ "generated_epoch": 1795336981.1669693,
+ "cycle_s": 34.67,
  "system": {
-  "health_pct": 48.4,
+  "health_pct": 44.3,
   "health_floor_pct": 77.0,
-  "budget_remaining_pts": -28.6,
-  "burn_rate_per_h": 1.3,
+  "budget_remaining_pts": -32.7,
+  "burn_rate_per_h": 0.0,
   "changes_frozen": true,
   "lanes_scored": 18,
   "on_cadence": 5,
-  "yellow": 4,
-  "red": 9
+  "yellow": 1,
+  "red": 12
  },
  "executor": {
   "component": "cli-executor",
   "alive": true,
   "pid": "58969",
-  "heartbeat_age_s": 4,
-  "heartbeat_pt": "2026-11-22 00:21:43 PT",
+  "heartbeat_age_s": 5,
+  "heartbeat_pt": "2026-11-22 00:42:23 PT",
   "egress_github_200": true,
   "status": "HEALTHY",
-  "checked_pt": "2026-11-22 12:21 AM PT"
+  "checked_pt": "2026-11-22 12:42 AM PT"
  },
  "queue": {
-  "fb_dbeastco": {
-   "fireable": 26,
-   "fireable_source": "fb-publisher-state-dbeastco.json",
-   "fireable_fresh": true,
-   "depth": 26,
-   "source": "FB_READY staged",
-   "fresh": true
-  },
-  "fb_elevated": {
-   "fireable": 24,
-   "fireable_source": "fb-publisher-state-elevated.json",
-   "fireable_fresh": true,
-   "depth": 24,
-   "source": "FB_READY staged",
-   "fresh": true
-  },
-  "fb_intentionally": {
-   "fireable": 41,
-   "fireable_source": "fb-publisher-state-intentionally.json",
-   "fireable_fresh": true,
-   "depth": 39,
-   "source": "FB_READY staged",
-   "fresh": true
-  },
-  "ig_davids": {
-   "fireable": 1,
-   "fireable_source": "ig-publisher-state-davids.json",
-   "fireable_fresh": true,
-   "depth": 28,
-   "source": "IG_READY staged",
-   "fresh": true
-  },
   "fb_problemsolved": {
    "fireable": 43,
    "fireable_source": "fb-publisher-state-problemsolved.json",
    "fireable_fresh": true,
    "depth": 42,
    "source": "FB_READY staged",
-   "fresh": true
-  },
-  "ig_elevated": {
-   "fireable": 8,
-   "fireable_source": "ig-publisher-state-elevated.json",
-   "fireable_fresh": true,
-   "depth": 15,
-   "source": "IG_READY staged",
-   "fresh": true
-  },
-  "ig_atwater": {
-   "fireable": 0,
-   "fireable_source": "ig-publisher-state-atwater.json",
-   "fireable_fresh": true,
-   "depth": 16,
-   "source": "IG_READY staged",
    "fresh": true
   },
   "fb_california": {
@@ -89,9 +41,17 @@
    "source": "FB_READY staged",
    "fresh": true
   },
-  "ig_intentionally": {
-   "fireable": 4,
-   "fireable_source": "ig-publisher-state-intentionally.json",
+  "ig_atwater": {
+   "fireable": 0,
+   "fireable_source": "ig-publisher-state-atwater.json",
+   "fireable_fresh": true,
+   "depth": 15,
+   "source": "IG_READY staged",
+   "fresh": true
+  },
+  "ig_elevated": {
+   "fireable": 8,
+   "fireable_source": "ig-publisher-state-elevated.json",
    "fireable_fresh": true,
    "depth": 17,
    "source": "IG_READY staged",
@@ -105,11 +65,19 @@
    "source": "IG_READY staged",
    "fresh": true
   },
+  "fb_elevated": {
+   "fireable": 24,
+   "fireable_source": "fb-publisher-state-elevated.json",
+   "fireable_fresh": true,
+   "depth": 23,
+   "source": "FB_READY staged",
+   "fresh": true
+  },
   "ig_hub": {
    "fireable": 2,
    "fireable_source": "ig-publisher-state-hub.json",
    "fireable_fresh": true,
-   "depth": 30,
+   "depth": 29,
    "source": "IG_READY staged",
    "fresh": true
   },
@@ -117,69 +85,71 @@
    "fireable": 0,
    "fireable_source": "ig-publisher-state-castle.json",
    "fireable_fresh": true,
-   "depth": 19,
+   "depth": 16,
+   "source": "IG_READY staged",
+   "fresh": true
+  },
+  "fb_intentionally": {
+   "fireable": 39,
+   "fireable_source": "fb-publisher-state-intentionally.json",
+   "fireable_fresh": true,
+   "depth": 38,
+   "source": "FB_READY staged",
+   "fresh": true
+  },
+  "fb_dbeastco": {
+   "fireable": 26,
+   "fireable_source": "fb-publisher-state-dbeastco.json",
+   "fireable_fresh": true,
+   "depth": 25,
+   "source": "FB_READY staged",
+   "fresh": true
+  },
+  "ig_intentionally": {
+   "fireable": 4,
+   "fireable_source": "ig-publisher-state-intentionally.json",
+   "fireable_fresh": true,
+   "depth": 16,
+   "source": "IG_READY staged",
+   "fresh": true
+  },
+  "ig_davids": {
+   "fireable": 1,
+   "fireable_source": "ig-publisher-state-davids.json",
+   "fireable_fresh": true,
+   "depth": 27,
    "source": "IG_READY staged",
    "fresh": true
   },
   "fb_profile": {
-   "depth": 20,
+   "depth": 17,
    "source": "FB_READY staged",
    "fresh": true
   }
  },
  "yellow_flags_file": {
-  "generated_pt": "2026-11-22 00:21:09 PT",
+  "generated_pt": "2026-11-22 00:42:14 PT",
   "yellow": [
    {
-    "lane": "ig-castle",
+    "lane": "ig-intentionally",
     "target_min": 30,
-    "gap_min": 45.9,
-    "last_publish_pt": "2026-11-21 23:35 PT",
+    "gap_min": 46.6,
+    "last_publish_pt": "2026-11-21 23:55 PT",
     "rung": "override",
-    "provisional_1check": false,
-    "provisional_reason": null,
-    "provisional_last_pt": null,
+    "provisional_1check": true,
+    "provisional_reason": "RECORD_VERIFIED from ig-fast-verify: record exists, visibility unproven; poller promotion required",
+    "provisional_last_pt": "2026-11-22 00:41 PT",
     "dry": true,
-    "fireable": 18,
+    "fireable": 15,
     "floor": 25,
-    "producer": "ig-producer-castle"
-   },
-   {
-    "lane": "fb-dbeastco",
-    "target_min": 30,
-    "gap_min": 45.7,
-    "last_publish_pt": "2026-11-21 23:35 PT",
-    "rung": "override",
-    "provisional_1check": false,
-    "provisional_reason": null,
-    "provisional_last_pt": null
-   },
-   {
-    "lane": "fb-elevated",
-    "target_min": 30,
-    "gap_min": 45.7,
-    "last_publish_pt": "2026-11-21 23:35 PT",
-    "rung": "override",
-    "provisional_1check": false,
-    "provisional_reason": null,
-    "provisional_last_pt": null
-   },
-   {
-    "lane": "fb-problemsolved",
-    "target_min": 30,
-    "gap_min": 45.6,
-    "last_publish_pt": "2026-11-21 23:35 PT",
-    "rung": "override",
-    "provisional_1check": false,
-    "provisional_reason": null,
-    "provisional_last_pt": null
+    "producer": "ig-producer-intentionally"
    }
   ],
   "red": [
    {
     "lane": "ig-hub",
     "target_min": 30,
-    "gap_min": 132.1,
+    "gap_min": 153.2,
     "last_publish_pt": "2026-11-21 22:09 PT",
     "rung": "red",
     "provisional_1check": true,
@@ -193,7 +163,7 @@
    {
     "lane": "ig-personal",
     "target_min": 30,
-    "gap_min": 528.5,
+    "gap_min": 549.5,
     "last_publish_pt": "2026-11-21 15:32 PT",
     "rung": "red",
     "provisional_1check": false,
@@ -207,7 +177,7 @@
    {
     "lane": "ig-davids",
     "target_min": 30,
-    "gap_min": 311.4,
+    "gap_min": 332.5,
     "last_publish_pt": "2026-11-21 19:09 PT",
     "rung": "red",
     "provisional_1check": false,
@@ -221,17 +191,17 @@
    {
     "lane": "linkedin",
     "target_min": 20,
-    "gap_min": 695.6,
+    "gap_min": 716.7,
     "last_publish_pt": "2026-11-21 12:45 PT",
     "rung": "red",
     "provisional_1check": true,
     "provisional_reason": "VERIFIED_LIVE from non-verifier job linkedin-publisher-30m: publisher/wave/manual receipt, never green; verifier promotion required",
-    "provisional_last_pt": "2026-11-21 23:51 PT"
+    "provisional_last_pt": "2026-11-22 00:41 PT"
    },
    {
     "lane": "tiktok",
     "target_min": 35,
-    "gap_min": 128.2,
+    "gap_min": 149.2,
     "last_publish_pt": "2026-11-21 22:13 PT",
     "rung": "red",
     "provisional_1check": false,
@@ -241,7 +211,7 @@
    {
     "lane": "youtube",
     "target_min": 35,
-    "gap_min": 112.2,
+    "gap_min": 133.2,
     "last_publish_pt": "2026-11-21 22:29 PT",
     "rung": "red",
     "provisional_1check": false,
@@ -251,21 +221,48 @@
    {
     "lane": "fb-profile",
     "target_min": 25,
-    "gap_min": 642.2,
+    "gap_min": 663.3,
     "last_publish_pt": "2026-11-21 13:38 PT",
     "rung": "red",
     "provisional_1check": true,
     "provisional_reason": "VERIFIED_LIVE from non-verifier job independent-verify-fb-profile-29501111192886206: publisher/wave/manual receipt, never green; verifier promotion required",
     "provisional_last_pt": "2026-11-21 14:13 PT"
+   },
+   {
+    "lane": "fb-dbeastco",
+    "target_min": 30,
+    "gap_min": 66.8,
+    "last_publish_pt": "2026-11-21 23:35 PT",
+    "rung": "red",
+    "provisional_1check": false,
+    "provisional_reason": null,
+    "provisional_last_pt": null
+   },
+   {
+    "lane": "fb-elevated",
+    "target_min": 30,
+    "gap_min": 66.8,
+    "last_publish_pt": "2026-11-21 23:35 PT",
+    "rung": "red",
+    "provisional_1check": false,
+    "provisional_reason": null,
+    "provisional_last_pt": null
+   },
+   {
+    "lane": "fb-problemsolved",
+    "target_min": 30,
+    "gap_min": 66.7,
+    "last_publish_pt": "2026-11-21 23:35 PT",
+    "rung": "red",
+    "provisional_1check": false,
+    "provisional_reason": null,
+    "provisional_last_pt": null
    }
   ],
   "rungs": {
    "yellow": [],
    "override": [
-    "ig-castle",
-    "fb-dbeastco",
-    "fb-elevated",
-    "fb-problemsolved"
+    "ig-intentionally"
    ],
    "diagnoser": [],
    "red": [
@@ -275,14 +272,17 @@
     "linkedin",
     "tiktok",
     "youtube",
-    "fb-profile"
+    "fb-profile",
+    "fb-dbeastco",
+    "fb-elevated",
+    "fb-problemsolved"
    ]
   },
   "provisional_1check": [
    {
     "lane": "ig-hub",
     "target_min": 30,
-    "gap_min": 132.1,
+    "gap_min": 153.2,
     "last_publish_pt": "2026-11-21 22:09 PT",
     "rung": "red",
     "provisional_1check": true,
@@ -294,19 +294,33 @@
     "producer": "ig-producer-hub"
    },
    {
+    "lane": "ig-intentionally",
+    "target_min": 30,
+    "gap_min": 46.6,
+    "last_publish_pt": "2026-11-21 23:55 PT",
+    "rung": "override",
+    "provisional_1check": true,
+    "provisional_reason": "RECORD_VERIFIED from ig-fast-verify: record exists, visibility unproven; poller promotion required",
+    "provisional_last_pt": "2026-11-22 00:41 PT",
+    "dry": true,
+    "fireable": 15,
+    "floor": 25,
+    "producer": "ig-producer-intentionally"
+   },
+   {
     "lane": "linkedin",
     "target_min": 20,
-    "gap_min": 695.6,
+    "gap_min": 716.7,
     "last_publish_pt": "2026-11-21 12:45 PT",
     "rung": "red",
     "provisional_1check": true,
     "provisional_reason": "VERIFIED_LIVE from non-verifier job linkedin-publisher-30m: publisher/wave/manual receipt, never green; verifier promotion required",
-    "provisional_last_pt": "2026-11-21 23:51 PT"
+    "provisional_last_pt": "2026-11-22 00:41 PT"
    },
    {
     "lane": "fb-profile",
     "target_min": 25,
-    "gap_min": 642.2,
+    "gap_min": 663.3,
     "last_publish_pt": "2026-11-21 13:38 PT",
     "rung": "red",
     "provisional_1check": true,
@@ -325,25 +339,25 @@
     "requestable": false
    },
    {
-    "lane": "ig-intentionally",
-    "fireable": 15,
+    "lane": "ig-castle",
+    "fireable": 16,
     "floor": 25,
-    "producer": "ig-producer-intentionally",
+    "producer": "ig-producer-castle",
     "decision": "skip-producer-recently-active",
     "requestable": false
    },
    {
     "lane": "ig-elevated",
-    "fireable": 15,
+    "fireable": 14,
     "floor": 25,
     "producer": "ig-producer-elevated",
-    "decision": "skip-producer-recently-active",
-    "requestable": false
+    "decision": "would-fire",
+    "requestable": true
    }
   ],
-  "panel_age_min": 0.4,
+  "panel_age_min": 0.1,
   "panel_stale": false,
-  "low_water_age_min": 21.0,
+  "low_water_age_min": 10.1,
   "publog_db": "ok"
  },
  "lanes": {
@@ -351,14 +365,14 @@
    "key": "bluesky",
    "cadence_min": 20,
    "state": "ON CADENCE",
-   "gap_min": 15.8,
+   "gap_min": 12.4,
    "health_score": 1.0,
-   "last_verified_iso": "2026-11-22T00:06:01-08:00",
-   "last_verified_pt": "2026-11-22 12:06 AM PT",
-   "gap_last_min": 15.8,
+   "last_verified_iso": "2026-11-22T00:30:05-08:00",
+   "last_verified_pt": "2026-11-22 12:30 AM PT",
+   "gap_last_min": 12.4,
    "gap_longest_23h_min": 297.2,
    "gap_avg_23h_min": 21.7,
-   "publishes_23h": 63,
+   "publishes_23h": 64,
    "sensor_disagree_with_live_state": true,
    "diagnosis": null,
    "plan": null,
@@ -370,11 +384,11 @@
    "key": "fb_california",
    "cadence_min": 30,
    "state": "ON CADENCE",
-   "gap_min": 5.9,
+   "gap_min": 26.6,
    "health_score": 1.0,
    "last_verified_iso": "2026-11-22T00:15:55-08:00",
    "last_verified_pt": "2026-11-22 12:15 AM PT",
-   "gap_last_min": 5.9,
+   "gap_last_min": 26.6,
    "gap_longest_23h_min": 195.9,
    "gap_avg_23h_min": 51.8,
    "publishes_23h": 27,
@@ -388,12 +402,12 @@
   "fb_dbeastco": {
    "key": "fb_dbeastco",
    "cadence_min": 30,
-   "state": "YELLOW",
-   "gap_min": 46.4,
-   "health_score": 0.647,
+   "state": "RED",
+   "gap_min": 67.1,
+   "health_score": 0.447,
    "last_verified_iso": "2026-11-21T23:35:27-08:00",
    "last_verified_pt": "2026-11-21 11:35 PM PT",
-   "gap_last_min": 46.4,
+   "gap_last_min": 67.1,
    "gap_longest_23h_min": 355.4,
    "gap_avg_23h_min": 81.7,
    "publishes_23h": 17,
@@ -402,17 +416,17 @@
     "lane": "fb_dbeastco",
     "q1_last_verified_pt": "2026-11-21 11:35 PM PT",
     "q2_receipt_missing": true,
-    "q3_suspect_link": "F9?",
+    "q3_suspect_link": "F5/F6",
     "q4_transient_or_persistent": "unknown \u2014 consecutive-cycle count in store",
-    "q5_cheapest_rung": 0,
-    "failure_class": "F9?",
-    "rot_class": "R8",
+    "q5_cheapest_rung": 1,
+    "failure_class": "F5/F6",
+    "rot_class": "R1",
     "vsm_system": "S3*",
-    "phase": "r",
+    "phase": "K",
     "confidence": "LOW",
-    "cheapest_test": "Wait one interval; if still yellow, live-read the platform.",
+    "cheapest_test": "Cheapest distinguishing test: live read of the platform for the last attempted post (separates F9 receipt-lag from F6 hung call), then check executor request age.",
     "reasoning": [
-     "Lane yellow (46.4m): single miss so far \u2014 rung 0 patience applies; receipt lag (F9) not excluded."
+     "Queue healthy (25) but lane red (67.1m): supply branch clears; transport/state/scheduling not yet distinguished."
     ]
    },
    "plan": {
@@ -421,24 +435,24 @@
     "name": "Circuit breaker: pause the lane",
     "mode": "QUEUED",
     "note": "Three consecutive failures of same class; half-open trial after timeout.",
-    "failure_class": "F9?",
+    "failure_class": "F5/F6",
     "confidence": "LOW",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 26,
+   "queue_depth": 25,
    "queue_source": "FB_READY staged",
    "queue_fresh": true
   },
   "fb_elevated": {
    "key": "fb_elevated",
    "cadence_min": 30,
-   "state": "YELLOW",
-   "gap_min": 46.3,
-   "health_score": 0.648,
+   "state": "RED",
+   "gap_min": 67.0,
+   "health_score": 0.448,
    "last_verified_iso": "2026-11-21T23:35:29-08:00",
    "last_verified_pt": "2026-11-21 11:35 PM PT",
-   "gap_last_min": 46.3,
+   "gap_last_min": 67.0,
    "gap_longest_23h_min": 381.8,
    "gap_avg_23h_min": 29.7,
    "publishes_23h": 45,
@@ -457,7 +471,7 @@
     "confidence": "HIGH",
     "cheapest_test": "Fire producer tick; refill from evergreen.",
     "reasoning": [
-     "Queue depth 24 < floor 25 (fresh reading): F4 queue dry."
+     "Queue depth 23 < floor 25 (fresh reading): F4 queue dry."
     ]
    },
    "plan": {
@@ -469,9 +483,9 @@
     "failure_class": "F4",
     "confidence": "HIGH",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 24,
+   "queue_depth": 23,
    "queue_source": "FB_READY staged",
    "queue_fresh": true
   },
@@ -479,30 +493,30 @@
    "key": "fb_intentionally",
    "cadence_min": 30,
    "state": "ON CADENCE",
-   "gap_min": 8.1,
+   "gap_min": 28.7,
    "health_score": 1.0,
    "last_verified_iso": "2026-11-22T00:13:46-08:00",
    "last_verified_pt": "2026-11-22 12:13 AM PT",
-   "gap_last_min": 8.1,
+   "gap_last_min": 28.7,
    "gap_longest_23h_min": 383.1,
    "gap_avg_23h_min": 44.8,
    "publishes_23h": 31,
    "sensor_disagree_with_live_state": true,
    "diagnosis": null,
    "plan": null,
-   "queue_depth": 39,
+   "queue_depth": 38,
    "queue_source": "FB_READY staged",
    "queue_fresh": true
   },
   "fb_problemsolved": {
    "key": "fb_problemsolved",
    "cadence_min": 30,
-   "state": "YELLOW",
-   "gap_min": 46.3,
-   "health_score": 0.648,
+   "state": "RED",
+   "gap_min": 67.0,
+   "health_score": 0.448,
    "last_verified_iso": "2026-11-21T23:35:32-08:00",
    "last_verified_pt": "2026-11-21 11:35 PM PT",
-   "gap_last_min": 46.3,
+   "gap_last_min": 67.0,
    "gap_longest_23h_min": 274.2,
    "gap_avg_23h_min": 40.9,
    "publishes_23h": 33,
@@ -511,17 +525,17 @@
     "lane": "fb_problemsolved",
     "q1_last_verified_pt": "2026-11-21 11:35 PM PT",
     "q2_receipt_missing": true,
-    "q3_suspect_link": "F9?",
+    "q3_suspect_link": "F5/F6",
     "q4_transient_or_persistent": "unknown \u2014 consecutive-cycle count in store",
-    "q5_cheapest_rung": 0,
-    "failure_class": "F9?",
-    "rot_class": "R8",
+    "q5_cheapest_rung": 1,
+    "failure_class": "F5/F6",
+    "rot_class": "R1",
     "vsm_system": "S3*",
-    "phase": "r",
+    "phase": "K",
     "confidence": "LOW",
-    "cheapest_test": "Wait one interval; if still yellow, live-read the platform.",
+    "cheapest_test": "Cheapest distinguishing test: live read of the platform for the last attempted post (separates F9 receipt-lag from F6 hung call), then check executor request age.",
     "reasoning": [
-     "Lane yellow (46.3m): single miss so far \u2014 rung 0 patience applies; receipt lag (F9) not excluded."
+     "Queue healthy (42) but lane red (67.0m): supply branch clears; transport/state/scheduling not yet distinguished."
     ]
    },
    "plan": {
@@ -530,10 +544,10 @@
     "name": "Circuit breaker: pause the lane",
     "mode": "QUEUED",
     "note": "Three consecutive failures of same class; half-open trial after timeout.",
-    "failure_class": "F9?",
+    "failure_class": "F5/F6",
     "confidence": "LOW",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
    "queue_depth": 42,
    "queue_source": "FB_READY staged",
@@ -543,11 +557,11 @@
    "key": "fb_profile",
    "cadence_min": 25,
    "state": "RED",
-   "gap_min": 369.9,
-   "health_score": 0.068,
+   "gap_min": 390.6,
+   "health_score": 0.064,
    "last_verified_iso": "2026-11-21T18:11:54-08:00",
    "last_verified_pt": "2026-11-21 06:11 PM PT",
-   "gap_last_min": 369.9,
+   "gap_last_min": 390.6,
    "gap_longest_23h_min": 662.1,
    "gap_avg_23h_min": 61.1,
    "publishes_23h": 17,
@@ -566,7 +580,7 @@
     "confidence": "HIGH",
     "cheapest_test": "Fire producer tick; refill from evergreen.",
     "reasoning": [
-     "Queue depth 20 < floor 25 (fresh reading): F4 queue dry."
+     "Queue depth 17 < floor 25 (fresh reading): F4 queue dry."
     ]
    },
    "plan": {
@@ -578,9 +592,9 @@
     "failure_class": "F4",
     "confidence": "HIGH",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 20,
+   "queue_depth": 17,
    "queue_source": "FB_READY staged",
    "queue_fresh": true
   },
@@ -588,11 +602,11 @@
    "key": "ig_atwater",
    "cadence_min": 30,
    "state": "RED",
-   "gap_min": 311.8,
-   "health_score": 0.096,
+   "gap_min": 332.5,
+   "health_score": 0.09,
    "last_verified_iso": "2026-11-21T19:10:00-08:00",
    "last_verified_pt": "2026-11-21 07:10 PM PT",
-   "gap_last_min": 311.8,
+   "gap_last_min": 332.5,
    "gap_longest_23h_min": 429.2,
    "gap_avg_23h_min": 129.8,
    "publishes_23h": 9,
@@ -611,7 +625,7 @@
     "confidence": "HIGH",
     "cheapest_test": "Fire producer tick; refill from evergreen.",
     "reasoning": [
-     "Queue depth 16 < floor 25 (fresh reading): F4 queue dry."
+     "Queue depth 15 < floor 25 (fresh reading): F4 queue dry."
     ]
    },
    "plan": {
@@ -623,9 +637,9 @@
     "failure_class": "F4",
     "confidence": "HIGH",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 16,
+   "queue_depth": 15,
    "queue_source": "IG_READY staged",
    "queue_fresh": true
   },
@@ -633,12 +647,12 @@
    "key": "ig_castle",
    "cadence_min": 30,
    "state": "RED",
-   "gap_min": 342.6,
-   "health_score": 0.088,
+   "gap_min": 363.2,
+   "health_score": 0.083,
    "last_verified_iso": "2026-11-21T18:39:16-08:00",
    "last_verified_pt": "2026-11-21 06:39 PM PT",
-   "gap_last_min": 342.6,
-   "gap_longest_23h_min": 342.6,
+   "gap_last_min": 363.2,
+   "gap_longest_23h_min": 363.2,
    "gap_avg_23h_min": 144.0,
    "publishes_23h": 8,
    "sensor_disagree_with_live_state": true,
@@ -656,7 +670,7 @@
     "confidence": "HIGH",
     "cheapest_test": "Fire producer tick; refill from evergreen.",
     "reasoning": [
-     "Queue depth 19 < floor 25 (fresh reading): F4 queue dry."
+     "Queue depth 16 < floor 25 (fresh reading): F4 queue dry."
     ]
    },
    "plan": {
@@ -668,9 +682,9 @@
     "failure_class": "F4",
     "confidence": "HIGH",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 19,
+   "queue_depth": 16,
    "queue_source": "IG_READY staged",
    "queue_fresh": true
   },
@@ -678,11 +692,11 @@
    "key": "ig_davids",
    "cadence_min": 30,
    "state": "RED",
-   "gap_min": 314.6,
-   "health_score": 0.095,
+   "gap_min": 335.3,
+   "health_score": 0.089,
    "last_verified_iso": "2026-11-21T19:07:15-08:00",
    "last_verified_pt": "2026-11-21 07:07 PM PT",
-   "gap_last_min": 314.6,
+   "gap_last_min": 335.3,
    "gap_longest_23h_min": 660.7,
    "gap_avg_23h_min": 228.8,
    "publishes_23h": 5,
@@ -701,7 +715,7 @@
     "confidence": "LOW",
     "cheapest_test": "Cheapest distinguishing test: live read of the platform for the last attempted post (separates F9 receipt-lag from F6 hung call), then check executor request age.",
     "reasoning": [
-     "Queue healthy (28) but lane red (314.6m): supply branch clears; transport/state/scheduling not yet distinguished."
+     "Queue healthy (27) but lane red (335.3m): supply branch clears; transport/state/scheduling not yet distinguished."
     ]
    },
    "plan": {
@@ -713,9 +727,9 @@
     "failure_class": "F5/F6",
     "confidence": "LOW",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 28,
+   "queue_depth": 27,
    "queue_source": "IG_READY staged",
    "queue_fresh": true
   },
@@ -723,11 +737,11 @@
    "key": "ig_elevated",
    "cadence_min": 30,
    "state": "RED",
-   "gap_min": 314.6,
-   "health_score": 0.095,
+   "gap_min": 335.3,
+   "health_score": 0.089,
    "last_verified_iso": "2026-11-21T19:07:15-08:00",
    "last_verified_pt": "2026-11-21 07:07 PM PT",
-   "gap_last_min": 314.6,
+   "gap_last_min": 335.3,
    "gap_longest_23h_min": 561.3,
    "gap_avg_23h_min": 172.6,
    "publishes_23h": 7,
@@ -746,7 +760,7 @@
     "confidence": "HIGH",
     "cheapest_test": "Fire producer tick; refill from evergreen.",
     "reasoning": [
-     "Queue depth 15 < floor 25 (fresh reading): F4 queue dry."
+     "Queue depth 17 < floor 25 (fresh reading): F4 queue dry."
     ]
    },
    "plan": {
@@ -758,9 +772,9 @@
     "failure_class": "F4",
     "confidence": "HIGH",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 15,
+   "queue_depth": 17,
    "queue_source": "IG_READY staged",
    "queue_fresh": true
   },
@@ -768,14 +782,14 @@
    "key": "ig_hub",
    "cadence_min": 30,
    "state": "RED",
-   "gap_min": 98.8,
-   "health_score": 0.304,
+   "gap_min": 119.5,
+   "health_score": 0.251,
    "last_verified_iso": "2026-11-21T22:42:59-08:00",
    "last_verified_pt": "2026-11-21 10:42 PM PT",
-   "gap_last_min": 98.8,
+   "gap_last_min": 119.5,
    "gap_longest_23h_min": 291.7,
-   "gap_avg_23h_min": 75.2,
-   "publishes_23h": 18,
+   "gap_avg_23h_min": 83.4,
+   "publishes_23h": 16,
    "sensor_disagree_with_live_state": false,
    "diagnosis": {
     "lane": "ig_hub",
@@ -791,7 +805,7 @@
     "confidence": "LOW",
     "cheapest_test": "Cheapest distinguishing test: live read of the platform for the last attempted post (separates F9 receipt-lag from F6 hung call), then check executor request age.",
     "reasoning": [
-     "Queue healthy (30) but lane red (98.8m): supply branch clears; transport/state/scheduling not yet distinguished."
+     "Queue healthy (29) but lane red (119.5m): supply branch clears; transport/state/scheduling not yet distinguished."
     ]
    },
    "plan": {
@@ -803,9 +817,9 @@
     "failure_class": "F5/F6",
     "confidence": "LOW",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 30,
+   "queue_depth": 29,
    "queue_source": "IG_READY staged",
    "queue_fresh": true
   },
@@ -813,12 +827,12 @@
    "key": "ig_intentionally",
    "cadence_min": 30,
    "state": "RED",
-   "gap_min": 342.6,
-   "health_score": 0.088,
+   "gap_min": 363.2,
+   "health_score": 0.083,
    "last_verified_iso": "2026-11-21T18:39:16-08:00",
    "last_verified_pt": "2026-11-21 06:39 PM PT",
-   "gap_last_min": 342.6,
-   "gap_longest_23h_min": 342.6,
+   "gap_last_min": 363.2,
+   "gap_longest_23h_min": 363.2,
    "gap_avg_23h_min": 77.5,
    "publishes_23h": 14,
    "sensor_disagree_with_live_state": true,
@@ -836,7 +850,7 @@
     "confidence": "HIGH",
     "cheapest_test": "Fire producer tick; refill from evergreen.",
     "reasoning": [
-     "Queue depth 17 < floor 25 (fresh reading): F4 queue dry."
+     "Queue depth 16 < floor 25 (fresh reading): F4 queue dry."
     ]
    },
    "plan": {
@@ -848,9 +862,9 @@
     "failure_class": "F4",
     "confidence": "HIGH",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
-   "queue_depth": 17,
+   "queue_depth": 16,
    "queue_source": "IG_READY staged",
    "queue_fresh": true
   },
@@ -858,11 +872,11 @@
    "key": "ig_personal",
    "cadence_min": 30,
    "state": "RED",
-   "gap_min": 342.6,
-   "health_score": 0.088,
+   "gap_min": 363.2,
+   "health_score": 0.083,
    "last_verified_iso": "2026-11-21T18:39:16-08:00",
    "last_verified_pt": "2026-11-21 06:39 PM PT",
-   "gap_last_min": 342.6,
+   "gap_last_min": 363.2,
    "gap_longest_23h_min": 469.0,
    "gap_avg_23h_min": 144.0,
    "publishes_23h": 8,
@@ -893,7 +907,7 @@
     "failure_class": "F4",
     "confidence": "HIGH",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
    "queue_depth": 19,
    "queue_source": "IG_READY staged",
@@ -903,14 +917,14 @@
    "key": "linkedin",
    "cadence_min": 20,
    "state": "ON CADENCE",
-   "gap_min": 30.0,
-   "health_score": 0.667,
-   "last_verified_iso": "2026-11-21T23:51:51-08:00",
-   "last_verified_pt": "2026-11-21 11:51 PM PT",
-   "gap_last_min": 30.0,
+   "gap_min": 1.2,
+   "health_score": 1.0,
+   "last_verified_iso": "2026-11-22T00:41:18-08:00",
+   "last_verified_pt": "2026-11-22 12:41 AM PT",
+   "gap_last_min": 1.2,
    "gap_longest_23h_min": 120.6,
-   "gap_avg_23h_min": 27.4,
-   "publishes_23h": 50,
+   "gap_avg_23h_min": 28.7,
+   "publishes_23h": 49,
    "sensor_disagree_with_live_state": true,
    "diagnosis": null,
    "plan": null,
@@ -922,15 +936,15 @@
    "key": "threads",
    "cadence_min": 25,
    "state": "ON CADENCE",
-   "gap_min": 15.5,
+   "gap_min": 2.5,
    "health_score": 1.0,
-   "last_verified_iso": "2026-11-22T00:06:17-08:00",
-   "last_verified_pt": "2026-11-22 12:06 AM PT",
-   "gap_last_min": 15.5,
+   "last_verified_iso": "2026-11-22T00:40:01-08:00",
+   "last_verified_pt": "2026-11-22 12:40 AM PT",
+   "gap_last_min": 2.5,
    "gap_longest_23h_min": 192.2,
-   "gap_avg_23h_min": 10.3,
-   "publishes_23h": 127,
-   "sensor_disagree_with_live_state": true,
+   "gap_avg_23h_min": 10.1,
+   "publishes_23h": 132,
+   "sensor_disagree_with_live_state": false,
    "diagnosis": null,
    "plan": null,
    "queue_depth": null,
@@ -941,11 +955,11 @@
    "key": "tiktok",
    "cadence_min": 35,
    "state": "YELLOW",
-   "gap_min": 35.8,
-   "health_score": 0.978,
+   "gap_min": 56.5,
+   "health_score": 0.619,
    "last_verified_iso": "2026-11-21T23:46:00-08:00",
    "last_verified_pt": "2026-11-21 11:46 PM PT",
-   "gap_last_min": 35.8,
+   "gap_last_min": 56.5,
    "gap_longest_23h_min": 122.9,
    "gap_avg_23h_min": 49.1,
    "publishes_23h": 16,
@@ -964,7 +978,7 @@
     "confidence": "LOW",
     "cheapest_test": "Wait one interval; if still yellow, live-read the platform.",
     "reasoning": [
-     "Lane yellow (35.8m): single miss so far \u2014 rung 0 patience applies; receipt lag (F9) not excluded."
+     "Lane yellow (56.5m): single miss so far \u2014 rung 0 patience applies; receipt lag (F9) not excluded."
     ]
    },
    "plan": {
@@ -976,7 +990,7 @@
     "failure_class": "F9?",
     "confidence": "LOW",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:21 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
    "queue_depth": null,
    "queue_source": null,
@@ -986,14 +1000,14 @@
    "key": "youtube",
    "cadence_min": 35,
    "state": "RED",
-   "gap_min": 173.6,
-   "health_score": 0.202,
+   "gap_min": 194.3,
+   "health_score": 0.18,
    "last_verified_iso": "2026-11-21T21:28:15-08:00",
    "last_verified_pt": "2026-11-21 09:28 PM PT",
-   "gap_last_min": 173.6,
-   "gap_longest_23h_min": 173.6,
-   "gap_avg_23h_min": 33.2,
-   "publishes_23h": 37,
+   "gap_last_min": 194.3,
+   "gap_longest_23h_min": 194.3,
+   "gap_avg_23h_min": 33.7,
+   "publishes_23h": 36,
    "sensor_disagree_with_live_state": true,
    "diagnosis": {
     "lane": "youtube",
@@ -1009,7 +1023,7 @@
     "confidence": "LOW",
     "cheapest_test": "Live read of the platform + fresh queue depth read.",
     "reasoning": [
-     "Lane red (173.6m) with no fresh queue reading and no executor fault: cannot distinguish dry queue (F4) from receipt lag (F9) without a live read."
+     "Lane red (194.3m) with no fresh queue reading and no executor fault: cannot distinguish dry queue (F4) from receipt lag (F9) without a live read."
     ]
    },
    "plan": {
@@ -1021,7 +1035,7 @@
     "failure_class": "F4/F9",
     "confidence": "LOW",
     "status": "planned",
-    "decided_pt": "2026-11-22 12:22 AM PT"
+    "decided_pt": "2026-11-22 12:42 AM PT"
    },
    "queue_depth": null,
    "queue_source": null,
@@ -1064,7 +1078,43 @@
  },
  "verified_now": [
   {
+   "lane": "fb_california",
+   "rung": 5,
+   "verified": true,
+   "note": "Fresh verified receipt after repair."
+  },
+  {
+   "lane": "fb_california",
+   "rung": 4,
+   "verified": true,
+   "note": "Fresh verified receipt after repair."
+  },
+  {
+   "lane": "fb_dbeastco",
+   "rung": 4,
+   "verified": true,
+   "note": "Fresh verified receipt after repair."
+  },
+  {
+   "lane": "fb_elevated",
+   "rung": 4,
+   "verified": true,
+   "note": "Fresh verified receipt after repair."
+  },
+  {
    "lane": "fb_intentionally",
+   "rung": 4,
+   "verified": true,
+   "note": "Fresh verified receipt after repair."
+  },
+  {
+   "lane": "fb_problemsolved",
+   "rung": 4,
+   "verified": true,
+   "note": "Fresh verified receipt after repair."
+  },
+  {
+   "lane": "fb_profile",
    "rung": 4,
    "verified": true,
    "note": "Fresh verified receipt after repair."
@@ -1120,7 +1170,7 @@
  ],
  "recent_actions": [
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "source": "dashboard",
    "lane": "ig_personal",
    "rung": 4,
@@ -1128,7 +1178,7 @@
    "status": "executed"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "source": "dashboard",
    "lane": "ig_intentionally",
    "rung": 4,
@@ -1136,7 +1186,7 @@
    "status": "executed"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "source": "dashboard",
    "lane": "ig_elevated",
    "rung": 4,
@@ -1144,7 +1194,7 @@
    "status": "executed"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "source": "dashboard",
    "lane": "ig_castle",
    "rung": 4,
@@ -1152,7 +1202,7 @@
    "status": "executed"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "source": "dashboard",
    "lane": "ig_atwater",
    "rung": 4,
@@ -1160,7 +1210,7 @@
    "status": "executed"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "source": "dashboard",
    "lane": "fb_profile",
    "rung": 4,
@@ -1168,7 +1218,7 @@
    "status": "executed"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "source": "dashboard",
    "lane": "fb_elevated",
    "rung": 4,
@@ -1176,7 +1226,7 @@
    "status": "executed"
   },
   {
-   "ts_pt": "2026-11-22 12:15 AM PT",
+   "ts_pt": "2026-11-22 12:36 AM PT",
    "source": "dashboard",
    "lane": "ig_personal",
    "rung": 4,
@@ -1186,81 +1236,81 @@
  ],
  "recent_incidents": [
   {
-   "ts_pt": "2026-11-22 12:22 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "youtube",
    "failure_class": "F4/F9",
    "rot_class": "R8",
-   "summary": "youtube RED gap 173.6m",
+   "summary": "youtube RED gap 194.3m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
   },
   {
-   "ts_pt": "2026-11-22 12:22 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "tiktok",
    "failure_class": "F9?",
    "rot_class": "R8",
-   "summary": "tiktok YELLOW gap 35.8m",
+   "summary": "tiktok YELLOW gap 56.5m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "ig_personal",
    "failure_class": "F4",
    "rot_class": "R3",
-   "summary": "ig_personal RED gap 342.6m",
+   "summary": "ig_personal RED gap 363.2m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "ig_intentionally",
    "failure_class": "F4",
    "rot_class": "R3",
-   "summary": "ig_intentionally RED gap 342.6m",
+   "summary": "ig_intentionally RED gap 363.2m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "ig_hub",
    "failure_class": "F5/F6",
    "rot_class": "R1",
-   "summary": "ig_hub RED gap 98.8m",
+   "summary": "ig_hub RED gap 119.5m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "ig_elevated",
    "failure_class": "F4",
    "rot_class": "R3",
-   "summary": "ig_elevated RED gap 314.6m",
+   "summary": "ig_elevated RED gap 335.3m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "ig_davids",
    "failure_class": "F5/F6",
    "rot_class": "R1",
-   "summary": "ig_davids RED gap 314.6m",
+   "summary": "ig_davids RED gap 335.3m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
   },
   {
-   "ts_pt": "2026-11-22 12:21 AM PT",
+   "ts_pt": "2026-11-22 12:42 AM PT",
    "lane": "ig_castle",
    "failure_class": "F4",
    "rot_class": "R3",
-   "summary": "ig_castle RED gap 342.6m",
+   "summary": "ig_castle RED gap 363.2m",
    "repair_rung": 4,
    "repair": "Circuit breaker: pause the lane",
    "verified": "pending"
@@ -1273,8 +1323,8 @@
   "pool_note": "no scheduler-DB read path; pool stays unknown until one lands"
  },
  "receipts": {
-  "lines": 8988,
-  "verified_mapped": 4477,
+  "lines": 9003,
+  "verified_mapped": 4484,
   "unmapped": 63
  },
  "supabase_realtime": {
