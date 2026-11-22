@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-22 04:54 PT",
- "generated_epoch": 1795352082,
+ "generated_pt": "2026-11-22 05:47 PT",
+ "generated_epoch": 1795355243,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -19,49 +19,49 @@
    "cli_reel_reserve": 8
   },
   "ig_hub": {
-   "staged": 27,
-   "fireable": 19,
-   "deficit": 6,
+   "staged": 25,
+   "fireable": 18,
+   "deficit": 7,
    "badge": "LOW",
    "exclusions": {
-    "no_media_brief_only": 8
+    "no_media_brief_only": 7
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 16,
+   "keeper_strict_fireable": 14,
    "cli_reel_reserve": 0
   },
   "ig_davids": {
-   "staged": 23,
-   "fireable": 20,
-   "deficit": 5,
+   "staged": 22,
+   "fireable": 19,
+   "deficit": 6,
    "badge": "LOW",
    "exclusions": {
     "no_media_brief_only": 3
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 18,
+   "keeper_strict_fireable": 16,
    "cli_reel_reserve": 0
   },
   "ig_atwater": {
-   "staged": 12,
-   "fireable": 12,
-   "deficit": 13,
+   "staged": 10,
+   "fireable": 10,
+   "deficit": 15,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 12,
+   "keeper_strict_fireable": 10,
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 15,
-   "fireable": 14,
-   "deficit": 11,
+   "staged": 13,
+   "fireable": 12,
+   "deficit": 13,
    "badge": "LOW",
    "exclusions": {
     "frame_hold": 1
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 14,
+   "keeper_strict_fireable": 12,
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
@@ -71,17 +71,17 @@
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 10,
+   "keeper_strict_fireable": 8,
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
-   "staged": 16,
-   "fireable": 16,
-   "deficit": 9,
+   "staged": 15,
+   "fireable": 15,
+   "deficit": 10,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 15,
+   "keeper_strict_fireable": 14,
    "cli_reel_reserve": 0
   },
   "fb_profile": {
@@ -95,54 +95,54 @@
    "cli_reel_reserve": null
   },
   "fb_california": {
-   "staged": 19,
-   "fireable": 19,
-   "deficit": 6,
-   "badge": "LOW",
-   "exclusions": {
-    "stale_date_gt48h": 2
-   },
-   "fresh_fireable": 17,
-   "keeper_strict_fireable": null,
-   "cli_reel_reserve": null
-  },
-  "fb_dbeastco": {
-   "staged": 19,
-   "fireable": 19,
-   "deficit": 6,
-   "badge": "LOW",
-   "exclusions": {},
-   "fresh_fireable": 19,
-   "keeper_strict_fireable": null,
-   "cli_reel_reserve": null
-  },
-  "fb_elevated": {
    "staged": 16,
    "fireable": 16,
    "deficit": 9,
    "badge": "LOW",
+   "exclusions": {
+    "stale_date_gt48h": 2
+   },
+   "fresh_fireable": 14,
+   "keeper_strict_fireable": null,
+   "cli_reel_reserve": null
+  },
+  "fb_dbeastco": {
+   "staged": 18,
+   "fireable": 18,
+   "deficit": 7,
+   "badge": "LOW",
    "exclusions": {},
-   "fresh_fireable": 16,
+   "fresh_fireable": 18,
+   "keeper_strict_fireable": null,
+   "cli_reel_reserve": null
+  },
+  "fb_elevated": {
+   "staged": 15,
+   "fireable": 15,
+   "deficit": 10,
+   "badge": "LOW",
+   "exclusions": {},
+   "fresh_fireable": 15,
    "keeper_strict_fireable": null,
    "cli_reel_reserve": null
   },
   "fb_intentionally": {
-   "staged": 31,
-   "fireable": 31,
+   "staged": 30,
+   "fireable": 30,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
-   "fresh_fireable": 31,
+   "fresh_fireable": 30,
    "keeper_strict_fireable": null,
    "cli_reel_reserve": null
   },
   "fb_problemsolved": {
-   "staged": 36,
-   "fireable": 36,
+   "staged": 34,
+   "fireable": 34,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
-   "fresh_fireable": 36,
+   "fresh_fireable": 34,
    "keeper_strict_fireable": null,
    "cli_reel_reserve": null
   },
@@ -169,8 +169,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 128,
-   "fireable": 128,
+   "staged": 138,
+   "fireable": 138,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -179,8 +179,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 57,
-   "fireable": 56,
+   "staged": 60,
+   "fireable": 59,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
@@ -191,9 +191,9 @@
    "cli_reel_reserve": null
   },
   "linkedin": {
-   "staged": 13,
-   "fireable": 13,
-   "deficit": 12,
+   "staged": 12,
+   "fireable": 12,
+   "deficit": 13,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
