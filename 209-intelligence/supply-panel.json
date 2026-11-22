@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-21 22:34 PT",
- "generated_epoch": 1795329283,
+ "generated_pt": "2026-11-21 22:47 PT",
+ "generated_epoch": 1795330052,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -19,15 +19,15 @@
    "cli_reel_reserve": 18
   },
   "ig_hub": {
-   "staged": 31,
-   "fireable": 25,
-   "deficit": 0,
-   "badge": "OK",
+   "staged": 30,
+   "fireable": 24,
+   "deficit": 1,
+   "badge": "LOW",
    "exclusions": {
     "no_media_brief_only": 6
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 22,
+   "keeper_strict_fireable": 21,
    "cli_reel_reserve": 0
   },
   "ig_davids": {
@@ -75,9 +75,9 @@
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
-   "staged": 17,
-   "fireable": 17,
-   "deficit": 8,
+   "staged": 18,
+   "fireable": 18,
+   "deficit": 7,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
@@ -169,8 +169,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 277,
-   "fireable": 277,
+   "staged": 281,
+   "fireable": 281,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -191,9 +191,9 @@
    "cli_reel_reserve": null
   },
   "linkedin": {
-   "staged": 20,
-   "fireable": 20,
-   "deficit": 5,
+   "staged": 19,
+   "fireable": 19,
+   "deficit": 6,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
@@ -207,6 +207,7 @@
   "ig_atwater",
   "ig_castle",
   "ig_elevated",
+  "ig_hub",
   "ig_intentionally",
   "ig_personal",
   "linkedin",
