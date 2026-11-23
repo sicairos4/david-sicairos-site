@@ -1,12 +1,12 @@
 {
- "generated_at_pt": "2026-11-23 04:08 AM PT",
+ "generated_at_pt": "2026-11-23 04:16 AM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 20,
   "direction": "audit-led",
-  "why": "Audit and Records is 20% of 3527 verified publishes across 18 profiles in 14 days. Up 4 points vs the prior 14 days."
+  "why": "Audit and Records is 20% of 3533 verified publishes across 18 profiles in 14 days. Up 4 points vs the prior 14 days."
  },
  "profiles": [
   {
@@ -136,13 +136,13 @@
    "key": "ig_castle",
    "platform": "Instagram",
    "account": "@castlecaliforniacounterintel",
-   "posts": 155,
+   "posts": 156,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 48,
+     "pct": 47,
      "posts": 74
     },
     {
@@ -161,12 +161,12 @@
      "band": "D",
      "label": "California Civic",
      "pct": 3,
-     "posts": 4
+     "posts": 5
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 49,
+     "pct": 50,
      "posts": 77
     }
    ],
@@ -341,13 +341,13 @@
    "key": "fb_california",
    "platform": "Facebook",
    "account": "209Connect California (Page)",
-   "posts": 171,
+   "posts": 172,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 4,
+     "pct": 3,
      "posts": 6
     },
     {
@@ -365,14 +365,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 4,
+     "pct": 3,
      "posts": 6
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 92,
-     "posts": 159
+     "pct": 94,
+     "posts": 160
     }
    ],
    "top_band": "A",
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 145,
+   "posts": 146,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 85,
-     "posts": 123
+     "posts": 124
     }
    ],
    "top_band": "C",
@@ -423,7 +423,7 @@
    "key": "fb_elevated",
    "platform": "Facebook",
    "account": "Elevated209 CBD (Page)",
-   "posts": 137,
+   "posts": 138,
    "thin": false,
    "topics": [
     {
@@ -454,7 +454,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 84,
-     "posts": 114
+     "posts": 115
     }
    ],
    "top_band": "C",
@@ -464,7 +464,7 @@
    "key": "fb_intentionally",
    "platform": "Facebook",
    "account": "Intentionally Us (Page)",
-   "posts": 149,
+   "posts": 150,
    "thin": false,
    "topics": [
     {
@@ -495,7 +495,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 86,
-     "posts": 129
+     "posts": 130
     }
    ],
    "top_band": "C",
@@ -628,13 +628,13 @@
    "key": "linkedin",
    "platform": "LinkedIn",
    "account": "/in/sicairosdavid/ (David Sicairos)",
-   "posts": 481,
+   "posts": 482,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 19,
+     "pct": 18,
      "posts": 89
     },
     {
@@ -658,8 +658,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 70,
-     "posts": 341
+     "pct": 71,
+     "posts": 342
     }
    ],
    "top_band": "A",
@@ -784,7 +784,7 @@
    "silo_run_id": "collect-v1-1795298850",
    "silo_run_pt": "2026-11-21 14:07 PT",
    "scores_run_id": "collect-v1-1795298850",
-   "dashboard_built_pt": "2026-11-23 04:08 PT"
+   "dashboard_built_pt": "2026-11-23 04:12 PT"
   },
   "ranked_posts": 5,
   "top_posts": [
@@ -1000,7 +1000,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 613 deduped publishes vs 3527 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 613 deduped publishes vs 3533 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "234 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
