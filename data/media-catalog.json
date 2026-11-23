@@ -1,7 +1,92 @@
 {
   "version": 1,
-  "generated_at": "2026-11-22T23:47:04.663448+00:00",
+  "generated_at": "2026-11-23T08:07:00.456182+00:00",
   "items": [
+    {
+      "id": "youtube:i74CrvXgj3Q",
+      "platform": "youtube",
+      "title": "Tornado Warning Expiring Tonight for Southwest Merced County",
+      "published_at": "2026-11-23T04:23:14+00:00",
+      "url": "https://www.youtube.com/watch?v=i74CrvXgj3Q",
+      "description": "",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T04:23:14+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T04:23:14+00:00",
+        "utc_epoch": 1795407794,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:toauR9GdJYA",
+      "platform": "youtube",
+      "title": "The Rules Chair Lost Her Own Seat. Democrats Hit 259",
+      "published_at": "2026-11-23T03:07:07+00:00",
+      "url": "https://www.youtube.com/watch?v=toauR9GdJYA",
+      "description": "",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T03:07:07+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T03:07:07+00:00",
+        "utc_epoch": 1795403227,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:kwysIqRN92Q",
+      "platform": "youtube",
+      "title": "Posts Thursday, Called In Monday, Fired Thursday",
+      "published_at": "2026-11-23T00:47:03+00:00",
+      "url": "https://www.youtube.com/watch?v=kwysIqRN92Q",
+      "description": "",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T00:47:03+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T00:47:03+00:00",
+        "utc_epoch": 1795394823,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:ft_1x8QGoT8",
+      "platform": "youtube",
+      "title": "Fresnoiceban",
+      "published_at": "2026-11-23T00:25:58+00:00",
+      "url": "https://www.youtube.com/watch?v=ft_1x8QGoT8",
+      "description": "",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T00:25:58+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T00:25:58+00:00",
+        "utc_epoch": 1795393558,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:t6_G4H3bcxE",
+      "platform": "youtube",
+      "title": "The Record Is What Matters",
+      "published_at": "2026-11-22T23:43:58+00:00",
+      "url": "https://www.youtube.com/watch?v=t6_G4H3bcxE",
+      "description": "",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-22T23:43:58+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-22T23:43:58+00:00",
+        "utc_epoch": 1795391038,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:HmdDdxixhQI",
       "platform": "youtube",
@@ -9,7 +94,7 @@
       "published_at": "2026-11-22T22:25:20+00:00",
       "url": "https://www.youtube.com/watch?v=HmdDdxixhQI",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T22:25:20+00:00",
@@ -26,7 +111,7 @@
       "published_at": "2026-11-22T21:40:20+00:00",
       "url": "https://www.youtube.com/watch?v=hxW2yFxbmnI",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T21:40:20+00:00",
@@ -43,7 +128,7 @@
       "published_at": "2026-11-22T21:01:31+00:00",
       "url": "https://www.youtube.com/watch?v=6nn99Yta9NI",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T21:01:31+00:00",
@@ -60,7 +145,7 @@
       "published_at": "2026-11-22T20:11:31+00:00",
       "url": "https://www.youtube.com/watch?v=CMCRn5J-0KI",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T20:11:31+00:00",
@@ -77,7 +162,7 @@
       "published_at": "2026-11-22T19:06:40+00:00",
       "url": "https://www.youtube.com/watch?v=_ZQLmoUV-Ug",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T19:06:40+00:00",
@@ -94,7 +179,7 @@
       "published_at": "2026-11-22T17:39:53+00:00",
       "url": "https://www.youtube.com/watch?v=rtc-8nrKHzI",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T17:39:53+00:00",
@@ -111,7 +196,7 @@
       "published_at": "2026-11-22T06:29:59+00:00",
       "url": "https://www.youtube.com/watch?v=vXwFVr7T80A",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T06:29:59+00:00",
@@ -128,7 +213,7 @@
       "published_at": "2026-11-22T05:20:59+00:00",
       "url": "https://www.youtube.com/watch?v=5MqtWU3tGts",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T05:20:59+00:00",
@@ -145,7 +230,7 @@
       "published_at": "2026-11-22T04:30:03+00:00",
       "url": "https://www.youtube.com/watch?v=V4kEfyEDMa0",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T04:30:03+00:00",
@@ -162,7 +247,7 @@
       "published_at": "2026-11-22T03:38:52+00:00",
       "url": "https://www.youtube.com/watch?v=epusC6u8bu8",
       "description": "",
-      "observed_at": "2026-11-22T23:47:04.663448+00:00",
+      "observed_at": "2026-11-23T08:07:00.456182+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-22T03:38:52+00:00",
@@ -2794,22 +2879,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-22T23:47:04.663448+00:00",
-      "last_success_at": "2026-11-22T23:47:04.663448+00:00",
+      "last_attempt_at": "2026-11-23T08:07:00.456182+00:00",
+      "last_success_at": "2026-11-23T08:07:00.456182+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-22T23:47:04.663448+00:00",
+      "last_attempt_at": "2026-11-23T08:07:00.456182+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-22T23:47:04.663448+00:00",
+      "last_attempt_at": "2026-11-23T08:07:00.456182+00:00",
       "error_type": "RuntimeError"
     }
   }
