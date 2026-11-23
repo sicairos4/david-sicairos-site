@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-23 04:11 PT",
- "generated_epoch": 1795435876,
+ "generated_pt": "2026-11-23 04:29 PT",
+ "generated_epoch": 1795436941,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -38,9 +38,9 @@
    "cli_reel_reserve": 0
   },
   "ig_atwater": {
-   "staged": 13,
-   "fireable": 13,
-   "deficit": 12,
+   "staged": 14,
+   "fireable": 14,
+   "deficit": 11,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
@@ -48,15 +48,15 @@
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 9,
-   "fireable": 8,
-   "deficit": 17,
+   "staged": 10,
+   "fireable": 9,
+   "deficit": 16,
    "badge": "CRITICAL",
    "exclusions": {
     "frame_hold": 1
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 8,
+   "keeper_strict_fireable": 9,
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
@@ -66,13 +66,13 @@
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 7,
+   "keeper_strict_fireable": 8,
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
-   "staged": 11,
-   "fireable": 11,
-   "deficit": 14,
+   "staged": 12,
+   "fireable": 12,
+   "deficit": 13,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
@@ -140,9 +140,9 @@
    "cli_reel_reserve": null
   },
   "youtube": {
-   "staged": 0,
-   "fireable": 0,
-   "deficit": 25,
+   "staged": 1,
+   "fireable": 1,
+   "deficit": 24,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
@@ -162,8 +162,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 46,
-   "fireable": 46,
+   "staged": 54,
+   "fireable": 54,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -172,8 +172,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 62,
-   "fireable": 59,
+   "staged": 60,
+   "fireable": 57,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {
@@ -184,9 +184,9 @@
    "cli_reel_reserve": null
   },
   "linkedin": {
-   "staged": 8,
-   "fireable": 8,
-   "deficit": 17,
+   "staged": 7,
+   "fireable": 7,
+   "deficit": 18,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
