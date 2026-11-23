@@ -1,19 +1,19 @@
 {
- "generated_at_pt": "2026-11-23 11:33 AM PT",
+ "generated_at_pt": "2026-11-23 12:38 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 19,
   "direction": "audit-led",
-  "why": "Audit and Records is 19% of 3748 verified publishes across 18 profiles in 14 days. Up 2 points vs the prior 14 days."
+  "why": "Audit and Records is 19% of 3762 verified publishes across 18 profiles in 14 days. Up 1 points vs the prior 14 days."
  },
  "profiles": [
   {
    "key": "ig_personal",
    "platform": "Instagram",
    "account": "@sicairosdavid_",
-   "posts": 104,
+   "posts": 105,
    "thin": false,
    "topics": [
     {
@@ -44,7 +44,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 69,
-     "posts": 72
+     "posts": 73
     }
    ],
    "top_band": "A",
@@ -54,13 +54,13 @@
    "key": "ig_davids",
    "platform": "Instagram",
    "account": "@davidsicairos_",
-   "posts": 136,
+   "posts": 139,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 43,
+     "pct": 42,
      "posts": 59
     },
     {
@@ -84,8 +84,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 49,
-     "posts": 66
+     "pct": 50,
+     "posts": 69
     }
    ],
    "top_band": "A",
@@ -177,13 +177,13 @@
    "key": "ig_atwater",
    "platform": "Instagram",
    "account": "@atwatercastleintelligence",
-   "posts": 169,
+   "posts": 172,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 54,
+     "pct": 52,
      "posts": 91
     },
     {
@@ -201,14 +201,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 0,
-     "posts": 0
+     "pct": 1,
+     "posts": 1
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 46,
-     "posts": 78
+     "pct": 47,
+     "posts": 80
     }
    ],
    "top_band": "A",
@@ -218,7 +218,7 @@
    "key": "ig_intentionally",
    "platform": "Instagram",
    "account": "@intentionally.us",
-   "posts": 149,
+   "posts": 150,
    "thin": false,
    "topics": [
     {
@@ -237,7 +237,7 @@
      "band": "C",
      "label": "Community and Wellness",
      "pct": 19,
-     "posts": 28
+     "posts": 29
     },
     {
      "band": "D",
@@ -300,7 +300,7 @@
    "key": "fb_profile",
    "platform": "Facebook",
    "account": "david.sicairos.1 (personal profile)",
-   "posts": 95,
+   "posts": 96,
    "thin": false,
    "topics": [
     {
@@ -331,7 +331,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 65,
-     "posts": 62
+     "posts": 63
     }
    ],
    "top_band": "D",
@@ -341,7 +341,7 @@
    "key": "fb_california",
    "platform": "Facebook",
    "account": "209Connect California (Page)",
-   "posts": 174,
+   "posts": 173,
    "thin": false,
    "topics": [
     {
@@ -365,13 +365,13 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 3,
-     "posts": 5
+     "pct": 2,
+     "posts": 4
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 94,
+     "pct": 95,
      "posts": 163
     }
    ],
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 158,
+   "posts": 159,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 86,
-     "posts": 136
+     "posts": 137
     }
    ],
    "top_band": "C",
@@ -464,13 +464,13 @@
    "key": "fb_intentionally",
    "platform": "Facebook",
    "account": "Intentionally Us (Page)",
-   "posts": 159,
+   "posts": 160,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 3,
+     "pct": 2,
      "posts": 4
     },
     {
@@ -494,8 +494,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 86,
-     "posts": 139
+     "pct": 87,
+     "posts": 140
     }
    ],
    "top_band": "C",
@@ -546,7 +546,7 @@
    "key": "threads",
    "platform": "Threads",
    "account": "@209media.connect",
-   "posts": 599,
+   "posts": 601,
    "thin": false,
    "topics": [
     {
@@ -570,14 +570,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 3,
+     "pct": 2,
      "posts": 15
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 88,
-     "posts": 530
+     "pct": 89,
+     "posts": 532
     }
    ],
    "top_band": "A",
@@ -587,7 +587,7 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 378,
+   "posts": 379,
    "thin": false,
    "topics": [
     {
@@ -618,7 +618,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 80,
-     "posts": 301
+     "posts": 302
     }
    ],
    "top_band": "A",
@@ -634,8 +634,8 @@
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 16,
-     "posts": 77
+     "pct": 15,
+     "posts": 75
     },
     {
      "band": "B",
@@ -658,8 +658,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 73,
-     "posts": 355
+     "pct": 74,
+     "posts": 357
     }
    ],
    "top_band": "A",
@@ -669,7 +669,7 @@
    "key": "youtube",
    "platform": "YouTube",
    "account": "David Sicairos | Systems' Architect",
-   "posts": 177,
+   "posts": 178,
    "thin": false,
    "topics": [
     {
@@ -700,7 +700,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 85,
-     "posts": 150
+     "posts": 151
     }
    ],
    "top_band": "A",
@@ -750,7 +750,7 @@
  ],
  "balance": {
   "oversaturated_bands": [],
-  "same_band_same_day": 934,
+  "same_band_same_day": 932,
   "weave_gap_median_min": 7,
   "jitter": "tight"
  },
@@ -784,7 +784,7 @@
    "silo_run_id": "collect-v1-1795298850",
    "silo_run_pt": "2026-11-21 14:07 PT",
    "scores_run_id": "collect-v1-1795298850",
-   "dashboard_built_pt": "2026-11-23 11:33 PT"
+   "dashboard_built_pt": "2026-11-23 12:34 PT"
   },
   "ranked_posts": 5,
   "top_posts": [
@@ -1000,7 +1000,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 610 deduped publishes vs 3748 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 612 deduped publishes vs 3762 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "234 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
