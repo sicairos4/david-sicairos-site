@@ -1,7 +1,194 @@
 {
   "version": 1,
-  "generated_at": "2026-11-23T08:07:00.456182+00:00",
+  "generated_at": "2026-11-23T20:30:29.544657+00:00",
   "items": [
+    {
+      "id": "youtube:zs3SQEKrHO4",
+      "platform": "youtube",
+      "title": "Nine Years of Showing Up",
+      "published_at": "2026-11-23T20:23:09+00:00",
+      "url": "https://www.youtube.com/watch?v=zs3SQEKrHO4",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T20:23:09+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T20:23:09+00:00",
+        "utc_epoch": 1795465389,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:z3hiDlVPw8A",
+      "platform": "youtube",
+      "title": "A Theory With a Timeline. The Paper Proves It",
+      "published_at": "2026-11-23T19:35:53+00:00",
+      "url": "https://www.youtube.com/watch?v=z3hiDlVPw8A",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T19:35:53+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T19:35:53+00:00",
+        "utc_epoch": 1795462553,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:5r6rT3EZgK0",
+      "platform": "youtube",
+      "title": "The Date Turns Waiting Into Evidence",
+      "published_at": "2026-11-23T16:44:12+00:00",
+      "url": "https://www.youtube.com/watch?v=5r6rT3EZgK0",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T16:44:12+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T16:44:12+00:00",
+        "utc_epoch": 1795452252,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:GqimKnqwFjI",
+      "platform": "youtube",
+      "title": "978 Votes Separate Them. The Count Isn't Done",
+      "published_at": "2026-11-23T16:18:02+00:00",
+      "url": "https://www.youtube.com/watch?v=GqimKnqwFjI",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T16:18:02+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T16:18:02+00:00",
+        "utc_epoch": 1795450682,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:1z7N91CX0mY",
+      "platform": "youtube",
+      "title": "A Checked Answer Points at What's Missing",
+      "published_at": "2026-11-23T16:02:34+00:00",
+      "url": "https://www.youtube.com/watch?v=1z7N91CX0mY",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T16:02:34+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T16:02:34+00:00",
+        "utc_epoch": 1795449754,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:4nxiwfADueM",
+      "platform": "youtube",
+      "title": "The File Is Three Asks Deep",
+      "published_at": "2026-11-23T15:56:13+00:00",
+      "url": "https://www.youtube.com/watch?v=4nxiwfADueM",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T15:56:13+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T15:56:13+00:00",
+        "utc_epoch": 1795449373,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:mLLWmOIBEXQ",
+      "platform": "youtube",
+      "title": "Twelve Debates, One Pledge: No Dark Money",
+      "published_at": "2026-11-23T12:52:56+00:00",
+      "url": "https://www.youtube.com/watch?v=mLLWmOIBEXQ",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T12:52:56+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T12:52:56+00:00",
+        "utc_epoch": 1795438376,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:x0O6fHvSwP8",
+      "platform": "youtube",
+      "title": "Audit: $3.2M in Taxpayer Money Went to a Sheriff's Campaign Security",
+      "published_at": "2026-11-23T12:30:56+00:00",
+      "url": "https://www.youtube.com/watch?v=x0O6fHvSwP8",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T12:30:56+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T12:30:56+00:00",
+        "utc_epoch": 1795437056,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:WGs4VZIR7dw",
+      "platform": "youtube",
+      "title": "A 10% Credit Card Cap Would Save $100B a Year",
+      "published_at": "2026-11-23T11:02:52+00:00",
+      "url": "https://www.youtube.com/watch?v=WGs4VZIR7dw",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T11:02:52+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T11:02:52+00:00",
+        "utc_epoch": 1795431772,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:iEqQEjYV5UU",
+      "platform": "youtube",
+      "title": "The Answer Quoted Back",
+      "published_at": "2026-11-23T10:43:01+00:00",
+      "url": "https://www.youtube.com/watch?v=iEqQEjYV5UU",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T10:43:01+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T10:43:01+00:00",
+        "utc_epoch": 1795430581,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:2ECZZS9LQ8E",
+      "platform": "youtube",
+      "title": "The Answer Quoted Back",
+      "published_at": "2026-11-23T08:37:56+00:00",
+      "url": "https://www.youtube.com/watch?v=2ECZZS9LQ8E",
+      "description": "",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-23T08:37:56+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-23T08:37:56+00:00",
+        "utc_epoch": 1795423076,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:i74CrvXgj3Q",
       "platform": "youtube",
@@ -9,7 +196,7 @@
       "published_at": "2026-11-23T04:23:14+00:00",
       "url": "https://www.youtube.com/watch?v=i74CrvXgj3Q",
       "description": "",
-      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-23T04:23:14+00:00",
@@ -26,7 +213,7 @@
       "published_at": "2026-11-23T03:07:07+00:00",
       "url": "https://www.youtube.com/watch?v=toauR9GdJYA",
       "description": "",
-      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-23T03:07:07+00:00",
@@ -43,7 +230,7 @@
       "published_at": "2026-11-23T00:47:03+00:00",
       "url": "https://www.youtube.com/watch?v=kwysIqRN92Q",
       "description": "",
-      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-23T00:47:03+00:00",
@@ -60,7 +247,7 @@
       "published_at": "2026-11-23T00:25:58+00:00",
       "url": "https://www.youtube.com/watch?v=ft_1x8QGoT8",
       "description": "",
-      "observed_at": "2026-11-23T08:07:00.456182+00:00",
+      "observed_at": "2026-11-23T20:30:29.544657+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-23T00:25:58+00:00",
@@ -2879,22 +3066,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-23T08:07:00.456182+00:00",
-      "last_success_at": "2026-11-23T08:07:00.456182+00:00",
+      "last_attempt_at": "2026-11-23T20:30:29.544657+00:00",
+      "last_success_at": "2026-11-23T20:30:29.544657+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-23T08:07:00.456182+00:00",
+      "last_attempt_at": "2026-11-23T20:30:29.544657+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-23T08:07:00.456182+00:00",
+      "last_attempt_at": "2026-11-23T20:30:29.544657+00:00",
       "error_type": "RuntimeError"
     }
   }
