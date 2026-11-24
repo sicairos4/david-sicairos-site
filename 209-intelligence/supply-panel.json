@@ -1,26 +1,26 @@
 {
- "generated_pt": "2026-11-24 00:25 PT",
- "generated_epoch": 1795508724,
+ "generated_pt": "2026-11-24 00:49 PT",
+ "generated_epoch": 1795510188,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
   "ig_personal": {
-   "staged": 21,
-   "fireable": 12,
-   "deficit": 13,
-   "badge": "LOW",
+   "staged": 42,
+   "fireable": 36,
+   "deficit": 0,
+   "badge": "OK",
    "exclusions": {
-    "personal_non_carousel": 7,
+    "personal_non_carousel": 4,
     "frame_hold": 2
    },
    "fresh_fireable": null,
    "keeper_strict_fireable": 11,
-   "cli_reel_reserve": 7
+   "cli_reel_reserve": 4
   },
   "ig_hub": {
-   "staged": 8,
-   "fireable": 8,
-   "deficit": 17,
+   "staged": 7,
+   "fireable": 7,
+   "deficit": 18,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
@@ -28,23 +28,21 @@
    "cli_reel_reserve": 0
   },
   "ig_davids": {
-   "staged": 12,
-   "fireable": 12,
-   "deficit": 13,
+   "staged": 11,
+   "fireable": 11,
+   "deficit": 14,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 7,
+   "keeper_strict_fireable": 5,
    "cli_reel_reserve": 0
   },
   "ig_atwater": {
    "staged": 5,
-   "fireable": 4,
-   "deficit": 21,
+   "fireable": 5,
+   "deficit": 20,
    "badge": "CRITICAL",
-   "exclusions": {
-    "frame_hold": 1
-   },
+   "exclusions": {},
    "fresh_fireable": null,
    "keeper_strict_fireable": 2,
    "cli_reel_reserve": 0
@@ -72,13 +70,13 @@
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
-   "staged": 4,
-   "fireable": 4,
-   "deficit": 21,
+   "staged": 3,
+   "fireable": 3,
+   "deficit": 22,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 3,
+   "keeper_strict_fireable": 2,
    "cli_reel_reserve": 0
   },
   "fb_profile": {
@@ -152,9 +150,9 @@
    "cli_reel_reserve": null
   },
   "tiktok": {
-   "staged": 6,
-   "fireable": 5,
-   "deficit": 20,
+   "staged": 7,
+   "fireable": 6,
+   "deficit": 19,
    "badge": "CRITICAL",
    "exclusions": {
     "missing_file": 1
@@ -164,8 +162,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 54,
-   "fireable": 54,
+   "staged": 78,
+   "fireable": 78,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -174,8 +172,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 60,
-   "fireable": 60,
+   "staged": 59,
+   "fireable": 59,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -207,7 +205,6 @@
   "ig_elevated",
   "ig_hub",
   "ig_intentionally",
-  "ig_personal",
   "linkedin",
   "tiktok",
   "youtube"
