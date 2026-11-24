@@ -215,7 +215,7 @@
   .tile .tbtn{font-size:11px;font-weight:800;border:1px solid var(--line);border-radius:999px;
     padding:4px 9px;background:var(--card);cursor:pointer;font-family:inherit;flex:none}
   .tile .tbtn:disabled{opacity:.45;cursor:not-allowed}
-  .tile .tbtn.api{color:var(--blue)} .tile .tbtn.cli{color:var(--amber)} .tile .tbtn.auto{color:var(--mut)}
+  .tile .tbtn.api{color:var(--blue)} .tile .tbtn.cli{color:var(--amber)} .tile .tbtn.auto{color:var(--mut)} .tile .tbtn.studio{color:#a855f7}
   .tile .fbtn{font-size:11px;font-weight:800;border:1px solid var(--ink);border-radius:999px;
     padding:4px 9px;background:var(--ink);color:#fff;cursor:pointer;font-family:inherit;flex:none}
   .tile .fbtn:disabled{opacity:.45;cursor:not-allowed}
@@ -529,6 +529,17 @@ function laneGapMs(l){
 // CLI daytime). live.transport comes from engine-settings.json via the
 // updater; effective is resolved per lane (auto = API 18:00–05:30 PT,
 // CLI daytime). A lane override beats the global mode.
+// Lane route table — mirrors scripts/transport_gate.py LANE_ROUTE (keep in
+// sync). 'api' lanes have no CLI path (Graph/API only by construction);
+// 'studio' is TikTok Studio only. Only 'cli' lanes (7 IG + fb-profile)
+// have a switchable transport; the rest show a locked badge.
+var LANE_ROUTE_API = ['fb_california','fb_dbeastco','fb_elevated','fb_intentionally','fb_problemsolved','threads','bluesky','linkedin','youtube'];
+var LANE_ROUTE_STUDIO = ['tiktok'];
+function laneRoute(key){
+  if(LANE_ROUTE_API.indexOf(key) !== -1) return 'api';
+  if(LANE_ROUTE_STUDIO.indexOf(key) !== -1) return 'studio';
+  return 'cli';
+}
 function transportOf(key){
   const tr = live && live.transport ? live.transport : null;
   if(!tr) return null;
@@ -585,16 +596,27 @@ function tileDue(l){
 function tileHtml(l){
   const st = laneStatus(l), cls = stateClass(st);
   const t = transportOf(l.key);
+  const route = laneRoute(l.key);
   const eff = t ? t.effective : '—';
   const ovMark = t && t.override ? ' *' : '';
   const dis = PUBLIC_READONLY ? ' disabled' : '';
+  // API-only / Studio lanes show a LOCKED badge, never a cycling toggle:
+  // there is no CLI path to switch to, so a toggle would be a dead button.
+  let tbtn;
+  if(route === 'api'){
+    tbtn = '<button class="tbtn api" disabled title="API only — no CLI path for this lane (Graph/API publish)">API</button>';
+  } else if(route === 'studio'){
+    tbtn = '<button class="tbtn studio" disabled title="TikTok Studio only — no API/CLI switch">STUDIO</button>';
+  } else {
+    tbtn = '<button class="tbtn ' + esc(eff) + '" data-toverride="' + esc(l.key) + '"' + dis + ' title="Transport: ' + esc(eff.toUpperCase()) + (t && t.override ? ' (override)' : ' (global ' + esc(t ? t.mode : 'auto') + ')') + ' — click to cycle Auto → API → CLI">' + esc(eff.toUpperCase()) + ovMark + '</button>';
+  }
   let html = '<div class="tile ' + cls + '" data-lane="' + esc(l.key) + '">'
     + '<div class="nm">' + esc(l.platform) + '</div>'
     + '<div class="ac">' + esc(l.account || '') + '</div>'
     + '<div class="st ' + cls + '">' + esc(badgeLabel(st)) + '</div>'
     + '<div class="nx">Next: ' + tileDue(l) + '</div>'
     + '<div class="trow">'
-    + '<button class="tbtn ' + esc(eff) + '" data-toverride="' + esc(l.key) + '"' + dis + ' title="Transport: ' + esc(eff.toUpperCase()) + (t && t.override ? ' (override)' : ' (global ' + esc(t ? t.mode : 'auto') + ')') + ' — click to cycle Auto → API → CLI">' + esc(eff.toUpperCase()) + ovMark + '</button>'
+    + tbtn
     + (l.scored ? '<button class="fbtn" data-act="fire_fresh" data-lane="' + esc(l.key) + '"' + dis + ' title="Fire one fresh row (queued)">Fire</button>' : '')
     + '</div></div>';
   return html;
@@ -657,6 +679,8 @@ async function setTransport(mode, btn){
 async function cycleOverride(lane, btn){
   const out = document.getElementById('act-transport');
   if(PUBLIC_READONLY){ if(out){ out.textContent = 'Public view is read-only — the switch lives on the local panel.'; out.className = 'act-result err'; } return; }
+  // Defense in depth: API-only / Studio lanes have no switchable transport.
+  if(laneRoute(lane) !== 'cli'){ if(out){ out.textContent = lane + ' is ' + laneRoute(lane).toUpperCase() + '-only — no transport switch for this lane.'; out.className = 'act-result err'; } return; }
   const t = transportOf(lane);
   const cur = t && t.override ? t.override : null;
   // Cycle: global (Auto) → API → CLI → global. mode 'auto' clears the override.
