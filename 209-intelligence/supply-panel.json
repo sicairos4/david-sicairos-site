@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-23 15:45 PT",
- "generated_epoch": 1795477510,
+ "generated_pt": "2026-11-23 16:43 PT",
+ "generated_epoch": 1795481001,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -18,25 +18,25 @@
    "cli_reel_reserve": 7
   },
   "ig_hub": {
-   "staged": 10,
+   "staged": 9,
    "fireable": 9,
    "deficit": 16,
    "badge": "CRITICAL",
-   "exclusions": {
-    "no_media_brief_only": 1
-   },
+   "exclusions": {},
    "fresh_fireable": null,
    "keeper_strict_fireable": 8,
    "cli_reel_reserve": 0
   },
   "ig_davids": {
    "staged": 15,
-   "fireable": 15,
-   "deficit": 10,
+   "fireable": 14,
+   "deficit": 11,
    "badge": "LOW",
-   "exclusions": {},
+   "exclusions": {
+    "no_media_brief_only": 1
+   },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 12,
+   "keeper_strict_fireable": 11,
    "cli_reel_reserve": 0
   },
   "ig_atwater": {
@@ -52,9 +52,9 @@
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 7,
-   "fireable": 5,
-   "deficit": 20,
+   "staged": 8,
+   "fireable": 6,
+   "deficit": 19,
    "badge": "CRITICAL",
    "exclusions": {
     "frame_hold": 2
@@ -64,9 +64,9 @@
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
-   "staged": 2,
-   "fireable": 2,
-   "deficit": 23,
+   "staged": 1,
+   "fireable": 1,
+   "deficit": 24,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
@@ -74,13 +74,13 @@
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
-   "staged": 10,
-   "fireable": 10,
-   "deficit": 15,
-   "badge": "LOW",
+   "staged": 8,
+   "fireable": 8,
+   "deficit": 17,
+   "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 9,
+   "keeper_strict_fireable": 7,
    "cli_reel_reserve": 0
   },
   "fb_profile": {
@@ -166,8 +166,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 42,
-   "fireable": 42,
+   "staged": 40,
+   "fireable": 40,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -176,8 +176,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 53,
-   "fireable": 53,
+   "staged": 54,
+   "fireable": 54,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -223,6 +223,7 @@
   "fb_profile",
   "ig_atwater",
   "ig_castle",
+  "ig_elevated",
   "ig_hub",
   "ig_intentionally",
   "linkedin",
