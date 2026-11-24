@@ -779,7 +779,7 @@ function render(){
   document.getElementById('actions').innerHTML = need.join('');
 
   document.getElementById('foot').textContent =
-    '209 Intelligence · v4.2 · realtime fix Nov 24: send-based states, raw data feed, 88% target · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
+    '209 Intelligence · v4.3 · tabs fix Nov 24: one pill style for the whole top bar · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
     +' · newest receipt '+esc(live.newest_receipt_pt||'-')
     +' · Supabase realtime: not wired, no key · '+(s.total_lanes||lanes.length)+' lanes · Public read-only copy — steering + actions disabled.';
   renderSteering();
