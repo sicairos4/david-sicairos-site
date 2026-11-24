@@ -45,6 +45,8 @@
   .bar .fill.warn{background:#f59e0b} .bar .fill.bad{background:#ef4444}
   .bar .line77{position:absolute;left:77%;top:-4px;bottom:-4px;width:2px;background:var(--red)}
   .bar .line77 span{position:absolute;top:-18px;left:-14px;font-size:11px;font-weight:800;color:var(--red);white-space:nowrap}
+  .bar .line88{position:absolute;left:88%;top:-4px;bottom:-4px;width:2px;background:#1d4ed8}
+  .bar .line88 span{position:absolute;top:-18px;left:-16px;font-size:11px;font-weight:800;color:#1d4ed8;white-space:nowrap}
   .barlabels{display:flex;justify-content:space-between;font-size:11.5px;color:var(--mut)}
   .frozen{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;
     padding:8px 10px;margin-top:10px;font-size:13px;color:#92400e}
@@ -187,7 +189,7 @@
   <div class="eco">209 Media · 209connect · Sovereign University — one panel for all 28 lanes.</div>
   <div class="tag" style="margin-top:6px">Public read-only view — steering and actions live on the local panel only</div>
 </div>
-<p class="sub">Green means posting on time. Yellow means 30+ minutes late. Red means 60+ minutes late. The worst lane is at the top; tap a platform to open it. Every "open post" link goes to the exact post.</p>
+<p class="sub">Green means posting on time — a fresh send counts at once, verification pending. Yellow at cadence, red at twice cadence. The worst lane is at the top; tap a platform to open it. Every "open post" link goes to the exact post.</p>
 
 <div class="topbar">
   <span class="pill"><span class="dot grey" id="modeDot"></span><span id="modeState">connecting</span></span>
@@ -250,13 +252,19 @@
 // Data = live-state.json (lanes, from receipts + publication_log, with live
 // queue depth) + self-healing-state.json (diagnoses, plans, gaps, health).
 // Push: SSE events `state` + `healing` from live-server.py; fallback:
-// poll both files every 5s. PT, 12-hour clock, no UTC anywhere on screen.
-// Thresholds: yellow gap > 30, red gap > 60 — flat, not per-lane cadence
-// multiples. Health floor: 77%.
-const POLL_MS = 5000;
-const STATE_URL = 'live-state.json';
-const HEALING_URL = 'self-healing-state.json';
-const STEERING_URL = 'steering-panel.json';
+// poll the data files every 3s (realtime fix Nov 24 2026: 2-5s, not 30s).
+// PT, 12-hour clock, no UTC anywhere on screen.
+// Health/counts/states come from live-state.json (send-based: a fresh
+// submit counts at once). Ladder: yellow at cadence, red at 2x cadence.
+// Health floor: 77%. David's target: 88%.
+const POLL_MS = 3000;
+// Realtime fix 2026-11-24: read the data from raw.githubusercontent.com —
+// the Pages-served copy lags every push by the 5–7 min Pages build, while
+// raw serves the pushed file at once. Relative (Pages) copy is the fallback.
+const _GH = 'https://raw.githubusercontent.com/sicairos4/david-sicairos-site/main/209-intelligence/';
+const STATE_URL = _GH+'live-state.json';
+const HEALING_URL = _GH+'self-healing-state.json';
+const STEERING_URL = _GH+'steering-panel.json';
 const EVENTS_URL = '/events';
 const ACTION_URL = '/action';
 const STEER_URL = '/steer';
@@ -313,11 +321,24 @@ function dueText(l){
   if(m===0) return 'due now';
   return 'overdue '+Math.abs(m)+'m';
 }
-// Flat 30/60 status from a gap; self-healing state is authoritative when present.
+// Realtime fix 2026-11-24: a next-due in the past must never be printed as a
+// clock time — the lane is DUE NOW. Clock time only when it is in the future.
+function nextDueHtml(l){
+  const t = l.next_due_iso ? new Date(l.next_due_iso) : null;
+  if(!t || isNaN(t)) return '<b>'+esc(l.next_due_pt||'-')+'</b>';
+  const m = Math.floor((t.getTime() - Date.now())/60000);
+  if(m > 0) return '<b>'+esc(l.next_due_pt||'-')+'</b> · due in '+m+'m';
+  return '<b>DUE NOW · overdue '+Math.abs(m)+'m</b>';
+}
+// Green-on-send (Nov 24): the server computes the ladder from last SEND —
+// prefer the file's display_state/state. The flat 30/60 recompute below is
+// only a fallback when the file carries no state (never override the file).
 function laneStatus(l){
+  const ds = l.display_state || l.state;
+  if(ds) return String(ds).toUpperCase();
   const h = healing && healing.lanes && healing.lanes[l.key];
   if(h && h.state) return h.state;
-  if(!l.cadence_minutes || !l.last_verified_iso) return (l.state||'NO DATA');
+  if(!l.cadence_minutes || !l.last_verified_iso) return 'NO DATA';
   const gap = Math.floor((Date.now()-new Date(l.last_verified_iso).getTime())/60000);
   if(gap > 60) return 'RED';
   if(gap > 30) return 'YELLOW';
@@ -325,8 +346,8 @@ function laneStatus(l){
 }
 function stateClass(st){
   const s=(st||'').toUpperCase();
-  if(s==='ON CADENCE') return 'on';
-  if(s==='YELLOW'||s==='DUE') return 'due';
+  if(s==='ON CADENCE'||s==='POSTED — VERIFYING'||s==='GREEN') return 'on';
+  if(s==='YELLOW'||s==='DUE'||s==='OVERRIDE'||s==='DIAGNOSER') return 'due';
   if(s==='RED'||s==='MISSING') return 'miss';
   if(s==='NO DATA') return 'nodata';
   return 'other';
@@ -334,8 +355,12 @@ function stateClass(st){
 function badgeLabel(st){
   const s=(st||'').toUpperCase();
   if(s==='ON CADENCE') return 'ON CADENCE';
-  if(s==='YELLOW') return 'YELLOW · 30m+ LATE';
-  if(s==='RED') return 'RED · 60m+ LATE';
+  if(s==='POSTED — VERIFYING') return 'POSTED — VERIFYING';
+  if(s==='GREEN') return 'ON CADENCE';
+  if(s==='YELLOW') return 'YELLOW';
+  if(s==='OVERRIDE') return 'OVERRIDE';
+  if(s==='DIAGNOSER') return 'DIAGNOSER';
+  if(s==='RED') return 'RED';
   return s||'?';
 }
 function queueDepth(l, h){
@@ -343,12 +368,16 @@ function queueDepth(l, h){
   if(h && h.queue_depth!=null) return {n:h.queue_depth, src:h.queue_source||'self-healing'};
   return null;
 }
+// Live gap from the file's latest evidence (send-based): a fresh submit
+// resets the gap at once; the healing gap is verified-only and stale.
+function latestEvidenceIso(l){ const a=l.last_verified_iso?new Date(l.last_verified_iso).getTime():0; const b=l.provisional_last_iso?new Date(l.provisional_last_iso).getTime():0; if(b>a){ const miss=(l.miss_minutes!=null?l.miss_minutes:2*(l.cadence_minutes||30)); if((Date.now()-b)/60000<miss) return l.provisional_last_iso; } return l.last_verified_iso||null; }
+function liveGapMin(l){ const iso=latestEvidenceIso(l); if(iso){ const m=Math.floor((Date.now()-new Date(iso).getTime())/60000); return m>=0?m:null; } return (l.gap_minutes!=null?l.gap_minutes:null); }
 
 function laneCard(l){
   const st = laneStatus(l);
   const cls = stateClass(st);
   const h = healing && healing.lanes ? healing.lanes[l.key] : null;
-  const gap = h && h.gap_min!=null ? h.gap_min : null;
+  const gap = liveGapMin(l);
   const last = l.last_verified_pt
     ? esc(l.last_verified_pt)+' · <span data-ts="'+esc(l.last_verified_iso||'')+'">'+agoText(l.last_verified_iso)+'</span>'
     : 'no verified post on file';
@@ -364,7 +393,7 @@ function laneCard(l){
   html += '<div class="plain">'+plain+'</div>';
   html += '<div class="kv">Last verified post: <b>'+last+'</b>'
     + postLink(l) + '</div>';
-  html += '<div class="kv">Next due: <b>'+esc(l.next_due_pt||'-')+'</b> · '+esc(dueText(l))+'</div>';
+  html += '<div class="kv">Next due: '+nextDueHtml(l)+'</div>';
   if(l.followers) html += '<div class="kv">Followers: <b>'+esc(l.followers)+'</b></div>';
   const q = queueDepth(l, h);
   html += '<div class="kv">Queue depth: <b>'+(q==null?'unknown':q.n+' staged')+'</b>'
@@ -626,31 +655,36 @@ function render(){
   const lanes=live.lanes||[];
   const byKey={}; lanes.forEach(l=>byKey[l.key]=l);
 
-  // Health: prefer the self-healing cycle's numbers (same method, fresh).
+  // Health: ALWAYS the live file (receipts, send-based). The self-healing
+  // cycle is advisory-only — its writer died Nov 23 11:32 PM and its 26.1%
+  // froze the headline for ~2h while live receipts said 65.5%. Never let a
+  // stale cycle gate the headline.
   const sys = healing && healing.system ? healing.system : null;
-  const hpct = sys ? sys.health_pct : (live.system_health||{}).pct;
+  const hpct = (live.system_health||{}).pct ?? (sys ? sys.health_pct : null);
   const hcls = hpct==null?'':(hpct>=77?'good':(hpct>=50?'warn':'bad'));
   const budget = sys ? sys.budget_remaining_pts : null;
   const burn = sys ? sys.burn_rate_per_h : null;
   const frozen = sys ? sys.changes_frozen : false;
+  const healStale = !(healing && healing.generated_epoch) ? true : ((Date.now()/1000 - healing.generated_epoch) > 900);
+  const healCycle = healing && healing.generated_pt ? healing.generated_pt : 'unknown cycle';
   document.getElementById('healthCard').innerHTML =
     '<div class="row"><div class="n '+hcls+'">'+(hpct==null?'-':hpct+'%')+'</div>'
     +'<div class="lbl">system health<br>18 lanes scored</div>'
     +'<div class="budget">Error budget: <b>'+(budget==null?'-':(budget>=0?'+':'')+budget+' pts')+'</b> vs the 77% floor'
     +(burn!=null?'<br>Burn rate: <b>'+burn+'×</b> (1× = on pace; 14.4× exhausts a 30-day budget in ~2 days)':'')
-    +'<br>Computed '+esc(sys?('self-healing cycle'):(live.system_health||{}).computed_at_pt||'-')+' from live receipts only.</div></div>'
+    +'<br>Computed '+esc((live.system_health||{}).computed_at_pt||'-')+' from live receipts (send-based: a fresh submit counts).'+(healStale?' <b style="color:var(--red)">Self-healing cycle stale</b> — budget/freeze below may be out of date.':'')+'</div></div>'
     +'<div class="bar"><div class="fill '+hcls+'" style="width:'+Math.max(0,Math.min(100,hpct||0))+'%"></div>'
-    +'<div class="line77"><span>77% floor</span></div></div>'
+    +'<div class="line77"><span>77% floor</span></div><div class="line88"><span>88% target</span></div></div>'
     +'<div class="barlabels"><span>0%</span><span>77% — forced-reset line (rung 8, only after the ladder is tried)</span><span>100%</span></div>'
-    +(frozen?'<div class="frozen"><b>Budget overdrawn — changes frozen.</b> No canary rollouts, no new behaviour; reliability work only, until health is back above 77%.</div>':'')
+    +(frozen && !healStale?'<div class="frozen"><b>Budget overdrawn — changes frozen.</b> No canary rollouts, no new behaviour; reliability work only, until health is back above 77%.</div>':(healStale?'<div class="frozen" style="color:var(--red)">Self-healing cycle stale ('+esc(healCycle)+') — budget/freeze state unknown.</div>':''))
     +((live.system_health||{}).top_drags||[]).length?'<div class="budget" style="margin-top:8px">Biggest drags: <b>'+(live.system_health.top_drags||[]).map(x=>esc(x.lane)+' '+x.score).join(' · ')+'</b></div>':'';
 
   const s=live.summary||{};
-  const on = sys?sys.on_cadence:(s.on_cadence||0), yel = sys?sys.yellow:(s.due||0), red = sys?sys.red:(s.missing||0);
+  const on = s.on_cadence||0, yel = s.yellow ?? s.due ?? 0, red = s.red ?? s.missing ?? 0;
   document.getElementById('summary').innerHTML =
     '<div class="stat on"><div class="n">'+on+'</div><div class="l">on cadence</div></div>'
-    +'<div class="stat due"><div class="n">'+yel+'</div><div class="l">yellow · 30m+ late</div></div>'
-    +'<div class="stat miss"><div class="n">'+red+'</div><div class="l">red · 60m+ late</div></div>'
+    +'<div class="stat due"><div class="n">'+yel+'</div><div class="l">yellow · past cadence</div></div>'
+    +'<div class="stat miss"><div class="n">'+red+'</div><div class="l">red · 2× cadence</div></div>'
     +'<div class="stat nodata"><div class="n">'+(s.total_lanes||lanes.length)+'</div><div class="l">lanes tracked</div></div>';
 
   // Worst lane strip: the one decision at the top.
@@ -662,13 +696,13 @@ function render(){
   } else {
     const wst = laneStatus(w), wcls = stateClass(wst);
     const wh = healing && healing.lanes ? healing.lanes[w.key] : null;
-    const wgap = wh && wh.gap_min!=null ? wh.gap_min : null;
+    const wgap = liveGapMin(w);
     const wq = queueDepth(w, wh);
     wEl.className='worst '+wcls;
     wEl.innerHTML='<div class="t">Worst lane — fix this first</div>'
       +'<div class="big">'+esc(w.platform)+' '+esc(w.account||'')+' · '+esc(badgeLabel(wst))+'</div>'
       +'<div class="meta">Last post <b>'+(wgap!=null?gapText(wgap)+' ago':'—')+'</b> ('+esc(w.last_verified_pt||'never')+')'
-      +' · Next due <b>'+esc(w.next_due_pt||'-')+'</b> ('+esc(dueText(w))+')'
+      +' · Next due '+nextDueHtml(w)
       +(wq!=null?' · Queue <b>'+wq.n+' staged</b>'+(wq.n<25?' <span class="dry">below floor</span>':''):' · Queue unknown')
       +(w.blocker?' · '+esc(w.blocker):'')
       +postLink(w, 'color:#1d4ed8;text-decoration:none')
@@ -738,16 +772,24 @@ function render(){
   document.getElementById('actions').innerHTML = need.join('');
 
   document.getElementById('foot').textContent =
-    '209 Intelligence · v4.1 · renamed + exact-post links + steering, Nov 20 · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
+    '209 Intelligence · v4.2 · realtime fix Nov 24: send-based states, raw data feed, 88% target · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
     +' · newest receipt '+esc(live.newest_receipt_pt||'-')
     +' · Supabase realtime: not wired, no key · '+(s.total_lanes||lanes.length)+' lanes · Public read-only copy — steering + actions disabled.';
   renderSteering();
 }
 
 async function fetchJSON(url){
-  const r=await fetch(url, {cache:'no-store'});
-  if(!r.ok) throw new Error(url+' '+r.status);
-  return await r.json();
+  // Try the raw URL first; fall back to the Pages-served copy (same
+  // filename, relative) if raw is unreachable — a build-stale file beats
+  // an offline board.
+  try{
+    const r=await fetch(url, {cache:'no-store'});
+    if(r.ok) return await r.json();
+  }catch(e){}
+  const rel = url.split('/').pop();
+  const r2=await fetch(rel, {cache:'no-store'});
+  if(!r2.ok) throw new Error(url+' '+r2.status);
+  return await r2.json();
 }
 async function pollOnce(){
   try{
