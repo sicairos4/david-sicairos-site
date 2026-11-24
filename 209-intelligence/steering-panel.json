@@ -1,12 +1,12 @@
 {
- "generated_at_pt": "2026-11-24 02:37 AM PT",
+ "generated_at_pt": "2026-11-24 02:55 AM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
-  "system_share_pct": 18,
+  "system_share_pct": 17,
   "direction": "audit-led",
-  "why": "Audit and Records is 18% of 3967 verified publishes across 18 profiles in 14 days. Up 1 points vs the prior 14 days."
+  "why": "Audit and Records is 17% of 3978 verified publishes across 18 profiles in 14 days. Up 0 points vs the prior 14 days."
  },
  "profiles": [
   {
@@ -54,13 +54,13 @@
    "key": "ig_davids",
    "platform": "Instagram",
    "account": "@davidsicairos_",
-   "posts": 150,
+   "posts": 151,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 39,
+     "pct": 38,
      "posts": 58
     },
     {
@@ -84,8 +84,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 56,
-     "posts": 84
+     "pct": 57,
+     "posts": 85
     }
    ],
    "top_band": "A",
@@ -136,13 +136,13 @@
    "key": "ig_castle",
    "platform": "Instagram",
    "account": "@castlecaliforniacounterintel",
-   "posts": 170,
+   "posts": 171,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 44,
+     "pct": 43,
      "posts": 74
     },
     {
@@ -166,8 +166,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 53,
-     "posts": 91
+     "pct": 54,
+     "posts": 92
     }
    ],
    "top_band": "A",
@@ -177,7 +177,7 @@
    "key": "ig_atwater",
    "platform": "Instagram",
    "account": "@atwatercastleintelligence",
-   "posts": 179,
+   "posts": 180,
    "thin": false,
    "topics": [
     {
@@ -208,7 +208,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 48,
-     "posts": 86
+     "posts": 87
     }
    ],
    "top_band": "A",
@@ -218,7 +218,7 @@
    "key": "ig_intentionally",
    "platform": "Instagram",
    "account": "@intentionally.us",
-   "posts": 155,
+   "posts": 156,
    "thin": false,
    "topics": [
     {
@@ -236,8 +236,8 @@
     {
      "band": "C",
      "label": "Community and Wellness",
-     "pct": 23,
-     "posts": 36
+     "pct": 24,
+     "posts": 37
     },
     {
      "band": "D",
@@ -248,7 +248,7 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 32,
+     "pct": 31,
      "posts": 49
     }
    ],
@@ -259,7 +259,7 @@
    "key": "ig_elevated",
    "platform": "Instagram",
    "account": "@elevated209cbd",
-   "posts": 162,
+   "posts": 161,
    "thin": false,
    "topics": [
     {
@@ -290,7 +290,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 51,
-     "posts": 84
+     "posts": 83
     }
    ],
    "top_band": "A",
@@ -341,7 +341,7 @@
    "key": "fb_california",
    "platform": "Facebook",
    "account": "209Connect California (Page)",
-   "posts": 178,
+   "posts": 179,
    "thin": false,
    "topics": [
     {
@@ -372,7 +372,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 95,
-     "posts": 168
+     "posts": 169
     }
    ],
    "top_band": "A",
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 167,
+   "posts": 168,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 86,
-     "posts": 144
+     "posts": 145
     }
    ],
    "top_band": "C",
@@ -505,7 +505,7 @@
    "key": "fb_problemsolved",
    "platform": "Facebook",
    "account": "ProblemSolved Designs (Page)",
-   "posts": 152,
+   "posts": 153,
    "thin": false,
    "topics": [
     {
@@ -536,7 +536,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 93,
-     "posts": 142
+     "posts": 143
     }
    ],
    "top_band": "A",
@@ -546,13 +546,13 @@
    "key": "threads",
    "platform": "Threads",
    "account": "@209media.connect",
-   "posts": 665,
+   "posts": 669,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 8,
+     "pct": 7,
      "posts": 50
     },
     {
@@ -576,8 +576,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 90,
-     "posts": 597
+     "pct": 91,
+     "posts": 601
     }
    ],
    "top_band": "A",
@@ -587,7 +587,7 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 412,
+   "posts": 413,
    "thin": false,
    "topics": [
     {
@@ -618,7 +618,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 82,
-     "posts": 335
+     "posts": 336
     }
    ],
    "top_band": "A",
@@ -1000,7 +1000,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 649 deduped publishes vs 3967 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 649 deduped publishes vs 3978 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "234 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
