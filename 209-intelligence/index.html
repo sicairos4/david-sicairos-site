@@ -257,12 +257,13 @@
 // Data = live-state.json (lanes, from receipts + publication_log, with live
 // queue depth) + self-healing-state.json (diagnoses, plans, gaps, health).
 // Push: SSE events `state` + `healing` from live-server.py; fallback:
-// poll the data files every 3s (realtime fix Nov 24 2026: 2-5s, not 30s).
+// poll the data files every 5s (David Nov 24 08:23 AM: five seconds, not
+// 30s; cache-busted so the raw CDN cannot serve a stale copy — see fetchJSON).
 // PT, 12-hour clock, no UTC anywhere on screen.
 // Health/counts/states come from live-state.json (send-based: a fresh
 // submit counts at once). Ladder: yellow at cadence, red at 2x cadence.
 // Health floor: 77%. David's target: 88%.
-const POLL_MS = 3000;
+const POLL_MS = 5000;
 // Realtime fix 2026-11-24: read the data from raw.githubusercontent.com —
 // the Pages-served copy lags every push by the 5–7 min Pages build, while
 // raw serves the pushed file at once. Relative (Pages) copy is the fallback.
@@ -779,7 +780,7 @@ function render(){
   document.getElementById('actions').innerHTML = need.join('');
 
   document.getElementById('foot').textContent =
-    '209 Intelligence · v4.3 · tabs fix Nov 24: one pill style for the whole top bar · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
+    '209 Intelligence · v4.4 · green fix Nov 24: 5s poll + cache-busted fetches (CDN cannot serve stale state) · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
     +' · newest receipt '+esc(live.newest_receipt_pt||'-')
     +' · Supabase realtime: not wired, no key · '+(s.total_lanes||lanes.length)+' lanes · Public read-only copy — steering + actions disabled.';
   renderSteering();
@@ -789,11 +790,19 @@ async function fetchJSON(url){
   // Try the raw URL first; fall back to the Pages-served copy (same
   // filename, relative) if raw is unreachable — a build-stale file beats
   // an offline board.
+  // GREEN FIX Nov 24 2026 (David 08:23 AM: 5s / instantaneous): the raw
+  // CDN caches live-state.json up to 300s (Cache-Control: max-age=300),
+  // so a plain fetch with cache:'no-store' still returns a stale copy —
+  // the browser cache is bypassed but the CDN is not. A unique query
+  // string is a new cache key (verified: two different ?_ values both
+  // X-Cache: MISS with fresh generated_at; the plain URL returns
+  // X-Cache: HIT), so every poll fetches fresh from origin.
+  const busted = url + (url.indexOf('?') === -1 ? '?' : '&') + '_=' + Date.now();
   try{
-    const r=await fetch(url, {cache:'no-store'});
+    const r=await fetch(busted, {cache:'no-store'});
     if(r.ok) return await r.json();
   }catch(e){}
-  const rel = url.split('/').pop();
+  const rel = url.split('/').pop() + '?_=' + Date.now();
   const r2=await fetch(rel, {cache:'no-store'});
   if(!r2.ok) throw new Error(url+' '+r2.status);
   return await r2.json();
