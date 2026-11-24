@@ -17,16 +17,21 @@
     padding:14px;max-width:960px;margin:0 auto}
   h1{font-size:26px;font-weight:800;letter-spacing:-.02em}
   .sub{color:var(--mut);font-size:14px;margin:4px 0 12px;max-width:660px}
-  .topbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
-  .pill{display:inline-flex;align-items:center;gap:7px;background:var(--card);
-    border:1px solid var(--line);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:600}
+  .tabbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+  /* Top tab bar — ONE style for every tab. Status chips and action buttons
+     share the same height, padding, font and border, so the row reads as a
+     single bar. No dark fill, no mixed sizes; Refresh is bold only. */
+  .tab{display:inline-flex;align-items:center;gap:7px;background:var(--card);
+    border:1px solid var(--line);border-radius:999px;height:34px;padding:0 14px;
+    font-size:13px;font-weight:600;color:var(--ink);white-space:nowrap}
+  button.tab{font-family:inherit;cursor:pointer}
+  button.tab:hover{background:var(--grey-bg)}
+  button.tab:active{transform:scale(.97)}
+  button.tab:disabled{opacity:.45;cursor:not-allowed}
+  .tab.primary{font-weight:700}
+  .tab.fresh{font-size:13px}
   .dot{width:10px;height:10px;border-radius:50%;flex:none}
   .g{background:#22c55e}.a{background:#f59e0b}.r{background:#ef4444}.b{background:#3b82f6}.grey{background:#9ca3af}
-  .btn{background:var(--ink);color:#fff;border:0;border-radius:999px;padding:8px 16px;
-    font-size:14px;font-weight:600;cursor:pointer}
-  .btn:active{transform:scale(.97)}
-  .btn:disabled{opacity:.45;cursor:not-allowed}
-  .btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
   .fresh{font-size:12.5px;color:var(--mut)}
   .fresh.stale{color:var(--red);font-weight:700}
   .liveclock{font-variant-numeric:tabular-nums;font-weight:700}
@@ -191,13 +196,13 @@
 </div>
 <p class="sub">Green means posting on time — a fresh send counts at once, verification pending. Yellow at cadence, red at twice cadence. The worst lane is at the top; tap a platform to open it. Every "open post" link goes to the exact post.</p>
 
-<div class="topbar">
-  <span class="pill"><span class="dot grey" id="modeDot"></span><span id="modeState">connecting</span></span>
-  <span class="pill"><span class="liveclock" id="liveClock">--:--:--</span></span>
-  <span class="pill fresh" id="updatedPill">updated —</span>
-  <button class="btn ghost" id="expandAllBtn">Expand all</button>
-  <button class="btn ghost" id="collapseAllBtn">Collapse all</button>
-  <button class="btn" id="refreshBtn">Refresh</button>
+<div class="tabbar">
+  <span class="tab"><span class="dot grey" id="modeDot"></span><span id="modeState">connecting</span></span>
+  <span class="tab"><span class="liveclock" id="liveClock">--:--:--</span></span>
+  <span class="tab fresh" id="updatedPill">updated —</span>
+  <button class="tab" id="expandAllBtn">Expand all</button>
+  <button class="tab" id="collapseAllBtn">Collapse all</button>
+  <button class="tab primary" id="refreshBtn">Refresh</button>
 </div>
 <p class="fresh" id="liveNote">Live updates on. Refresh is a fallback only.</p>
 
