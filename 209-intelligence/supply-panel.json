@@ -1,6 +1,6 @@
 {
- "generated_pt": "2026-11-24 04:36 PT",
- "generated_epoch": 1795523800,
+ "generated_pt": "2026-11-24 04:55 PT",
+ "generated_epoch": 1795524933,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
@@ -24,61 +24,61 @@
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 11,
+   "keeper_strict_fireable": 10,
    "cli_reel_reserve": 0
   },
   "ig_davids": {
-   "staged": 19,
-   "fireable": 19,
-   "deficit": 6,
+   "staged": 18,
+   "fireable": 18,
+   "deficit": 7,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 11,
+   "keeper_strict_fireable": 10,
    "cli_reel_reserve": 0
   },
   "ig_atwater": {
-   "staged": 17,
-   "fireable": 17,
-   "deficit": 8,
+   "staged": 16,
+   "fireable": 16,
+   "deficit": 9,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 11,
+   "keeper_strict_fireable": 10,
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 20,
-   "fireable": 19,
-   "deficit": 6,
+   "staged": 19,
+   "fireable": 18,
+   "deficit": 7,
    "badge": "LOW",
    "exclusions": {
     "frame_hold": 1
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 11,
+   "keeper_strict_fireable": 10,
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
    "staged": 9,
-   "fireable": 8,
-   "deficit": 17,
+   "fireable": 7,
+   "deficit": 18,
    "badge": "CRITICAL",
    "exclusions": {
-    "frame_hold": 1
+    "frame_hold": 2
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 2,
+   "keeper_strict_fireable": 1,
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
-   "staged": 11,
-   "fireable": 11,
-   "deficit": 14,
+   "staged": 10,
+   "fireable": 10,
+   "deficit": 15,
    "badge": "LOW",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 3,
+   "keeper_strict_fireable": 4,
    "cli_reel_reserve": 0
   },
   "fb_profile": {
@@ -164,8 +164,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 58,
-   "fireable": 58,
+   "staged": 52,
+   "fireable": 52,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -174,8 +174,8 @@
    "cli_reel_reserve": null
   },
   "bluesky": {
-   "staged": 49,
-   "fireable": 49,
+   "staged": 48,
+   "fireable": 48,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
