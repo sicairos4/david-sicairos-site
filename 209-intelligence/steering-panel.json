@@ -1,5 +1,5 @@
 {
- "generated_at_pt": "2026-11-24 08:14 AM PT",
+ "generated_at_pt": "2026-11-24 08:31 AM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
@@ -13,7 +13,7 @@
    "key": "ig_personal",
    "platform": "Instagram",
    "account": "@sicairosdavid_",
-   "posts": 110,
+   "posts": 111,
    "thin": false,
    "topics": [
     {
@@ -37,13 +37,13 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 8,
-     "posts": 9
+     "pct": 9,
+     "posts": 10
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 69,
+     "pct": 68,
      "posts": 76
     }
    ],
@@ -54,7 +54,7 @@
    "key": "ig_davids",
    "platform": "Instagram",
    "account": "@davidsicairos_",
-   "posts": 155,
+   "posts": 156,
    "thin": false,
    "topics": [
     {
@@ -85,7 +85,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 59,
-     "posts": 92
+     "posts": 93
     }
    ],
    "top_band": "A",
@@ -259,7 +259,7 @@
    "key": "ig_elevated",
    "platform": "Instagram",
    "account": "@elevated209cbd",
-   "posts": 164,
+   "posts": 165,
    "thin": false,
    "topics": [
     {
@@ -290,7 +290,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 52,
-     "posts": 86
+     "posts": 87
     }
    ],
    "top_band": "A",
@@ -587,7 +587,7 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 419,
+   "posts": 418,
    "thin": false,
    "topics": [
     {
@@ -612,7 +612,7 @@
      "band": "D",
      "label": "California Civic",
      "pct": 6,
-     "posts": 24
+     "posts": 23
     },
     {
      "band": "untagged",
@@ -628,7 +628,7 @@
    "key": "linkedin",
    "platform": "LinkedIn",
    "account": "/in/sicairosdavid/ (David Sicairos)",
-   "posts": 493,
+   "posts": 491,
    "thin": false,
    "topics": [
     {
@@ -659,7 +659,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 75,
-     "posts": 372
+     "posts": 370
     }
    ],
    "top_band": "A",
@@ -750,7 +750,7 @@
  ],
  "balance": {
   "oversaturated_bands": [],
-  "same_band_same_day": 939,
+  "same_band_same_day": 940,
   "weave_gap_median_min": 7,
   "jitter": "tight"
  },
@@ -1000,7 +1000,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 666 deduped publishes vs 4088 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 668 deduped publishes vs 4088 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "234 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
