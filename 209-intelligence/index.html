@@ -451,8 +451,10 @@ const GROUPS = [
 // Best first inside a group: ON CADENCE (0), YELLOW/DUE (1), RED/MISSING (2), NO DATA (3).
 function stateRank(l){
   const s=(laneStatus(l)||'').toUpperCase();
-  if(s==='ON CADENCE') return 0;
-  if(s==='YELLOW'||s==='DUE') return 1;
+  // Realtime fix 2026-11-24: a fresh submit (POSTED — VERIFYING) ranks as
+  // on-cadence, not worst — it used to fall through to 4, above RED.
+  if(s==='ON CADENCE'||s==='POSTED — VERIFYING') return 0;
+  if(s==='YELLOW'||s==='DUE'||s==='OVERRIDE'||s==='DIAGNOSER') return 1;
   if(s==='RED'||s==='MISSING') return 2;
   if(s==='NO DATA') return 3;
   return 4;
