@@ -185,6 +185,43 @@
   .steer-ctl select,.steer-ctl input{font-size:13px;padding:6px 9px;border:1px solid var(--line);
     border-radius:999px;background:var(--card);color:var(--ink)}
   .steer-ctl input[type=text]{min-width:200px;flex:1}
+  /* v4.5 — transport bar + small-square tiles + adult section. */
+  .transport{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:12px 14px;margin-bottom:12px}
+  .transport .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .transport .row + .row{margin-top:10px}
+  .seg{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;flex:none}
+  .seg button{background:transparent;border:0;padding:7px 13px;font-size:12.5px;font-weight:700;
+    cursor:pointer;color:var(--ink);font-family:inherit}
+  .seg button.sel{background:var(--ink);color:#fff}
+  .seg button:disabled{opacity:.45;cursor:not-allowed}
+  .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:8px;margin-bottom:12px}
+  .tile{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:9px 10px;min-height:118px;display:flex;flex-direction:column;gap:4px}
+  .tile.on{border-left:4px solid #22c55e}
+  .tile.due{border-left:4px solid #f59e0b}
+  .tile.miss{border-left:4px solid #ef4444}
+  .tile.nodata{border-left:4px solid #9ca3af}
+  .tile.other{border-left:4px solid #3b82f6}
+  .tile .nm{font-size:13px;font-weight:800;line-height:1.2;overflow:hidden;text-overflow:ellipsis}
+  .tile .ac{font-size:11px;color:var(--mut);line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tile .st{font-size:11px;font-weight:800}
+  .tile .st.on{color:var(--green)} .tile .st.due{color:var(--amber)} .tile .st.miss{color:var(--red)}
+  .tile .st.nodata{color:var(--grey)} .tile .st.other{color:var(--blue)}
+  .tile .nx{font-size:11.5px;color:var(--mut)}
+  .tile .nx b{color:var(--ink)}
+  .tile .nx .due-now{color:var(--red);font-weight:800}
+  .tile .trow{display:flex;gap:4px;margin-top:auto;align-items:center}
+  .tile .tbtn{font-size:11px;font-weight:800;border:1px solid var(--line);border-radius:999px;
+    padding:4px 9px;background:var(--card);cursor:pointer;font-family:inherit;flex:none}
+  .tile .tbtn:disabled{opacity:.45;cursor:not-allowed}
+  .tile .tbtn.api{color:var(--blue)} .tile .tbtn.cli{color:var(--amber)} .tile .tbtn.auto{color:var(--mut)}
+  .tile .fbtn{font-size:11px;font-weight:800;border:1px solid var(--ink);border-radius:999px;
+    padding:4px 9px;background:var(--ink);color:#fff;cursor:pointer;font-family:inherit;flex:none}
+  .tile .fbtn:disabled{opacity:.45;cursor:not-allowed}
+  .tile .det{font-size:11px;color:var(--mut);line-height:1.3}
+  .tile a{color:var(--blue);text-decoration:none;font-size:11px;font-weight:700}
+  .adult-note{font-size:12.5px;color:var(--mut);margin-bottom:4px}
 </style>
 </head>
 <body>
@@ -192,7 +229,7 @@
   <div class="mark"><span class="gold">209</span> INTELLIGENCE</div>
   <div class="tag">The 209 control panel</div>
   <div class="eco">209 Media · 209connect · Sovereign University — one panel for all 28 lanes.</div>
-  <div class="tag" style="margin-top:6px">Public read-only view — steering and actions live on the local panel only</div>
+  <div class="tag" style="margin-top:6px" id="viewNote">Public read-only view — steering and actions live on the local panel only</div>
 </div>
 <p class="sub">Green means posting on time — a fresh send counts at once, verification pending. Yellow at cadence, red at twice cadence. The worst lane is at the top; tap a platform to open it. Every "open post" link goes to the exact post.</p>
 
@@ -211,6 +248,11 @@
 <div class="summary" id="summary"></div>
 
 <div class="worst" id="worstLane"></div>
+
+<div class="transport" id="transportBar"></div>
+
+<h2>All platforms at a glance</h2>
+<div class="tiles" id="tiles"></div>
 
 <h2>Platforms: worst first, tap to open</h2>
 <div id="platforms"></div>
@@ -244,10 +286,16 @@
     The <b>77% line</b> is the floor: below it the error budget is overdrawn, changes freeze, and the reset ladder runs before any full reset.
     <div style="margin-top:6px"><b>Longest / last / average gap</b> are measured over the last 23 hours from verified publishes.</div>
     <div style="margin-top:6px"><b>Buttons</b> run the reset ladder: Retry (rung 1), Fail over (rung 2), Fire fresh (rung 3), Pause (rung 4), Rebuild queue (rung 6). Publish buttons queue the request to the cadence coordinator — this panel never fires a post itself. Full reset (rung 8) is gated and needs confirmation.</div>
+    <div style="margin-top:6px"><b>Transport</b> — Auto runs API 6 PM–5:30 AM PT and CLI in the daytime; API only holds every CLI rung; CLI only allows it. The switch lives on each tile (click the API/CLI/AUTO button to cycle Auto → API → CLI per lane) and in the bar above the tiles. <b>Fire all due</b> fires one fresh row per due lane; <b>Diagnose all</b> retries every yellow/red lane. On the public copy the buttons are read-only until the secure relay lands — they work on the local panel.</div>
     <div style="margin-top:6px"><b>Queue depth</b> is staged rows ready to post, counted live from the queue files. Below 25 is below the floor and shows in red.</div>
     <div style="margin-top:6px"><b>Open post</b> always goes to the exact post. If the link was never captured, the card says "post link not captured" instead of opening a profile or feed. A comment or reply is never a post — growth rows never set a lane's last-post time.</div>
     <div style="margin-top:6px"><b>Steering</b> is advisory only. It shows what topics are working per profile and system-wide, which way the system is leaning and why, and the balance across lanes. A steer you save is a suggestion the steering writer records, never an order to a publisher.</div>
   </div>
+</details>
+
+<details class="section" id="adultSection">
+  <summary>Adult — Not-Daniel / AI clones (text status only, no images)</summary>
+  <div class="body" id="adultBody"><p class="nodata">Adult status not loaded yet.</p></div>
 </details>
 
 <div class="foot" id="foot"></div>
@@ -274,7 +322,15 @@ const STEERING_URL = _GH+'steering-panel.json';
 const EVENTS_URL = '/events';
 const ACTION_URL = '/action';
 const STEER_URL = '/steer';
-const PUBLIC_READONLY = true; // Public GitHub Pages copy: read-only. No POST ever leaves this page.
+// v4.5: the board is the SAME file served two ways. Served from Pages it is
+// public; served from localhost it is the local panel. PUBLIC_READONLY
+// follows the hostname (v5.2 pattern), not a hardcoded flag. The relay
+// (Cloudflare Worker + KV, rss-209) carries public-board actions to the VM
+// once deployed; empty = the served board stays read-only for actions and
+// the buttons say so instead of sitting dead.
+const IS_PUBLIC = !(location.hostname === '127.0.0.1' || location.hostname === 'localhost' || location.hostname === '');
+const RELAY_URL = ''; // set to https://rss-209.sicairos4.workers.dev once the relay is deployed
+const PUBLIC_READONLY = IS_PUBLIC && !RELAY_URL;
 
 let live = null, healing = null, steering = null, mode = 'connecting', pollTimer = null, es = null;
 let lastDataAt = 0; // ms timestamp of the last successful data receipt
@@ -467,6 +523,183 @@ function stateRank(l){
 }
 function laneGapMs(l){
   return l.last_verified_iso ? (Date.now()-new Date(l.last_verified_iso).getTime()) : Infinity;
+}
+
+// v4.5 — CLI/API transport switch (David Nov 24 ~12:24 PM PT: API at night,
+// CLI daytime). live.transport comes from engine-settings.json via the
+// updater; effective is resolved per lane (auto = API 18:00–05:30 PT,
+// CLI daytime). A lane override beats the global mode.
+function transportOf(key){
+  const tr = live && live.transport ? live.transport : null;
+  if(!tr) return null;
+  const mode = tr.mode || 'auto';
+  const ov = (tr.overrides || {})[key];
+  let eff = (tr.effective || {})[key];
+  if(!eff){ eff = mode === 'api' ? 'api' : mode === 'cli' ? 'cli' : 'auto'; }
+  return {mode: mode, override: ov || null, effective: eff,
+          start: tr.auto_night_start_pt || '18:00',
+          end: tr.auto_night_end_pt || '05:30'};
+}
+function renderTransport(){
+  const el = document.getElementById('transportBar');
+  if(!el) return;
+  const tr = live && live.transport ? live.transport : null;
+  const sig = JSON.stringify(tr) + '|' + PUBLIC_READONLY + '|' + IS_PUBLIC;
+  if(renderTransport._sig === sig) return;
+  renderTransport._sig = sig;
+  const note = document.getElementById('viewNote');
+  if(note){
+    note.textContent = !IS_PUBLIC ? 'Local panel — actions enabled'
+      : RELAY_URL ? 'Public view — actions go through the secure relay'
+      : 'Public read-only view — steering and actions live on the local panel only';
+  }
+  if(!tr){ el.innerHTML = '<div class="row"><b>Transport</b><span class="kv">loading…</span></div>'; return; }
+  const mode = tr.mode || 'auto';
+  const win = (tr.auto_night_start_pt || '18:00') + '–' + (tr.auto_night_end_pt || '05:30');
+  const dis = PUBLIC_READONLY ? ' disabled' : '';
+  const how = PUBLIC_READONLY
+    ? 'Public view — the switch lives on the local panel until the secure relay lands.'
+    : (IS_PUBLIC ? 'Relay — changes apply on the next publisher tick.' : 'Local panel — changes apply on the next publisher tick.');
+  const labels = {auto: 'Auto', api: 'API only', cli: 'CLI only'};
+  el.innerHTML = '<div class="row"><b>Transport</b>'
+    + '<span class="seg" role="group" aria-label="Transport mode">'
+    + ['auto', 'api', 'cli'].map(m => '<button data-tmode="' + m + '" class="' + (mode === m ? 'sel' : '') + '"' + dis + '>' + labels[m] + '</button>').join('')
+    + '</span>'
+    + '<span class="kv">Auto = API ' + esc(win) + ' PT (night) · CLI daytime</span>'
+    + '<span class="kv">' + esc(how) + '</span></div>'
+    + '<div class="row"><button class="mini primary" id="fireAllBtn"' + dis + ' title="Fire one fresh row on every due scored lane (queued, one per lane)">Fire all due</button>'
+    + '<button class="mini primary" id="diagAllBtn"' + dis + ' title="Retry every lane currently yellow / override / diagnoser / red (queued)">Diagnose all</button>'
+    + '<span class="act-result" id="act-transport" style="margin-top:0"></span></div>';
+  const fa = document.getElementById('fireAllBtn');
+  if(fa) fa.addEventListener('click', () => fireAll(fa));
+  const da = document.getElementById('diagAllBtn');
+  if(da) da.addEventListener('click', () => diagnoseAll(da));
+}
+function tileDue(l){
+  if(!l.next_due_iso) return '<b>—</b>';
+  const t = new Date(l.next_due_iso);
+  if(isNaN(t)) return '<b>' + esc(l.next_due_pt || '-') + '</b>';
+  if(t.getTime() <= Date.now()) return '<span class="due-now">DUE NOW</span>';
+  return '<b>' + esc(l.next_due_pt || '') + '</b>';
+}
+function tileHtml(l){
+  const st = laneStatus(l), cls = stateClass(st);
+  const t = transportOf(l.key);
+  const eff = t ? t.effective : '—';
+  const ovMark = t && t.override ? ' *' : '';
+  const dis = PUBLIC_READONLY ? ' disabled' : '';
+  let html = '<div class="tile ' + cls + '" data-lane="' + esc(l.key) + '">'
+    + '<div class="nm">' + esc(l.platform) + '</div>'
+    + '<div class="ac">' + esc(l.account || '') + '</div>'
+    + '<div class="st ' + cls + '">' + esc(badgeLabel(st)) + '</div>'
+    + '<div class="nx">Next: ' + tileDue(l) + '</div>'
+    + '<div class="trow">'
+    + '<button class="tbtn ' + esc(eff) + '" data-toverride="' + esc(l.key) + '"' + dis + ' title="Transport: ' + esc(eff.toUpperCase()) + (t && t.override ? ' (override)' : ' (global ' + esc(t ? t.mode : 'auto') + ')') + ' — click to cycle Auto → API → CLI">' + esc(eff.toUpperCase()) + ovMark + '</button>'
+    + (l.scored ? '<button class="fbtn" data-act="fire_fresh" data-lane="' + esc(l.key) + '"' + dis + ' title="Fire one fresh row (queued)">Fire</button>' : '')
+    + '</div></div>';
+  return html;
+}
+function platformTileHtml(p){
+  const cls = {live: 'on', building: 'due', blocked: 'miss', pending: 'nodata', unconfirmed: 'nodata'}[p.status] || 'other';
+  const stLabel = {live: 'LIVE', building: 'BUILDING', blocked: 'BLOCKED', pending: 'PENDING', unconfirmed: 'UNCONFIRMED'}[p.status] || (p.status || '').toUpperCase();
+  let html = '<div class="tile ' + cls + '"><div class="nm">' + esc(p.name) + '</div>'
+    + '<div class="st ' + cls + '">' + esc(stLabel) + '</div>'
+    + '<div class="det">' + esc(p.detail || '') + '</div>';
+  if(p.url) html += '<div><a href="' + esc(p.url) + '" target="_blank">open ↗</a></div>';
+  html += '<div class="nx">Updated ' + esc(p.as_of_pt || '-') + '</div></div>';
+  return html;
+}
+function renderTiles(){
+  const el = document.getElementById('tiles');
+  if(!el || !live) return;
+  const lanes = live.lanes || [];
+  const plats = (live.platforms && live.platforms.platforms) || [];
+  const sig = lanes.map(l => l.key + '=' + (l.display_state || l.state || '') + '|' + (l.last_verified_iso || '') + '|' + (l.next_due_iso || '') + '|' + ((transportOf(l.key) || {}).effective || '')).join(';')
+    + '|' + JSON.stringify(plats) + '|' + PUBLIC_READONLY;
+  if(renderTiles._sig === sig) return;
+  renderTiles._sig = sig;
+  const scored = lanes.filter(l => l.scored);
+  const unscored = lanes.filter(l => !l.scored);
+  scored.sort((a, b) => { const ra = stateRank(a), rb = stateRank(b); if (ra !== rb) return ra - rb; return laneGapMs(a) - laneGapMs(b); });
+  unscored.sort((a, b) => (a.platform || '').localeCompare(b.platform || ''));
+  el.innerHTML = scored.map(tileHtml).join('') + unscored.map(tileHtml).join('') + plats.map(platformTileHtml).join('');
+}
+function renderAdult(){
+  const el = document.getElementById('adultBody');
+  if(!el) return;
+  const ad = live && live.platforms ? live.platforms.adult : null;
+  const sig = JSON.stringify(ad);
+  if(renderAdult._sig === sig) return;
+  renderAdult._sig = sig;
+  if(!ad || !ad.length){ el.innerHTML = '<p class="nodata">Adult status not loaded yet.</p>'; return; }
+  el.innerHTML = '<p class="adult-note">Adult platforms — text status only, no images. AI clones of David, tease only, no private parts. $9.99/mo every paid tier. Zero posts live anywhere (as of ' + esc((live.platforms || {}).as_of_pt || '-') + ').</p>'
+    + ad.map(p => '<details class="section" style="margin-top:8px"><summary>' + esc(p.name) + ' · ' + esc((p.status || '').toUpperCase()) + '</summary><div class="body">' + esc(p.detail || '') + '<div class="kv">Updated ' + esc(p.as_of_pt || '-') + '</div></div></details>').join('');
+}
+async function setTransport(mode, btn){
+  const out = document.getElementById('act-transport');
+  if(PUBLIC_READONLY){ if(out){ out.textContent = 'Public view is read-only — the switch lives on the local panel.'; out.className = 'act-result err'; } return; }
+  try{
+    if(btn) btn.disabled = true;
+    if(out){ out.textContent = 'Saving…'; out.className = 'act-result'; }
+    let res;
+    if(IS_PUBLIC && RELAY_URL){
+      const r = await fetch(RELAY_URL + '/transport-set', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({mode: mode})});
+      res = await r.json();
+    } else {
+      const r = await fetch(ACTION_URL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'set_transport', mode: mode, reason: 'dashboard transport bar'})});
+      res = await r.json();
+    }
+    if(out){ out.textContent = res.detail || res.status || 'saved'; out.className = 'act-result ' + (res.ok ? 'ok' : 'err'); }
+    pollOnce();
+  }catch(e){ if(out){ out.textContent = 'Save failed: ' + e.message; out.className = 'act-result err'; } }
+  finally{ if(btn) btn.disabled = false; }
+}
+async function cycleOverride(lane, btn){
+  const out = document.getElementById('act-transport');
+  if(PUBLIC_READONLY){ if(out){ out.textContent = 'Public view is read-only — the switch lives on the local panel.'; out.className = 'act-result err'; } return; }
+  const t = transportOf(lane);
+  const cur = t && t.override ? t.override : null;
+  // Cycle: global (Auto) → API → CLI → global. mode 'auto' clears the override.
+  const next = cur === null ? 'api' : cur === 'api' ? 'cli' : 'auto';
+  try{
+    if(btn) btn.disabled = true;
+    if(out){ out.textContent = 'Saving…'; out.className = 'act-result'; }
+    let res;
+    if(IS_PUBLIC && RELAY_URL){
+      const r = await fetch(RELAY_URL + '/transport-override', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({lane: lane, mode: next})});
+      res = await r.json();
+    } else {
+      const r = await fetch(ACTION_URL, {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({action: 'set_transport_override', lane: lane, mode: next, reason: 'dashboard tile toggle'})});
+      res = await r.json();
+    }
+    if(out){ out.textContent = res.detail || res.status || 'saved'; out.className = 'act-result ' + (res.ok ? 'ok' : 'err'); }
+    pollOnce();
+  }catch(e){ if(out){ out.textContent = 'Save failed: ' + e.message; out.className = 'act-result err'; } }
+  finally{ if(btn) btn.disabled = false; }
+}
+async function fireAll(btn){
+  const out = document.getElementById('act-transport');
+  if(PUBLIC_READONLY){ if(out){ out.textContent = 'Public view is read-only — actions live on the local panel.'; out.className = 'act-result err'; } return; }
+  const lanes = (live.lanes || []).filter(l => l.scored && (stateRank(l) === 1 || stateRank(l) === 2));
+  if(!lanes.length){ if(out){ out.textContent = 'No scored lane is due right now.'; out.className = 'act-result ok'; } return; }
+  if(!window.confirm('Fire one fresh row on ' + lanes.length + ' due lane(s)? Each queues through the cadence coordinator.')) return;
+  if(out){ out.textContent = 'Queuing ' + lanes.length + ' fires…'; out.className = 'act-result'; }
+  let n = 0;
+  for(const l of lanes){ await doAction('fire_fresh', l.key, null); n++; await new Promise(r => setTimeout(r, 400)); }
+  if(out){ out.textContent = 'Queued ' + n + ' fire(s) — see the lane cards for results.'; out.className = 'act-result ok'; }
+  pollOnce();
+}
+async function diagnoseAll(btn){
+  const out = document.getElementById('act-transport');
+  if(PUBLIC_READONLY){ if(out){ out.textContent = 'Public view is read-only — actions live on the local panel.'; out.className = 'act-result err'; } return; }
+  const lanes = (live.lanes || []).filter(l => l.scored && (stateRank(l) === 1 || stateRank(l) === 2));
+  if(!lanes.length){ if(out){ out.textContent = 'No scored lane needs a retry right now.'; out.className = 'act-result ok'; } return; }
+  if(!window.confirm('Retry ' + lanes.length + ' yellow/red lane(s)? Each queues a rung-1 retry.')) return;
+  if(out){ out.textContent = 'Queuing ' + lanes.length + ' retries…'; out.className = 'act-result'; }
+  let n = 0;
+  for(const l of lanes){ await doAction('retry', l.key, null); n++; await new Promise(r => setTimeout(r, 400)); }
+  if(out){ out.textContent = 'Queued ' + n + ' retr' + (n === 1 ? 'y' : 'ies') + ' — see the lane cards for results.'; out.className = 'act-result ok'; }
+  pollOnce();
 }
 function worstLane(lanes){
   const scored = lanes.filter(l=>l.cadence_minutes && l.last_verified_iso);
@@ -740,6 +973,12 @@ function render(){
     +'</div><div class="act-result" id="act-system"></div>'
     +(resetGate?'<div class="kv" style="margin-top:8px">Full reset is available: health '+hpct+'% is below the 77% floor and ladder repairs have been tried. It rebuilds state from receipts and is <b>not complete</b> until every scored lane posts a verified receipt afterwards.</div>':'<div class="kv" style="margin-top:8px">Full reset stays gated until health is below 77% after the ladder has been tried. The cheapest repair that fits the diagnosis always runs first.</div>');
 
+  // v4.5: transport bar + small-square tiles + adult section (sig-guarded
+  // inside each renderer, so the 5s poll never wipes an in-progress control).
+  renderTransport();
+  renderTiles();
+  renderAdult();
+
   const sig = lanes.map(l=>l.key+'='+(l.last_verified_iso||'')+'|q'+(l.queue_depth==null?'':l.queue_depth)).join(';')
     + '|' + JSON.stringify(healing?healing.system:null);
   if(render._sig !== sig){
@@ -780,7 +1019,7 @@ function render(){
   document.getElementById('actions').innerHTML = need.join('');
 
   document.getElementById('foot').textContent =
-    '209 Intelligence · v4.4 · green fix Nov 24: 5s poll + cache-busted fetches (CDN cannot serve stale state) · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
+    '209 Intelligence · v4.5 · transport switch (Auto/API/CLI) + small-square tiles + adult section Nov 24 · sources: live-state.json (receipts + queue depth) + self-healing-state.json (diagnoses, gaps, actions) · state from '+esc(live.generated_at_pt||'-')
     +' · newest receipt '+esc(live.newest_receipt_pt||'-')
     +' · Supabase realtime: not wired, no key · '+(s.total_lanes||lanes.length)+' lanes · Public read-only copy — steering + actions disabled.';
   renderSteering();
@@ -838,6 +1077,11 @@ async function doAction(action, lane, btn){
   const out = document.getElementById('act-'+(lane||'system'));
   if(PUBLIC_READONLY){ if(out){ out.textContent='Public view is read-only — actions live on the local panel.'; out.className='act-result err'; } return; }
   const doPost = async (confirm)=>{
+    if(IS_PUBLIC && RELAY_URL){
+      const r = await fetch(RELAY_URL+'/cmd', {method:'POST', headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({action: action, lane: lane||'', reason: 'dashboard button', confirm: !!confirm})});
+      return await r.json();
+    }
     const r = await fetch(ACTION_URL, {method:'POST', headers:{'Content-Type':'application/json'},
       body: JSON.stringify({action: action, lane: lane||'', reason: 'dashboard button', confirm: !!confirm})});
     return await r.json();
@@ -864,6 +1108,10 @@ async function doAction(action, lane, btn){
   }
 }
 document.addEventListener('click', (ev)=>{
+  const tm=ev.target.closest('[data-tmode]');
+  if(tm){ setTransport(tm.getAttribute('data-tmode'), tm); return; }
+  const to=ev.target.closest('[data-toverride]');
+  if(to){ cycleOverride(to.getAttribute('data-toverride'), to); return; }
   const t=ev.target.closest('[data-act]');
   if(t){ doAction(t.getAttribute('data-act'), t.getAttribute('data-lane'), t); return; }
   const s=ev.target.closest('[data-sysact]');
