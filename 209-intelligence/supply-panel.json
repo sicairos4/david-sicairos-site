@@ -1,20 +1,20 @@
 {
- "generated_pt": "2026-11-23 22:08 PT",
- "generated_epoch": 1795500524,
+ "generated_pt": "2026-11-23 22:51 PT",
+ "generated_epoch": 1795503117,
  "floor": 25,
  "method": "true_supply_count.py (live-picker gates)",
  "lanes": {
   "ig_personal": {
-   "staged": 22,
-   "fireable": 13,
-   "deficit": 12,
+   "staged": 21,
+   "fireable": 12,
+   "deficit": 13,
    "badge": "LOW",
    "exclusions": {
     "personal_non_carousel": 7,
     "frame_hold": 2
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 13,
+   "keeper_strict_fireable": 12,
    "cli_reel_reserve": 7
   },
   "ig_hub": {
@@ -24,51 +24,51 @@
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 7,
+   "keeper_strict_fireable": 5,
    "cli_reel_reserve": 0
   },
   "ig_davids": {
-   "staged": 13,
-   "fireable": 13,
-   "deficit": 12,
-   "badge": "LOW",
+   "staged": 9,
+   "fireable": 9,
+   "deficit": 16,
+   "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 10,
+   "keeper_strict_fireable": 7,
    "cli_reel_reserve": 0
   },
   "ig_atwater": {
-   "staged": 6,
-   "fireable": 5,
-   "deficit": 20,
+   "staged": 4,
+   "fireable": 3,
+   "deficit": 22,
    "badge": "CRITICAL",
    "exclusions": {
     "frame_hold": 1
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 4,
+   "keeper_strict_fireable": 2,
    "cli_reel_reserve": 0
   },
   "ig_castle": {
-   "staged": 5,
-   "fireable": 3,
-   "deficit": 22,
+   "staged": 4,
+   "fireable": 2,
+   "deficit": 23,
    "badge": "CRITICAL",
    "exclusions": {
     "frame_hold": 2
    },
    "fresh_fireable": null,
-   "keeper_strict_fireable": 3,
+   "keeper_strict_fireable": 2,
    "cli_reel_reserve": 0
   },
   "ig_intentionally": {
-   "staged": 1,
-   "fireable": 1,
-   "deficit": 24,
+   "staged": 0,
+   "fireable": 0,
+   "deficit": 25,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
-   "keeper_strict_fireable": 1,
+   "keeper_strict_fireable": 0,
    "cli_reel_reserve": 0
   },
   "ig_elevated": {
@@ -142,9 +142,9 @@
    "cli_reel_reserve": null
   },
   "youtube": {
-   "staged": 0,
-   "fireable": 0,
-   "deficit": 25,
+   "staged": 1,
+   "fireable": 1,
+   "deficit": 24,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
@@ -152,9 +152,9 @@
    "cli_reel_reserve": null
   },
   "tiktok": {
-   "staged": 7,
-   "fireable": 6,
-   "deficit": 19,
+   "staged": 6,
+   "fireable": 5,
+   "deficit": 20,
    "badge": "CRITICAL",
    "exclusions": {
     "missing_file": 1
@@ -164,8 +164,8 @@
    "cli_reel_reserve": null
   },
   "threads": {
-   "staged": 58,
-   "fireable": 58,
+   "staged": 54,
+   "fireable": 54,
    "deficit": 0,
    "badge": "OK",
    "exclusions": {},
@@ -184,9 +184,9 @@
    "cli_reel_reserve": null
   },
   "linkedin": {
-   "staged": 5,
-   "fireable": 5,
-   "deficit": 20,
+   "staged": 4,
+   "fireable": 4,
+   "deficit": 21,
    "badge": "CRITICAL",
    "exclusions": {},
    "fresh_fireable": null,
@@ -221,6 +221,7 @@
   "fb_profile",
   "ig_atwater",
   "ig_castle",
+  "ig_davids",
   "ig_elevated",
   "ig_hub",
   "ig_intentionally",
