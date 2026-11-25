@@ -1,12 +1,12 @@
 {
- "generated_at_pt": "2026-11-24 06:36 PM PT",
+ "generated_at_pt": "2026-11-24 06:47 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 16,
   "direction": "audit-led",
-  "why": "Audit and Records is 16% of 4211 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
+  "why": "Audit and Records is 16% of 4215 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
  },
  "profiles": [
   {
@@ -341,7 +341,7 @@
    "key": "fb_california",
    "platform": "Facebook",
    "account": "209Connect California (Page)",
-   "posts": 190,
+   "posts": 191,
    "thin": false,
    "topics": [
     {
@@ -372,7 +372,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 95,
-     "posts": 180
+     "posts": 181
     }
    ],
    "top_band": "A",
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 182,
+   "posts": 183,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 87,
-     "posts": 158
+     "posts": 159
     }
    ],
    "top_band": "C",
@@ -423,13 +423,13 @@
    "key": "fb_elevated",
    "platform": "Facebook",
    "account": "Elevated209 CBD (Page)",
-   "posts": 171,
+   "posts": 172,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 4,
+     "pct": 3,
      "posts": 6
     },
     {
@@ -453,8 +453,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 85,
-     "posts": 146
+     "pct": 86,
+     "posts": 147
     }
    ],
    "top_band": "C",
@@ -587,7 +587,7 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 424,
+   "posts": 425,
    "thin": false,
    "topics": [
     {
@@ -618,7 +618,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 84,
-     "posts": 354
+     "posts": 355
     }
    ],
    "top_band": "A",
@@ -1000,7 +1000,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 676 deduped publishes vs 4211 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 676 deduped publishes vs 4215 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "241 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
