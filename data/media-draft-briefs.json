@@ -1,7 +1,63 @@
 {
-  "generated_at": "2026-11-24T04:57:23.544519+00:00",
+  "generated_at": "2026-11-25T01:01:37.730755+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:lOtchn8xNXo",
+      "source_url": "https://www.youtube.com/watch?v=lOtchn8xNXo",
+      "title": "The Record Answers Now",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:3jCfoH4a-MY",
+      "source_url": "https://www.youtube.com/watch?v=3jCfoH4a-MY",
+      "title": "2 Million Views in ONE WEEK — The Receipts Are the Content",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:9K6cIZVTXJg",
+      "source_url": "https://www.youtube.com/watch?v=9K6cIZVTXJg",
+      "title": "What It Costs in the 209",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:dzAMsq7y568",
+      "source_url": "https://www.youtube.com/watch?v=dzAMsq7y568",
+      "title": "The Paper Proves It",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:giBgsMRmEEY",
+      "source_url": "https://www.youtube.com/watch?v=giBgsMRmEEY",
+      "title": "471,151 Views in One Day: What a Local Audit Proves",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:z38GKG8GoCM",
+      "source_url": "https://www.youtube.com/watch?v=z38GKG8GoCM",
+      "title": "471,151 Views in ONE DAY — The Week Hit 1.5M",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:LSgWXUfcU48",
+      "source_url": "https://www.youtube.com/watch?v=LSgWXUfcU48",
+      "title": "The File Goes Public",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:NJbVWEXJr7c",
+      "source_url": "https://www.youtube.com/watch?v=NJbVWEXJr7c",
+      "title": "How a Recall Actually Works",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:AYhz2v3ZWUk",
       "source_url": "https://www.youtube.com/watch?v=AYhz2v3ZWUk",
@@ -223,62 +279,6 @@
       "source_id": "youtube:vXwFVr7T80A",
       "source_url": "https://www.youtube.com/watch?v=vXwFVr7T80A",
       "title": "Illegally Fired: Atwater Ifep299",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:5MqtWU3tGts",
-      "source_url": "https://www.youtube.com/watch?v=5MqtWU3tGts",
-      "title": "Illegally Fired: Atwater Ifep298",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:V4kEfyEDMa0",
-      "source_url": "https://www.youtube.com/watch?v=V4kEfyEDMa0",
-      "title": "Illegally Fired: Atwater Ifep289",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:epusC6u8bu8",
-      "source_url": "https://www.youtube.com/watch?v=epusC6u8bu8",
-      "title": "Stronger the Simple Way: The Glute Bridge",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:_heHoelR5w0",
-      "source_url": "https://www.youtube.com/watch?v=_heHoelR5w0",
-      "title": "Stronger the Simple Way: The Farmer Carry",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:zmL2go95yfI",
-      "source_url": "https://www.youtube.com/watch?v=zmL2go95yfI",
-      "title": "Reel Vault If Part17 Facebook Long",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:h1mje8q4Xp8",
-      "source_url": "https://www.youtube.com/watch?v=h1mje8q4Xp8",
-      "title": "Fired for Speaking Up: A Late Answer Still Counts",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:LBGpjmWYF7g",
-      "source_url": "https://www.youtube.com/watch?v=LBGpjmWYF7g",
-      "title": "Fired for Speaking Up: The Exemption Is a Claim, Not a Verdict",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:nUL0oWxXPd8",
-      "source_url": "https://www.youtube.com/watch?v=nUL0oWxXPd8",
-      "title": "State Audit: Dental Law Failing, Merced City Named",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
