@@ -1,12 +1,12 @@
 {
- "generated_at_pt": "2026-11-24 08:04 PM PT",
+ "generated_at_pt": "2026-11-24 08:31 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 16,
   "direction": "audit-led",
-  "why": "Audit and Records is 16% of 4228 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
+  "why": "Audit and Records is 16% of 4230 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
  },
  "profiles": [
   {
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 184,
+   "posts": 185,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 87,
-     "posts": 160
+     "posts": 161
     }
    ],
    "top_band": "C",
@@ -464,7 +464,7 @@
    "key": "fb_intentionally",
    "platform": "Facebook",
    "account": "Intentionally Us (Page)",
-   "posts": 184,
+   "posts": 185,
    "thin": false,
    "topics": [
     {
@@ -495,7 +495,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 88,
-     "posts": 163
+     "posts": 164
     }
    ],
    "top_band": "C",
@@ -587,7 +587,7 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 427,
+   "posts": 428,
    "thin": false,
    "topics": [
     {
@@ -618,7 +618,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 84,
-     "posts": 357
+     "posts": 358
     }
    ],
    "top_band": "A",
@@ -628,14 +628,14 @@
    "key": "linkedin",
    "platform": "LinkedIn",
    "account": "/in/sicairosdavid/ (David Sicairos)",
-   "posts": 493,
+   "posts": 492,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
      "pct": 14,
-     "posts": 70
+     "posts": 69
     },
     {
      "band": "B",
@@ -1139,7 +1139,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 677 deduped publishes vs 4228 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 678 deduped publishes vs 4230 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "241 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v2-1795568464 (2026-11-24 17:01 PT); 10 ranked posts with measured engagement; 5 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
