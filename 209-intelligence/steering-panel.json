@@ -1,19 +1,19 @@
 {
- "generated_at_pt": "2026-11-24 05:01 PM PT",
+ "generated_at_pt": "2026-11-24 05:35 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
-  "system_share_pct": 17,
+  "system_share_pct": 16,
   "direction": "audit-led",
-  "why": "Audit and Records is 17% of 4173 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
+  "why": "Audit and Records is 16% of 4190 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
  },
  "profiles": [
   {
    "key": "ig_personal",
    "platform": "Instagram",
    "account": "@sicairosdavid_",
-   "posts": 119,
+   "posts": 121,
    "thin": false,
    "topics": [
     {
@@ -37,14 +37,14 @@
     {
      "band": "D",
      "label": "California Civic",
-     "pct": 9,
-     "posts": 11
+     "pct": 10,
+     "posts": 12
     },
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 70,
-     "posts": 83
+     "pct": 69,
+     "posts": 84
     }
    ],
    "top_band": "A",
@@ -54,7 +54,7 @@
    "key": "ig_davids",
    "platform": "Instagram",
    "account": "@davidsicairos_",
-   "posts": 159,
+   "posts": 160,
    "thin": false,
    "topics": [
     {
@@ -85,7 +85,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 61,
-     "posts": 97
+     "posts": 98
     }
    ],
    "top_band": "A",
@@ -177,7 +177,7 @@
    "key": "ig_atwater",
    "platform": "Instagram",
    "account": "@atwatercastleintelligence",
-   "posts": 186,
+   "posts": 187,
    "thin": false,
    "topics": [
     {
@@ -208,7 +208,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 50,
-     "posts": 93
+     "posts": 94
     }
    ],
    "top_band": "A",
@@ -218,7 +218,7 @@
    "key": "ig_intentionally",
    "platform": "Instagram",
    "account": "@intentionally.us",
-   "posts": 164,
+   "posts": 165,
    "thin": false,
    "topics": [
     {
@@ -237,7 +237,7 @@
      "band": "C",
      "label": "Community and Wellness",
      "pct": 26,
-     "posts": 42
+     "posts": 43
     },
     {
      "band": "D",
@@ -259,13 +259,13 @@
    "key": "ig_elevated",
    "platform": "Instagram",
    "account": "@elevated209cbd",
-   "posts": 169,
+   "posts": 170,
    "thin": false,
    "topics": [
     {
      "band": "A",
      "label": "Audit and Records",
-     "pct": 46,
+     "pct": 45,
      "posts": 77
     },
     {
@@ -289,8 +289,8 @@
     {
      "band": "untagged",
      "label": "Untagged",
-     "pct": 53,
-     "posts": 91
+     "pct": 54,
+     "posts": 92
     }
    ],
    "top_band": "A",
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 178,
+   "posts": 179,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 87,
-     "posts": 154
+     "posts": 155
     }
    ],
    "top_band": "C",
@@ -423,7 +423,7 @@
    "key": "fb_elevated",
    "platform": "Facebook",
    "account": "Elevated209 CBD (Page)",
-   "posts": 167,
+   "posts": 168,
    "thin": false,
    "topics": [
     {
@@ -454,7 +454,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 84,
-     "posts": 142
+     "posts": 143
     }
    ],
    "top_band": "C",
@@ -464,7 +464,7 @@
    "key": "fb_intentionally",
    "platform": "Facebook",
    "account": "Intentionally Us (Page)",
-   "posts": 177,
+   "posts": 179,
    "thin": false,
    "topics": [
     {
@@ -483,7 +483,7 @@
      "band": "C",
      "label": "Community and Wellness",
      "pct": 7,
-     "posts": 12
+     "posts": 13
     },
     {
      "band": "D",
@@ -495,7 +495,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 88,
-     "posts": 157
+     "posts": 158
     }
    ],
    "top_band": "C",
@@ -505,7 +505,7 @@
    "key": "fb_problemsolved",
    "platform": "Facebook",
    "account": "ProblemSolved Designs (Page)",
-   "posts": 166,
+   "posts": 168,
    "thin": false,
    "topics": [
     {
@@ -536,7 +536,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 94,
-     "posts": 156
+     "posts": 158
     }
    ],
    "top_band": "A",
@@ -546,7 +546,7 @@
    "key": "threads",
    "platform": "Threads",
    "account": "@209media.connect",
-   "posts": 740,
+   "posts": 741,
    "thin": false,
    "topics": [
     {
@@ -577,7 +577,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 92,
-     "posts": 674
+     "posts": 675
     }
    ],
    "top_band": "A",
@@ -587,7 +587,7 @@
    "key": "bluesky",
    "platform": "Bluesky",
    "account": "davidsicairos.bsky.social",
-   "posts": 419,
+   "posts": 421,
    "thin": false,
    "topics": [
     {
@@ -618,7 +618,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 84,
-     "posts": 349
+     "posts": 351
     }
    ],
    "top_band": "A",
@@ -628,7 +628,7 @@
    "key": "linkedin",
    "platform": "LinkedIn",
    "account": "/in/sicairosdavid/ (David Sicairos)",
-   "posts": 490,
+   "posts": 491,
    "thin": false,
    "topics": [
     {
@@ -659,7 +659,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 77,
-     "posts": 372
+     "posts": 373
     }
    ],
    "top_band": "A",
@@ -669,7 +669,7 @@
    "key": "youtube",
    "platform": "YouTube",
    "account": "David Sicairos | Systems' Architect",
-   "posts": 197,
+   "posts": 198,
    "thin": false,
    "topics": [
     {
@@ -700,7 +700,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 83,
-     "posts": 165
+     "posts": 166
     }
    ],
    "top_band": "A",
@@ -750,7 +750,7 @@
  ],
  "balance": {
   "oversaturated_bands": [],
-  "same_band_same_day": 940,
+  "same_band_same_day": 943,
   "weave_gap_median_min": 7,
   "jitter": "tight"
  },
@@ -1000,9 +1000,9 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 679 deduped publishes vs 4173 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 678 deduped publishes vs 4190 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
-  "237 verified receipts carry no parseable timestamp and are excluded from both windows.",
+  "241 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
   "Most receipts carry observation time, not true publish time; window counts are verification-time counts for those rows. Re-verification sweeps can pull older posts into the window.",
   "Weave gap is a same-band/same-day proxy, not same-story \u2014 it does not by itself prove a 90-minute same-story breach."
