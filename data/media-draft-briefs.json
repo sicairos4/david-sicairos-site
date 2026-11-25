@@ -1,7 +1,21 @@
 {
-  "generated_at": "2026-11-25T01:01:37.730755+00:00",
+  "generated_at": "2026-11-25T10:23:40.810736+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:ie2m7yLJ9mI",
+      "source_url": "https://www.youtube.com/watch?v=ie2m7yLJ9mI",
+      "title": "A Sheriff Spent Federal Money on Plate Readers",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:i72y5yVZATI",
+      "source_url": "https://www.youtube.com/watch?v=i72y5yVZATI",
+      "title": "RANKIN IS OUT. WHO IS NEXT?",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:lOtchn8xNXo",
       "source_url": "https://www.youtube.com/watch?v=lOtchn8xNXo",
@@ -265,20 +279,6 @@
       "source_id": "youtube:_ZQLmoUV-Ug",
       "source_url": "https://www.youtube.com/watch?v=_ZQLmoUV-Ug",
       "title": "A Pedestrian Was Killed by a Train in Merced. Two Intersections Blocked.",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:rtc-8nrKHzI",
-      "source_url": "https://www.youtube.com/watch?v=rtc-8nrKHzI",
-      "title": "The Record Is What Matters",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:vXwFVr7T80A",
-      "source_url": "https://www.youtube.com/watch?v=vXwFVr7T80A",
-      "title": "Illegally Fired: Atwater Ifep299",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
