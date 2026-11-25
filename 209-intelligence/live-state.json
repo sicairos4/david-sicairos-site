@@ -1,8 +1,8 @@
 {
   "version": 1,
   "source": "verification-receipts.jsonl (live receipts only)",
-  "generated_at_pt": "2026-11-24 07:47 PM PT",
-  "generated_at_iso": "2026-11-24T19:47:49.039926-08:00",
+  "generated_at_pt": "2026-11-24 07:48 PM PT",
+  "generated_at_iso": "2026-11-24T19:48:31.602250-08:00",
   "receipts_lines_seen": 16955,
   "receipts_bytes_seen": 17789118,
   "receipts_scan": "incremental",
@@ -32,7 +32,7 @@
   "lane_corrected": 43,
   "false_receipts_skipped": 2,
   "link_fallback_rows": 416,
-  "provisional_rows": 19994,
+  "provisional_rows": 20030,
   "void_rows": 8,
   "summary": {
     "total_lanes": 18,
@@ -48,134 +48,134 @@
     "red": 10
   },
   "system_health": {
-    "pct": 57.9,
+    "pct": 57.8,
     "method": "Per lane: cadence / max(cadence, minutes since last SEND \u2014 a fresh SUBMITTED receipt counts, verification is a separate flag and never gates green. System = mean of lane scores x 100. Sources: verification-receipts.jsonl only (VERIFIED_PUBLISH verdicts with a post link, plus SUBMITTED send records). Same method as system_health.py, but receipts only: no newsroom.db supplement for Threads/Bluesky.",
-    "computed_at_pt": "2026-11-24 07:47 PM PT",
+    "computed_at_pt": "2026-11-24 07:48 PM PT",
     "lanes_scored": 18,
     "lanes": {
       "bluesky": {
         "last_verified_pt": "2026-11-24 07:30 PM PT",
         "last_send_pt": null,
-        "gap_min": 17.0,
+        "gap_min": 17.7,
         "cadence_min": 20,
         "score": 1.0
       },
       "fb_california": {
         "last_verified_pt": "2026-11-24 07:27 PM PT",
         "last_send_pt": "2026-11-24 07:28 PM PT",
-        "gap_min": 19.2,
+        "gap_min": 19.9,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_dbeastco": {
         "last_verified_pt": "2026-11-24 07:27 PM PT",
         "last_send_pt": "2026-11-24 07:28 PM PT",
-        "gap_min": 19.5,
+        "gap_min": 20.2,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_elevated": {
         "last_verified_pt": "2026-11-24 06:41 PM PT",
         "last_send_pt": null,
-        "gap_min": 66.0,
+        "gap_min": 66.7,
         "cadence_min": 30,
         "score": 0.45
       },
       "fb_intentionally": {
         "last_verified_pt": "2026-11-24 07:31 PM PT",
         "last_send_pt": "2026-11-24 07:32 PM PT",
-        "gap_min": 15.7,
+        "gap_min": 16.4,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_problemsolved": {
         "last_verified_pt": "2026-11-24 07:19 PM PT",
         "last_send_pt": "2026-11-24 07:20 PM PT",
-        "gap_min": 27.8,
+        "gap_min": 28.5,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_profile": {
         "last_verified_pt": "2026-11-24 03:34 PM PT",
         "last_send_pt": null,
-        "gap_min": 253.6,
+        "gap_min": 254.3,
         "cadence_min": 30,
         "score": 0.12
       },
       "ig_atwater": {
         "last_verified_pt": "2026-11-24 07:35 PM PT",
         "last_send_pt": null,
-        "gap_min": 12.4,
+        "gap_min": 13.1,
         "cadence_min": 30,
         "score": 1.0
       },
       "ig_castle": {
         "last_verified_pt": "2026-11-24 05:59 PM PT",
         "last_send_pt": null,
-        "gap_min": 108.5,
+        "gap_min": 109.2,
         "cadence_min": 30,
-        "score": 0.28
+        "score": 0.27
       },
       "ig_davids": {
         "last_verified_pt": "2026-11-24 05:41 PM PT",
         "last_send_pt": null,
-        "gap_min": 126.6,
+        "gap_min": 127.3,
         "cadence_min": 30,
         "score": 0.24
       },
       "ig_elevated": {
         "last_verified_pt": "2026-11-24 05:17 PM PT",
         "last_send_pt": null,
-        "gap_min": 150.7,
+        "gap_min": 151.4,
         "cadence_min": 30,
         "score": 0.2
       },
       "ig_hub": {
         "last_verified_pt": "2026-11-24 05:52 PM PT",
         "last_send_pt": null,
-        "gap_min": 115.8,
+        "gap_min": 116.5,
         "cadence_min": 30,
         "score": 0.26
       },
       "ig_intentionally": {
         "last_verified_pt": "2026-11-24 06:26 PM PT",
         "last_send_pt": null,
-        "gap_min": 81.5,
+        "gap_min": 82.2,
         "cadence_min": 30,
-        "score": 0.37
+        "score": 0.36
       },
       "ig_personal": {
         "last_verified_pt": "2026-11-24 06:28 PM PT",
         "last_send_pt": null,
-        "gap_min": 79.5,
+        "gap_min": 80.2,
         "cadence_min": 30,
-        "score": 0.38
+        "score": 0.37
       },
       "linkedin": {
         "last_verified_pt": "2026-11-24 07:14 PM PT",
         "last_send_pt": "2026-11-24 07:46 PM PT",
-        "gap_min": 1.6,
+        "gap_min": 2.3,
         "cadence_min": 30,
         "score": 1.0
       },
       "threads": {
         "last_verified_pt": "2026-11-24 04:46 PM PT",
         "last_send_pt": null,
-        "gap_min": 181.6,
+        "gap_min": 182.3,
         "cadence_min": 20,
         "score": 0.11
       },
       "tiktok": {
         "last_verified_pt": "2026-11-23 12:44 PM PT",
         "last_send_pt": null,
-        "gap_min": 1863.8,
+        "gap_min": 1864.5,
         "cadence_min": 30,
         "score": 0.02
       },
       "youtube": {
         "last_verified_pt": "2026-11-24 07:21 PM PT",
         "last_send_pt": null,
-        "gap_min": 26.8,
+        "gap_min": 27.5,
         "cadence_min": 30,
         "score": 1.0
       }
@@ -253,7 +253,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 36,
-      "queue_source": "IG_READY staged"
+      "queue_source": "IG_READY staged",
+      "recent_engagement": [
+        {
+          "label": "DgJZY_FDigl",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/p/DgJZY_FDigl/",
+          "when_pt": "2026-11-24 05:54 PM PT"
+        },
+        {
+          "label": "DgJVWnzoV4f",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/p/DgJVWnzoV4f/",
+          "when_pt": "2026-11-24 05:19 PM PT"
+        },
+        {
+          "label": "DgJRiOcCX-C",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/p/DgJRiOcCX-C/",
+          "when_pt": "2026-11-24 04:45 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "ig_davids",
@@ -308,7 +338,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 37,
-      "queue_source": "IG_READY staged"
+      "queue_source": "IG_READY staged",
+      "recent_engagement": [
+        {
+          "label": "DgJK8VRJQ8H",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJK8VRJQ8H/",
+          "when_pt": "2026-11-24 03:50 PM PT"
+        },
+        {
+          "label": "DgIx82XDSSj",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgIx82XDSSj/",
+          "when_pt": "2026-11-24 12:11 PM PT"
+        },
+        {
+          "label": "DgIs4g3AWSS",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgIs4g3AWSS/",
+          "when_pt": "2026-11-24 11:27 AM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "ig_hub",
@@ -358,12 +418,42 @@
       "next_due_iso": "2026-11-24T18:22:02-08:00",
       "next_action": "RED \u2014 post now, overdue by about 116 min.",
       "followers": "2,189 (live, 2026-11-23 11:56 PM PT)",
-      "blocker": "Browser session logged out (wave lane). Graph publishing still works.",
+      "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
       "queue_depth": 35,
-      "queue_source": "IG_READY staged"
+      "queue_source": "IG_READY staged",
+      "recent_engagement": [
+        {
+          "label": "DgJY6BjNLGQ",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJY6BjNLGQ/",
+          "when_pt": "2026-11-24 05:52 PM PT"
+        },
+        {
+          "label": "DgJSIb0AJEt",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJSIb0AJEt/",
+          "when_pt": "2026-11-24 04:52 PM PT"
+        },
+        {
+          "label": "DgJHNlRExCS",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJHNlRExCS/",
+          "when_pt": "2026-11-24 03:17 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "ig_castle",
@@ -418,7 +508,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 36,
-      "queue_source": "IG_READY staged"
+      "queue_source": "IG_READY staged",
+      "recent_engagement": [
+        {
+          "label": "DgJTDgDAGIA",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJTDgDAGIA/",
+          "when_pt": "2026-11-24 05:00 PM PT"
+        },
+        {
+          "label": "DgJHN1jj41Z",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJHN1jj41Z/",
+          "when_pt": "2026-11-24 03:17 PM PT"
+        },
+        {
+          "label": "DgIyd7lFbL4",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgIyd7lFbL4/",
+          "when_pt": "2026-11-24 12:16 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "ig_atwater",
@@ -430,7 +550,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 12,
+      "gap_minutes": 13,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:35 PM PT",
@@ -452,7 +572,7 @@
       "provisional_verdict": null,
       "provisional_title": null,
       "display_state": "ON CADENCE",
-      "display_gap_minutes": 12,
+      "display_gap_minutes": 13,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 08:05 PM PT",
       "display_next_due_iso": "2026-11-24T20:05:26-08:00",
@@ -473,7 +593,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 36,
-      "queue_source": "IG_READY staged"
+      "queue_source": "IG_READY staged",
+      "recent_engagement": [
+        {
+          "label": "DgJksfszNsX",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJksfszNsX/",
+          "when_pt": "2026-11-24 07:35 PM PT"
+        },
+        {
+          "label": "DgJT58lJVhm",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJT58lJVhm/",
+          "when_pt": "2026-11-24 05:08 PM PT"
+        },
+        {
+          "label": "DgJHTazCfi6",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJHTazCfi6/",
+          "when_pt": "2026-11-24 03:18 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "ig_intentionally",
@@ -527,8 +677,38 @@
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 34,
-      "queue_source": "IG_READY staged"
+      "queue_depth": 35,
+      "queue_source": "IG_READY staged",
+      "recent_engagement": [
+        {
+          "label": "DgJc00DBlSO",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJc00DBlSO/",
+          "when_pt": "2026-11-24 06:26 PM PT"
+        },
+        {
+          "label": "DgJYp7OAxuC",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJYp7OAxuC/",
+          "when_pt": "2026-11-24 05:49 PM PT"
+        },
+        {
+          "label": "DgJUT6azwSe",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJUT6azwSe/",
+          "when_pt": "2026-11-24 05:11 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "ig_elevated",
@@ -583,7 +763,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 22,
-      "queue_source": "IG_READY staged"
+      "queue_source": "IG_READY staged",
+      "recent_engagement": [
+        {
+          "label": "DgJU6WjABvf",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJU6WjABvf/",
+          "when_pt": "2026-11-24 05:17 PM PT"
+        },
+        {
+          "label": "DgJKkhSkWB4",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgJKkhSkWB4/",
+          "when_pt": "2026-11-24 03:46 PM PT"
+        },
+        {
+          "label": "DgIurwFlRlk",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.instagram.com/reel/DgIurwFlRlk/",
+          "when_pt": "2026-11-24 11:43 AM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "fb_profile",
@@ -621,7 +831,7 @@
       "display_rung": "red",
       "display_next_due_pt": "2026-11-24 03:59 PM PT",
       "display_next_due_iso": "2026-11-24T15:59:13-08:00",
-      "display_note": "Submit 2026-11-24 05:54 PM PT is 113 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-24 05:54 PM PT is 114 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -638,7 +848,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 28,
-      "queue_source": "FB_READY staged"
+      "queue_source": "FB_READY staged",
+      "recent_engagement": [
+        {
+          "label": "Post",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://facebook.com/100002421465287/posts/pfbid0iLvs1wnq379cDcevLwbpdThsv8BCmuwREYjx3rJ3xu2TwauEFWvMiZr2FNov7yYpl/",
+          "when_pt": "2026-11-24 03:34 PM PT"
+        },
+        {
+          "label": "q-fbprof-20261124-recall-why-recalls-exist-20261124",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://facebook.com/100002421465287/posts/pfbid02V7qUjBdgjeuVWVHijXpmeePhF2kxUHi1Un7vZSc2JtrcnyiUf3rvbU1Sfweojsthl/",
+          "when_pt": "2026-11-24 10:47 AM PT"
+        },
+        {
+          "label": "Post",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/100002421465287/posts/pfbid028a8p8SKrXhRCBfPuGXV223y9TtKZBh3YQevBbd8WpVa8rkfQokntiFS7KzeXzfKTl",
+          "when_pt": "2026-11-23 04:28 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "fb_california",
@@ -650,7 +890,7 @@
       "miss_minutes": 50,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 19,
+      "gap_minutes": 20,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:27 PM PT",
@@ -693,7 +933,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 49,
-      "queue_source": "FB_READY staged"
+      "queue_source": "FB_READY staged",
+      "recent_engagement": [
+        {
+          "label": "122361406946212870",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122355740132212870/posts/122361406946212870",
+          "when_pt": "2026-11-24 07:27 PM PT"
+        },
+        {
+          "label": "122361392186212870",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122355740132212870/posts/122361392186212870",
+          "when_pt": "2026-11-24 06:40 PM PT"
+        },
+        {
+          "label": "122361388004212870",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122355740132212870/posts/122361388004212870",
+          "when_pt": "2026-11-24 06:09 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "fb_dbeastco",
@@ -705,7 +975,7 @@
       "miss_minutes": 50,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 19,
+      "gap_minutes": 20,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:27 PM PT",
@@ -727,7 +997,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "POSTED \u2014 VERIFYING",
-      "display_gap_minutes": 19,
+      "display_gap_minutes": 20,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 07:53 PM PT",
       "display_next_due_iso": "2026-11-24T19:53:21-08:00",
@@ -748,7 +1018,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 40,
-      "queue_source": "FB_READY staged"
+      "queue_source": "FB_READY staged",
+      "recent_engagement": [
+        {
+          "label": "1661398522679092",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/1638669581618653/posts/1661398522679092",
+          "when_pt": "2026-11-24 07:27 PM PT"
+        },
+        {
+          "label": "1661352799350331",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/1638669581618653/posts/1661352799350331",
+          "when_pt": "2026-11-24 06:40 PM PT"
+        },
+        {
+          "label": "1661320789353532",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/1638669581618653/posts/1661320789353532",
+          "when_pt": "2026-11-24 06:09 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "fb_elevated",
@@ -760,7 +1060,7 @@
       "miss_minutes": 50,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 66,
+      "gap_minutes": 67,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-24 06:41 PM PT",
@@ -782,7 +1082,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "RED",
-      "display_gap_minutes": 66,
+      "display_gap_minutes": 67,
       "display_rung": "red",
       "display_next_due_pt": "2026-11-24 07:06 PM PT",
       "display_next_due_iso": "2026-11-24T19:06:50-08:00",
@@ -796,14 +1096,44 @@
       "voided": {},
       "next_due_pt": "2026-11-24 07:06 PM PT",
       "next_due_iso": "2026-11-24T19:06:50-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 66 min.",
+      "next_action": "RED \u2014 post now, overdue by about 67 min.",
       "followers": "114 (+1)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 40,
-      "queue_source": "FB_READY staged"
+      "queue_depth": 39,
+      "queue_source": "FB_READY staged",
+      "recent_engagement": [
+        {
+          "label": "122276937218173549",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122274134930173549/posts/122276937218173549",
+          "when_pt": "2026-11-24 06:41 PM PT"
+        },
+        {
+          "label": "122276934194173549",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122274134930173549/posts/122276934194173549",
+          "when_pt": "2026-11-24 06:10 PM PT"
+        },
+        {
+          "label": "122276928596173549",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122274134930173549/posts/122276928596173549",
+          "when_pt": "2026-11-24 05:40 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "fb_intentionally",
@@ -837,7 +1167,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "POSTED \u2014 VERIFYING",
-      "display_gap_minutes": 15,
+      "display_gap_minutes": 16,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 07:57 PM PT",
       "display_next_due_iso": "2026-11-24T19:57:06-08:00",
@@ -858,7 +1188,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": 40,
-      "queue_source": "FB_READY staged"
+      "queue_source": "FB_READY staged",
+      "recent_engagement": [
+        {
+          "label": "1110452648637806",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/1087967954219609/posts/1110452648637806",
+          "when_pt": "2026-11-24 07:31 PM PT"
+        },
+        {
+          "label": "1110430515306686",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/1087967954219609/posts/1110430515306686",
+          "when_pt": "2026-11-24 06:58 PM PT"
+        },
+        {
+          "label": "1110408771975527",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/1087967954219609/posts/1110408771975527",
+          "when_pt": "2026-11-24 06:27 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "fb_problemsolved",
@@ -870,7 +1230,7 @@
       "miss_minutes": 50,
       "scored": true,
       "state": "YELLOW",
-      "gap_minutes": 28,
+      "gap_minutes": 29,
       "rung": "yellow",
       "yellow": true,
       "last_verified_pt": "2026-11-24 07:19 PM PT",
@@ -892,7 +1252,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "POSTED \u2014 VERIFYING",
-      "display_gap_minutes": 27,
+      "display_gap_minutes": 28,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 07:45 PM PT",
       "display_next_due_iso": "2026-11-24T19:45:00-08:00",
@@ -906,14 +1266,44 @@
       "voided": {},
       "next_due_pt": "2026-11-24 07:45 PM PT",
       "next_due_iso": "2026-11-24T19:45:00-08:00",
-      "next_action": "Post now, overdue by about 28 min (rung yellow).",
+      "next_action": "Post now, overdue by about 29 min (rung yellow).",
       "followers": "187 (+11)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
       "queue_depth": 40,
-      "queue_source": "FB_READY staged"
+      "queue_source": "FB_READY staged",
+      "recent_engagement": [
+        {
+          "label": "122327989688193779",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122324146208193779/posts/122327989688193779",
+          "when_pt": "2026-11-24 07:19 PM PT"
+        },
+        {
+          "label": "122327984390193779",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122324146208193779/posts/122327984390193779",
+          "when_pt": "2026-11-24 06:34 PM PT"
+        },
+        {
+          "label": "122327980622193779",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.facebook.com/122324146208193779/posts/122327980622193779",
+          "when_pt": "2026-11-24 06:02 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "threads",
@@ -951,7 +1341,7 @@
       "display_rung": "red",
       "display_next_due_pt": "2026-11-24 05:11 PM PT",
       "display_next_due_iso": "2026-11-24T17:11:14-08:00",
-      "display_note": "Submit 2026-11-24 04:47 PM PT is 180 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-24 04:47 PM PT is 181 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -968,7 +1358,65 @@
       "approx": false,
       "source_note": null,
       "queue_depth": null,
-      "queue_source": null
+      "queue_source": null,
+      "recent_engagement": [
+        {
+          "label": "DgJRleACRGw",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.threads.com/@209media.connect/post/DgJRleACRGw",
+          "when_pt": "2026-11-24 04:46 PM PT"
+        },
+        {
+          "label": "DgJIgtcj1mb",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.threads.com/@209media.connect/post/DgJIgtcj1mb",
+          "when_pt": "2026-11-24 03:26 PM PT"
+        },
+        {
+          "label": "DgJIfIOGRxx",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.threads.com/@209media.connect/post/DgJIfIOGRxx",
+          "when_pt": "2026-11-24 03:26 PM PT"
+        }
+      ],
+      "top_posts": [
+        {
+          "label": "ICE broke a car window in the middle of the road, arrested a",
+          "views": 100679,
+          "likes": 16925,
+          "comments": 266,
+          "shares": 1532,
+          "url": "https://www.threads.com/@209media.connect/post/DgBeZeSAIMR",
+          "when_pt": "2026-11-21 04:04 PM PT"
+        },
+        {
+          "label": "MAGA called my school district because I didn't like Charlie",
+          "views": 97926,
+          "likes": 3039,
+          "comments": 58,
+          "shares": 74,
+          "url": "https://www.threads.com/@209media.connect/post/DgHzOeilRsW",
+          "when_pt": "2026-11-24 03:01 AM PT"
+        },
+        {
+          "label": "A judge ordered them freed. ICE re-arrested them anyway. The",
+          "views": 88924,
+          "likes": 2673,
+          "comments": 113,
+          "shares": 169,
+          "url": "https://www.threads.com/@209media.connect/post/DgHqAGgkbjX",
+          "when_pt": "2026-11-24 01:41 AM PT"
+        }
+      ]
     },
     {
       "key": "bluesky",
@@ -980,7 +1428,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 17,
+      "gap_minutes": 18,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:30 PM PT",
@@ -1002,7 +1450,7 @@
       "provisional_verdict": null,
       "provisional_title": null,
       "display_state": "ON CADENCE",
-      "display_gap_minutes": 17,
+      "display_gap_minutes": 18,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 08:00 PM PT",
       "display_next_due_iso": "2026-11-24T20:00:49-08:00",
@@ -1023,7 +1471,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": null,
-      "queue_source": null
+      "queue_source": null,
+      "recent_engagement": [
+        {
+          "label": "3n347tykahw2f",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n347tykahw2f",
+          "when_pt": "2026-11-24 07:30 PM PT"
+        },
+        {
+          "label": "3n3455dx6rg2d",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3455dx6rg2d",
+          "when_pt": "2026-11-24 06:42 PM PT"
+        },
+        {
+          "label": "3n343zugmb62m",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n343zugmb62m",
+          "when_pt": "2026-11-24 06:22 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "linkedin",
@@ -1057,7 +1535,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "POSTED \u2014 VERIFYING",
-      "display_gap_minutes": 1,
+      "display_gap_minutes": 2,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 08:16 PM PT",
       "display_next_due_iso": "2026-11-24T20:16:15-08:00",
@@ -1078,7 +1556,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": null,
-      "queue_source": null
+      "queue_source": null,
+      "recent_engagement": [
+        {
+          "label": "7531193523229073408",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.linkedin.com/feed/update/urn:li:share:7531193523229073408/",
+          "when_pt": "2026-11-24 07:14 PM PT"
+        },
+        {
+          "label": "7531179918412402689",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.linkedin.com/feed/update/urn:li:share:7531179918412402689/",
+          "when_pt": "2026-11-24 06:20 PM PT"
+        },
+        {
+          "label": "7531173686423339008",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.linkedin.com/feed/update/urn:li:share:7531173686423339008/",
+          "when_pt": "2026-11-24 05:55 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "youtube",
@@ -1090,7 +1598,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 27,
+      "gap_minutes": 28,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:21 PM PT",
@@ -1112,7 +1620,7 @@
       "provisional_verdict": "VERIFIED",
       "provisional_title": null,
       "display_state": "ON CADENCE",
-      "display_gap_minutes": 27,
+      "display_gap_minutes": 28,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 07:51 PM PT",
       "display_next_due_iso": "2026-11-24T19:51:00-08:00",
@@ -1141,7 +1649,37 @@
       "approx": false,
       "source_note": null,
       "queue_depth": null,
-      "queue_source": null
+      "queue_source": null,
+      "recent_engagement": [
+        {
+          "label": "v88RJr0O-GE",
+          "views": 0,
+          "likes": 1,
+          "comments": 0,
+          "shares": 0,
+          "url": "https://www.youtube.com/shorts/v88RJr0O-GE",
+          "when_pt": "2026-11-13 06:17 PM PT"
+        },
+        {
+          "label": "ie2m7yLJ9mI",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.youtube.com/shorts/ie2m7yLJ9mI",
+          "when_pt": "2026-11-24 07:21 PM PT"
+        },
+        {
+          "label": "lOtchn8xNXo",
+          "views": null,
+          "likes": null,
+          "comments": null,
+          "shares": null,
+          "url": "https://www.youtube.com/shorts/lOtchn8xNXo",
+          "when_pt": "2026-11-24 03:14 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "tiktok",
@@ -1153,7 +1691,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 1864,
+      "gap_minutes": 1865,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-23 12:44 PM PT",
@@ -1175,7 +1713,7 @@
       "provisional_verdict": null,
       "provisional_title": null,
       "display_state": "RED",
-      "display_gap_minutes": 1864,
+      "display_gap_minutes": 1865,
       "display_rung": "red",
       "display_next_due_pt": "2026-11-23 01:14 PM PT",
       "display_next_due_iso": "2026-11-23T13:14:00-08:00",
@@ -1204,14 +1742,44 @@
       },
       "next_due_pt": "2026-11-23 01:14 PM PT",
       "next_due_iso": "2026-11-23T13:14:00-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 1864 min.",
+      "next_action": "RED \u2014 post now, overdue by about 1865 min.",
       "followers": "~1.9K (Nov 17)",
       "blocker": "",
       "source": "receipt",
       "approx": false,
       "source_note": null,
       "queue_depth": null,
-      "queue_source": null
+      "queue_source": null,
+      "recent_engagement": [
+        {
+          "label": "7708296360583367950",
+          "views": 106,
+          "likes": 12,
+          "comments": 6,
+          "shares": 0,
+          "url": "https://www.tiktok.com/@sicairosdavid/video/7708296360583367950",
+          "when_pt": "2026-11-15 09:45 PM PT"
+        },
+        {
+          "label": "7707691487630347533",
+          "views": 109,
+          "likes": 2,
+          "comments": 2,
+          "shares": 0,
+          "url": "https://www.tiktok.com/@sicairosdavid/video/7707691487630347533",
+          "when_pt": "2026-11-13 06:17 PM PT"
+        },
+        {
+          "label": "7707748368210070798",
+          "views": 293,
+          "likes": 0,
+          "comments": 0,
+          "shares": 0,
+          "url": "https://www.tiktok.com/@sicairosdavid/video/7707748368210070798",
+          "when_pt": "2026-11-13 06:17 PM PT"
+        }
+      ],
+      "top_posts": null
     },
     {
       "key": "fb_wellness",
@@ -1270,7 +1838,7 @@
       "method": "browser",
       "miss_minutes": null,
       "state": "RED",
-      "gap_minutes": 1982,
+      "gap_minutes": 1983,
       "scored": false,
       "rung": null,
       "yellow": false,
@@ -1318,7 +1886,7 @@
       "method": "browser draft, David sends",
       "miss_minutes": null,
       "state": "GREEN",
-      "gap_minutes": 1876,
+      "gap_minutes": 1877,
       "scored": false,
       "rung": null,
       "yellow": false,
