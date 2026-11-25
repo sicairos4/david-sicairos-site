@@ -1,8 +1,8 @@
 {
   "version": 1,
   "source": "verification-receipts.jsonl (live receipts only)",
-  "generated_at_pt": "2026-11-24 08:58 PM PT",
-  "generated_at_iso": "2026-11-24T20:58:55.315778-08:00",
+  "generated_at_pt": "2026-11-24 08:59 PM PT",
+  "generated_at_iso": "2026-11-24T20:59:18.233937-08:00",
   "receipts_lines_seen": 17156,
   "receipts_bytes_seen": 18050243,
   "receipts_scan": "incremental",
@@ -27,7 +27,7 @@
   "lane_corrected": 0,
   "false_receipts_skipped": 0,
   "link_fallback_rows": 5,
-  "provisional_rows": 468,
+  "provisional_rows": 470,
   "void_rows": 0,
   "summary": {
     "total_lanes": 18,
@@ -43,50 +43,50 @@
     "red": 3
   },
   "system_health": {
-    "pct": 33.3,
+    "pct": 33.1,
     "method": "Per lane: cadence / max(cadence, minutes since last SEND \u2014 a fresh SUBMITTED receipt counts, verification is a separate flag and never gates green. System = mean of lane scores x 100. Sources: verification-receipts.jsonl only (VERIFIED_PUBLISH verdicts with a post link, plus SUBMITTED send records). Same method as system_health.py, but receipts only: no newsroom.db supplement for Threads/Bluesky.",
-    "computed_at_pt": "2026-11-24 08:58 PM PT",
+    "computed_at_pt": "2026-11-24 08:59 PM PT",
     "lanes_scored": 18,
     "lanes": {
       "bluesky": {
         "last_verified_pt": "2026-11-24 08:46 PM PT",
         "last_send_pt": null,
-        "gap_min": 12.6,
+        "gap_min": 13.0,
         "cadence_min": 20,
         "score": 1.0
       },
       "fb_california": {
         "last_verified_pt": "2026-11-24 07:27 PM PT",
         "last_send_pt": null,
-        "gap_min": 91.2,
+        "gap_min": 91.6,
         "cadence_min": 30,
         "score": 0.33
       },
       "fb_dbeastco": {
         "last_verified_pt": "2026-11-24 08:54 PM PT",
         "last_send_pt": null,
-        "gap_min": 4.9,
+        "gap_min": 5.3,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_elevated": {
         "last_verified_pt": "2026-11-24 08:37 PM PT",
         "last_send_pt": null,
-        "gap_min": 21.0,
+        "gap_min": 21.4,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_intentionally": {
         "last_verified_pt": "2026-11-24 08:25 PM PT",
         "last_send_pt": null,
-        "gap_min": 33.8,
+        "gap_min": 34.2,
         "cadence_min": 30,
-        "score": 0.89
+        "score": 0.88
       },
       "fb_problemsolved": {
         "last_verified_pt": "2026-11-24 07:19 PM PT",
         "last_send_pt": null,
-        "gap_min": 99.8,
+        "gap_min": 100.1,
         "cadence_min": 30,
         "score": 0.3
       },
@@ -100,7 +100,7 @@
       "ig_atwater": {
         "last_verified_pt": "2026-11-24 08:08 PM PT",
         "last_send_pt": null,
-        "gap_min": 50.5,
+        "gap_min": 50.9,
         "cadence_min": 30,
         "score": 0.59
       },
@@ -149,14 +149,14 @@
       "linkedin": {
         "last_verified_pt": "2026-11-24 07:46 PM PT",
         "last_send_pt": "2026-11-24 08:22 PM PT",
-        "gap_min": 36.6,
+        "gap_min": 36.9,
         "cadence_min": 30,
-        "score": 0.82
+        "score": 0.81
       },
       "threads": {
         "last_verified_pt": "2026-11-24 03:27 PM PT",
         "last_send_pt": null,
-        "gap_min": 331.9,
+        "gap_min": 332.3,
         "cadence_min": 20,
         "score": 0.06
       },
@@ -231,7 +231,7 @@
       "display_rung": null,
       "display_next_due_pt": null,
       "display_next_due_iso": null,
-      "display_note": "Submit 2026-11-24 11:09 AM PT is 589 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-24 11:09 AM PT is 590 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -316,7 +316,7 @@
       "display_rung": null,
       "display_next_due_pt": null,
       "display_next_due_iso": null,
-      "display_note": "Submit 2026-11-24 06:11 AM PT is 887 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-24 06:11 AM PT is 888 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -401,7 +401,7 @@
       "display_rung": null,
       "display_next_due_pt": null,
       "display_next_due_iso": null,
-      "display_note": "Submit 2026-11-24 11:15 AM PT is 583 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-24 11:15 AM PT is 584 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -656,7 +656,7 @@
       "display_rung": null,
       "display_next_due_pt": null,
       "display_next_due_iso": null,
-      "display_note": "Submit 2026-11-23 09:40 PM PT is 1398 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-23 09:40 PM PT is 1399 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -885,7 +885,7 @@
       "miss_minutes": 50,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 91,
+      "gap_minutes": 92,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-24 07:27 PM PT",
@@ -907,7 +907,7 @@
       "provisional_verdict": null,
       "provisional_title": null,
       "display_state": "RED",
-      "display_gap_minutes": 91,
+      "display_gap_minutes": 92,
       "display_rung": "red",
       "display_next_due_pt": "2026-11-24 07:52 PM PT",
       "display_next_due_iso": "2026-11-24T19:52:45-08:00",
@@ -921,7 +921,7 @@
       "voided": {},
       "next_due_pt": "2026-11-24 07:52 PM PT",
       "next_due_iso": "2026-11-24T19:52:45-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 91 min.",
+      "next_action": "RED \u2014 post now, overdue by about 92 min.",
       "followers": "566 (+115)",
       "blocker": "",
       "source": "receipt",
@@ -1182,7 +1182,7 @@
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 39,
+      "queue_depth": 38,
       "queue_source": "FB_READY staged",
       "recent_engagement": [
         {
@@ -1810,7 +1810,7 @@
       "method": "browser",
       "miss_minutes": null,
       "state": "RED",
-      "gap_minutes": 2053,
+      "gap_minutes": 2054,
       "scored": false,
       "rung": null,
       "yellow": false,
@@ -1858,7 +1858,7 @@
       "method": "browser draft, David sends",
       "miss_minutes": null,
       "state": "GREEN",
-      "gap_minutes": 1947,
+      "gap_minutes": 1948,
       "scored": false,
       "rung": null,
       "yellow": false,
