@@ -942,7 +942,9 @@ function render(){
     +'<div class="line77"><span>77% floor</span></div><div class="line88"><span>88% target</span></div></div>'
     +'<div class="barlabels"><span>0%</span><span>77% — forced-reset line (rung 8, only after the ladder is tried)</span><span>100%</span></div>'
     +(frozen && !healStale?'<div class="frozen"><b>Budget overdrawn — changes frozen.</b> No canary rollouts, no new behaviour; reliability work only, until health is back above 77%.</div>':(healStale?'<div class="frozen" style="color:var(--red)">Self-healing cycle stale ('+esc(healCycle)+') — budget/freeze state unknown.</div>':''))
-    +((live.system_health||{}).top_drags||[]).length?'<div class="budget" style="margin-top:8px">Biggest drags: <b>'+(live.system_health.top_drags||[]).map(x=>esc(x.lane)+' '+x.score).join(' · ')+'</b></div>':'';
+    +((live.system_health||{}).top_drags||[]).length?'<div class="budget" style="margin-top:8px">Biggest drags: <b>'+(live.system_health.top_drags||[]).map(x=>esc(x.lane)+' '+x.score).join(' · ')+'</b></div>':''
+    +(live.green_streak?'<div class="budget" style="margin-top:8px">Straight-green clock: <b>'+(live.green_streak.all_green?(Math.floor(live.green_streak.minutes/60)+'h '+(live.green_streak.minutes%60)+'m'):'0m — not all green')+'</b> of 24h target'+(live.green_streak.all_green?(' · since '+esc(live.green_streak.since_pt||'')):' · resets when any scored lane leaves green')+'</div>':'')
+    +(live.war_chest&&live.war_chest.fund1?'<div class="budget" style="margin-top:8px">War chest — Fund 1: <b>'+esc(live.war_chest.fund1.status||'')+'</b> · launch '+esc(live.war_chest.fund1.launch_pt||'')+' · target $'+(live.war_chest.fund1.target_usd==null?'-':live.war_chest.fund1.target_usd)+' / stretch $'+(live.war_chest.fund1.stretch_usd==null?'-':live.war_chest.fund1.stretch_usd)+(live.war_chest.fund1.gofundme_url?' · <a href="'+esc(live.war_chest.fund1.gofundme_url)+'">GoFundMe</a>':' · GoFundMe not created yet')+'</div>':'');
 
   const s=live.summary||{};
   const on = s.on_cadence||0, yel = s.yellow ?? s.due ?? 0, red = s.red ?? s.missing ?? 0;
