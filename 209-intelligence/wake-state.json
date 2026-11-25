@@ -1,0 +1,99 @@
+{
+ "generated_pt": "2026-11-25 10:28 AM PT",
+ "generated_by": "dashboard v6 build (Nov 25, 2026) \u2014 first writer since Nov 7; replaces the dead wake files, does not delete them",
+ "color_key": {
+  "green": "fresh (<10 min)",
+  "amber": "stale (10 min\u201324 h)",
+  "red": "no record / stale >24 h / freeze unrecorded"
+ },
+ "external_checks": [
+  {
+   "check": "live-state updater (live-state.json writes)",
+   "status": "green",
+   "detail": "live-state.json generated 2026-11-25 10:28 AM PT (0m ago); updater PID 158232, --watch --interval 2",
+   "last_pt": "2026-11-25 10:28 AM PT",
+   "age_min": 0
+  },
+  {
+   "check": "local live server (/health)",
+   "status": "green",
+   "detail": "/health returned 200 at build time",
+   "last_pt": "2026-11-25 10:28 AM PT",
+   "age_min": 0
+  },
+  {
+   "check": "public push watcher (realtime_panel_push.py --watch)",
+   "status": "amber",
+   "detail": "last public push 2026-11-25T10:27:22.635462-08:00 (commit 4a898cbe); pushes_total 1411, pushes_failed 325; 300s coalesce window",
+   "last_pt": "2026-11-25T10:27:22.635462-08:00",
+   "age_min": null
+  },
+  {
+   "check": "executor heartbeat (self-healing-state.json)",
+   "status": "red",
+   "detail": "executor DEGRADED at last check 2026-11-24 03:21 PM PT; heartbeat 143s old at 2026-11-24 15:18:52 PT; NO record since 2026-11-24 03:21 PM PT \u2014 heartbeat age now unmeasured, shown red, never faked green",
+   "last_pt": "2026-11-24 03:21 PM PT",
+   "age_min": null
+  },
+  {
+   "check": "health-20m self-check",
+   "status": "red",
+   "detail": "NO log file exists (health-20m-check-log.jsonl not on disk). Last real check Nov 24 8:30 PM PT; every run since skipped on token exhaustion (weekly limit resets Thu Nov 26 8:44 AM PT). The token-free health_check_20m.py exists but has no verified run record.",
+   "last_pt": "2026-11-24 08:30 PM PT",
+   "age_min": null
+  }
+ ],
+ "internal_checks": [
+  {
+   "check": "self-healing cycle writer",
+   "status": "red",
+   "detail": "self-healing-state.json generated 2026-11-24 03:21 PM PT \u2014 ~19h stale at build; budget/freeze unknown until the writer runs again",
+   "last_pt": "2026-11-24 03:21 PM PT",
+   "age_min": null
+  },
+  {
+   "check": "wake event log (wake-events.jsonl)",
+   "status": "red",
+   "detail": "Last entry Nov 7, 2026 \u2014 18 days ago. The Nov 24\u201325 freeze was never recorded by the wake system; this build records it late (see freeze_events).",
+   "last_pt": "2026-11-07 04:58 PT",
+   "age_min": null
+  },
+  {
+   "check": "wake watchdog checks (watchdog-checks.jsonl)",
+   "status": "red",
+   "detail": "Last watchdog check Oct 20, 2026 \u2014 no record since.",
+   "last_pt": "2026-10-20 05:50 PM PT",
+   "age_min": null
+  },
+  {
+   "check": "wake checks (wake-checks.jsonl)",
+   "status": "red",
+   "detail": "One line only: Oct 17, 2026 \u2014 muse-wake-watchdog, outcome alive, pulse_age 85s. No record since.",
+   "last_pt": "2026-10-17 06:03 PM PT",
+   "age_min": null
+  }
+ ],
+ "freeze_events": [
+  {
+   "freeze_event_id": "freeze-1794056320",
+   "detected_at_pt": "2026-11-07 04:58 PT",
+   "detection_signal": "muse-heartbeat pulse older than 10 minutes",
+   "attempts": 1,
+   "wake_result": "recovered",
+   "source": "resilience/wake/wake-events.jsonl (last recorded event)"
+  },
+  {
+   "freeze_event_id": "freeze-20261124-2102",
+   "detected_at_pt": "2026-11-24 09:02 PM PT",
+   "detection_signal": "VM reboot froze all 3 executor shards (heartbeats 21:02:59-21:03:00 PT); health fell 50.8% -> 43.1% -> ~27%; Threads gap 298+ min; health-20m cron itself failing on token exhaustion",
+   "attempts": 0,
+   "wake_result": "NOT actioned \u2014 recorded LATE by dashboard v6 build Nov 25, 2026; the wake system wrote nothing during the freeze",
+   "source": "recorded-late by dashboard v6 build from live-state.json history + Nov 25 03:37 AM root-cause record; NOT a contemporaneous wake-system entry",
+   "recorded_late": true
+  }
+ ],
+ "last_freeze_pt": "2026-11-24 09:02 PM PT (recorded late \u2014 wake system silent)",
+ "last_wake_attempt_pt": "2026-11-07 04:58 PT (attempt 1, wake command sent)",
+ "last_recovery_pt": "2026-11-07 04:58 PT (recovered, per wake-events.jsonl)",
+ "watchdog_status": "control-center-watchdog every 2m + all-28-watchdog timer per keeper \u2014 NO live status record on disk; not verified, shown as unknown, never green by default"
+}
