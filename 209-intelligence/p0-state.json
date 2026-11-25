@@ -1,0 +1,73 @@
+{
+  "generated_pt": "2026-11-25 09:27 AM PT",
+  "generated_iso": "2026-11-25T09:27:00.212105-08:00",
+  "brands": [
+    {
+      "key": "p0_overdue_desk",
+      "brand": "Overdue Desk",
+      "dir": "overdue-desk",
+      "posts_staged": 3,
+      "fireable": 3,
+      "held": 0,
+      "platforms": "Bluesky, Threads",
+      "cadence": "2x/week (Mon, Thu)",
+      "account": "idea only \u2014 no account exists",
+      "status": "NOT LIVE YET"
+    },
+    {
+      "key": "p0_160_day_log",
+      "brand": "The 160 Day Log",
+      "dir": "160-day-log",
+      "posts_staged": 3,
+      "fireable": 3,
+      "held": 0,
+      "platforms": "Instagram, YouTube Shorts",
+      "cadence": "2x/week (Thu, Sun)",
+      "account": "idea only \u2014 no account exists",
+      "status": "NOT LIVE YET"
+    },
+    {
+      "key": "p0_missing_majority",
+      "brand": "The Missing Majority",
+      "dir": "missing-majority",
+      "posts_staged": 3,
+      "fireable": 3,
+      "held": 0,
+      "platforms": "Instagram, Facebook",
+      "cadence": "2x/week (Tue, Fri)",
+      "account": "idea only \u2014 no account exists",
+      "status": "NOT LIVE YET"
+    },
+    {
+      "key": "p0_mcoe_ledger",
+      "brand": "MCOE Ledger",
+      "dir": "mcoe-ledger",
+      "posts_staged": 3,
+      "fireable": 3,
+      "held": 0,
+      "platforms": "Instagram, Substack",
+      "cadence": "2x/week (Wed, Sun)",
+      "account": "idea only \u2014 no account exists",
+      "status": "NOT LIVE YET"
+    },
+    {
+      "key": "p0_ledger_audit",
+      "brand": "Ledger Audit",
+      "dir": "ledger-audit",
+      "posts_staged": 3,
+      "fireable": 3,
+      "held": 0,
+      "platforms": "Substack, LinkedIn",
+      "cadence": "3x/week (Mon, Wed, Sat)",
+      "account": "idea only \u2014 no account exists",
+      "status": "NOT LIVE YET"
+    }
+  ],
+  "totals": {
+    "posts_staged": 15,
+    "fireable": 15,
+    "held": 0
+  },
+  "source": "doctorate/p0/staged (post-*.md, Status lines)",
+  "note": "P0 micro-brands. No accounts exist yet \u2014 10 David taps owed before any P0 post can fire."
+}
