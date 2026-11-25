@@ -1,8 +1,8 @@
 {
   "version": 1,
   "source": "verification-receipts.jsonl (live receipts only)",
-  "generated_at_pt": "2026-11-24 07:40 PM PT",
-  "generated_at_iso": "2026-11-24T19:40:53.691059-08:00",
+  "generated_at_pt": "2026-11-24 07:41 PM PT",
+  "generated_at_iso": "2026-11-24T19:41:26.067465-08:00",
   "receipts_lines_seen": 16944,
   "receipts_bytes_seen": 17775479,
   "receipts_scan": "incremental",
@@ -32,7 +32,7 @@
   "lane_corrected": 43,
   "false_receipts_skipped": 2,
   "link_fallback_rows": 416,
-  "provisional_rows": 19699,
+  "provisional_rows": 19723,
   "void_rows": 8,
   "summary": {
     "total_lanes": 18,
@@ -48,134 +48,134 @@
     "red": 10
   },
   "system_health": {
-    "pct": 59.0,
+    "pct": 58.9,
     "method": "Per lane: cadence / max(cadence, minutes since last SEND \u2014 a fresh SUBMITTED receipt counts, verification is a separate flag and never gates green. System = mean of lane scores x 100. Sources: verification-receipts.jsonl only (VERIFIED_PUBLISH verdicts with a post link, plus SUBMITTED send records). Same method as system_health.py, but receipts only: no newsroom.db supplement for Threads/Bluesky.",
-    "computed_at_pt": "2026-11-24 07:40 PM PT",
+    "computed_at_pt": "2026-11-24 07:41 PM PT",
     "lanes_scored": 18,
     "lanes": {
       "bluesky": {
         "last_verified_pt": "2026-11-24 07:30 PM PT",
         "last_send_pt": null,
-        "gap_min": 10.1,
+        "gap_min": 10.6,
         "cadence_min": 20,
         "score": 1.0
       },
       "fb_california": {
         "last_verified_pt": "2026-11-24 07:27 PM PT",
         "last_send_pt": "2026-11-24 07:28 PM PT",
-        "gap_min": 12.3,
+        "gap_min": 12.9,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_dbeastco": {
         "last_verified_pt": "2026-11-24 07:27 PM PT",
         "last_send_pt": "2026-11-24 07:28 PM PT",
-        "gap_min": 12.5,
+        "gap_min": 13.1,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_elevated": {
         "last_verified_pt": "2026-11-24 06:41 PM PT",
         "last_send_pt": "2026-11-24 06:42 PM PT",
-        "gap_min": 58.2,
+        "gap_min": 58.7,
         "cadence_min": 30,
-        "score": 0.52
+        "score": 0.51
       },
       "fb_intentionally": {
         "last_verified_pt": "2026-11-24 07:31 PM PT",
         "last_send_pt": "2026-11-24 07:32 PM PT",
-        "gap_min": 8.8,
+        "gap_min": 9.3,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_problemsolved": {
         "last_verified_pt": "2026-11-24 07:19 PM PT",
         "last_send_pt": "2026-11-24 07:20 PM PT",
-        "gap_min": 20.9,
+        "gap_min": 21.4,
         "cadence_min": 30,
         "score": 1.0
       },
       "fb_profile": {
         "last_verified_pt": "2026-11-24 03:34 PM PT",
         "last_send_pt": null,
-        "gap_min": 246.7,
+        "gap_min": 247.2,
         "cadence_min": 30,
         "score": 0.12
       },
       "ig_atwater": {
         "last_verified_pt": "2026-11-24 07:35 PM PT",
         "last_send_pt": null,
-        "gap_min": 5.5,
+        "gap_min": 6.0,
         "cadence_min": 30,
         "score": 1.0
       },
       "ig_castle": {
         "last_verified_pt": "2026-11-24 05:59 PM PT",
         "last_send_pt": null,
-        "gap_min": 101.6,
+        "gap_min": 102.1,
         "cadence_min": 30,
-        "score": 0.3
+        "score": 0.29
       },
       "ig_davids": {
         "last_verified_pt": "2026-11-24 05:41 PM PT",
         "last_send_pt": null,
-        "gap_min": 119.7,
+        "gap_min": 120.2,
         "cadence_min": 30,
         "score": 0.25
       },
       "ig_elevated": {
         "last_verified_pt": "2026-11-24 05:17 PM PT",
         "last_send_pt": null,
-        "gap_min": 143.8,
+        "gap_min": 144.3,
         "cadence_min": 30,
         "score": 0.21
       },
       "ig_hub": {
         "last_verified_pt": "2026-11-24 05:52 PM PT",
         "last_send_pt": null,
-        "gap_min": 108.9,
+        "gap_min": 109.4,
         "cadence_min": 30,
-        "score": 0.28
+        "score": 0.27
       },
       "ig_intentionally": {
         "last_verified_pt": "2026-11-24 06:26 PM PT",
         "last_send_pt": null,
-        "gap_min": 74.6,
+        "gap_min": 75.1,
         "cadence_min": 30,
         "score": 0.4
       },
       "ig_personal": {
         "last_verified_pt": "2026-11-24 06:28 PM PT",
         "last_send_pt": null,
-        "gap_min": 72.6,
+        "gap_min": 73.1,
         "cadence_min": 30,
         "score": 0.41
       },
       "linkedin": {
         "last_verified_pt": "2026-11-24 07:14 PM PT",
         "last_send_pt": null,
-        "gap_min": 26.6,
+        "gap_min": 27.1,
         "cadence_min": 30,
         "score": 1.0
       },
       "threads": {
         "last_verified_pt": "2026-11-24 04:46 PM PT",
         "last_send_pt": null,
-        "gap_min": 174.7,
+        "gap_min": 175.2,
         "cadence_min": 20,
         "score": 0.11
       },
       "tiktok": {
         "last_verified_pt": "2026-11-23 12:44 PM PT",
         "last_send_pt": null,
-        "gap_min": 1856.9,
+        "gap_min": 1857.4,
         "cadence_min": 30,
         "score": 0.02
       },
       "youtube": {
         "last_verified_pt": "2026-11-24 07:21 PM PT",
         "last_send_pt": null,
-        "gap_min": 19.9,
+        "gap_min": 20.4,
         "cadence_min": 30,
         "score": 1.0
       }
@@ -430,7 +430,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 5,
+      "gap_minutes": 6,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:35 PM PT",
@@ -452,7 +452,7 @@
       "provisional_verdict": null,
       "provisional_title": null,
       "display_state": "ON CADENCE",
-      "display_gap_minutes": 5,
+      "display_gap_minutes": 6,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 08:05 PM PT",
       "display_next_due_iso": "2026-11-24T20:05:26-08:00",
@@ -582,7 +582,7 @@
       "source": "receipt",
       "approx": false,
       "source_note": null,
-      "queue_depth": 21,
+      "queue_depth": 22,
       "queue_source": "IG_READY staged"
     },
     {
@@ -621,7 +621,7 @@
       "display_rung": "red",
       "display_next_due_pt": "2026-11-24 03:59 PM PT",
       "display_next_due_iso": "2026-11-24T15:59:13-08:00",
-      "display_note": "Submit 2026-11-24 05:54 PM PT is 106 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-24 05:54 PM PT is 107 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -650,7 +650,7 @@
       "miss_minutes": 50,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 12,
+      "gap_minutes": 13,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:27 PM PT",
@@ -727,7 +727,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "POSTED \u2014 VERIFYING",
-      "display_gap_minutes": 12,
+      "display_gap_minutes": 13,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 07:53 PM PT",
       "display_next_due_iso": "2026-11-24T19:53:21-08:00",
@@ -760,7 +760,7 @@
       "miss_minutes": 50,
       "scored": true,
       "state": "RED",
-      "gap_minutes": 59,
+      "gap_minutes": 60,
       "rung": "red",
       "yellow": true,
       "last_verified_pt": "2026-11-24 06:41 PM PT",
@@ -782,7 +782,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "RED",
-      "display_gap_minutes": 59,
+      "display_gap_minutes": 60,
       "display_rung": "red",
       "display_next_due_pt": "2026-11-24 07:06 PM PT",
       "display_next_due_iso": "2026-11-24T19:06:50-08:00",
@@ -796,7 +796,7 @@
       "voided": {},
       "next_due_pt": "2026-11-24 07:06 PM PT",
       "next_due_iso": "2026-11-24T19:06:50-08:00",
-      "next_action": "RED \u2014 post now, overdue by about 59 min.",
+      "next_action": "RED \u2014 post now, overdue by about 60 min.",
       "followers": "114 (+1)",
       "blocker": "",
       "source": "receipt",
@@ -837,7 +837,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "POSTED \u2014 VERIFYING",
-      "display_gap_minutes": 8,
+      "display_gap_minutes": 9,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 07:57 PM PT",
       "display_next_due_iso": "2026-11-24T19:57:06-08:00",
@@ -892,7 +892,7 @@
       "provisional_verdict": "SUBMITTED",
       "provisional_title": null,
       "display_state": "POSTED \u2014 VERIFYING",
-      "display_gap_minutes": 20,
+      "display_gap_minutes": 21,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 07:45 PM PT",
       "display_next_due_iso": "2026-11-24T19:45:00-08:00",
@@ -951,7 +951,7 @@
       "display_rung": "red",
       "display_next_due_pt": "2026-11-24 05:11 PM PT",
       "display_next_due_iso": "2026-11-24T17:11:14-08:00",
-      "display_note": "Submit 2026-11-24 04:47 PM PT is 173 min old with no verification (past 2x cadence). Showing verified state.",
+      "display_note": "Submit 2026-11-24 04:47 PM PT is 174 min old with no verification (past 2x cadence). Showing verified state.",
       "display_post_pt": null,
       "display_post_iso": null,
       "display_post_url": null,
@@ -980,7 +980,7 @@
       "miss_minutes": 60,
       "scored": true,
       "state": "ON CADENCE",
-      "gap_minutes": 10,
+      "gap_minutes": 11,
       "rung": "green",
       "yellow": false,
       "last_verified_pt": "2026-11-24 07:30 PM PT",
@@ -1002,7 +1002,7 @@
       "provisional_verdict": null,
       "provisional_title": null,
       "display_state": "ON CADENCE",
-      "display_gap_minutes": 10,
+      "display_gap_minutes": 11,
       "display_rung": "green",
       "display_next_due_pt": "2026-11-24 08:00 PM PT",
       "display_next_due_iso": "2026-11-24T20:00:49-08:00",
@@ -1270,7 +1270,7 @@
       "method": "browser",
       "miss_minutes": null,
       "state": "RED",
-      "gap_minutes": 1975,
+      "gap_minutes": 1976,
       "scored": false,
       "rung": null,
       "yellow": false,
@@ -1318,7 +1318,7 @@
       "method": "browser draft, David sends",
       "miss_minutes": null,
       "state": "GREEN",
-      "gap_minutes": 1869,
+      "gap_minutes": 1870,
       "scored": false,
       "rung": null,
       "yellow": false,
