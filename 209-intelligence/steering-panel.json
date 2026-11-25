@@ -1,12 +1,12 @@
 {
- "generated_at_pt": "2026-11-24 06:47 PM PT",
+ "generated_at_pt": "2026-11-24 07:28 PM PT",
  "window_days": 14,
  "unified": {
   "top_band": "A",
   "top_band_label": "Audit and Records",
   "system_share_pct": 16,
   "direction": "audit-led",
-  "why": "Audit and Records is 16% of 4215 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
+  "why": "Audit and Records is 16% of 4218 verified publishes across 18 profiles in 14 days. Down 1 points vs the prior 14 days."
  },
  "profiles": [
   {
@@ -341,7 +341,7 @@
    "key": "fb_california",
    "platform": "Facebook",
    "account": "209Connect California (Page)",
-   "posts": 191,
+   "posts": 192,
    "thin": false,
    "topics": [
     {
@@ -372,7 +372,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 95,
-     "posts": 181
+     "posts": 182
     }
    ],
    "top_band": "A",
@@ -382,7 +382,7 @@
    "key": "fb_dbeastco",
    "platform": "Facebook",
    "account": "DBeastco Wellness (Page)",
-   "posts": 183,
+   "posts": 184,
    "thin": false,
    "topics": [
     {
@@ -413,7 +413,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 87,
-     "posts": 159
+     "posts": 160
     }
    ],
    "top_band": "C",
@@ -653,13 +653,13 @@
      "band": "D",
      "label": "California Civic",
      "pct": 3,
-     "posts": 15
+     "posts": 14
     },
     {
      "band": "untagged",
      "label": "Untagged",
      "pct": 77,
-     "posts": 373
+     "posts": 374
     }
    ],
    "top_band": "A",
@@ -669,7 +669,7 @@
    "key": "youtube",
    "platform": "YouTube",
    "account": "David Sicairos | Systems' Architect",
-   "posts": 198,
+   "posts": 199,
    "thin": false,
    "topics": [
     {
@@ -700,7 +700,7 @@
      "band": "untagged",
      "label": "Untagged",
      "pct": 83,
-     "posts": 166
+     "posts": 167
     }
    ],
    "top_band": "A",
@@ -750,7 +750,7 @@
  ],
  "balance": {
   "oversaturated_bands": [],
-  "same_band_same_day": 945,
+  "same_band_same_day": 943,
   "weave_gap_median_min": 7,
   "jitter": "tight"
  },
@@ -1000,7 +1000,7 @@
   "Thin profiles keep their standing niche \u2014 no promotion on thin signal.",
   "Directives are advisory, no picker reads this.",
   "ENGAGEMENT_MEDIANS.json and BREAKOUT.json not found \u2014 directives from steering.json only.",
-  "Prior window holds 676 deduped publishes vs 4215 now \u2014 trend is share-based only and weak.",
+  "Prior window holds 676 deduped publishes vs 4218 now \u2014 trend is share-based only and weak.",
   "30 verified publishes in window could not be mapped to a live lane and are excluded from profiles.",
   "241 verified receipts carry no parseable timestamp and are excluded from both windows.",
   "Leaderboard: performance-ranked from silo run collect-v1-1795298850 (2026-11-21 14:07 PT); 5 ranked posts with measured engagement; 6 of 7 platforms have no measured per-post engagement in this collection \u2014 see leaderboard.per_platform gaps, not a ranking.",
