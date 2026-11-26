@@ -1,7 +1,112 @@
 {
-  "generated_at": "2026-11-26T13:04:42.504041+00:00",
+  "generated_at": "2026-11-26T22:33:13.791390+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:rK3RvSWMVM8",
+      "source_url": "https://www.youtube.com/watch?v=rK3RvSWMVM8",
+      "title": "The System Angle",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:Gk11TQ6Xu0U",
+      "source_url": "https://www.youtube.com/watch?v=Gk11TQ6Xu0U",
+      "title": "THE WAR CHEST: EVERY DOLLAR",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:-PWhbXM5oss",
+      "source_url": "https://www.youtube.com/watch?v=-PWhbXM5oss",
+      "title": "THE WAR CHEST: FUND 1 — DEC 1",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:A_Ud7astbGE",
+      "source_url": "https://www.youtube.com/watch?v=A_Ud7astbGE",
+      "title": "THE WAR CHEST: FIRED FOR SPEAKING",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:ch6IJ1CcPSQ",
+      "source_url": "https://www.youtube.com/watch?v=ch6IJ1CcPSQ",
+      "title": "THE 209 TAKE: NVIDIA",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:jCLiEdF2C-U",
+      "source_url": "https://www.youtube.com/watch?v=jCLiEdF2C-U",
+      "title": "THE 209 TAKE: PATRIOTS",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:oPcgnj1N3cU",
+      "source_url": "https://www.youtube.com/watch?v=oPcgnj1N3cU",
+      "title": "THE WAR CHEST: EXPLAINER",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:bXaJ3WFU6Ow",
+      "source_url": "https://www.youtube.com/watch?v=bXaJ3WFU6Ow",
+      "title": "Macronutrients — 4. 4. 9",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:5mzzUk3pcbk",
+      "source_url": "https://www.youtube.com/watch?v=5mzzUk3pcbk",
+      "title": "HISTORY ISN'T ON RAILS: GAME THEORY, NOT PROPHECY",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:lYxeoaCD2j8",
+      "source_url": "https://www.youtube.com/watch?v=lYxeoaCD2j8",
+      "title": "Form 700, Explained: Read a Real Filing in Two Minutes",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:byLEfl36Coo",
+      "source_url": "https://www.youtube.com/watch?v=byLEfl36Coo",
+      "title": "THE 209 TAKE: EXPLAINER",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:_GXoGX6lmyw",
+      "source_url": "https://www.youtube.com/watch?v=_GXoGX6lmyw",
+      "title": "HISTORY ISN'T ON RAILS: WHO GETS PAID FOR BEING WRONG",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:aQHfr04uuKg",
+      "source_url": "https://www.youtube.com/watch?v=aQHfr04uuKg",
+      "title": "THE 209 TAKE: IOWA LEAD",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:DDycgA6ioGQ",
+      "source_url": "https://www.youtube.com/watch?v=DDycgA6ioGQ",
+      "title": "Nine Years of Service, On the Record",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:lbUx0SgAlFA",
+      "source_url": "https://www.youtube.com/watch?v=lbUx0SgAlFA",
+      "title": "ILLEGALLY FIRED: Three Letters. One Answer in Writing.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:iNUkj43xDzg",
       "source_url": "https://www.youtube.com/watch?v=iNUkj43xDzg",
@@ -174,111 +279,6 @@
       "source_id": "youtube:LSgWXUfcU48",
       "source_url": "https://www.youtube.com/watch?v=LSgWXUfcU48",
       "title": "The File Goes Public",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:NJbVWEXJr7c",
-      "source_url": "https://www.youtube.com/watch?v=NJbVWEXJr7c",
-      "title": "How a Recall Actually Works",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:AYhz2v3ZWUk",
-      "source_url": "https://www.youtube.com/watch?v=AYhz2v3ZWUk",
-      "title": "The Court Answered, But Not the Question",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:d4uBfsas25E",
-      "source_url": "https://www.youtube.com/watch?v=d4uBfsas25E",
-      "title": "A Theory with a Timeline",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:PwvVCtwuGGw",
-      "source_url": "https://www.youtube.com/watch?v=PwvVCtwuGGw",
-      "title": "The File Is the Answer",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:Qb9_Zrq0A4A",
-      "source_url": "https://www.youtube.com/watch?v=Qb9_Zrq0A4A",
-      "title": "Paper Trail Keeps Growing",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:85NLpNDi-9Q",
-      "source_url": "https://www.youtube.com/watch?v=85NLpNDi-9Q",
-      "title": "Phone Log Lists Every Call",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:Wgc8GX-5elU",
-      "source_url": "https://www.youtube.com/watch?v=Wgc8GX-5elU",
-      "title": "Twenty Days After the Firing",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:lbcXucvOZ3A",
-      "source_url": "https://www.youtube.com/watch?v=lbcXucvOZ3A",
-      "title": "Nine Years Erased in a Week",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:FiO7LR3l2w0",
-      "source_url": "https://www.youtube.com/watch?v=FiO7LR3l2w0",
-      "title": "Nine Years of Showing Up",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:nKz-F0mPRn8",
-      "source_url": "https://www.youtube.com/watch?v=nKz-F0mPRn8",
-      "title": "A Year Ago, My Education Prospects Looked Bleak",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:zs3SQEKrHO4",
-      "source_url": "https://www.youtube.com/watch?v=zs3SQEKrHO4",
-      "title": "Nine Years of Showing Up",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:z3hiDlVPw8A",
-      "source_url": "https://www.youtube.com/watch?v=z3hiDlVPw8A",
-      "title": "A Theory With a Timeline. The Paper Proves It",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:5r6rT3EZgK0",
-      "source_url": "https://www.youtube.com/watch?v=5r6rT3EZgK0",
-      "title": "The Date Turns Waiting Into Evidence",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:GqimKnqwFjI",
-      "source_url": "https://www.youtube.com/watch?v=GqimKnqwFjI",
-      "title": "978 Votes Separate Them. The Count Isn't Done",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:1z7N91CX0mY",
-      "source_url": "https://www.youtube.com/watch?v=1z7N91CX0mY",
-      "title": "A Checked Answer Points at What's Missing",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }

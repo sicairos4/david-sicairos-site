@@ -1,7 +1,262 @@
 {
   "version": 1,
-  "generated_at": "2026-11-26T13:04:42.504041+00:00",
+  "generated_at": "2026-11-26T22:33:13.791390+00:00",
   "items": [
+    {
+      "id": "youtube:rK3RvSWMVM8",
+      "platform": "youtube",
+      "title": "The System Angle",
+      "published_at": "2026-11-26T20:03:41+00:00",
+      "url": "https://www.youtube.com/watch?v=rK3RvSWMVM8",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T20:03:41+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T20:03:41+00:00",
+        "utc_epoch": 1795723421,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Gk11TQ6Xu0U",
+      "platform": "youtube",
+      "title": "THE WAR CHEST: EVERY DOLLAR",
+      "published_at": "2026-11-26T20:00:25+00:00",
+      "url": "https://www.youtube.com/watch?v=Gk11TQ6Xu0U",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T20:00:25+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T20:00:25+00:00",
+        "utc_epoch": 1795723225,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:-PWhbXM5oss",
+      "platform": "youtube",
+      "title": "THE WAR CHEST: FUND 1 — DEC 1",
+      "published_at": "2026-11-26T19:57:20+00:00",
+      "url": "https://www.youtube.com/watch?v=-PWhbXM5oss",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T19:57:20+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T19:57:20+00:00",
+        "utc_epoch": 1795723040,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:A_Ud7astbGE",
+      "platform": "youtube",
+      "title": "THE WAR CHEST: FIRED FOR SPEAKING",
+      "published_at": "2026-11-26T19:53:52+00:00",
+      "url": "https://www.youtube.com/watch?v=A_Ud7astbGE",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T19:53:52+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T19:53:52+00:00",
+        "utc_epoch": 1795722832,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:ch6IJ1CcPSQ",
+      "platform": "youtube",
+      "title": "THE 209 TAKE: NVIDIA",
+      "published_at": "2026-11-26T19:50:23+00:00",
+      "url": "https://www.youtube.com/watch?v=ch6IJ1CcPSQ",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T19:50:23+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T19:50:23+00:00",
+        "utc_epoch": 1795722623,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:jCLiEdF2C-U",
+      "platform": "youtube",
+      "title": "THE 209 TAKE: PATRIOTS",
+      "published_at": "2026-11-26T19:46:45+00:00",
+      "url": "https://www.youtube.com/watch?v=jCLiEdF2C-U",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T19:46:45+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T19:46:45+00:00",
+        "utc_epoch": 1795722405,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:oPcgnj1N3cU",
+      "platform": "youtube",
+      "title": "THE WAR CHEST: EXPLAINER",
+      "published_at": "2026-11-26T19:36:54+00:00",
+      "url": "https://www.youtube.com/watch?v=oPcgnj1N3cU",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T19:36:54+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T19:36:54+00:00",
+        "utc_epoch": 1795721814,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:bXaJ3WFU6Ow",
+      "platform": "youtube",
+      "title": "Macronutrients — 4. 4. 9",
+      "published_at": "2026-11-26T18:44:18+00:00",
+      "url": "https://www.youtube.com/watch?v=bXaJ3WFU6Ow",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T18:44:18+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T18:44:18+00:00",
+        "utc_epoch": 1795718658,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:5mzzUk3pcbk",
+      "platform": "youtube",
+      "title": "HISTORY ISN'T ON RAILS: GAME THEORY, NOT PROPHECY",
+      "published_at": "2026-11-26T17:21:08+00:00",
+      "url": "https://www.youtube.com/watch?v=5mzzUk3pcbk",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T17:21:08+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T17:21:08+00:00",
+        "utc_epoch": 1795713668,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:lYxeoaCD2j8",
+      "platform": "youtube",
+      "title": "Form 700, Explained: Read a Real Filing in Two Minutes",
+      "published_at": "2026-11-26T17:01:05+00:00",
+      "url": "https://www.youtube.com/watch?v=lYxeoaCD2j8",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T17:01:05+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T17:01:05+00:00",
+        "utc_epoch": 1795712465,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:byLEfl36Coo",
+      "platform": "youtube",
+      "title": "THE 209 TAKE: EXPLAINER",
+      "published_at": "2026-11-26T17:00:47+00:00",
+      "url": "https://www.youtube.com/watch?v=byLEfl36Coo",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T17:00:47+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T17:00:47+00:00",
+        "utc_epoch": 1795712447,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:_GXoGX6lmyw",
+      "platform": "youtube",
+      "title": "HISTORY ISN'T ON RAILS: WHO GETS PAID FOR BEING WRONG",
+      "published_at": "2026-11-26T16:49:12+00:00",
+      "url": "https://www.youtube.com/watch?v=_GXoGX6lmyw",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T16:49:12+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T16:49:12+00:00",
+        "utc_epoch": 1795711752,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:aQHfr04uuKg",
+      "platform": "youtube",
+      "title": "THE 209 TAKE: IOWA LEAD",
+      "published_at": "2026-11-26T16:39:54+00:00",
+      "url": "https://www.youtube.com/watch?v=aQHfr04uuKg",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T16:39:54+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T16:39:54+00:00",
+        "utc_epoch": 1795711194,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:DDycgA6ioGQ",
+      "platform": "youtube",
+      "title": "Nine Years of Service, On the Record",
+      "published_at": "2026-11-26T16:39:52+00:00",
+      "url": "https://www.youtube.com/watch?v=DDycgA6ioGQ",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T16:39:52+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T16:39:52+00:00",
+        "utc_epoch": 1795711192,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:lbUx0SgAlFA",
+      "platform": "youtube",
+      "title": "ILLEGALLY FIRED: Three Letters. One Answer in Writing.",
+      "published_at": "2026-11-26T16:27:21+00:00",
+      "url": "https://www.youtube.com/watch?v=lbUx0SgAlFA",
+      "description": "",
+      "observed_at": "2026-11-26T22:33:13.791390+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T16:27:21+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T16:27:21+00:00",
+        "utc_epoch": 1795710441,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:iNUkj43xDzg",
       "platform": "youtube",
@@ -3661,22 +3916,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-26T13:04:42.504041+00:00",
-      "last_success_at": "2026-11-26T13:04:42.504041+00:00",
+      "last_attempt_at": "2026-11-26T22:33:13.791390+00:00",
+      "last_success_at": "2026-11-26T22:33:13.791390+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-26T13:04:42.504041+00:00",
+      "last_attempt_at": "2026-11-26T22:33:13.791390+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-26T13:04:42.504041+00:00",
+      "last_attempt_at": "2026-11-26T22:33:13.791390+00:00",
       "error_type": "RuntimeError"
     }
   }
