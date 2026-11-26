@@ -1,7 +1,42 @@
 {
-  "generated_at": "2026-11-26T03:01:22.207707+00:00",
+  "generated_at": "2026-11-26T13:04:42.504041+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:iNUkj43xDzg",
+      "source_url": "https://www.youtube.com/watch?v=iNUkj43xDzg",
+      "title": "Quoted Back, Word for Word",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:8NGO4-3Ng_E",
+      "source_url": "https://www.youtube.com/watch?v=8NGO4-3Ng_E",
+      "title": "Macronutrients — 4. 4. 9.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:xsaPpzmDLGo",
+      "source_url": "https://www.youtube.com/watch?v=xsaPpzmDLGo",
+      "title": "Form 700, Explained: Read a Real Filing in Two Minutes",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:jat9gnJu7rA",
+      "source_url": "https://www.youtube.com/watch?v=jat9gnJu7rA",
+      "title": "Programming the Mind with the Quantum Universe",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:_TXXcP-A51U",
+      "source_url": "https://www.youtube.com/watch?v=_TXXcP-A51U",
+      "title": "The Paper Proves It — Resolution 2026-74 | Merced City Council",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:2Nkt-P9ef8o",
       "source_url": "https://www.youtube.com/watch?v=2Nkt-P9ef8o",
@@ -244,41 +279,6 @@
       "source_id": "youtube:1z7N91CX0mY",
       "source_url": "https://www.youtube.com/watch?v=1z7N91CX0mY",
       "title": "A Checked Answer Points at What's Missing",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:4nxiwfADueM",
-      "source_url": "https://www.youtube.com/watch?v=4nxiwfADueM",
-      "title": "The File Is Three Asks Deep",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:mLLWmOIBEXQ",
-      "source_url": "https://www.youtube.com/watch?v=mLLWmOIBEXQ",
-      "title": "Twelve Debates, One Pledge: No Dark Money",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:x0O6fHvSwP8",
-      "source_url": "https://www.youtube.com/watch?v=x0O6fHvSwP8",
-      "title": "Audit: $3.2M in Taxpayer Money Went to a Sheriff's Campaign Security",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:WGs4VZIR7dw",
-      "source_url": "https://www.youtube.com/watch?v=WGs4VZIR7dw",
-      "title": "A 10% Credit Card Cap Would Save $100B a Year",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:iEqQEjYV5UU",
-      "source_url": "https://www.youtube.com/watch?v=iEqQEjYV5UU",
-      "title": "The Answer Quoted Back",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
