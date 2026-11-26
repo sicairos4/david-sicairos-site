@@ -1,7 +1,194 @@
 {
   "version": 1,
-  "generated_at": "2026-11-25T10:23:40.810736+00:00",
+  "generated_at": "2026-11-26T03:01:22.207707+00:00",
   "items": [
+    {
+      "id": "youtube:2Nkt-P9ef8o",
+      "platform": "youtube",
+      "title": "The Count Is the Story — 978 Votes Decide Merced's Schools",
+      "published_at": "2026-11-26T00:31:32+00:00",
+      "url": "https://www.youtube.com/watch?v=2Nkt-P9ef8o",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T00:31:32+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T00:31:32+00:00",
+        "utc_epoch": 1795653092,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:Pjr2jPOyi-o",
+      "platform": "youtube",
+      "title": "The System Is Stacked Against Us — 721 Pages Prove It",
+      "published_at": "2026-11-26T00:30:47+00:00",
+      "url": "https://www.youtube.com/watch?v=Pjr2jPOyi-o",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-26T00:30:47+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-26T00:30:47+00:00",
+        "utc_epoch": 1795653047,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:jpg28OS6Yq0",
+      "platform": "youtube",
+      "title": "TUNED — The 528 Session (30 min)",
+      "published_at": "2026-11-25T21:24:06+00:00",
+      "url": "https://www.youtube.com/watch?v=jpg28OS6Yq0",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T21:24:06+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T21:24:06+00:00",
+        "utc_epoch": 1795641846,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:C8QUT9WyFTk",
+      "platform": "youtube",
+      "title": "ICE Broke a Car Window and Left a 1-Year-Old Alone — Still No Answers",
+      "published_at": "2026-11-25T17:05:19+00:00",
+      "url": "https://www.youtube.com/watch?v=C8QUT9WyFTk",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T17:05:19+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T17:05:19+00:00",
+        "utc_epoch": 1795626319,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:0d9y78RSgtY",
+      "platform": "youtube",
+      "title": "Fired for a Post — Now I'm Suing | The Paper Trail Grows",
+      "published_at": "2026-11-25T17:00:24+00:00",
+      "url": "https://www.youtube.com/watch?v=0d9y78RSgtY",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T17:00:24+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T17:00:24+00:00",
+        "utc_epoch": 1795626024,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:gVeFhqrlMis",
+      "platform": "youtube",
+      "title": "Alpha 10 Hz — Light Focus — 45 min",
+      "published_at": "2026-11-25T11:39:22+00:00",
+      "url": "https://www.youtube.com/watch?v=gVeFhqrlMis",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T11:39:22+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T11:39:22+00:00",
+        "utc_epoch": 1795606762,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:elClqYxzIQ4",
+      "platform": "youtube",
+      "title": "40 Hz Gamma — Deep Focus — 60 min",
+      "published_at": "2026-11-25T11:39:14+00:00",
+      "url": "https://www.youtube.com/watch?v=elClqYxzIQ4",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T11:39:14+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T11:39:14+00:00",
+        "utc_epoch": 1795606754,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:oZvTMIGhkg8",
+      "platform": "youtube",
+      "title": "The Miss Nobody Clipped",
+      "published_at": "2026-11-25T11:38:46+00:00",
+      "url": "https://www.youtube.com/watch?v=oZvTMIGhkg8",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T11:38:46+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T11:38:46+00:00",
+        "utc_epoch": 1795606726,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:qje7sw-VC4o",
+      "platform": "youtube",
+      "title": "Receipts of the Ancients | The Common Thread",
+      "published_at": "2026-11-25T11:38:29+00:00",
+      "url": "https://www.youtube.com/watch?v=qje7sw-VC4o",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T11:38:29+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T11:38:29+00:00",
+        "utc_epoch": 1795606709,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:C3ymrgjiJCo",
+      "platform": "youtube",
+      "title": "The Hit That Made the Prophet",
+      "published_at": "2026-11-25T11:37:08+00:00",
+      "url": "https://www.youtube.com/watch?v=C3ymrgjiJCo",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T11:37:08+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T11:37:08+00:00",
+        "utc_epoch": 1795606628,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:AuD5k9owKs0",
+      "platform": "youtube",
+      "title": "The Receipts They Never Showed",
+      "published_at": "2026-11-25T11:36:42+00:00",
+      "url": "https://www.youtube.com/watch?v=AuD5k9owKs0",
+      "description": "",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-25T11:36:42+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-25T11:36:42+00:00",
+        "utc_epoch": 1795606602,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:ie2m7yLJ9mI",
       "platform": "youtube",
@@ -9,7 +196,7 @@
       "published_at": "2026-11-25T03:22:11+00:00",
       "url": "https://www.youtube.com/watch?v=ie2m7yLJ9mI",
       "description": "",
-      "observed_at": "2026-11-25T10:23:40.810736+00:00",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-25T03:22:11+00:00",
@@ -26,7 +213,7 @@
       "published_at": "2026-11-25T01:05:54+00:00",
       "url": "https://www.youtube.com/watch?v=i72y5yVZATI",
       "description": "",
-      "observed_at": "2026-11-25T10:23:40.810736+00:00",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-25T01:05:54+00:00",
@@ -43,7 +230,7 @@
       "published_at": "2026-11-24T23:14:55+00:00",
       "url": "https://www.youtube.com/watch?v=lOtchn8xNXo",
       "description": "",
-      "observed_at": "2026-11-25T10:23:40.810736+00:00",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-24T23:14:55+00:00",
@@ -60,7 +247,7 @@
       "published_at": "2026-11-24T18:53:21+00:00",
       "url": "https://www.youtube.com/watch?v=3jCfoH4a-MY",
       "description": "",
-      "observed_at": "2026-11-25T10:23:40.810736+00:00",
+      "observed_at": "2026-11-26T03:01:22.207707+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-24T18:53:21+00:00",
@@ -3389,22 +3576,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-25T10:23:40.810736+00:00",
-      "last_success_at": "2026-11-25T10:23:40.810736+00:00",
+      "last_attempt_at": "2026-11-26T03:01:22.207707+00:00",
+      "last_success_at": "2026-11-26T03:01:22.207707+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-25T10:23:40.810736+00:00",
+      "last_attempt_at": "2026-11-26T03:01:22.207707+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-25T10:23:40.810736+00:00",
+      "last_attempt_at": "2026-11-26T03:01:22.207707+00:00",
       "error_type": "RuntimeError"
     }
   }
