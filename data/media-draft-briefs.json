@@ -1,7 +1,49 @@
 {
-  "generated_at": "2026-11-27T14:15:42.723447+00:00",
+  "generated_at": "2026-11-27T22:54:06.946760+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:lGyc0vzzsSA",
+      "source_url": "https://www.youtube.com/watch?v=lGyc0vzzsSA",
+      "title": "NINE YEARS. ERASED IN A WEEK.",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:E1FnVVdEGi0",
+      "source_url": "https://www.youtube.com/watch?v=E1FnVVdEGi0",
+      "title": "Macronutrients — 4. 4. 9",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:0vbuxUvNDjs",
+      "source_url": "https://www.youtube.com/watch?v=0vbuxUvNDjs",
+      "title": "Macronutrients — 4. 4. 9",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:ZZ0bf5pF208",
+      "source_url": "https://www.youtube.com/watch?v=ZZ0bf5pF208",
+      "title": "Guilty on All Counts — Atwater Verdict, Split Screen",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:PzzqyLsWcZo",
+      "source_url": "https://www.youtube.com/watch?v=PzzqyLsWcZo",
+      "title": "Dole Is Closing — Atwater Plant, TV Frame",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
+    {
+      "source_id": "youtube:IIgpdfvUVB4",
+      "source_url": "https://www.youtube.com/watch?v=IIgpdfvUVB4",
+      "title": "Certification Nov 30 — MCOE Count, Split Screen",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:ZdroGOARQQM",
       "source_url": "https://www.youtube.com/watch?v=ZdroGOARQQM",
@@ -237,48 +279,6 @@
       "source_id": "youtube:i72y5yVZATI",
       "source_url": "https://www.youtube.com/watch?v=i72y5yVZATI",
       "title": "RANKIN IS OUT. WHO IS NEXT?",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:lOtchn8xNXo",
-      "source_url": "https://www.youtube.com/watch?v=lOtchn8xNXo",
-      "title": "The Record Answers Now",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:3jCfoH4a-MY",
-      "source_url": "https://www.youtube.com/watch?v=3jCfoH4a-MY",
-      "title": "2 Million Views in ONE WEEK — The Receipts Are the Content",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:9K6cIZVTXJg",
-      "source_url": "https://www.youtube.com/watch?v=9K6cIZVTXJg",
-      "title": "What It Costs in the 209",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:dzAMsq7y568",
-      "source_url": "https://www.youtube.com/watch?v=dzAMsq7y568",
-      "title": "The Paper Proves It",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:giBgsMRmEEY",
-      "source_url": "https://www.youtube.com/watch?v=giBgsMRmEEY",
-      "title": "471,151 Views in One Day: What a Local Audit Proves",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:z38GKG8GoCM",
-      "source_url": "https://www.youtube.com/watch?v=z38GKG8GoCM",
-      "title": "471,151 Views in ONE DAY — The Week Hit 1.5M",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }

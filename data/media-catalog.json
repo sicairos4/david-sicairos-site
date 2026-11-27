@@ -1,7 +1,109 @@
 {
   "version": 1,
-  "generated_at": "2026-11-27T14:15:42.723447+00:00",
+  "generated_at": "2026-11-27T22:54:06.946760+00:00",
   "items": [
+    {
+      "id": "youtube:lGyc0vzzsSA",
+      "platform": "youtube",
+      "title": "NINE YEARS. ERASED IN A WEEK.",
+      "published_at": "2026-11-27T22:18:53+00:00",
+      "url": "https://www.youtube.com/watch?v=lGyc0vzzsSA",
+      "description": "",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-27T22:18:53+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-27T22:18:53+00:00",
+        "utc_epoch": 1795817933,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:E1FnVVdEGi0",
+      "platform": "youtube",
+      "title": "Macronutrients — 4. 4. 9",
+      "published_at": "2026-11-27T19:14:29+00:00",
+      "url": "https://www.youtube.com/watch?v=E1FnVVdEGi0",
+      "description": "",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-27T19:14:29+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-27T19:14:29+00:00",
+        "utc_epoch": 1795806869,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:0vbuxUvNDjs",
+      "platform": "youtube",
+      "title": "Macronutrients — 4. 4. 9",
+      "published_at": "2026-11-27T16:40:31+00:00",
+      "url": "https://www.youtube.com/watch?v=0vbuxUvNDjs",
+      "description": "",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-27T16:40:31+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-27T16:40:31+00:00",
+        "utc_epoch": 1795797631,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:ZZ0bf5pF208",
+      "platform": "youtube",
+      "title": "Guilty on All Counts — Atwater Verdict, Split Screen",
+      "published_at": "2026-11-27T16:08:21+00:00",
+      "url": "https://www.youtube.com/watch?v=ZZ0bf5pF208",
+      "description": "",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-27T16:08:21+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-27T16:08:21+00:00",
+        "utc_epoch": 1795795701,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:PzzqyLsWcZo",
+      "platform": "youtube",
+      "title": "Dole Is Closing — Atwater Plant, TV Frame",
+      "published_at": "2026-11-27T16:08:06+00:00",
+      "url": "https://www.youtube.com/watch?v=PzzqyLsWcZo",
+      "description": "",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-27T16:08:06+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-27T16:08:06+00:00",
+        "utc_epoch": 1795795686,
+        "timezone_assumed_utc": false
+      }
+    },
+    {
+      "id": "youtube:IIgpdfvUVB4",
+      "platform": "youtube",
+      "title": "Certification Nov 30 — MCOE Count, Split Screen",
+      "published_at": "2026-11-27T16:07:55+00:00",
+      "url": "https://www.youtube.com/watch?v=IIgpdfvUVB4",
+      "description": "",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
+      "state": "public_source_observed",
+      "published_date": {
+        "original": "2026-11-27T16:07:55+00:00",
+        "precision": "second",
+        "utc_iso": "2026-11-27T16:07:55+00:00",
+        "utc_epoch": 1795795675,
+        "timezone_assumed_utc": false
+      }
+    },
     {
       "id": "youtube:ZdroGOARQQM",
       "platform": "youtube",
@@ -9,7 +111,7 @@
       "published_at": "2026-11-27T10:56:08+00:00",
       "url": "https://www.youtube.com/watch?v=ZdroGOARQQM",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-27T10:56:08+00:00",
@@ -26,7 +128,7 @@
       "published_at": "2026-11-26T20:03:41+00:00",
       "url": "https://www.youtube.com/watch?v=rK3RvSWMVM8",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T20:03:41+00:00",
@@ -43,7 +145,7 @@
       "published_at": "2026-11-26T20:00:25+00:00",
       "url": "https://www.youtube.com/watch?v=Gk11TQ6Xu0U",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T20:00:25+00:00",
@@ -60,7 +162,7 @@
       "published_at": "2026-11-26T19:57:20+00:00",
       "url": "https://www.youtube.com/watch?v=-PWhbXM5oss",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T19:57:20+00:00",
@@ -77,7 +179,7 @@
       "published_at": "2026-11-26T19:53:52+00:00",
       "url": "https://www.youtube.com/watch?v=A_Ud7astbGE",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T19:53:52+00:00",
@@ -94,7 +196,7 @@
       "published_at": "2026-11-26T19:50:23+00:00",
       "url": "https://www.youtube.com/watch?v=ch6IJ1CcPSQ",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T19:50:23+00:00",
@@ -111,7 +213,7 @@
       "published_at": "2026-11-26T19:46:45+00:00",
       "url": "https://www.youtube.com/watch?v=jCLiEdF2C-U",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T19:46:45+00:00",
@@ -128,7 +230,7 @@
       "published_at": "2026-11-26T19:36:54+00:00",
       "url": "https://www.youtube.com/watch?v=oPcgnj1N3cU",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T19:36:54+00:00",
@@ -145,7 +247,7 @@
       "published_at": "2026-11-26T18:44:18+00:00",
       "url": "https://www.youtube.com/watch?v=bXaJ3WFU6Ow",
       "description": "",
-      "observed_at": "2026-11-27T14:15:42.723447+00:00",
+      "observed_at": "2026-11-27T22:54:06.946760+00:00",
       "state": "public_source_observed",
       "published_date": {
         "original": "2026-11-26T18:44:18+00:00",
@@ -3933,22 +4035,22 @@
   "sources": {
     "youtube": {
       "status": "ok",
-      "last_attempt_at": "2026-11-27T14:15:42.723447+00:00",
-      "last_success_at": "2026-11-27T14:15:42.723447+00:00",
+      "last_attempt_at": "2026-11-27T22:54:06.946760+00:00",
+      "last_success_at": "2026-11-27T22:54:06.946760+00:00",
       "returned_count": 15,
       "coverage": "recent_feed_window_not_full_archive"
     },
     "beehiiv": {
       "status": "blocked",
       "last_success_at": null,
-      "last_attempt_at": "2026-11-27T14:15:42.723447+00:00",
+      "last_attempt_at": "2026-11-27T22:54:06.946760+00:00",
       "error_type": "RuntimeError"
     },
     "spotify": {
       "status": "blocked",
       "last_success_at": null,
       "owner_reported_uploads": 8,
-      "last_attempt_at": "2026-11-27T14:15:42.723447+00:00",
+      "last_attempt_at": "2026-11-27T22:54:06.946760+00:00",
       "error_type": "RuntimeError"
     }
   }
