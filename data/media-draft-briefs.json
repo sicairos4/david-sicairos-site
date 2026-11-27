@@ -1,7 +1,14 @@
 {
-  "generated_at": "2026-11-27T04:30:17.303891+00:00",
+  "generated_at": "2026-11-27T14:15:42.723447+00:00",
   "publishing_enabled": false,
   "briefs": [
+    {
+      "source_id": "youtube:ZdroGOARQQM",
+      "source_url": "https://www.youtube.com/watch?v=ZdroGOARQQM",
+      "title": "Thanksgiving Storm Knocks Out Power for 750,000+",
+      "state": "draft_requires_review",
+      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
+    },
     {
       "source_id": "youtube:rK3RvSWMVM8",
       "source_url": "https://www.youtube.com/watch?v=rK3RvSWMVM8",
@@ -272,13 +279,6 @@
       "source_id": "youtube:z38GKG8GoCM",
       "source_url": "https://www.youtube.com/watch?v=z38GKG8GoCM",
       "title": "471,151 Views in ONE DAY — The Week Hit 1.5M",
-      "state": "draft_requires_review",
-      "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
-    },
-    {
-      "source_id": "youtube:LSgWXUfcU48",
-      "source_url": "https://www.youtube.com/watch?v=LSgWXUfcU48",
-      "title": "The File Goes Public",
       "state": "draft_requires_review",
       "instruction": "Prepare platform-specific social copy or an audio/video script from this source; review claims, freshness, rights and prior publication before approval."
     }
