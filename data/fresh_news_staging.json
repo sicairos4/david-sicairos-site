@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "staged_at": "2026-11-28T11:37:00Z",
+  "staged_by": "perplexity",
+  "execution_plane": "independent_v2",
+  "status": "staged_unpublished",
+  "note": "Zero dashes in hook_s1 and body_clean. Item 005 is on HOLD until the certified result is confirmed with Merced County. Item 006 source_date_utc is the retrieval date because the page has no publish date.",
+  "items": [
+    {
+      "content_id": "news-20261128-001",
+      "source_url": "https://www.aalrr.com/newsroom-alerts-4245",
+      "source_date_utc": "2026-10-19",
+      "verified_tier": "Public Reference",
+      "vertical": "Civic",
+      "hook_s1": "California just wrote AI out of its public records law.",
+      "body_clean": "Governor Newsom signed SB 1159 and AB 1821 on September 30, 2026. Both take effect January 1, 2027. SB 1159 says AI systems and autonomous agents do not count as a person who can make a records request. AB 1821 changes agency response timelines and adds reasons an agency can extend them.",
+      "cta_url": "https://www.209connect.com",
+      "target_lanes": ["bluesky", "threads", "linkedin", "facebook_page"]
+    },
+    {
+      "content_id": "news-20261128-002",
+      "source_url": "https://www.sheppard.com/insights/blogs/california-government-access-law-amendments-a-reminder-that-agentic-ai-requests-are-coming",
+      "source_date_utc": "2026-11-25",
+      "verified_tier": "Public Reference",
+      "vertical": "Civic",
+      "hook_s1": "Agencies used to get 10 calendar days to answer a records request. That changes in January.",
+      "body_clean": "Under AB 1821, an agency gets 10 business days from receipt to decide whether a request seeks disclosable records. It replaces the current 10 day standard. The change starts January 1, 2027. Requesters should keep their own dated copies of every request and response.",
+      "cta_url": "https://www.209connect.com",
+      "target_lanes": ["bluesky", "threads", "linkedin", "instagram"]
+    },
+    {
+      "content_id": "news-20261128-003",
+      "source_url": "https://pasadenanow.com/main/california-lawmaker-rolls-back-new-public-records-barriers-after-fierce-opposition",
+      "source_date_utc": "2026-11-27",
+      "verified_tier": "Public Reference",
+      "vertical": "Civic",
+      "hook_s1": "AB 1821 started as a records fee bill. It ended up as a deadline bill.",
+      "body_clean": "Reporting says the author rolled back added fees and new grounds to deny requests after opposition. The version that passed extends the response clock from calendar days to business days. Read the bill text before you rely on any summary.",
+      "cta_url": "https://www.209connect.com",
+      "target_lanes": ["bluesky", "threads", "linkedin"]
+    },
+    {
+      "content_id": "news-20261128-004",
+      "source_url": "https://www.lozanosmith.com/news-clientnewsbriefdetail.php?news_id=3498",
+      "source_date_utc": "2026-07-06",
+      "verified_tier": "Public Reference",
+      "vertical": "Civic",
+      "hook_s1": "A California court says promptly does not mean a fixed number of days.",
+      "body_clean": "In Voice of San Diego v. San Diego Unified School District, the Fourth District Court of Appeal held the Public Records Act has no fixed production deadline such as days or a few weeks. Promptness depends on the facts of each request. The decision affirmed judgment for the district. A law firm client brief is the source here, so confirm against the opinion.",
+      "cta_url": "https://www.209connect.com",
+      "target_lanes": ["bluesky", "linkedin", "threads"]
+    },
+    {
+      "content_id": "news-20261128-005",
+      "source_url": "https://ballotpedia.org/Merced_Union_High_School_District's_School_Facilities_Improvement_District_No._2,_California,_Measure_X,_Bond_Measure_(November_2026)",
+      "source_date_utc": "2026-11-22",
+      "verified_tier": "Public Reference",
+      "vertical": "Civic",
+      "hook_s1": "Measure X is a $59.1 million school bond, and the count was unofficial.",
+      "body_clean": "Ballotpedia lists the MUHSD Measure X bond at 53.43 percent yes with 4,663 votes and 46.57 percent no with 4,064 votes in the last update on November 4. Results are unofficial until certified. Check the county for certified numbers before posting a final result.",
+      "cta_url": "https://www.209connect.com",
+      "target_lanes": ["facebook_page", "threads", "bluesky"],
+      "hold": "HOLD: confirm certified result with Merced County before publishing"
+    },
+    {
+      "content_id": "news-20261128-006",
+      "source_url": "https://www.countyofmerced.com/3632/Elections",
+      "source_date_utc": "2026-11-28",
+      "verified_tier": "Verified Primary Record",
+      "vertical": "Civic",
+      "hook_s1": "Los Banos has a special election on the calendar.",
+      "body_clean": "Merced County lists a Los Banos City Council District 1 Special Election for March 2, 2027. Voters in that district should confirm registration and mail ballot details with the county elections office.",
+      "cta_url": "https://www.209connect.com",
+      "target_lanes": ["facebook_page", "threads", "bluesky", "instagram"]
+    }
+  ]
+}
