@@ -122,84 +122,6 @@
       "caption_is_excerpt": true
     },
     {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3dd4egzwv2d",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "🦃 ENJOY TODAY with family. Then teach it true: the first national Thanksgiving was Washington's, Nov 26, 1789. The holid",
-      "caption": "🦃 ENJOY TODAY with family. Then teach it true: the first national Thanksgiving was Washington's, Nov 26, 1789. The holiday we know took a woman 36 years of letters to build, and Native people have mourned it since 1970. Know the history. #Thanksgiving",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-27T23:17:46.469941+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3dd4egzwv2d",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3dbhbadx32w",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "A Form 700 shows what a public official owns and who pays them. Due April 1. When one gets amended, both versions stay o",
-      "caption": "A Form 700 shows what a public official owns and who pays them. Due April 1. When one gets amended, both versions stay on the record. Read them. #Ethics #MercedCounty",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-27T22:48:04.749946+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3dbhbadx32w",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3d5exlwc224",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "📄 Page 41 of the Merced County disbursement logs shows where the money went while local roads crumbled. They didn't thin",
-      "caption": "📄 Page 41 of the Merced County disbursement logs shows where the money went while local roads crumbled. They didn't think you'd look this up. We did. 🧵",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-27T21:35:13.568Z",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3d5exlwc224",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3cz4vwteo2x",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "Atwater has 8 fixed Flock cameras and 12 mobile readers. Plate reads kept 30 days. The city's policy doesn't require sus",
-      "caption": "Atwater has 8 fixed Flock cameras and 12 mobile readers. Plate reads kept 30 days. The city's policy doesn't require suspicion to search them, and no audit procedure exists. Know what's recording on your street.",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-27T20:19:07.074426+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3cz4vwteo2x",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3cwah3tpz2z",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "The people stayed home, and that decided who runs our schools. Organizing starts now. The filing comes later, about Apri",
-      "caption": "The people stayed home, and that decided who runs our schools. Organizing starts now. The filing comes later, about April 2027. We build the machine that files right. #Recall #MercedCounty",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-27T19:27:24.560979+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3cwah3tpz2z",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
-      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3cmekitr522",
-      "platform": "bluesky",
-      "kind": "conversation",
-      "title": "Sunday prep is ten minutes that buys you the whole week.",
-      "caption": "Sunday prep is ten minutes that buys you the whole week.\n\nLay out the gym bag, plan the training days, and decide what breakfast looks like before Monday decides for you. The week goes to the person who planned it.\n\nYou don't need a perfect plan. You need one written down before the week starts.",
-      "account": "@davidsicairos.bsky.social",
-      "brand": "David Sicairos",
-      "published_at": "2026-11-27T16:30:44.874445+00:00",
-      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3cmekitr522",
-      "thumbnail": null,
-      "origin": "public_bluesky"
-    },
-    {
       "id": "youtube-lGyc0vzzsSA",
       "platform": "youtube",
       "kind": "video",
@@ -393,18 +315,96 @@
       "url": "https://www.youtube.com/watch?v=bXaJ3WFU6Ow",
       "thumbnail": "https://i3.ytimg.com/vi/bXaJ3WFU6Ow/hqdefault.jpg",
       "origin": "public_youtube"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3dkrwjwne2h",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "California gives an agency 10 days to answer a records request in writing — yes, no, or more time, naming the exemption.",
+      "caption": "California gives an agency 10 days to answer a records request in writing — yes, no, or more time, naming the exemption. Silence on day 10 is the answer. Write back.",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-28T01:35:05.971178+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3dkrwjwne2h",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3dfnuaydb2u",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Sept 11: Cam Higby posts my name. Rebel Cole says he'll make me 'unemployed and unemployable.' Sept 18: Merced Union fir",
+      "caption": "Sept 11: Cam Higby posts my name. Rebel Cole says he'll make me 'unemployed and unemployable.' Sept 18: Merced Union fires me. I was a school counselor in Atwater. I posted an opinion about Charlie Kirk. That's the story most people never heard.",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-28T00:03:20.964059+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3dfnuaydb2u",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3dd4egzwv2d",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "🦃 ENJOY TODAY with family. Then teach it true: the first national Thanksgiving was Washington's, Nov 26, 1789. The holid",
+      "caption": "🦃 ENJOY TODAY with family. Then teach it true: the first national Thanksgiving was Washington's, Nov 26, 1789. The holiday we know took a woman 36 years of letters to build, and Native people have mourned it since 1970. Know the history. #Thanksgiving",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-27T23:17:46.469941+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3dd4egzwv2d",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3dbhbadx32w",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "A Form 700 shows what a public official owns and who pays them. Due April 1. When one gets amended, both versions stay o",
+      "caption": "A Form 700 shows what a public official owns and who pays them. Due April 1. When one gets amended, both versions stay on the record. Read them. #Ethics #MercedCounty",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-27T22:48:04.749946+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3dbhbadx32w",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3d5exlwc224",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "📄 Page 41 of the Merced County disbursement logs shows where the money went while local roads crumbled. They didn't thin",
+      "caption": "📄 Page 41 of the Merced County disbursement logs shows where the money went while local roads crumbled. They didn't think you'd look this up. We did. 🧵",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-27T21:35:13.568Z",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3d5exlwc224",
+      "thumbnail": null,
+      "origin": "public_bluesky"
+    },
+    {
+      "id": "at://did:plc:uwl6atgpbqehumm7b74nklox/app.bsky.feed.post/3n3cz4vwteo2x",
+      "platform": "bluesky",
+      "kind": "conversation",
+      "title": "Atwater has 8 fixed Flock cameras and 12 mobile readers. Plate reads kept 30 days. The city's policy doesn't require sus",
+      "caption": "Atwater has 8 fixed Flock cameras and 12 mobile readers. Plate reads kept 30 days. The city's policy doesn't require suspicion to search them, and no audit procedure exists. Know what's recording on your street.",
+      "account": "@davidsicairos.bsky.social",
+      "brand": "David Sicairos",
+      "published_at": "2026-11-27T20:19:07.074426+00:00",
+      "url": "https://bsky.app/profile/davidsicairos.bsky.social/post/3n3cz4vwteo2x",
+      "thumbnail": null,
+      "origin": "public_bluesky"
     }
   ],
   "collection_status": {
     "bluesky": {
       "state": "collected",
-      "collected_at": "2026-11-27T23:45:27.941845+00:00",
+      "collected_at": "2026-11-28T07:47:26.495003+00:00",
       "count": 6
     },
     "youtube": {
-      "state": "collected",
-      "collected_at": "2026-11-27T23:45:28.112366+00:00",
-      "count": 15
+      "state": "collection_unavailable",
+      "last_attempt_at": "2026-11-28T07:47:26.538336+00:00",
+      "retained_previous_collection": true
     }
   },
   "collection_note": "Recent public source items, not a complete account archive. No posting credentials used.",
